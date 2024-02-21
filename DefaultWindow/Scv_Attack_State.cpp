@@ -22,20 +22,20 @@ void CScv_Attack_State::Initialize(CObj* _scv)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CScv_Attack_State::Update(CObj*)
+int CScv_Attack_State::Update(CObj* _scv)
 {
     return 0;
 }
 
-void CScv_Attack_State::Late_Update(CObj*)
+void CScv_Attack_State::Late_Update(CObj* _scv)
 {
 }
 
-void CScv_Attack_State::Render(CObj*, HDC hDC)
+void CScv_Attack_State::Render(CObj* _scv, HDC hDC)
 {
 	
 }
 
-void CScv_Attack_State::Release(CObj*)
+void CScv_Attack_State::Release(CObj* _scv)
 {
 }

@@ -1,8 +1,6 @@
 #pragma once
 #include "Obj.h"
 #include "State.h"
-#include "Scv_Idle_State.h"
-#include "Scv_Walk_State.h"
 class CScv : public CObj
 {
 public:
@@ -30,7 +28,5 @@ protected:
 	virtual void InsertBmpFile() override;
 private:
 	IState* m_CurrentState;
-	friend class CScv_Idle_State;
-	friend class CScv_Walk_State;
 };
 
