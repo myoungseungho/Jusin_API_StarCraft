@@ -25,8 +25,12 @@ CScv::~CScv()
 
 void CScv::Initialize()
 {
-	IState* IdleState = CStateMgr::Get_Instance()->GetVecObjState(OBJ_SCV)[SCV_ATTACK];
-	ChangeState(IdleState);
+	if (m_CurrentState == nullptr)
+	{
+		IState* IdleState = CStateMgr::Get_Instance()->GetVecObjState(OBJ_SCV)[SCV_IDLE];
+		m_CurrentState = IdleState;
+		ChangeState(IdleState);
+	}
 
 	m_eRender = RENDER_GAMEOBJECT;
 
@@ -80,12 +84,6 @@ void CScv::Release()
 
 void CScv::ChangeState(IState* _newState)
 {
-	if (m_CurrentState)
-	{
-		/*m_CurrentState->Release(this);
-		Safe_Delete(m_CurrentState);*/
-	}
-
 	m_CurrentState = _newState;
 	m_CurrentState->Initialize(this);
 }

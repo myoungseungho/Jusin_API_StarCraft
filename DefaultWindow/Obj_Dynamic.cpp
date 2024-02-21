@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Obj_Dynamic.h"
 
-CObj_Dynamic::CObj_Dynamic()
+CObj_Dynamic::CObj_Dynamic() : m_CurrentState(nullptr) , m_bDead(false)
 {
 }
 

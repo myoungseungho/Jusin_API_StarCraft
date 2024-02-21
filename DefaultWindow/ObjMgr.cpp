@@ -26,22 +26,22 @@ void CObjMgr::Add_Dynamic_Object(OBJID eID, CObj_Dynamic * pObj)
 	if (OBJ_END <= eID || nullptr == pObj)
 		return;
 
-	m_ObjList[eID].push_back(pObj);
+	m_Dynamic_Obj_List[eID].push_back(pObj);
 }
 
 int CObjMgr::Update()
 {
 	for (size_t i = 0; i < OBJ_END; ++i)
 	{
-		for (auto iter = m_ObjList[i].begin();
-			iter != m_ObjList[i].end(); )
+		for (auto iter = m_Dynamic_Obj_List[i].begin();
+			iter != m_Dynamic_Obj_List[i].end(); )
 		{
 			int iResult = (*iter)->Update();
 
 			if (OBJ_DEAD == iResult)
 			{
-				Safe_Delete<CObj*>(*iter);
-				iter = m_ObjList[i].erase(iter);
+				Safe_Delete<CObj_Dynamic*>(*iter);
+				iter = m_Dynamic_Obj_List[i].erase(iter);
 			}
 			else
 				++iter;
@@ -55,11 +55,11 @@ void CObjMgr::Late_Update()
 {
 	for (size_t i = 0; i < OBJ_END; ++i)
 	{
-		for (auto& iter : m_ObjList[i])
+		for (auto& iter : m_Dynamic_Obj_List[i])
 		{
 			iter->Late_Update();
 
-			if (m_ObjList[i].empty())
+			if (m_Dynamic_Obj_List[i].empty())
 				break;
 
 			RENDERID eID = iter->Get_RenderID();
