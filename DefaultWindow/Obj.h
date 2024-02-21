@@ -32,7 +32,6 @@ public:
 	virtual void		Late_Update()	PURE;
 	virtual void		Render(HDC hDC)	PURE;
 	virtual void		Release()		PURE;
-	virtual CObj*		Clone(float, float);
 public:
 	void		Update_Rect();
 

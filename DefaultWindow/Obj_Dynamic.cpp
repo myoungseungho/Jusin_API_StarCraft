@@ -22,3 +22,9 @@ void CObj_Dynamic::Move_Frame()
 		m_tFrame.dwTime = GetTickCount();
 	}
 }
+
+void CObj_Dynamic::ChangeState(IState* _newState)
+{
+	m_CurrentState = _newState;
+	m_CurrentState->Initialize(this);
+}

@@ -1,13 +1,13 @@
 #pragma once
-#include "Obj.h"
+#include "Obj_Dynamic.h"
 class CSpawner
 {
 public:
-	CSpawner(CObj* prototype);
+	CSpawner(CObj_Dynamic* prototype);
 	~CSpawner();
 public:
-	CObj* SpawnCObj(float _fX, float _fY);
+	CObj_Dynamic* SpawnCObj(float _fX, float _fY);
 private:
-	CObj* m_Prototype;
+	CObj_Dynamic* m_Prototype;
 };
 

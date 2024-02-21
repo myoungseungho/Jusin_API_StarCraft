@@ -36,10 +36,6 @@ void CFireBat::Release()
 
 }
 
-void CFireBat::ChangeState(IState*)
-{
-}
-
 void CFireBat::InsertBmpFile()
 {
 }

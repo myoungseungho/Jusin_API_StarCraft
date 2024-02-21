@@ -1,22 +1,18 @@
 #pragma once
 #include "Obj_Dynamic.h"
-#include "State.h"
-class CFireBat : public CObj_Dynamic
+class CMarine : public CObj_Dynamic
 {
 public:
-	CFireBat();
-	virtual ~CFireBat();
-	CFireBat(const CFireBat&);
+    CMarine();
+    virtual ~CMarine();
 public:
     void Initialize() override;
     int Update() override;
     void Late_Update() override;
     void Render(HDC hDC) override;
     void Release() override;
+public:
+    virtual void InsertBmpFile();
 
-protected:
-	virtual void InsertBmpFile() override;
-private:
-	IState* m_CurrentState;
 };
 

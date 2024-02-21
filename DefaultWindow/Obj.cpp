@@ -12,10 +12,6 @@ CObj::~CObj()
 {
 }
 
-CObj* CObj::Clone(float, float)
-{
-	return nullptr;
-}
 
 void CObj::Update_Rect()
 {
@@ -24,7 +20,6 @@ void CObj::Update_Rect()
 	m_tRect.right = LONG(m_tInfo.fX + (m_tInfo.fCX * 0.5f));
 	m_tRect.bottom = LONG(m_tInfo.fY + (m_tInfo.fCY * 0.5f));
 }
-
 
 
 void CObj::InsertBmpFile()

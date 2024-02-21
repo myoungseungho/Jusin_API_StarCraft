@@ -100,14 +100,14 @@
     <Filter Include="01. Obj\00. SCV">
       <UniqueIdentifier>{6a4274f2-9f9d-4cff-a275-70366220d155}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Design\10. Spawner">
-      <UniqueIdentifier>{7e023df6-85a2-4811-90f0-0e45ef35a97f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design\11. StateMgr">
       <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\01. FireBat">
+    <Filter Include="01. Obj\02. FireBat">
       <UniqueIdentifier>{91f86948-f428-460e-aede-5ddeab4a28ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Marine">
+      <UniqueIdentifier>{60e8eb9a-e7c8-4e55-99b3-c383d8ce1721}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -210,9 +210,6 @@
     <ClInclude Include="Scv.h">
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
-    <ClInclude Include="Spawner.h">
-      <Filter>02. Design\10. Spawner</Filter>
-    </ClInclude>
     <ClInclude Include="Scv_Idle_State.h">
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
@@ -229,10 +226,13 @@
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
     <ClInclude Include="FireBat.h">
-      <Filter>01. Obj\01. FireBat</Filter>
+      <Filter>01. Obj\02. FireBat</Filter>
     </ClInclude>
     <ClInclude Include="Obj_Dynamic.h">
       <Filter>01. Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Marine.h">
+      <Filter>01. Obj\01. Marine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -323,9 +323,6 @@
     <ClCompile Include="Scv.cpp">
       <Filter>01. Obj\00. SCV</Filter>
     </ClCompile>
-    <ClCompile Include="Spawner.cpp">
-      <Filter>02. Design\10. Spawner</Filter>
-    </ClCompile>
     <ClCompile Include="Scv_Idle_State.cpp">
       <Filter>01. Obj\00. SCV</Filter>
     </ClCompile>
@@ -342,10 +339,13 @@
       <Filter>01. Obj\00. SCV</Filter>
     </ClCompile>
     <ClCompile Include="FireBat.cpp">
-      <Filter>01. Obj\01. FireBat</Filter>
+      <Filter>01. Obj\02. FireBat</Filter>
     </ClCompile>
     <ClCompile Include="Obj_Dynamic.cpp">
       <Filter>01. Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Marine.cpp">
+      <Filter>01. Obj\01. Marine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -82,16 +82,10 @@ void CScv::Release()
 	m_CurrentState->Release(this);
 }
 
-void CScv::ChangeState(IState* _newState)
-{
-	m_CurrentState = _newState;
-	m_CurrentState->Initialize(this);
-}
+
 
 void CScv::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_IDLE.bmp", L"SCV_IDLE");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_ATTACK.bmp", L"SCV_ATTACK");
-	/*Set_FrameKey(L"SCV_IDLE");
-	Set_FrameKey(L"SCV_ATTACK");*/
 }

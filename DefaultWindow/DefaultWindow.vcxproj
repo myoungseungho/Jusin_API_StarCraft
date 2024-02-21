@@ -159,6 +159,7 @@
     <ClInclude Include="LineMgr.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Marine.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyBmp.h" />
@@ -179,7 +180,6 @@
     <ClInclude Include="Scv_Idle_State.h" />
     <ClInclude Include="Scv_Walk_State.h" />
     <ClInclude Include="Shield.h" />
-    <ClInclude Include="Spawner.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMgr.h" />
@@ -200,6 +200,7 @@
     <ClCompile Include="LineMgr.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Marine.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MyBmp.cpp" />
@@ -219,7 +220,6 @@
     <ClCompile Include="Scv_Idle_State.cpp" />
     <ClCompile Include="Scv_Walk_State.cpp" />
     <ClCompile Include="Shield.cpp" />
-    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMgr.cpp" />
