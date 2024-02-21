@@ -173,6 +173,7 @@
     <ClInclude Include="ScrewBullet.h" />
     <ClInclude Include="ScrollMgr.h" />
     <ClInclude Include="Scv.h" />
+    <ClInclude Include="Scv_Attack_State.h" />
     <ClInclude Include="Scv_Idle_State.h" />
     <ClInclude Include="Scv_Walk_State.h" />
     <ClInclude Include="Shield.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="ScrewBullet.cpp" />
     <ClCompile Include="ScrollMgr.cpp" />
     <ClCompile Include="Scv.cpp" />
+    <ClCompile Include="Scv_Attack_State.cpp" />
     <ClCompile Include="Scv_Idle_State.cpp" />
     <ClCompile Include="Scv_Walk_State.cpp" />
     <ClCompile Include="Shield.cpp" />

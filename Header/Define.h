@@ -56,6 +56,7 @@ enum SCVSTATE
 {
 	SCV_IDLE,
 	SCV_WALK,
+	SCV_ATTACK,
 	SCV_END,
 };
 

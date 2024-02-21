@@ -1,11 +1,11 @@
 #pragma once
 #include "State.h"
-class CScv_Walk_State :
+class CScv_Attack_State :
     public IState
 {
 public:
-    CScv_Walk_State();
-    virtual ~CScv_Walk_State();
+    CScv_Attack_State();
+    virtual ~CScv_Attack_State();
 public:
     void Initialize(CObj*) override;
     int Update(CObj*) override;

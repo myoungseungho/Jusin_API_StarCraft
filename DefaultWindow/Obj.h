@@ -27,7 +27,7 @@ public:
 	bool		Get_Dead() { return m_bDead; }
 	void		Set_FrameKey(TCHAR* pFrameKey) { m_pFrameKey = pFrameKey; }
 	FRAME*		Get_Frame() { return &m_tFrame; }
-	TCHAR*		Get_FrameKey() { return m_pFrameKey; }
+	TCHAR**		Get_FrameKey() { return &m_pFrameKey; }
 	INFO		Get_Info() { return m_tInfo; }
 	RENDERID	Get_RenderID() { return m_eRender; }
 

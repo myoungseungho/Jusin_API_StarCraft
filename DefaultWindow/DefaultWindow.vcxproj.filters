@@ -222,6 +222,9 @@
     <ClInclude Include="StateMgr.h">
       <Filter>02. Design\11. StateMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Scv_Attack_State.h">
+      <Filter>01. Obj\00. SCV</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -325,6 +328,9 @@
     </ClCompile>
     <ClCompile Include="StateMgr.cpp">
       <Filter>02. Design\11. StateMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Scv_Attack_State.cpp">
+      <Filter>01. Obj\00. SCV</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

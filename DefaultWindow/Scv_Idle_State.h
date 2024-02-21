@@ -12,9 +12,5 @@ public:
 	void Late_Update(CObj*) override;
 	void Render(CObj* ,HDC hDC) override;
 	void Release(CObj*) override;
-
-private:
-	FRAME* m_pFrameCopy;
-	TCHAR* m_pFrameKeyCopy;
 };
 
