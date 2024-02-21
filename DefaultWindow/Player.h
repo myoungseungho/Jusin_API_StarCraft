@@ -37,7 +37,6 @@ private:
 	list<CObj*>*	m_pShield;
 	POINT			m_tPosin;
 
-	bool			m_bJump;
 	float			m_fPower;
 	float			m_fTime;
 

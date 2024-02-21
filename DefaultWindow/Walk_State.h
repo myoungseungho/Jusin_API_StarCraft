@@ -7,10 +7,10 @@ public:
     CWalk_State();
     virtual ~CWalk_State();
 public:
-    void Initialize() override;
-    int Update() override;
-    void Late_Update() override;
-    void Render(HDC hDC) override;
-    void Release() override;
+    void Initialize() PURE;
+    int Update() PURE;
+    void Late_Update() PURE;
+    void Render(HDC hDC) PURE;
+    void Release() PURE;
 };
 

@@ -100,6 +100,12 @@
     <Filter Include="01. Obj\00. SCV">
       <UniqueIdentifier>{6a4274f2-9f9d-4cff-a275-70366220d155}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\10. Spawner">
+      <UniqueIdentifier>{7e023df6-85a2-4811-90f0-0e45ef35a97f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\11. StateMgr">
+      <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -201,6 +207,21 @@
     <ClInclude Include="Scv.h">
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
+    <ClInclude Include="Spawner.h">
+      <Filter>02. Design\10. Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="Scv_Idle_State.h">
+      <Filter>01. Obj\00. SCV</Filter>
+    </ClInclude>
+    <ClInclude Include="Scv_Walk_State.h">
+      <Filter>01. Obj\00. SCV</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>01. Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMgr.h">
+      <Filter>02. Design\11. StateMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -289,6 +310,21 @@
     </ClCompile>
     <ClCompile Include="Scv.cpp">
       <Filter>01. Obj\00. SCV</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
+      <Filter>02. Design\10. Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="Scv_Idle_State.cpp">
+      <Filter>01. Obj\00. SCV</Filter>
+    </ClCompile>
+    <ClCompile Include="Scv_Walk_State.cpp">
+      <Filter>01. Obj\00. SCV</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>01. Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMgr.cpp">
+      <Filter>02. Design\11. StateMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

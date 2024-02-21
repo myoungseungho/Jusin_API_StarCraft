@@ -1,23 +1,11 @@
 #include "stdafx.h"
 #include "Walk_State.h"
 
-void CWalk_State::Initialize()
+CWalk_State::CWalk_State()
 {
 }
 
-int CWalk_State::Update()
-{
-	return 0;
-}
-
-void CWalk_State::Late_Update()
+CWalk_State::~CWalk_State()
 {
 }
 
-void CWalk_State::Render(HDC hDC)
-{
-}
-
-void CWalk_State::Release()
-{
-}

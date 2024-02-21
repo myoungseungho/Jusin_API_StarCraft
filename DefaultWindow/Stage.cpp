@@ -8,7 +8,7 @@
 #include "ScrollMgr.h"
 #include "TileMgr.h"
 #include "Monster.h"
-
+#include "Scv.h"
 
 CStage::CStage()
 {
@@ -22,17 +22,10 @@ CStage::~CStage()
 
 void CStage::Initialize()
 {
-	//CLineMgr::Get_Instance()->Initialize();
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Tile.bmp", L"Tile");
 	CTileMgr::Get_Instance()->Load_Tile();
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create());
-
-	for (int i = 0; i < 3; ++i)
-	{
-		CObjMgr::Get_Instance()->Add_Object(OBJ_MONSTER, CAbstractFactory<CMonster>::Create(rand() % WINCX, rand() % WINCY));
-	}
-
+	CObjMgr::Get_Instance()->Add_Object(OBJ_SCV, CAbstractFactory<CScv>::Create(200.f,200.f));
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Ground.bmp", L"Ground");
 }
 

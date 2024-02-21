@@ -10,7 +10,7 @@
 #include "BmpMgr.h"
 #include "SceneMgr.h"
 #include "TileMgr.h"
-
+#include "StateMgr.h"
 
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
 {
@@ -28,7 +28,7 @@ void CMainGame::Initialize()
 	m_hDC = GetDC(g_hWnd);
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
-
+	CStateMgr::Get_Instance()->Initialize();
 	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 }
 

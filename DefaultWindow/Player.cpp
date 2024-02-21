@@ -29,7 +29,6 @@ void CPlayer::Initialize()
 	m_fDistance = 100.f;
 	m_fPower = 20.f;
 	m_fTime = 0.f;
-	m_bJump = false;
 
 	//CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/maja2.bmp", L"Player");
 
@@ -133,7 +132,6 @@ void CPlayer::Key_Input()
 
 	else if (CKeyMgr::Get_Instance()->Key_Up(VK_SPACE))
 	{
-		m_bJump = true;
 	}
 
 	else
@@ -146,7 +144,7 @@ void CPlayer::Jump()
 
 	bool	bLineCol = CLineMgr::Get_Instance()->Collision_Line(m_tInfo.fX, &fY);
 
-	if (m_bJump)
+	/*if (m_bJump)
 	{
 		m_tInfo.fY -= m_fPower * m_fTime - 9.8f * m_fTime * m_fTime * 0.5f;
 		m_fTime += 0.2f;
@@ -162,7 +160,7 @@ void CPlayer::Jump()
 	else if (bLineCol)
 	{
 		m_tInfo.fY = fY;
-	}
+	}*/
 }
 
 void CPlayer::OffSet()

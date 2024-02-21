@@ -32,6 +32,7 @@ enum DIRECTION
 
 enum OBJID
 {
+	OBJ_SCV,
 	OBJ_PLAYER,
 	OBJ_BULLET,
 	OBJ_MONSTER,
@@ -50,6 +51,13 @@ enum RENDERID
 };
 
 enum SCENEID { SC_LOGO, SC_MENU, SC_EDIT, SC_STAGE, SC_END };
+
+enum SCVSTATE
+{
+	SCV_IDLE,
+	SCV_WALK,
+	SCV_END,
+};
 
 
 typedef struct tagInfo

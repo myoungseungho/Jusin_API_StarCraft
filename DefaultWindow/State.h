@@ -1,16 +1,17 @@
 #pragma once
 #include "Define.h"
-class CState
+#include "Obj.h"
+class IState
 {
 public:
-	CState();
-	virtual ~CState();
+	IState();
+	virtual ~IState();
 
 public:
-	virtual void		Initialize()	PURE;
-	virtual int			Update()		PURE;
-	virtual void		Late_Update()	PURE;
-	virtual void		Render(HDC hDC)	PURE;
-	virtual void		Release()		PURE;
+	virtual void		Initialize(CObj*)	PURE;
+	virtual int			Update(CObj*)		PURE;
+	virtual void		Late_Update(CObj*)	PURE;
+	virtual void		Render(CObj* ,HDC hDC)	PURE;
+	virtual void		Release(CObj*)		PURE;
 };
 

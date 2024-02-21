@@ -173,8 +173,13 @@
     <ClInclude Include="ScrewBullet.h" />
     <ClInclude Include="ScrollMgr.h" />
     <ClInclude Include="Scv.h" />
+    <ClInclude Include="Scv_Idle_State.h" />
+    <ClInclude Include="Scv_Walk_State.h" />
     <ClInclude Include="Shield.h" />
+    <ClInclude Include="Spawner.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateMgr.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tile.h" />
@@ -205,8 +210,13 @@
     <ClCompile Include="ScrewBullet.cpp" />
     <ClCompile Include="ScrollMgr.cpp" />
     <ClCompile Include="Scv.cpp" />
+    <ClCompile Include="Scv_Idle_State.cpp" />
+    <ClCompile Include="Scv_Walk_State.cpp" />
     <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateMgr.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
