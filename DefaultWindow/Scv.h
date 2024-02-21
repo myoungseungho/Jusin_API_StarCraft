@@ -1,12 +1,13 @@
 #pragma once
-#include "Obj.h"
+#include "Obj_Dynamic.h"
 #include "State.h"
-class CScv : public CObj
+class CScv : public CObj_Dynamic
 {
 public:
 	CScv();
 	CScv(const CScv&);
 	virtual ~CScv();
+
 public:
 	void Initialize() override;
 	int Update() override;
@@ -26,7 +27,5 @@ public:
 
 protected:
 	virtual void InsertBmpFile() override;
-private:
-	IState* m_CurrentState;
 };
 

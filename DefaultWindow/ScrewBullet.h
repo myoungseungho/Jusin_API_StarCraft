@@ -1,6 +1,7 @@
 #pragma once
 #include "Obj.h"
-class CScrewBullet :	public CObj
+#include "Obj_Dynamic.h"
+class CScrewBullet :	public CObj_Dynamic
 {
 public:
 	CScrewBullet();

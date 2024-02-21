@@ -11,7 +11,7 @@ CCollisionMgr::~CCollisionMgr()
 {
 }
 
-void CCollisionMgr::Collision_Rect(list<CObj*> _Dst, list<CObj*> _Src)
+void CCollisionMgr::Collision_Rect(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic*> _Src)
 {
 	RECT	rc{};
 
@@ -29,7 +29,7 @@ void CCollisionMgr::Collision_Rect(list<CObj*> _Dst, list<CObj*> _Src)
 
 }
 
-bool CCollisionMgr::Check_Sphere(CObj * pDst, CObj * pSrc)
+bool CCollisionMgr::Check_Sphere(CObj_Dynamic* pDst, CObj_Dynamic* pSrc)
 {
 	float	fWidth  = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
 	float	fHeight = abs(pDst->Get_Info().fY - pSrc->Get_Info().fY);
@@ -41,7 +41,7 @@ bool CCollisionMgr::Check_Sphere(CObj * pDst, CObj * pSrc)
 	return fRadius >= fDiagonal;
 }
 
-void CCollisionMgr::Collision_Sphere(list<CObj*> _Dst, list<CObj*> _Src)
+void CCollisionMgr::Collision_Sphere(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic*> _Src)
 {
 	for (auto& Dst : _Dst)
 	{
@@ -56,7 +56,7 @@ void CCollisionMgr::Collision_Sphere(list<CObj*> _Dst, list<CObj*> _Src)
 	}
 }
 
-bool CCollisionMgr::Check_Rect(float * pX, float * pY, CObj * pDst, CObj * pSrc)
+bool CCollisionMgr::Check_Rect(float * pX, float * pY, CObj_Dynamic* pDst, CObj_Dynamic* pSrc)
 {
 	float		fDistance_W = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
 	float		fDistance_H = abs(pDst->Get_Info().fY - pSrc->Get_Info().fY);
@@ -75,7 +75,7 @@ bool CCollisionMgr::Check_Rect(float * pX, float * pY, CObj * pDst, CObj * pSrc)
 	return false;
 }
 
-void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
+void CCollisionMgr::Collision_RectEx(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic*> _Src)
 {
 	float	fX(0.f), fY(0.f);
 

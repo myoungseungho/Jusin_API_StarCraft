@@ -106,6 +106,9 @@
     <Filter Include="02. Design\11. StateMgr">
       <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\01. FireBat">
+      <UniqueIdentifier>{91f86948-f428-460e-aede-5ddeab4a28ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -225,6 +228,12 @@
     <ClInclude Include="Scv_Attack_State.h">
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
+    <ClInclude Include="FireBat.h">
+      <Filter>01. Obj\01. FireBat</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj_Dynamic.h">
+      <Filter>01. Obj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -331,6 +340,12 @@
     </ClCompile>
     <ClCompile Include="Scv_Attack_State.cpp">
       <Filter>01. Obj\00. SCV</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBat.cpp">
+      <Filter>01. Obj\01. FireBat</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj_Dynamic.cpp">
+      <Filter>01. Obj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

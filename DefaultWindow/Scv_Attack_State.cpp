@@ -9,7 +9,7 @@ CScv_Attack_State::~CScv_Attack_State()
 {
 }
 
-void CScv_Attack_State::Initialize(CObj* _scv)
+void CScv_Attack_State::Initialize(CObj_Dynamic* _scv)
 {
 	m_pFrameCopy = _scv->Get_Frame();
 	m_pFrameKeyCopy = _scv->Get_FrameKey();
@@ -22,20 +22,20 @@ void CScv_Attack_State::Initialize(CObj* _scv)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CScv_Attack_State::Update(CObj* _scv)
+int CScv_Attack_State::Update(CObj_Dynamic* _scv)
 {
     return 0;
 }
 
-void CScv_Attack_State::Late_Update(CObj* _scv)
+void CScv_Attack_State::Late_Update(CObj_Dynamic* _scv)
 {
 }
 
-void CScv_Attack_State::Render(CObj* _scv, HDC hDC)
+void CScv_Attack_State::Render(CObj_Dynamic* _scv, HDC hDC)
 {
 	
 }
 
-void CScv_Attack_State::Release(CObj* _scv)
+void CScv_Attack_State::Release(CObj_Dynamic* _scv)
 {
 }

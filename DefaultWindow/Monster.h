@@ -1,6 +1,6 @@
 #pragma once
-#include "Obj.h"
-class CMonster : public CObj
+#include "Obj_Dynamic.h"
+class CMonster : public CObj_Dynamic
 {
 public:
 	CMonster();

@@ -10,7 +10,7 @@ CScv_Idle_State::~CScv_Idle_State()
 {
 }
 
-void CScv_Idle_State::Initialize(CObj* _scv)
+void CScv_Idle_State::Initialize(CObj_Dynamic* _scv)
 {
 	m_pFrameCopy = _scv->Get_Frame();
 	m_pFrameKeyCopy = _scv->Get_FrameKey();
@@ -23,17 +23,17 @@ void CScv_Idle_State::Initialize(CObj* _scv)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CScv_Idle_State::Update(CObj*)
+int CScv_Idle_State::Update(CObj_Dynamic*)
 {
 	return 0;
 }
 
-void CScv_Idle_State::Late_Update(CObj* _scv)
+void CScv_Idle_State::Late_Update(CObj_Dynamic* _scv)
 {
 	//_scv->Move_Frame();
 }
 
-void CScv_Idle_State::Render(CObj* _scv, HDC hDC)
+void CScv_Idle_State::Render(CObj_Dynamic* _scv, HDC hDC)
 {
 	//int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	//int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
@@ -54,7 +54,7 @@ void CScv_Idle_State::Render(CObj* _scv, HDC hDC)
 	//	RGB(0, 0, 0));	// 제거할 색상 값
 }
 
-void CScv_Idle_State::Release(CObj*)
+void CScv_Idle_State::Release(CObj_Dynamic*)
 {
 }
 

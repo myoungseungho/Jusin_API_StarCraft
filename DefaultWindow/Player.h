@@ -1,6 +1,6 @@
 #pragma once
-#include "Obj.h"
-class CPlayer :	public CObj
+#include "Obj_Dynamic.h"
+class CPlayer :	public CObj_Dynamic
 {
 public:
 	enum STATE { IDLE, WALK, ATTACK, HIT, DEAD, STATE_END };

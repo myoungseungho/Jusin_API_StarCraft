@@ -25,7 +25,7 @@ void CStage::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Tile.bmp", L"Tile");
 	CTileMgr::Get_Instance()->Load_Tile();
 
-	CObjMgr::Get_Instance()->Add_Object(OBJ_SCV, CAbstractFactory<CScv>::Create(200.f,200.f));
+	CObjMgr::Get_Instance()->Add_Dynamic_Object(OBJ_SCV, CAbstractFactory<CScv>::Create_Dynamic(200.f,200.f));
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Ground.bmp", L"Ground");
 }
 

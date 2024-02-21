@@ -1,6 +1,7 @@
 #pragma once
 #include "Obj.h"
-class CGuideBullet :	public CObj
+#include "Obj_Dynamic.h"
+class CGuideBullet :	public CObj_Dynamic
 {
 public:
 	CGuideBullet();

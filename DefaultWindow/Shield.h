@@ -1,6 +1,6 @@
 #pragma once
-#include "Obj.h"
-class CShield :	public CObj
+#include "Obj_Dynamic.h"
+class CShield :	public CObj_Dynamic
 {
 public:
 	CShield();

@@ -11,7 +11,7 @@ CScv_Walk_State::~CScv_Walk_State()
 
 
 
-void CScv_Walk_State::Initialize(CObj* _scv)
+void CScv_Walk_State::Initialize(CObj_Dynamic* _scv)
 {
 	m_pFrameCopy = _scv->Get_Frame();
 	m_pFrameKeyCopy = _scv->Get_FrameKey();
@@ -24,19 +24,19 @@ void CScv_Walk_State::Initialize(CObj* _scv)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CScv_Walk_State::Update(CObj*)
+int CScv_Walk_State::Update(CObj_Dynamic*)
 {
 	return 0;
 }
 
-void CScv_Walk_State::Late_Update(CObj*)
+void CScv_Walk_State::Late_Update(CObj_Dynamic*)
 {
 }
 
-void CScv_Walk_State::Render(CObj*, HDC hDC)
+void CScv_Walk_State::Render(CObj_Dynamic*, HDC hDC)
 {
 }
 
-void CScv_Walk_State::Release(CObj*)
+void CScv_Walk_State::Release(CObj_Dynamic*)
 {
 }

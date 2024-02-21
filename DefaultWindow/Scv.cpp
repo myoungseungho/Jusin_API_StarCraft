@@ -7,7 +7,7 @@
 #include "Scv_Attack_State.h"
 #include "StateMgr.h"
 //원본 객체 생성시에만 BmpFile 등록
-CScv::CScv() : m_CurrentState(nullptr)
+CScv::CScv()
 {
 	InsertBmpFile();
 }
@@ -82,8 +82,8 @@ void CScv::ChangeState(IState* _newState)
 {
 	if (m_CurrentState)
 	{
-		m_CurrentState->Release(this);
-		Safe_Delete(m_CurrentState);
+		/*m_CurrentState->Release(this);
+		Safe_Delete(m_CurrentState);*/
 	}
 
 	m_CurrentState = _newState;
@@ -94,4 +94,6 @@ void CScv::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_IDLE.bmp", L"SCV_IDLE");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_ATTACK.bmp", L"SCV_ATTACK");
+	/*Set_FrameKey(L"SCV_IDLE");
+	Set_FrameKey(L"SCV_ATTACK");*/
 }

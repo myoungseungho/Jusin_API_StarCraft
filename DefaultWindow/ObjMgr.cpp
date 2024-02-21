@@ -13,7 +13,15 @@ CObjMgr::~CObjMgr()
 	Release();
 }
 
-void CObjMgr::Add_Object(OBJID eID, CObj * pObj)
+void CObjMgr::Add_Object(OBJID eID, CObj* pObj)
+{
+	if (OBJ_END <= eID || nullptr == pObj)
+		return;
+
+	m_ObjList[eID].push_back(pObj);
+}
+
+void CObjMgr::Add_Dynamic_Object(OBJID eID, CObj_Dynamic * pObj)
 {
 	if (OBJ_END <= eID || nullptr == pObj)
 		return;
@@ -58,9 +66,6 @@ void CObjMgr::Late_Update()
 			m_RenderList[eID].push_back(iter);
 		}
 	}
-
-	CCollisionMgr::Collision_Sphere(m_ObjList[OBJ_BULLET], m_ObjList[OBJ_MONSTER]);
-	//CCollisionMgr::Collision_RectEx(m_ObjList[OBJ_MONSTER], m_ObjList[OBJ_PLAYER]);
 }
 
 void CObjMgr::Render(HDC hDC)
@@ -97,15 +102,15 @@ void CObjMgr::Delete_ID(OBJID eID)
 	m_ObjList[eID].clear();
 }
 
-CObj * CObjMgr::Get_Target(OBJID eID, CObj * pObj)
+CObj * CObjMgr::Get_Target(OBJID eID, CObj_Dynamic* pObj)
 {
-	if (m_ObjList[eID].empty())
+	if (m_Dynamic_Obj_List[eID].empty())
 		return nullptr;
 
 	CObj*	pTarget = nullptr;
 	float	fDistance(0.f);
 
-	for (auto& iter : m_ObjList[eID])
+	for (auto& iter : m_Dynamic_Obj_List[eID])
 	{
 		if(iter->Get_Dead())
 			continue;
