@@ -1,0 +1,21 @@
+Battlecr : 배틀쿠르저
+Bomber : 발키리
+Dropship : 드랍쉽
+Firebat : 파이어벳
+Ghost : 고스트
+Goliatht : 골리앗
+Marine : 마린
+Medic : 메딕
+Phoenix: 레이스
+Scv : 일꾼
+sTank : 시즈 모드 탱크
+Tank : 일반 모드 탱크
+vulture : 벌처
+Wessel : 사이언스 베슬
+
+
+
+NukeMissile: 핵 미사일
+Spide : 스파이더마인
+ughost : 모르는 고스트
+gasorb : 가스

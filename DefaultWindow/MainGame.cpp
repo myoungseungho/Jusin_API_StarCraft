@@ -13,7 +13,6 @@
 
 
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
-	//: m_pPlayer(nullptr)
 {
 	ZeroMemory(m_szFPS, sizeof(m_szFPS));
 }
@@ -30,9 +29,7 @@ void CMainGame::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
 
-	CSceneMgr::Get_Instance()->Scene_Change(SC_LOGO);
-
-
+	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 }
 
 void CMainGame::Update()
@@ -42,11 +39,8 @@ void CMainGame::Update()
 
 void CMainGame::Late_Update()
 {
-
 	CSceneMgr::Get_Instance()->Late_Update();
-
 	CScrollMgr::Get_Instance()->Scroll_Lock();
-
 }
 
 void CMainGame::Render()
@@ -63,9 +57,7 @@ void CMainGame::Render()
 	}
 	
 	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Back");
-	
 	CSceneMgr::Get_Instance()->Render(hMemDC);
-
 	BitBlt(m_hDC,
 		0, 0, WINCX, WINCY,
 		hMemDC,

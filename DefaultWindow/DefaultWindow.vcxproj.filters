@@ -97,6 +97,9 @@
     <Filter Include="02. Design\08. TileMgr\Tile">
       <UniqueIdentifier>{c3d26921-edd5-4e37-8189-4e64123a51c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\00. SCV">
+      <UniqueIdentifier>{6a4274f2-9f9d-4cff-a275-70366220d155}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -195,6 +198,9 @@
     <ClInclude Include="MyEdit.h">
       <Filter>03. Scene\02. Edit</Filter>
     </ClInclude>
+    <ClInclude Include="Scv.h">
+      <Filter>01. Obj\00. SCV</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -280,6 +286,9 @@
     </ClCompile>
     <ClCompile Include="MyEdit.cpp">
       <Filter>03. Scene\02. Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="Scv.cpp">
+      <Filter>01. Obj\00. SCV</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
