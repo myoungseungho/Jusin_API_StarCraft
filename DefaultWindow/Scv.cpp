@@ -6,7 +6,6 @@
 #include "Scv_Idle_State.h"
 #include "Scv_Walk_State.h"
 #include "Scv_Attack_State.h"
-//원본 객체 생성시에만 BmpFile 등록
 CScv::CScv()
 {
 	InsertBmpFile();

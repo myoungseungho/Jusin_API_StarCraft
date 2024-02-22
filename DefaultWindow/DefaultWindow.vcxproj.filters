@@ -100,9 +100,6 @@
     <Filter Include="01. Obj\00. SCV">
       <UniqueIdentifier>{6a4274f2-9f9d-4cff-a275-70366220d155}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Design\11. StateMgr">
-      <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01. Obj\02. FireBat">
       <UniqueIdentifier>{91f86948-f428-460e-aede-5ddeab4a28ee}</UniqueIdentifier>
     </Filter>
@@ -111,6 +108,9 @@
     </Filter>
     <Filter Include="02. Design\09. SpawnMgr">
       <UniqueIdentifier>{ec70f520-a58d-4872-a9d1-7434d998dfdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\10. StateMgr">
+      <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -223,7 +223,7 @@
       <Filter>01. Obj</Filter>
     </ClInclude>
     <ClInclude Include="StateMgr.h">
-      <Filter>02. Design\11. StateMgr</Filter>
+      <Filter>02. Design\10. StateMgr</Filter>
     </ClInclude>
     <ClInclude Include="Scv_Attack_State.h">
       <Filter>01. Obj\00. SCV</Filter>
@@ -366,7 +366,7 @@
       <Filter>01. Obj</Filter>
     </ClCompile>
     <ClCompile Include="StateMgr.cpp">
-      <Filter>02. Design\11. StateMgr</Filter>
+      <Filter>02. Design\10. StateMgr</Filter>
     </ClCompile>
     <ClCompile Include="Scv_Attack_State.cpp">
       <Filter>01. Obj\00. SCV</Filter>

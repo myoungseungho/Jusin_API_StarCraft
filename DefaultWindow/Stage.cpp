@@ -12,6 +12,8 @@
 #include "StateMgr.h"
 #include "Marine.h"
 #include "SpawnMgr.h"
+#include "FireBat.h"
+
 CStage::CStage()
 {
 }
@@ -71,6 +73,10 @@ void CStage::InitSpawn()
 	CObj_Dynamic* marine2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, WALK_STATE, 300.f, 300.f);
 	CObj_Dynamic* marine3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, ATTACK_STATE, 300.f, 400.f);
 	CObj_Dynamic* marine4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, DIE_STATE, 300.f, 500.f);
+
+	CObj_Dynamic* fireBat1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, 400.f, 200.f);
+	CObj_Dynamic* fireBat2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, WALK_STATE, 400.f, 300.f);
+	CObj_Dynamic* fireBat3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, ATTACK_STATE, 400.f, 400.f);
 }
 
 
@@ -80,22 +86,22 @@ void CStage::Key_Input()
 
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
-		CScrollMgr::Get_Instance()->Set_ScrollX(-5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollX(-10.f);
 	}
 
 	else if (GetAsyncKeyState(VK_LEFT))
 	{
-		CScrollMgr::Get_Instance()->Set_ScrollX(5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollX(10.f);
 	}
 
 	else if (GetAsyncKeyState(VK_UP))
 	{
-		CScrollMgr::Get_Instance()->Set_ScrollY(5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollY(10.f);
 
 	}
 
 	else if (GetAsyncKeyState(VK_DOWN))
 	{
-		CScrollMgr::Get_Instance()->Set_ScrollY(-5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
 	}
 }

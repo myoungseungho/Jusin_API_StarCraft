@@ -6,7 +6,6 @@ class CFireBat : public CObj_Dynamic
 public:
 	CFireBat();
 	virtual ~CFireBat();
-	CFireBat(const CFireBat&);
 public:
     void Initialize() override;
     int Update() override;
