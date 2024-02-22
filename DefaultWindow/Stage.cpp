@@ -28,8 +28,8 @@ CStage::~CStage()
 void CStage::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Tile.bmp", L"Tile");
-	CTileMgr::Get_Instance()->Load_Tile();
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Ground.bmp", L"Ground");
+	//CTileMgr::Get_Instance()->Load_Tile();
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 
 	InitSpawn();
 }
@@ -51,10 +51,17 @@ void CStage::Late_Update()
 
 void CStage::Render(HDC hDC)
 {
-	HDC	hGroundDC = CBmpMgr::Get_Instance()->Find_Image(L"Ground");
+	HDC	hGroundDC = CBmpMgr::Get_Instance()->Find_Image(L"MainMap");
 
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+	BitBlt(hDC,
+		iScrollX, iScrollY, MAPCX, MAPCY,
+		hGroundDC,
+		0,
+		0,
+		SRCCOPY);
 
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
