@@ -13,7 +13,12 @@ public:
     void Render(CObj_Dynamic*, HDC hDC) override;
     void Release(CObj_Dynamic*) override;
 
-    // IState을(를) 통해 상속됨
+private:
+    TCHAR* m_pFrameKey_Attack;
+    FRAME  m_tFrame_Attack;
+
+    int    m_AttackFileSize;
+    int    m_Offset_Attack;
     void Move_Frame() override;
 };
 

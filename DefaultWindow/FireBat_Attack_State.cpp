@@ -3,7 +3,7 @@
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
 
-CFireBat_Attack_State::CFireBat_Attack_State()
+CFireBat_Attack_State::CFireBat_Attack_State() : m_AttackFileSize(0), m_Offset_Attack(0)
 {
 }
 
@@ -29,6 +29,9 @@ void CFireBat_Attack_State::Initialize(CObj_Dynamic* _fireBat)
 	m_tFrame_Attack.iMotion = 0;
 	m_tFrame_Attack.dwSpeed = 50;
 	m_tFrame_Attack.dwTime = GetTickCount();
+
+	m_AttackFileSize = 224;
+	m_Offset_Attack = -90;
 }
 
 int CFireBat_Attack_State::Update(CObj_Dynamic*)
@@ -50,15 +53,15 @@ void CFireBat_Attack_State::Render(CObj_Dynamic* _fireBat, HDC hDC)
 
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		(_fireBat->Get_Rect().left + iScrollX) - 90.f, // 복사 받을 위치 좌표
-		(_fireBat->Get_Rect().top + iScrollY) - 90.f,
-		(int)224,	// 복사 받을 이미지의 가로, 세로
-		(int)224,
+		(_fireBat->Get_Rect().left + iScrollX) + m_Offset_Attack, // 복사 받을 위치 좌표
+		(_fireBat->Get_Rect().top + iScrollY) + m_Offset_Attack,
+		m_AttackFileSize,	// 복사 받을 이미지의 가로, 세로
+		m_AttackFileSize,
 		hMemDC,		// 비트맵을 가지고 있는 DC
-		(int)224 * m_tFrame_Attack.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
-		(int)224 * m_tFrame_Attack.iMotion,
-		(int)224,	// 출력할 비트맵 가로
-		(int)224,	// 출력할 비트맵 세로
+		m_AttackFileSize * m_tFrame_Attack.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
+		m_AttackFileSize * m_tFrame_Attack.iMotion,
+		m_AttackFileSize,	// 출력할 비트맵 가로
+		m_AttackFileSize,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
 }
 
