@@ -38,3 +38,7 @@ void CMarine_Attack_State::Render(CObj_Dynamic*, HDC hDC)
 void CMarine_Attack_State::Release(CObj_Dynamic*)
 {
 }
+
+void CMarine_Attack_State::Move_Frame()
+{
+}

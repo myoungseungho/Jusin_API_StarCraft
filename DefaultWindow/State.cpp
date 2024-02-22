@@ -8,3 +8,7 @@ IState::IState()
 IState::~IState()
 {
 }
+
+void IState::Move_Frame()
+{
+}

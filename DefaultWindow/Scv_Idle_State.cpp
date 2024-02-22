@@ -58,3 +58,7 @@ void CScv_Idle_State::Release(CObj_Dynamic*)
 {
 }
 
+void CScv_Idle_State::Move_Frame()
+{
+}
+

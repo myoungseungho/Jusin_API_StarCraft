@@ -39,3 +39,7 @@ void CMedic_Walk_State::Render(CObj_Dynamic*, HDC hDC)
 void CMedic_Walk_State::Release(CObj_Dynamic*)
 {
 }
+
+void CMedic_Walk_State::Move_Frame()
+{
+}

@@ -15,6 +15,8 @@ public:
 	virtual void		Render(CObj_Dynamic* ,HDC hDC)	PURE;
 	virtual void		Release(CObj_Dynamic*)		PURE;
 protected:
+	virtual void Move_Frame() PURE;
+protected:
 	FRAME* m_pFrameCopy;
 	TCHAR** m_pFrameKeyCopy;
 };

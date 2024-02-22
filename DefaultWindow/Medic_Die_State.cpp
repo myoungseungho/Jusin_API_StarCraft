@@ -38,3 +38,7 @@ void CMedic_Die_State::Render(CObj_Dynamic*, HDC hDC)
 void CMedic_Die_State::Release(CObj_Dynamic*)
 {
 }
+
+void CMedic_Die_State::Move_Frame()
+{
+}

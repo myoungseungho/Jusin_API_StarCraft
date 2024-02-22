@@ -40,3 +40,7 @@ void CScv_Walk_State::Render(CObj_Dynamic*, HDC hDC)
 void CScv_Walk_State::Release(CObj_Dynamic*)
 {
 }
+
+void CScv_Walk_State::Move_Frame()
+{
+}

@@ -39,3 +39,7 @@ void CScv_Attack_State::Render(CObj_Dynamic* _scv, HDC hDC)
 void CScv_Attack_State::Release(CObj_Dynamic* _scv)
 {
 }
+
+void CScv_Attack_State::Move_Frame()
+{
+}

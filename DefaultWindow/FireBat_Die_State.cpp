@@ -29,3 +29,7 @@ void CFireBat_Die_State::Render(CObj_Dynamic*, HDC hDC)
 void CFireBat_Die_State::Release(CObj_Dynamic*)
 {
 }
+
+void CFireBat_Die_State::Move_Frame()
+{
+}

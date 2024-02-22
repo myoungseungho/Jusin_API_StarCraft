@@ -23,7 +23,7 @@ void CFireBat_Attack_State::Initialize(CObj_Dynamic* _fireBat)
 	m_pFrameCopy->dwSpeed = 200;
 	m_pFrameCopy->dwTime = GetTickCount();
 
-	m_pFrameKey_Attack = L" FireBat_Bullet_Right";
+	m_pFrameKey_Attack = L"FireBat_Bullet_Right";
 	m_tFrame_Attack.iFrameStart = 0;
 	m_tFrame_Attack.iFrameEnd = 11;
 	m_tFrame_Attack.iMotion = 0;
@@ -38,6 +38,7 @@ int CFireBat_Attack_State::Update(CObj_Dynamic*)
 
 void CFireBat_Attack_State::Late_Update(CObj_Dynamic*)
 {
+	Move_Frame();
 }
 
 void CFireBat_Attack_State::Render(CObj_Dynamic* _fireBat, HDC hDC)
@@ -49,18 +50,31 @@ void CFireBat_Attack_State::Render(CObj_Dynamic* _fireBat, HDC hDC)
 
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		_fireBat->Get_Rect().left + iScrollX, // 복사 받을 위치 좌표
-		_fireBat->Get_Rect().top + iScrollY,
-		(int)_fireBat->Get_Info().fCX,	// 복사 받을 이미지의 가로, 세로
-		(int)_fireBat->Get_Info().fCY,
+		(_fireBat->Get_Rect().left + iScrollX) - 90.f, // 복사 받을 위치 좌표
+		(_fireBat->Get_Rect().top + iScrollY) - 90.f,
+		(int)224,	// 복사 받을 이미지의 가로, 세로
+		(int)224,
 		hMemDC,		// 비트맵을 가지고 있는 DC
-		(int)_fireBat->Get_Info().fCX * m_tFrame_Attack.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
-		(int)_fireBat->Get_Info().fCY * m_tFrame_Attack.iMotion,
-		(int)_fireBat->Get_Info().fCX,	// 출력할 비트맵 가로
-		(int)_fireBat->Get_Info().fCY,	// 출력할 비트맵 세로
+		(int)224 * m_tFrame_Attack.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
+		(int)224 * m_tFrame_Attack.iMotion,
+		(int)224,	// 출력할 비트맵 가로
+		(int)224,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
 }
 
 void CFireBat_Attack_State::Release(CObj_Dynamic*)
 {
+}
+
+void CFireBat_Attack_State::Move_Frame()
+{
+	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
+	{
+		++m_tFrame_Attack.iFrameStart;
+
+		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
+			m_tFrame_Attack.iFrameStart = 0;
+
+		m_tFrame_Attack.dwTime = GetTickCount();
+	}
 }

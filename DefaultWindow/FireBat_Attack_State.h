@@ -12,9 +12,12 @@ public:
     void Late_Update(CObj_Dynamic*) override;
     void Render(CObj_Dynamic*, HDC hDC) override;
     void Release(CObj_Dynamic*) override;
-
+    
 private:
     TCHAR*      m_pFrameKey_Attack;
     FRAME		m_tFrame_Attack;
+
+    // IState을(를) 통해 상속됨
+    void Move_Frame() override;
 };
 

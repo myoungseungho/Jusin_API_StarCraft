@@ -30,3 +30,7 @@ void CTank_Attack_State::Render(CObj_Dynamic*, HDC hDC)
 void CTank_Attack_State::Release(CObj_Dynamic*)
 {
 }
+
+void CTank_Attack_State::Move_Frame()
+{
+}

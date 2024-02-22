@@ -15,7 +15,5 @@ public:
 
 protected:
 	virtual void InsertBmpFile() override;
-private:
-	IState* m_CurrentState;
 };
 

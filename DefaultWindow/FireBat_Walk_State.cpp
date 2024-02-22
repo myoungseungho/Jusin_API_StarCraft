@@ -38,3 +38,7 @@ void CFireBat_Walk_State::Render(CObj_Dynamic*, HDC hDC)
 void CFireBat_Walk_State::Release(CObj_Dynamic*)
 {
 }
+
+void CFireBat_Walk_State::Move_Frame()
+{
+}

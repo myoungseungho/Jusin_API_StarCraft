@@ -38,3 +38,7 @@ void CMarine_Idle_State::Render(CObj_Dynamic*, HDC hDC)
 void CMarine_Idle_State::Release(CObj_Dynamic*)
 {
 }
+
+void CMarine_Idle_State::Move_Frame()
+{
+}

@@ -38,3 +38,7 @@ void CTank_Walk_State::Render(CObj_Dynamic*, HDC hDC)
 void CTank_Walk_State::Release(CObj_Dynamic*)
 {
 }
+
+void CTank_Walk_State::Move_Frame()
+{
+}

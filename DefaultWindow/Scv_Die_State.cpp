@@ -29,3 +29,7 @@ void CScv_Die_State::Render(CObj_Dynamic*, HDC hDC)
 void CScv_Die_State::Release(CObj_Dynamic*)
 {
 }
+
+void CScv_Die_State::Move_Frame()
+{
+}

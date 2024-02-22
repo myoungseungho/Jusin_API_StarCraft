@@ -29,3 +29,7 @@ void CTank_Die_State::Render(CObj_Dynamic*, HDC hDC)
 void CTank_Die_State::Release(CObj_Dynamic*)
 {
 }
+
+void CTank_Die_State::Move_Frame()
+{
+}

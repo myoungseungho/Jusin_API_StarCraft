@@ -4,7 +4,7 @@
 #include "ScrollMgr.h"
 #include "StateMgr.h"
 
-CFireBat::CFireBat() : m_CurrentState(nullptr)
+CFireBat::CFireBat()
 {
 	InsertBmpFile();
 }

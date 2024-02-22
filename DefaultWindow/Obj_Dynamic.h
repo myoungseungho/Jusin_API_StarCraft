@@ -23,10 +23,11 @@ public:
 	bool		Get_Dead() { return m_bDead; }
 	void		Move_Frame();
     void		ChangeState(IState*);
+
 protected:
 	float		m_fSpeed;
 	float		m_fDistance;
 	bool		m_bDead;
-	IState* m_CurrentState;
+	IState*     m_CurrentState;
 };
 
