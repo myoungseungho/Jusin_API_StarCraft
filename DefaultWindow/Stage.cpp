@@ -73,24 +73,24 @@ void CStage::Release()
 
 void CStage::InitSpawn()
 {
-	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, 200.f, 200.f);
+	/*CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, 200.f, 200.f);
 	CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, ATTACK_STATE, 200.f, 300.f);
 
 	CObj_Dynamic* marine1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, 300.f, 200.f);
 	CObj_Dynamic* marine2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, WALK_STATE, 300.f, 300.f);
 	CObj_Dynamic* marine3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, ATTACK_STATE, 300.f, 400.f);
-	CObj_Dynamic* marine4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, DIE_STATE, 300.f, 500.f);
+	CObj_Dynamic* marine4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, DIE_STATE, 300.f, 500.f);*/
 
-	CObj_Dynamic* fireBat1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, 400.f, 200.f);
-	CObj_Dynamic* fireBat2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, WALK_STATE, 400.f, 300.f);
+	//CObj_Dynamic* fireBat1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, 400.f, 200.f);
+	//CObj_Dynamic* fireBat2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, WALK_STATE, 400.f, 300.f);
 	CObj_Dynamic* fireBat3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(OBJ_FIREBAT, ATTACK_STATE, 400.f, 400.f);
 
-	CObj_Dynamic* medic1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, 500.f, 200.f);
+	/*CObj_Dynamic* medic1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, 500.f, 200.f);
 	CObj_Dynamic* medic2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, WALK_STATE, 500.f, 300.f);
 	CObj_Dynamic* medic3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, ATTACK_STATE, 500.f, 400.f);
-	CObj_Dynamic* medic4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, DIE_STATE, 500.f, 500.f);
+	CObj_Dynamic* medic4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, DIE_STATE, 500.f, 500.f);*/
 
-	CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(OBJ_TANK, WALK_STATE, 600.f, 200.f);
+	//CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(OBJ_TANK, WALK_STATE, 600.f, 200.f);
 
 }
 

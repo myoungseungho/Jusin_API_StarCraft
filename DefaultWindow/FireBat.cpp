@@ -14,12 +14,11 @@ CFireBat::~CFireBat()
 	Release();
 }
 
-
 void CFireBat::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = CStateMgr::Get_Instance()->GetVecObjState(OBJ_FIREBAT)[IDLE_STATE];
+		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(OBJ_FIREBAT))[IDLE_STATE];
 		m_CurrentState = IdleState;
 		ChangeState(IdleState);
 	}
@@ -65,6 +64,8 @@ void CFireBat::Render(HDC hDC)
 		(int)m_tInfo.fCX,	// 출력할 비트맵 가로
 		(int)m_tInfo.fCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
+
+	m_CurrentState->Render(this, hDC);
 }
 
 void CFireBat::Release()
@@ -95,4 +96,14 @@ void CFireBat::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Firebat/Attack/Firebat_Attack_Down_Right_150.bmp", L"Firebat_Attack_Down_Right_150");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Firebat/Attack/Firebat_Attack_Down_Right_170.bmp", L"Firebat_Attack_Down_Right_170");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Firebat/Attack/Firebat_Attack_Down.bmp", L"Firebat_Attack_Down");
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Up.bmp", L"FireBat_Bullet_Up");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Up_Right_30.bmp", L"FireBat_Bullet_Up_Right_30");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Up_Right_45.bmp", L"FireBat_Bullet_Up_Right_45");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Up_Right_60.bmp", L"FireBat_Bullet_Up_Right_60");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Right.bmp", L"FireBat_Bullet_Right");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down_Right_120.bmp", L"FireBat_Bullet_Down_Right_120");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down_Right_150.bmp", L"FireBat_Bullet_Down_Right_150");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down_Right_170.bmp", L"FireBat_Bullet_Down_Right_170");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down.bmp", L"FireBat_Bullet_Down");
 }

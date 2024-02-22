@@ -20,7 +20,7 @@ void CScv::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = CStateMgr::Get_Instance()->GetVecObjState(OBJ_SCV)[IDLE_STATE];
+		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(OBJ_SCV))[IDLE_STATE];
 		m_CurrentState = IdleState;
 		ChangeState(IdleState);
 	}

@@ -48,7 +48,7 @@ template<typename T>
 inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(OBJID _Id, STATEID _sId, float _fX, float _fY)
 {
 	CObj_Dynamic* obj_Dynamic = CAbstractFactory<T>::Create_Dynamic(_fX, _fY);
-	dynamic_cast<T*>(obj_Dynamic)->ChangeState(CStateMgr::Get_Instance()->GetVecObjState(_Id)[_sId]);
+	obj_Dynamic->ChangeState((*CStateMgr::Get_Instance()->GetVecObjState(_Id))[_sId]);
 	CObjMgr::Get_Instance()->Add_Dynamic_Object(_Id, obj_Dynamic);
 
 	return obj_Dynamic;
