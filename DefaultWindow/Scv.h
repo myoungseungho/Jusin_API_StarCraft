@@ -5,7 +5,6 @@ class CScv : public CObj_Dynamic
 {
 public:
 	CScv();
-	CScv(const CScv&);
 	virtual ~CScv();
 
 public:

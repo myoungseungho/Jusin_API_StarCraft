@@ -2,20 +2,14 @@
 #include "Scv.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "StateMgr.h"
 #include "Scv_Idle_State.h"
 #include "Scv_Walk_State.h"
 #include "Scv_Attack_State.h"
-#include "StateMgr.h"
 //원본 객체 생성시에만 BmpFile 등록
 CScv::CScv()
 {
 	InsertBmpFile();
-}
-
-//복사 생성시에는 BmpFile 등록하지 않음
-CScv::CScv(const CScv& other)
-{
-
 }
 
 CScv::~CScv()
@@ -27,7 +21,7 @@ void CScv::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = CStateMgr::Get_Instance()->GetVecObjState(OBJ_SCV)[SCV_IDLE];
+		IState* IdleState = CStateMgr::Get_Instance()->GetVecObjState(OBJ_SCV)[IDLE_STATE];
 		m_CurrentState = IdleState;
 		ChangeState(IdleState);
 	}
@@ -44,7 +38,7 @@ int CScv::Update()
 	__super::Update_Rect();
 
 	m_CurrentState->Update(this);
-	return 0;
+	return OBJ_NOEVENT;
 }
 
 void CScv::Late_Update()
@@ -73,8 +67,6 @@ void CScv::Render(HDC hDC)
 		(int)m_tInfo.fCX,	// 출력할 비트맵 가로
 		(int)m_tInfo.fCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
-
-	/*m_CurrentState->Render(this,hDC);*/
 }
 
 void CScv::Release()

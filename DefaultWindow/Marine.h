@@ -13,6 +13,5 @@ public:
     void Release() override;
 public:
     virtual void InsertBmpFile();
-
 };
 

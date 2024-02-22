@@ -10,7 +10,8 @@
 #include "Monster.h"
 #include "Scv.h"
 #include "StateMgr.h"
-
+#include "Marine.h"
+#include "SpawnMgr.h"
 CStage::CStage()
 {
 }
@@ -65,11 +66,11 @@ void CStage::Release()
 
 void CStage::InitSpawn()
 {
-	//SDV
-	CObj_Dynamic* scv1 = CAbstractFactory<CScv>::Create_Dynamic(200.f, 200.f);
-	CObjMgr::Get_Instance()->Add_Dynamic_Object(OBJ_SCV, scv1);
+	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, 200.f, 200.f);
+	CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, ATTACK_STATE, 200.f, 300.f);
 
-	CObj_Dynamic* scv2 = CAbstractFactory<CScv>::Create_Dynamic(200.f, 300.f);
-	static_cast<CScv*>(scv2)->ChangeState(CStateMgr::Get_Instance()->GetVecObjState(OBJ_SCV)[SCV_ATTACK]);
-	CObjMgr::Get_Instance()->Add_Dynamic_Object(OBJ_SCV, scv2);
+	CObj_Dynamic* marine1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, 300.f, 200.f);
+	CObj_Dynamic* marine2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, WALK_STATE,300.f, 300.f);
+	CObj_Dynamic* marine3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, ATTACK_STATE, 300.f, 400.f);
+	CObj_Dynamic* marine4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, DIE_STATE, 300.f, 500.f);
 }
