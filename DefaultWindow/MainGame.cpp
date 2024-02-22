@@ -11,6 +11,7 @@
 #include "SceneMgr.h"
 #include "TileMgr.h"
 #include "StateMgr.h"
+#include "SpawnMgr.h"
 
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
 {
@@ -75,6 +76,8 @@ void CMainGame::Release()
 	CLineMgr::Get_Instance()->Destroy_Instance();
 	CSceneMgr::Get_Instance()->Destroy_Instance();
 	CObjMgr::Get_Instance()->Destroy_Instance();
+	CStateMgr::Get_Instance()->Destroy_Instance();
+	CSpawnMgr::Get_Instance()->Destroy_Instance();
 	ReleaseDC(g_hWnd, m_hDC);	
 }
 

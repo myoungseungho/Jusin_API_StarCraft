@@ -115,6 +115,9 @@
     <Filter Include="01. Obj\03. Medic">
       <UniqueIdentifier>{6f65cba0-f856-4439-aad3-7d4a10db076b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Tank">
+      <UniqueIdentifier>{e2c9fba2-ce7c-4e32-8a54-bca847a06d46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -285,6 +288,21 @@
     <ClInclude Include="Medic_Idle_State.h">
       <Filter>01. Obj\03. Medic</Filter>
     </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank_Attack_State.h">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank_Die_State.h">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank_Idle_State.h">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank_Walk_State.h">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -442,6 +460,21 @@
     </ClCompile>
     <ClCompile Include="Medic_Walk_State.cpp">
       <Filter>01. Obj\03. Medic</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank_Attack_State.cpp">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank_Die_State.cpp">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank_Idle_State.cpp">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank_Walk_State.cpp">
+      <Filter>01. Obj\04. Tank</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>01. Obj\04. Tank</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

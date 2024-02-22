@@ -18,6 +18,7 @@ public:
 	void	Release();
 
 	void	Delete_ID(OBJID eID);
+	void	Delete_ID_DynamicObj(OBJID eId);
 
 public:
 	CObj*	Get_Player() { return m_ObjList[OBJ_PLAYER].front(); }

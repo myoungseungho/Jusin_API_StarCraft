@@ -102,6 +102,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../Header</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -199,6 +200,11 @@
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMgr.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Tank.h" />
+    <ClInclude Include="Tank_Attack_State.h" />
+    <ClInclude Include="Tank_Die_State.h" />
+    <ClInclude Include="Tank_Idle_State.h" />
+    <ClInclude Include="Tank_Walk_State.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMgr.h" />
@@ -259,6 +265,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Tank.cpp" />
+    <ClCompile Include="Tank_Attack_State.cpp" />
+    <ClCompile Include="Tank_Die_State.cpp" />
+    <ClCompile Include="Tank_Idle_State.cpp" />
+    <ClCompile Include="Tank_Walk_State.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileMgr.cpp" />
   </ItemGroup>

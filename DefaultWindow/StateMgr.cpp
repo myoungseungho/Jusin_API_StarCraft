@@ -16,6 +16,10 @@
 #include "Medic_Walk_State.h"
 #include "Medic_Attack_State.h"
 #include "Medic_Die_State.h"
+#include "Tank_Idle_State.h"
+#include "Tank_Walk_State.h"
+#include "Tank_Attack_State.h"
+#include "Tank_Die_State.h"
 
 CStateMgr* CStateMgr::m_pInstance = nullptr;
 
@@ -49,9 +53,17 @@ void CStateMgr::Initialize()
 	m_vecObjState[OBJ_MEDIC].push_back(new CMedic_Walk_State);
 	m_vecObjState[OBJ_MEDIC].push_back(new CMedic_Attack_State);
 	m_vecObjState[OBJ_MEDIC].push_back(new CMedic_Die_State);
+
+	m_vecObjState[OBJ_TANK].push_back(new CTank_Idle_State);
+	m_vecObjState[OBJ_TANK].push_back(new CTank_Walk_State);
+	m_vecObjState[OBJ_TANK].push_back(new CTank_Attack_State);
+	m_vecObjState[OBJ_TANK].push_back(new CTank_Die_State);
 }
 
 void CStateMgr::Release()
 {
-	for_each(m_vecState.begin(), m_vecState.end(), Safe_Delete<IState*>);
+	for (size_t i = 0; i < OBJ_END; i++)
+	{
+		for_each(m_vecObjState[i].begin(), m_vecObjState[i].end(), Safe_Delete<IState*>);
+	}
 }

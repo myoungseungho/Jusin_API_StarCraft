@@ -102,6 +102,14 @@ void CObjMgr::Delete_ID(OBJID eID)
 	m_ObjList[eID].clear();
 }
 
+void CObjMgr::Delete_ID_DynamicObj(OBJID eId)
+{
+	for (auto& iter : m_Dynamic_Obj_List[eId])
+		Safe_Delete(iter);
+
+	m_Dynamic_Obj_List[eId].clear();
+}
+
 CObj * CObjMgr::Get_Target(OBJID eID, CObj_Dynamic* pObj)
 {
 	if (m_Dynamic_Obj_List[eID].empty())
