@@ -12,6 +12,10 @@
 #include "FireBat_Walk_State.h"
 #include "FireBat_Attack_State.h"
 #include "FireBat_Die_State.h"
+#include "Medic_Idle_State.h"
+#include "Medic_Walk_State.h"
+#include "Medic_Attack_State.h"
+#include "Medic_Die_State.h"
 
 CStateMgr* CStateMgr::m_pInstance = nullptr;
 
@@ -40,6 +44,11 @@ void CStateMgr::Initialize()
 	m_vecObjState[OBJ_FIREBAT].push_back(new CFireBat_Walk_State);
 	m_vecObjState[OBJ_FIREBAT].push_back(new CFireBat_Attack_State);
 	m_vecObjState[OBJ_FIREBAT].push_back(new CFireBat_Die_State);
+
+	m_vecObjState[OBJ_MEDIC].push_back(new CMedic_Idle_State);
+	m_vecObjState[OBJ_MEDIC].push_back(new CMedic_Walk_State);
+	m_vecObjState[OBJ_MEDIC].push_back(new CMedic_Attack_State);
+	m_vecObjState[OBJ_MEDIC].push_back(new CMedic_Die_State);
 }
 
 void CStateMgr::Release()

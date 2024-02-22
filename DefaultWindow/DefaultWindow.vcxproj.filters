@@ -112,6 +112,9 @@
     <Filter Include="02. Design\10. StateMgr">
       <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. Medic">
+      <UniqueIdentifier>{6f65cba0-f856-4439-aad3-7d4a10db076b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -267,6 +270,21 @@
     <ClInclude Include="SpawnMgr.h">
       <Filter>02. Design\09. SpawnMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Medic.h">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClInclude>
+    <ClInclude Include="Medic_Walk_State.h">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClInclude>
+    <ClInclude Include="Medic_Attack_State.h">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClInclude>
+    <ClInclude Include="Medic_Die_State.h">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClInclude>
+    <ClInclude Include="Medic_Idle_State.h">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -409,6 +427,21 @@
     </ClCompile>
     <ClCompile Include="SpawnMgr.cpp">
       <Filter>02. Design\09. SpawnMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Medic.cpp">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClCompile>
+    <ClCompile Include="Medic_Idle_State.cpp">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClCompile>
+    <ClCompile Include="Medic_Attack_State.cpp">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClCompile>
+    <ClCompile Include="Medic_Die_State.cpp">
+      <Filter>01. Obj\03. Medic</Filter>
+    </ClCompile>
+    <ClCompile Include="Medic_Walk_State.cpp">
+      <Filter>01. Obj\03. Medic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

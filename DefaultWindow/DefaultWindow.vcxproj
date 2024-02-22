@@ -168,6 +168,11 @@
     <ClInclude Include="Marine_Die_State.h" />
     <ClInclude Include="Marine_Idle_State.h" />
     <ClInclude Include="Marine_Walk_State.h" />
+    <ClInclude Include="Medic.h" />
+    <ClInclude Include="Medic_Attack_State.h" />
+    <ClInclude Include="Medic_Die_State.h" />
+    <ClInclude Include="Medic_Idle_State.h" />
+    <ClInclude Include="Medic_Walk_State.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyBmp.h" />
@@ -219,6 +224,11 @@
     <ClCompile Include="Marine_Die_State.cpp" />
     <ClCompile Include="Marine_Idle_State.cpp" />
     <ClCompile Include="Marine_Walk_State.cpp" />
+    <ClCompile Include="Medic.cpp" />
+    <ClCompile Include="Medic_Attack_State.cpp" />
+    <ClCompile Include="Medic_Die_State.cpp" />
+    <ClCompile Include="Medic_Idle_State.cpp" />
+    <ClCompile Include="Medic_Walk_State.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MyBmp.cpp" />
