@@ -43,6 +43,7 @@ void CStage::Late_Update()
 {
 	CTileMgr::Get_Instance()->Late_Update();
 	CObjMgr::Get_Instance()->Late_Update();
+	Key_Input();
 }
 
 void CStage::Render(HDC hDC)
@@ -52,9 +53,6 @@ void CStage::Render(HDC hDC)
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
-	//BitBlt(hDC, iScrollX, iScrollY, 1920, 1280,	hGroundDC,0,0,SRCCOPY);
-
-	//CLineMgr::Get_Instance()->Render(hDC);
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
 }
@@ -70,7 +68,34 @@ void CStage::InitSpawn()
 	CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, ATTACK_STATE, 200.f, 300.f);
 
 	CObj_Dynamic* marine1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, 300.f, 200.f);
-	CObj_Dynamic* marine2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, WALK_STATE,300.f, 300.f);
+	CObj_Dynamic* marine2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, WALK_STATE, 300.f, 300.f);
 	CObj_Dynamic* marine3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, ATTACK_STATE, 300.f, 400.f);
 	CObj_Dynamic* marine4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, DIE_STATE, 300.f, 500.f);
+}
+
+
+void CStage::Key_Input()
+{
+	float fY(0.f);
+
+	if (GetAsyncKeyState(VK_RIGHT))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollX(-5.f);
+	}
+
+	else if (GetAsyncKeyState(VK_LEFT))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollX(5.f);
+	}
+
+	else if (GetAsyncKeyState(VK_UP))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollY(5.f);
+
+	}
+
+	else if (GetAsyncKeyState(VK_DOWN))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollY(-5.f);
+	}
 }

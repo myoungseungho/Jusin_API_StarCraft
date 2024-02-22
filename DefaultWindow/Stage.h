@@ -15,5 +15,6 @@ public:
 	virtual void Release() override;
 private:
 	void InitSpawn();
+	void Key_Input();
 };
 
