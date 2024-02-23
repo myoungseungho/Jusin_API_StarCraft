@@ -16,5 +16,6 @@ public:
 
 private:
 	void	Key_Input();
+	void	OffSet();
 };
 

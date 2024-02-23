@@ -47,6 +47,7 @@ void CStage::Late_Update()
 	CTileMgr::Get_Instance()->Late_Update();
 	CObjMgr::Get_Instance()->Late_Update();
 	Key_Input();
+	OffSet();
 }
 
 void CStage::Render(HDC hDC)
@@ -125,4 +126,29 @@ void CStage::Key_Input()
 	{
 		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
 	}
+}
+
+void CStage::OffSet()
+{
+	int	iOffSetMinX = 30;
+	int	iOffSetMaxX = WINCX - 30;
+
+	int	iOffSetMinY = 30;
+	int	iOffSetMaxY = WINCY - 30;
+
+	POINT	Pt;
+	GetCursorPos(&Pt);
+	ScreenToClient(g_hWnd, &Pt);
+
+	if (iOffSetMinX > Pt.x)
+		CScrollMgr::Get_Instance()->Set_ScrollX(5.f);
+
+	if (iOffSetMaxX < Pt.x)
+		CScrollMgr::Get_Instance()->Set_ScrollX(-5.f);
+
+	if (iOffSetMinY > Pt.y)
+		CScrollMgr::Get_Instance()->Set_ScrollY(5.f);
+
+	if (iOffSetMaxY < Pt.y)
+		CScrollMgr::Get_Instance()->Set_ScrollY(-5.f);
 }

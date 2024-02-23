@@ -34,6 +34,7 @@ void CMyEdit::Late_Update()
 {
 	CTileMgr::Get_Instance()->Late_Update();
 	Key_Input();
+	OffSet();
 }
 
 void CMyEdit::Render(HDC hDC)
@@ -76,10 +77,10 @@ void CMyEdit::Key_Input()
 		POINT	Pt;
 		GetCursorPos(&Pt);
 		ScreenToClient(g_hWnd, &Pt);
-		
+
 		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-		
+
 		CTileMgr::Get_Instance()->Picking(Pt, 1, 0);
 	}
 
@@ -100,4 +101,29 @@ void CMyEdit::Key_Input()
 
 	if (CKeyMgr::Get_Instance()->Key_Down(VK_F2))
 		CTileMgr::Get_Instance()->Load_Tile();
+}
+
+void CMyEdit::OffSet()
+{
+	int	iOffSetMinX = 30;
+	int	iOffSetMaxX = WINCX - 30;
+
+	int	iOffSetMinY = 30;
+	int	iOffSetMaxY = WINCY - 30;
+
+	POINT	Pt;
+	GetCursorPos(&Pt);
+	ScreenToClient(g_hWnd, &Pt);
+
+	if (iOffSetMinX > Pt.x)
+		CScrollMgr::Get_Instance()->Set_ScrollX(5.f);
+
+	if (iOffSetMaxX < Pt.x)
+		CScrollMgr::Get_Instance()->Set_ScrollX(-5.f);
+
+	if (iOffSetMinY > Pt.y)
+		CScrollMgr::Get_Instance()->Set_ScrollY(5.f);
+
+	if (iOffSetMaxY < Pt.y)
+		CScrollMgr::Get_Instance()->Set_ScrollY(-5.f);
 }
