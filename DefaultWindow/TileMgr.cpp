@@ -24,7 +24,7 @@ void CTileMgr::Initialize()
 			float	fX = (TILECX >> 1) + float(TILECX * j);
 			float	fY = (TILECY >> 1) + float(TILECY * i);
 
-			CObj*	pTile = CAbstractFactory<CTile>::Create(fX, fY);
+			CObj* pTile = CAbstractFactory<CTile>::Create(fX, fY);
 			m_vecTile.push_back(pTile);
 		}
 	}
@@ -46,7 +46,7 @@ void CTileMgr::Render(HDC hDC)
 {
 	int		iScrollX = abs((int)CScrollMgr::Get_Instance()->Get_ScrollX() / TILECX);
 	int		iScrollY = abs((int)CScrollMgr::Get_Instance()->Get_ScrollY() / TILECY);
-	
+
 	int		iMaxX = iScrollX + WINCX / TILECX + 2;
 	int		iMaxY = iScrollY + WINCY / TILECY + 2;
 
@@ -56,7 +56,7 @@ void CTileMgr::Render(HDC hDC)
 		{
 			int		iIndex = i * TILEX + j;
 
-			if(0 > iIndex || (size_t)iIndex >= m_vecTile.size())
+			if (0 > iIndex || (size_t)iIndex >= m_vecTile.size())
 				continue;
 
 			m_vecTile[iIndex]->Render(hDC);
@@ -82,18 +82,18 @@ void CTileMgr::Picking(POINT pt, int _iDrawID, int _iOption)
 	if (0 > iIndex || (size_t)iIndex >= m_vecTile.size())
 		return;
 
-	dynamic_cast<CTile*>(m_vecTile[iIndex])->Set_Value(_iDrawID, _iOption);
+	dynamic_cast<CTile*>(m_vecTile[iIndex])->Set_Value(x, y, _iDrawID, _iOption);
 }
 
 void CTileMgr::Save_Tile()
 {
 	HANDLE	hFile = CreateFile(L"../Data/Tile.dat",
-		GENERIC_WRITE,		
-		NULL,				
-		NULL,				
-		CREATE_ALWAYS,		
+		GENERIC_WRITE,
+		NULL,
+		NULL,
+		CREATE_ALWAYS,
 		FILE_ATTRIBUTE_NORMAL,
-		NULL);				
+		NULL);
 
 	if (INVALID_HANDLE_VALUE == hFile)
 	{
@@ -101,6 +101,7 @@ void CTileMgr::Save_Tile()
 		return;
 	}
 
+	pair<int, int> m_PositionXY;
 	DWORD	dwByte(0);
 	int		iDrawID(0), iOption(0);
 
@@ -108,10 +109,12 @@ void CTileMgr::Save_Tile()
 	{
 		iDrawID = dynamic_cast<CTile*>(iter)->Get_DrawID();
 		iOption = dynamic_cast<CTile*>(iter)->Get_Option();
+		m_PositionXY = dynamic_cast<CTile*>(iter)->GetTile_XYPair();
 
 		WriteFile(hFile, &(iter->Get_Info()), sizeof(INFO), &dwByte, NULL);
 		WriteFile(hFile, &iDrawID, sizeof(int), &dwByte, NULL);
 		WriteFile(hFile, &iOption, sizeof(int), &dwByte, NULL);
+		WriteFile(hFile, &m_PositionXY, sizeof(int), &dwByte, NULL);
 	}
 
 	CloseHandle(hFile);
@@ -137,9 +140,10 @@ void CTileMgr::Load_Tile()
 
 	DWORD	dwByte(0);
 
+	pair<int, int> m_PositionXY;
 	INFO		tInfo{};
 	int	iDrawID(0), iOption(0);
-	
+
 	Release();
 
 	while (true)
@@ -147,13 +151,14 @@ void CTileMgr::Load_Tile()
 		ReadFile(hFile, &tInfo, sizeof(INFO), &dwByte, NULL);
 		ReadFile(hFile, &iDrawID, sizeof(int), &dwByte, NULL);
 		ReadFile(hFile, &iOption, sizeof(int), &dwByte, NULL);
+		ReadFile(hFile, &m_PositionXY, sizeof(int), &dwByte, NULL);
 
 		if (0 == dwByte)
 			break;
 
-		CObj*	pTile = CAbstractFactory<CTile>::Create(tInfo.fX, tInfo.fY);
-		dynamic_cast<CTile*>(pTile)->Set_Value(iDrawID, iOption);
-		
+		CObj* pTile = CAbstractFactory<CTile>::Create(tInfo.fX, tInfo.fY);
+		dynamic_cast<CTile*>(pTile)->Set_Value(m_PositionXY.first, m_PositionXY.second, iDrawID, iOption);
+
 		m_vecTile.push_back(pTile);
 	}
 
