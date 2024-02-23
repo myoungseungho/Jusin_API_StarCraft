@@ -13,6 +13,14 @@ CObjMgr::~CObjMgr()
 	Release();
 }
 
+void CObjMgr::Add_Dynamic_Object(DYNAMIC_OBJID eID, CObj* pObj)
+{
+	if (DYNAMIC_OBJ_END <= eID || nullptr == pObj)
+		return;
+
+	m_Dynamic_Obj_List[eID].push_back(pObj);
+}
+
 void CObjMgr::Add_Static_Object(STATIC_OBJID eID, CObj* pObj)
 {
 	if (STATIC_OBJ_END <= eID || nullptr == pObj)
@@ -21,13 +29,15 @@ void CObjMgr::Add_Static_Object(STATIC_OBJID eID, CObj* pObj)
 	m_Static_Obj_List[eID].push_back(pObj);
 }
 
-void CObjMgr::Add_Dynamic_Object(DYNAMIC_OBJID eID, CObj* pObj)
+void CObjMgr::Add_UI_Object(UI_OBJID eID, CObj* pObj)
 {
-	if (DYNAMIC_OBJ_END <= eID || nullptr == pObj)
+	if (UI_OBJ_END <= eID || nullptr == pObj)
 		return;
 
-	m_Dynamic_Obj_List[eID].push_back(pObj);
+	m_UI_Obj_List[eID].push_back(pObj);
 }
+
+
 
 int CObjMgr::Update()
 {
@@ -59,6 +69,23 @@ int CObjMgr::Update()
 			{
 				Safe_Delete<CObj*>(*iter);
 				iter = m_Static_Obj_List[i].erase(iter);
+			}
+			else
+				++iter;
+		}
+	}
+
+	for (size_t i = 0; i < UI_OBJ_END; ++i)
+	{
+		for (auto iter = m_UI_Obj_List[i].begin();
+			iter != m_UI_Obj_List[i].end(); )
+		{
+			int iResult = (*iter)->Update();
+
+			if (OBJ_DEAD == iResult)
+			{
+				Safe_Delete<CObj*>(*iter);
+				iter = m_UI_Obj_List[i].erase(iter);
 			}
 			else
 				++iter;
@@ -96,6 +123,20 @@ void CObjMgr::Late_Update()
 			m_RenderList[eID].push_back(iter);
 		}
 	}
+
+	for (size_t i = 0; i < UI_OBJ_END; ++i)
+	{
+		for (auto& iter : m_UI_Obj_List[i])
+		{
+			iter->Late_Update();
+
+			if (m_UI_Obj_List[i].empty())
+				break;
+
+			RENDERID eID = iter->Get_RenderID();
+			m_RenderList[eID].push_back(iter);
+		}
+	}
 }
 
 void CObjMgr::Render(HDC hDC)
@@ -127,16 +168,14 @@ void CObjMgr::Release()
 		for_each(m_Static_Obj_List[i].begin(), m_Static_Obj_List[i].end(), Safe_Delete<CObj*>);
 		m_Static_Obj_List[i].clear();
 	}
+
+	for (size_t i = 0; i < STATIC_OBJ_END; ++i)
+	{
+		for_each(m_UI_Obj_List[i].begin(), m_UI_Obj_List[i].end(), Safe_Delete<CObj*>);
+		m_UI_Obj_List[i].clear();
+	}
 }
 
-
-void CObjMgr::Delete_ID_StaticObj(STATIC_OBJID eId)
-{
-	for (auto& iter : m_Static_Obj_List[eId])
-		Safe_Delete(iter);
-
-	m_Static_Obj_List[eId].clear();
-}
 
 void CObjMgr::Delete_ID_DynamicObj(DYNAMIC_OBJID eId)
 {
@@ -146,6 +185,21 @@ void CObjMgr::Delete_ID_DynamicObj(DYNAMIC_OBJID eId)
 	m_Dynamic_Obj_List[eId].clear();
 }
 
+void CObjMgr::Delete_ID_StaticObj(STATIC_OBJID eId)
+{
+	for (auto& iter : m_Static_Obj_List[eId])
+		Safe_Delete(iter);
+
+	m_Static_Obj_List[eId].clear();
+}
+
+void CObjMgr::Delete_ID_UIObj(UI_OBJID eId)
+{
+	for (auto& iter : m_UI_Obj_List[eId])
+		Safe_Delete(iter);
+
+	m_UI_Obj_List[eId].clear();
+}
 
 
 CObj* CObjMgr::Get_Target(float _fX, float _fY)

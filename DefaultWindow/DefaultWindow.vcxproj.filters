@@ -309,6 +309,9 @@
     <ClInclude Include="AStar.h">
       <Filter>02. Design\11. AStarMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Obj_UI.h">
+      <Filter>01. Obj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -484,6 +487,9 @@
     </ClCompile>
     <ClCompile Include="AStar.cpp">
       <Filter>02. Design\11. AStarMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj_UI.cpp">
+      <Filter>01. Obj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -34,9 +34,9 @@ void CStage::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
-	InitSpawn();
 
-	CObjMgr::Get_Instance()->Add_Dynamic_Object(DYNAMIC_OBJ_MOUSE, CAbstractFactory<CMouse>::Create_Dynamic());
+	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
+	InitSpawn();
 }
 
 int CStage::Update()
