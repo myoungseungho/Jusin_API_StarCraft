@@ -118,6 +118,9 @@
     <Filter Include="01. Obj\04. Tank">
       <UniqueIdentifier>{e2c9fba2-ce7c-4e32-8a54-bca847a06d46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\11. AStarMgr">
+      <UniqueIdentifier>{754129c0-3958-4f98-9390-cf29defa630f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -303,6 +306,9 @@
     <ClInclude Include="Tank_Walk_State.h">
       <Filter>01. Obj\04. Tank</Filter>
     </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>02. Design\11. AStarMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -475,6 +481,9 @@
     </ClCompile>
     <ClCompile Include="Tank.cpp">
       <Filter>01. Obj\04. Tank</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>02. Design\11. AStarMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
