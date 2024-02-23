@@ -18,8 +18,6 @@ CMyEdit::~CMyEdit()
 void CMyEdit::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Tile.bmp", L"Tile");
-
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 
 	CTileMgr::Get_Instance()->Initialize();
@@ -83,6 +81,18 @@ void CMyEdit::Key_Input()
 		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 		
 		CTileMgr::Get_Instance()->Picking(Pt, 1, 0);
+	}
+
+	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_RBUTTON))
+	{
+		POINT	Pt;
+		GetCursorPos(&Pt);
+		ScreenToClient(g_hWnd, &Pt);
+
+		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+		CTileMgr::Get_Instance()->Picking(Pt, 0, 0);
 	}
 
 	if (CKeyMgr::Get_Instance()->Key_Down(VK_F1))
