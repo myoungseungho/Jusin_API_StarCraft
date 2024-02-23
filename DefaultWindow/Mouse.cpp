@@ -96,6 +96,11 @@ void CMouse::KeyInput()
 		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
 		//좌표에 해당하는 유닛을 반환한다.
+		CObj* target = CObjMgr::Get_Instance()->Get_Target(Pt.x, Pt.y);
 
+		if (target != nullptr)
+		{
+			int i = 3;
+		}
 	}
 }

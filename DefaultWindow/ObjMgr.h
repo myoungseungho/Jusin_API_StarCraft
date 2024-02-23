@@ -20,9 +20,9 @@ public:
 
 	void	Delete_ID_StaticObj(STATIC_OBJID eId);
 	void	Delete_ID_DynamicObj(DYNAMIC_OBJID eId);
-//
-//public:
-//	CObj* Get_Target(DYNAMIC_OBJID eID, CObj_Dynamic* pObj);
+
+public:
+	CObj* Get_Target(float _fX, float _fY);
 
 public:
 	static		CObjMgr* Get_Instance()

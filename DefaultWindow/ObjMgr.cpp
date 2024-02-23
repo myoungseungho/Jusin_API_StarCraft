@@ -147,31 +147,20 @@ void CObjMgr::Delete_ID_DynamicObj(DYNAMIC_OBJID eId)
 }
 
 
-//
-//CObj* CObjMgr::Get_Target(DYNAMIC_OBJID eID, CObj_Dynamic* pObj)
-//{
-//	if (m_Dynamic_Obj_List[eID].empty())
-//		return nullptr;
-//
-//	CObj* pTarget = nullptr;
-//	float	fDistance(0.f);
-//
-//	for (auto& iter : m_Dynamic_Obj_List[eID])
-//	{
-//		if (iter->Get_Dead())
-//			continue;
-//
-//		float	fWidth = abs(pObj->Get_Info().fX - iter->Get_Info().fX);
-//		float	fHeight = abs(pObj->Get_Info().fY - iter->Get_Info().fY);
-//
-//		float	fDiagonal = sqrt(fWidth * fWidth + fHeight * fHeight);
-//
-//		if ((!pTarget) || (fDistance > fDiagonal))
-//		{
-//			pTarget = iter;
-//			fDistance = fDiagonal;
-//		}
-//	}
-//
-//	return pTarget;
-//}
+
+CObj* CObjMgr::Get_Target(float _fX, float _fY)
+{
+	CObj* pTarget = nullptr;
+
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	{
+		for (auto iter : m_Dynamic_Obj_List[i])
+		{
+			RECT rect = iter->Get_Rect();
+			if (rect.left <= _fX && rect.right >= _fX && rect.top <= _fY && rect.bottom >= _fY)
+			{
+				return iter;
+			}
+		}
+	}
+}
