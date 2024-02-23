@@ -23,7 +23,7 @@ void CMyMenu::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Menu/Menu.bmp", L"Menu");
 
-	CObj*		pObj = CAbstractFactory<CMyButton>::Create(200.f, 400.f);
+	/*CObj*		pObj = CAbstractFactory<CMyButton>::Create(200.f, 400.f);
 	pObj->Set_FrameKey(L"Start");
 	CObjMgr::Get_Instance()->Add_Object(OBJ_UI, pObj);
 
@@ -33,7 +33,7 @@ void CMyMenu::Initialize()
 
 	pObj = CAbstractFactory<CMyButton>::Create(600.f, 400.f);
 	pObj->Set_FrameKey(L"Exit");
-	CObjMgr::Get_Instance()->Add_Object(OBJ_UI, pObj);
+	CObjMgr::Get_Instance()->Add_Object(OBJ_UI, pObj);*/
 
 }
 
@@ -60,5 +60,5 @@ void CMyMenu::Render(HDC hDC)
 
 void CMyMenu::Release()
 {
-	CObjMgr::Get_Instance()->Delete_ID(OBJ_UI);
+	//CObjMgr::Get_Instance()->Delete_ID(OBJ_UI);
 }

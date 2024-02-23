@@ -10,14 +10,13 @@ private:
 	~CObjMgr();
 
 public:
-	void	Add_Object(OBJID eID, CObj* pObj);
+	//void	Add_Object(OBJID eID, CObj* pObj);
 	void	Add_Dynamic_Object(OBJID eID, CObj_Dynamic* pObj);
 	int		Update();
 	void	Late_Update();
 	void	Render(HDC hDC);
 	void	Release();
 
-	void	Delete_ID(OBJID eID);
 	void	Delete_ID_DynamicObj(OBJID eId);
 
 public:

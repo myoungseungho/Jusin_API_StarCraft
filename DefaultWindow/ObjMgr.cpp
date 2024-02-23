@@ -13,13 +13,13 @@ CObjMgr::~CObjMgr()
 	Release();
 }
 
-void CObjMgr::Add_Object(OBJID eID, CObj* pObj)
-{
-	if (OBJ_END <= eID || nullptr == pObj)
-		return;
-
-	m_ObjList[eID].push_back(pObj);
-}
+//void CObjMgr::Add_Object(OBJID eID, CObj* pObj)
+//{
+//	if (OBJ_END <= eID || nullptr == pObj)
+//		return;
+//
+//	m_ObjList[eID].push_back(pObj);
+//}
 
 void CObjMgr::Add_Dynamic_Object(OBJID eID, CObj_Dynamic * pObj)
 {
@@ -47,24 +47,6 @@ int CObjMgr::Update()
 				++iter;
 		}
 	}
-
-	for (size_t i = 0; i < OBJ_END; ++i)
-	{
-		for (auto iter = m_ObjList[i].begin();
-			iter != m_ObjList[i].end(); )
-		{
-			int iResult = (*iter)->Update();
-
-			if (OBJ_DEAD == iResult)
-			{
-				Safe_Delete<CObj*>(*iter);
-				iter = m_ObjList[i].erase(iter);
-			}
-			else
-				++iter;
-		}
-	}
-
 	return 0;
 }
 
@@ -83,20 +65,6 @@ void CObjMgr::Late_Update()
 			m_Dynamic_RenderList[eID].push_back(iter);
 		}
 	}
-
-	for (size_t i = 0; i < OBJ_END; ++i)
-	{
-		for (auto& iter : m_ObjList[i])
-		{
-			iter->Late_Update();
-
-			if (m_ObjList[i].empty())
-				break;
-
-			RENDERID eID = iter->Get_RenderID();
-			m_RenderList[eID].push_back(iter);
-		}
-	}
 }
 
 void CObjMgr::Render(HDC hDC)
@@ -113,28 +81,10 @@ void CObjMgr::Render(HDC hDC)
 
 		m_Dynamic_RenderList[i].clear();
 	}
-
-	for (size_t i = 0; i < RENDER_END; ++i)
-	{
-		m_RenderList[i].sort([](CObj* pDst, CObj* pSrc)->bool
-		{
-			return pDst->Get_Info().fY < pSrc->Get_Info().fY;
-		});
-
-		for (auto& iter : m_RenderList[i])
-			iter->Render(hDC);
-		
-		m_RenderList[i].clear();
-	}
 }
 
 void CObjMgr::Release()
 {
-	for (size_t i = 0; i < OBJ_END; ++i)
-	{
-		for_each(m_ObjList[i].begin(), m_ObjList[i].end(), Safe_Delete<CObj*>);
-		m_ObjList[i].clear();
-	}
 
 	for (size_t i = 0; i < OBJ_END; ++i)
 	{
@@ -143,13 +93,6 @@ void CObjMgr::Release()
 	}
 }
 
-void CObjMgr::Delete_ID(OBJID eID)
-{
-	for (auto& iter : m_ObjList[eID])
-		Safe_Delete(iter);
-
-	m_ObjList[eID].clear();
-}
 
 void CObjMgr::Delete_ID_DynamicObj(OBJID eId)
 {

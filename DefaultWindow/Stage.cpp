@@ -96,7 +96,6 @@ void CStage::Release()
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_FIREBAT);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_MEDIC);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_TANK);
-
 }
 
 void CStage::InitSpawn()
@@ -117,7 +116,6 @@ void CStage::InitSpawn()
 	CObj_Dynamic* medic2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, WALK_STATE, 500.f, 300.f);
 	CObj_Dynamic* medic3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, ATTACK_STATE, 500.f, 400.f);
 	CObj_Dynamic* medic4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, DIE_STATE, 500.f, 500.f);
-
 
 	CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(OBJ_TANK, WALK_STATE, 600.f, 200.f);
 }
