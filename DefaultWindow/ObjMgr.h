@@ -21,7 +21,6 @@ public:
 	void	Delete_ID_DynamicObj(OBJID eId);
 
 public:
-	CObj*	Get_Player() { return m_ObjList[OBJ_PLAYER].front(); }
 	CObj*	Get_Target(OBJID eID, CObj_Dynamic* pObj);
 
 public:

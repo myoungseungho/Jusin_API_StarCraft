@@ -25,8 +25,6 @@ int CGuideBullet::Update()
 	if (m_bDead)
 		return OBJ_DEAD;
 
-	m_pTarget = CObjMgr::Get_Instance()->Get_Target(OBJ_MONSTER, this);
-
 	if (m_pTarget)
 	{
 		float	fWidth(0.f), fHeight(0.f), fDiagonal(0.f);

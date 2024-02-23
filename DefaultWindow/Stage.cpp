@@ -30,6 +30,8 @@ void CStage::Initialize()
 {
 	m_Cursor_Speed = 12.f;
 
+	CTileMgr::Get_Instance()->Load_Tile();
+
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 	InitSpawn();
@@ -89,7 +91,6 @@ void CStage::Render(HDC hDC)
 
 void CStage::Release()
 {
-	CObjMgr::Get_Instance()->Delete_ID(OBJ_PLAYER);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_SCV);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_MARINE);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_FIREBAT);
