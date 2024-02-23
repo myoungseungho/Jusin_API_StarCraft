@@ -30,7 +30,7 @@ void CMainGame::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
 	CStateMgr::Get_Instance()->Initialize();
-	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_EDIT);
 }
 
 void CMainGame::Update()

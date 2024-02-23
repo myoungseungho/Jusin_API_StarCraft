@@ -33,20 +33,23 @@ void CTile::Late_Update()
 
 void CTile::Render(HDC hDC)
 {
-	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Tile");
+	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Grid");
 
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
-	BitBlt(hDC,
-		m_tRect.left + iScrollX,
+	GdiTransparentBlt(
+		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+		m_tRect.left + iScrollX, // 복사 받을 위치 좌표
 		m_tRect.top + iScrollY,
-		TILECX,
+		TILECX,	// 복사 받을 이미지의 가로, 세로
 		TILECY,
-		hMemDC,
-		TILECX * m_iDrawID,
+		hMemDC,		// 비트맵을 가지고 있는 DC
+		TILECX * m_iDrawID,			// 비트맵 출력 시작 좌표 LEFT, TOP
 		0,
-		SRCCOPY);
+		TILECX,	// 출력할 비트맵 가로
+		TILECY,	// 출력할 비트맵 세로
+		RGB(255, 255, 255));	// 제거할 색상 값
 }
 
 void CTile::Release()

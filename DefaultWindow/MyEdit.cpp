@@ -17,7 +17,10 @@ CMyEdit::~CMyEdit()
 
 void CMyEdit::Initialize()
 {
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Tile.bmp", L"Tile");
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 
 	CTileMgr::Get_Instance()->Initialize();
 }
@@ -37,6 +40,18 @@ void CMyEdit::Late_Update()
 
 void CMyEdit::Render(HDC hDC)
 {
+	HDC	hGroundDC = CBmpMgr::Get_Instance()->Find_Image(L"MainMap");
+
+	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+	BitBlt(hDC,
+		iScrollX, iScrollY, MAPCX, MAPCY,
+		hGroundDC,
+		0,
+		0,
+		SRCCOPY);
+
 	CTileMgr::Get_Instance()->Render(hDC);
 }
 

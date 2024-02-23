@@ -27,7 +27,7 @@ CStage::~CStage()
 
 void CStage::Initialize()
 {
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Tile.bmp", L"Tile");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	//CTileMgr::Get_Instance()->Load_Tile();
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 

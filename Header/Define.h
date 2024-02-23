@@ -9,8 +9,8 @@
 #define			PURE		= 0
 #define			PI			3.14f
 
-#define			TILEX		30
-#define			TILEY		20
+#define			TILEX		64
+#define			TILEY		64
 
 #define			TILECX		64
 #define			TILECY		64
