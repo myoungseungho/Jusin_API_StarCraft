@@ -18,7 +18,7 @@ void CFireBat::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(OBJ_FIREBAT))[IDLE_STATE];
+		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYNAMIC_OBJ_FIREBAT))[IDLE_STATE];
 		m_CurrentState = IdleState;
 		ChangeState(IdleState);
 	}

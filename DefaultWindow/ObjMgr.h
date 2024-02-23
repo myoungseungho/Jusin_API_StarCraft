@@ -10,17 +10,16 @@ private:
 	~CObjMgr();
 
 public:
-	//void	Add_Object(OBJID eID, CObj* pObj);
-	void	Add_Dynamic_Object(OBJID eID, CObj_Dynamic* pObj);
+	void	Add_Dynamic_Object(DYNAMIC_OBJID eID, CObj_Dynamic* pObj);
 	int		Update();
 	void	Late_Update();
 	void	Render(HDC hDC);
 	void	Release();
 
-	void	Delete_ID_DynamicObj(OBJID eId);
+	void	Delete_ID_DynamicObj(DYNAMIC_OBJID eId);
 
 public:
-	CObj*	Get_Target(OBJID eID, CObj_Dynamic* pObj);
+	CObj*	Get_Target(DYNAMIC_OBJID eID, CObj_Dynamic* pObj);
 
 public:
 	static		CObjMgr*		Get_Instance()
@@ -41,8 +40,8 @@ public:
 	}
 
 private:
-	list<CObj*>				m_ObjList[OBJ_END];
-	list<CObj_Dynamic*>		m_Dynamic_Obj_List[OBJ_END];
+	list<CObj*>				m_ObjList[DYNAMIC_OBJ_END];
+	list<CObj_Dynamic*>		m_Dynamic_Obj_List[DYNAMIC_OBJ_END];
 	list<CObj*>				m_RenderList[RENDER_END];
 	list<CObj_Dynamic*>		m_Dynamic_RenderList[RENDER_END];
 		

@@ -36,7 +36,7 @@ void CStage::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 	InitSpawn();
 
-	CObjMgr::Get_Instance()->Add_Dynamic_Object(OBJ_MOUSE, CAbstractFactory<CMouse>::Create_Dynamic());
+	CObjMgr::Get_Instance()->Add_Dynamic_Object(DYNAMIC_OBJ_MOUSE, CAbstractFactory<CMouse>::Create_Dynamic());
 }
 
 int CStage::Update()
@@ -91,16 +91,16 @@ void CStage::Render(HDC hDC)
 
 void CStage::Release()
 {
-	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_SCV);
-	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_MARINE);
-	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_FIREBAT);
-	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_MEDIC);
-	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(OBJ_TANK);
+	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYANMIC_OBJ_SCV);
+	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_MARINE);
+	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_FIREBAT);
+	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_MEDIC);
+	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_TANK);
 }
 
 void CStage::InitSpawn()
 {
-	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, 200.f, 200.f);
+	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, 200.f, 200.f);
 	/*CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, ATTACK_STATE, 200.f, 300.f);
 
 	CObj_Dynamic* marine1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, 300.f, 200.f);

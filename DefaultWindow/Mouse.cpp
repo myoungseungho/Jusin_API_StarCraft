@@ -2,6 +2,10 @@
 #include "Mouse.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "KeyMgr.h"
+#include "TileMgr.h"
+#include "ObjMgr.h"
+
 CMouse::CMouse()
 {
 }
@@ -50,6 +54,7 @@ int CMouse::Update()
 
 void CMouse::Late_Update()
 {
+	KeyInput();
 	__super::Move_Frame();
 }
 
@@ -76,4 +81,21 @@ void CMouse::Render(HDC hDC)
 
 void CMouse::Release()
 {
+}
+
+void CMouse::KeyInput()
+{
+	//클릭 되었을 때 유닛 체크
+	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_LBUTTON))
+	{
+		POINT	Pt;
+		GetCursorPos(&Pt);
+		ScreenToClient(g_hWnd, &Pt);
+
+		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+		//좌표에 해당하는 유닛을 반환한다.
+
+	}
 }

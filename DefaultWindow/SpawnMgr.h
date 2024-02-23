@@ -26,17 +26,17 @@ public:
 	}
 
 	template<typename T>
-	CObj_Dynamic* Spawn_DynamicObj(OBJID _id, float _fX, float _fY);
+	CObj_Dynamic* Spawn_DynamicObj(DYNAMIC_OBJID _id, float _fX, float _fY);
 
 	template<typename T>
-	CObj_Dynamic* Spawn_DynamicObj(OBJID _Id, STATEID _sId, float _fX, float _fY);
+	CObj_Dynamic* Spawn_DynamicObj(DYNAMIC_OBJID _Id, STATEID _sId, float _fX, float _fY);
 
 private:
 	static CSpawnMgr* m_pInstance;
 };
 
 template<typename T>
-inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(OBJID _Id, float _fX, float _fY)
+inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(DYNAMIC_OBJID _Id, float _fX, float _fY)
 {
 	CObj_Dynamic* obj_Dynamic = CAbstractFactory<T>::Create_Dynamic(_fX, _fY);
 	CObjMgr::Get_Instance()->Add_Dynamic_Object(_Id, obj_Dynamic);
@@ -45,7 +45,7 @@ inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(OBJID _Id, float _fX, float _fY
 }
 
 template<typename T>
-inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(OBJID _Id, STATEID _sId, float _fX, float _fY)
+inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(DYNAMIC_OBJID _Id, STATEID _sId, float _fX, float _fY)
 {
 	CObj_Dynamic* obj_Dynamic = CAbstractFactory<T>::Create_Dynamic(_fX, _fY);
 	obj_Dynamic->ChangeState((*CStateMgr::Get_Instance()->GetVecObjState(_Id))[_sId]);

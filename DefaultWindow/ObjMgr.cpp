@@ -21,9 +21,9 @@ CObjMgr::~CObjMgr()
 //	m_ObjList[eID].push_back(pObj);
 //}
 
-void CObjMgr::Add_Dynamic_Object(OBJID eID, CObj_Dynamic * pObj)
+void CObjMgr::Add_Dynamic_Object(DYNAMIC_OBJID eID, CObj_Dynamic * pObj)
 {
-	if (OBJ_END <= eID || nullptr == pObj)
+	if (DYNAMIC_OBJ_END <= eID || nullptr == pObj)
 		return;
 
 	m_Dynamic_Obj_List[eID].push_back(pObj);
@@ -31,7 +31,7 @@ void CObjMgr::Add_Dynamic_Object(OBJID eID, CObj_Dynamic * pObj)
 
 int CObjMgr::Update()
 {
-	for (size_t i = 0; i < OBJ_END; ++i)
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; ++i)
 	{
 		for (auto iter = m_Dynamic_Obj_List[i].begin();
 			iter != m_Dynamic_Obj_List[i].end(); )
@@ -52,7 +52,7 @@ int CObjMgr::Update()
 
 void CObjMgr::Late_Update()
 {
-	for (size_t i = 0; i < OBJ_END; ++i)
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; ++i)
 	{
 		for (auto& iter : m_Dynamic_Obj_List[i])
 		{
@@ -86,7 +86,7 @@ void CObjMgr::Render(HDC hDC)
 void CObjMgr::Release()
 {
 
-	for (size_t i = 0; i < OBJ_END; ++i)
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; ++i)
 	{
 		for_each(m_Dynamic_Obj_List[i].begin(), m_Dynamic_Obj_List[i].end(), Safe_Delete<CObj_Dynamic*>);
 		m_Dynamic_Obj_List[i].clear();
@@ -94,7 +94,7 @@ void CObjMgr::Release()
 }
 
 
-void CObjMgr::Delete_ID_DynamicObj(OBJID eId)
+void CObjMgr::Delete_ID_DynamicObj(DYNAMIC_OBJID eId)
 {
 	for (auto& iter : m_Dynamic_Obj_List[eId])
 		Safe_Delete(iter);
@@ -102,7 +102,7 @@ void CObjMgr::Delete_ID_DynamicObj(OBJID eId)
 	m_Dynamic_Obj_List[eId].clear();
 }
 
-CObj * CObjMgr::Get_Target(OBJID eID, CObj_Dynamic* pObj)
+CObj * CObjMgr::Get_Target(DYNAMIC_OBJID eID, CObj_Dynamic* pObj)
 {
 	if (m_Dynamic_Obj_List[eID].empty())
 		return nullptr;

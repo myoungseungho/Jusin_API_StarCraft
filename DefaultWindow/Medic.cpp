@@ -17,7 +17,7 @@ void CMedic::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(OBJ_MEDIC))[IDLE_STATE];
+		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYNAMIC_OBJ_MEDIC))[IDLE_STATE];
 		m_CurrentState = IdleState;
 		ChangeState(IdleState);
 	}

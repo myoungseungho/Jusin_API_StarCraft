@@ -17,7 +17,7 @@ void CTank::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(OBJ_TANK))[IDLE_STATE];
+		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYNAMIC_OBJ_TANK))[IDLE_STATE];
 		m_CurrentState = IdleState;
 		ChangeState(IdleState);
 	}

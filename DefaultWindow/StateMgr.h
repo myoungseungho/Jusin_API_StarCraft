@@ -24,12 +24,12 @@ public:
 	}
 	void		Initialize();
 	void		Release();
-	vector<IState*>* GetVecObjState(OBJID _Id) { return &m_vecObjState[_Id]; }
+	vector<IState*>* GetVecObjState(DYNAMIC_OBJID _Id) { return &m_vecObjState[_Id]; }
 
 private:
 	static CStateMgr* m_pInstance;
 
-	vector<IState*> m_vecObjState[OBJ_END];
+	vector<IState*> m_vecObjState[DYNAMIC_OBJ_END];
 	vector<IState*> m_vecState;
 };
 
