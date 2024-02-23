@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "AStarMgr.h"
 #include "TileMgr.h"
+
+CAStarMgr* CAStarMgr::m_pInstance = nullptr;
+
 CAStarMgr::CAStarMgr()
 {
 }
@@ -23,9 +26,15 @@ void CAStarMgr::Initialize()
 		m_Obstacles.push_back(row);
 	}
 
-	//TileMgr에서 Tile
-	m_Obstacles[1][1] = true;
-	m_Obstacles[2][2] = true;
+	vector<CObj*> obstcalesTile = CTileMgr::Get_Instance()->GetVecObstcales();
+
+	for (auto iter : obstcalesTile)
+	{
+		int x = iter->Get_Info().fX / TILECX;
+		int y = iter->Get_Info().fY / TILECY;
+
+		m_Obstacles[x][y] = true;
+	}
 }
 
 // 옥타일 거리 계산 함수

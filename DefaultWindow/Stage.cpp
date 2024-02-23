@@ -16,6 +16,7 @@
 #include "Medic.h"
 #include "Tank.h"
 #include "Mouse.h"
+#include "AStarMgr.h"
 CStage::CStage() : m_Cursor_Speed(0.f)
 {
 }
@@ -31,6 +32,7 @@ void CStage::Initialize()
 	m_Cursor_Speed = 12.f;
 
 	CTileMgr::Get_Instance()->Load_Tile();
+	CAStarMgr::Get_Instance()->Initialize();
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");

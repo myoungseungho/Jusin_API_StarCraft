@@ -96,6 +96,9 @@ void CMouse::KeyInput()
 		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
+		int	TileX = Pt.x / TILECX;
+		int	TileY = Pt.y / TILECY;
+
 		//좌표에 해당하는 유닛을 반환한다.
 		CObj* target = CObjMgr::Get_Instance()->Get_Target(Pt.x, Pt.y);
 

@@ -36,12 +36,15 @@ public:
 	void		Picking(POINT pt, int _iDrawID, int _iOption);
 
 public:
+	vector<CObj*>& GetVecObstcales() { return m_vecObstcales; }
+
+public:
 	void		Save_Tile();
 	void		Load_Tile();
 
 private:
 	static CTileMgr*	m_pInstance;
 	vector<CObj*>		m_vecTile;
-	
+	vector<CObj*>		m_vecObstcales;
 };
 

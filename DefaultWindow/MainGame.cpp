@@ -32,7 +32,7 @@ void CMainGame::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainUI.bmp", L"MainUI");
 
 	CStateMgr::Get_Instance()->Initialize();
-	CSceneMgr::Get_Instance()->Scene_Change(SC_EDIT);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 
 //#ifdef _DEBUG
 //

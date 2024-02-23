@@ -24,7 +24,7 @@ void CTileMgr::Initialize()
 			float	fX = (TILECX >> 1) + float(TILECX * j);
 			float	fY = (TILECY >> 1) + float(TILECY * i);
 
-			CObj*	pTile = CAbstractFactory<CTile>::Create(fX, fY);
+			CObj* pTile = CAbstractFactory<CTile>::Create(fX, fY);
 			m_vecTile.push_back(pTile);
 		}
 	}
@@ -46,7 +46,7 @@ void CTileMgr::Render(HDC hDC)
 {
 	int		iScrollX = abs((int)CScrollMgr::Get_Instance()->Get_ScrollX() / TILECX);
 	int		iScrollY = abs((int)CScrollMgr::Get_Instance()->Get_ScrollY() / TILECY);
-	
+
 	int		iMaxX = iScrollX + WINCX / TILECX + 2;
 	int		iMaxY = iScrollY + WINCY / TILECY + 2;
 
@@ -56,7 +56,7 @@ void CTileMgr::Render(HDC hDC)
 		{
 			int		iIndex = i * TILEX + j;
 
-			if(0 > iIndex || (size_t)iIndex >= m_vecTile.size())
+			if (0 > iIndex || (size_t)iIndex >= m_vecTile.size())
 				continue;
 
 			m_vecTile[iIndex]->Render(hDC);
@@ -88,12 +88,12 @@ void CTileMgr::Picking(POINT pt, int _iDrawID, int _iOption)
 void CTileMgr::Save_Tile()
 {
 	HANDLE	hFile = CreateFile(L"../Data/Tile.dat",
-		GENERIC_WRITE,		
-		NULL,				
-		NULL,				
-		CREATE_ALWAYS,		
+		GENERIC_WRITE,
+		NULL,
+		NULL,
+		CREATE_ALWAYS,
 		FILE_ATTRIBUTE_NORMAL,
-		NULL);				
+		NULL);
 
 	if (INVALID_HANDLE_VALUE == hFile)
 	{
@@ -139,7 +139,7 @@ void CTileMgr::Load_Tile()
 
 	INFO		tInfo{};
 	int	iDrawID(0), iOption(0);
-	
+
 	Release();
 
 	while (true)
@@ -151,10 +151,15 @@ void CTileMgr::Load_Tile()
 		if (0 == dwByte)
 			break;
 
-		CObj*	pTile = CAbstractFactory<CTile>::Create(tInfo.fX, tInfo.fY);
-		dynamic_cast<CTile*>(pTile)->Set_Value(iDrawID, iOption);
-		
+		CObj* pTile = CAbstractFactory<CTile>::Create(tInfo.fX, tInfo.fY);
+		CTile* tile = dynamic_cast<CTile*>(pTile);
+		tile->Set_Value(iDrawID, iOption);
 		m_vecTile.push_back(pTile);
+
+		if (tile->Get_DrawID() == 1)
+		{
+			m_vecObstcales.push_back(pTile);
+		}
 	}
 
 	CloseHandle(hFile);
