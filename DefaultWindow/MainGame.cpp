@@ -29,8 +29,10 @@ void CMainGame::Initialize()
 	m_hDC = GetDC(g_hWnd);
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainUI.bmp", L"MainUI");
+
 	CStateMgr::Get_Instance()->Initialize();
-	CSceneMgr::Get_Instance()->Scene_Change(SC_EDIT);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 }
 
 void CMainGame::Update()
@@ -57,6 +59,7 @@ void CMainGame::Render()
 		m_dwTime = GetTickCount();
 	}
 	
+	//¹é¹öÆÛ
 	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Back");
 	CSceneMgr::Get_Instance()->Render(hMemDC);
 	BitBlt(m_hDC,
