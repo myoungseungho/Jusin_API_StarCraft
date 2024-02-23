@@ -9,11 +9,11 @@
 #define			PURE		= 0
 #define			PI			3.14f
 
-#define			TILEX		64
-#define			TILEY		64
+#define			TILEX		128
+#define			TILEY		128
 
-#define			TILECX		64
-#define			TILECY		64
+#define			TILECX		32
+#define			TILECY		32
 
 #define			OBJ_NOEVENT	 0
 #define			OBJ_DEAD	 1
