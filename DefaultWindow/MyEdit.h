@@ -17,5 +17,7 @@ public:
 private:
 	void	Key_Input();
 	void	OffSet();
+private:
+	float m_Cursor_Speed;
 };
 

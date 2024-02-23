@@ -5,7 +5,7 @@
 #include "BmpMgr.h"
 #include "TileMgr.h"
 
-CMyEdit::CMyEdit()
+CMyEdit::CMyEdit() : m_Cursor_Speed(0.f)
 {
 }
 
@@ -17,6 +17,8 @@ CMyEdit::~CMyEdit()
 
 void CMyEdit::Initialize()
 {
+	m_Cursor_Speed = 12.f;
+
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 
@@ -105,25 +107,25 @@ void CMyEdit::Key_Input()
 
 void CMyEdit::OffSet()
 {
-	int	iOffSetMinX = 30;
-	int	iOffSetMaxX = WINCX - 30;
+	int	iOffSetMinX = 0;
+	int	iOffSetMaxX = WINCX;
 
-	int	iOffSetMinY = 30;
-	int	iOffSetMaxY = WINCY - 30;
+	int	iOffSetMinY = 0;
+	int	iOffSetMaxY = WINCY;
 
 	POINT	Pt;
 	GetCursorPos(&Pt);
 	ScreenToClient(g_hWnd, &Pt);
 
 	if (iOffSetMinX > Pt.x)
-		CScrollMgr::Get_Instance()->Set_ScrollX(5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollX(m_Cursor_Speed);
 
 	if (iOffSetMaxX < Pt.x)
-		CScrollMgr::Get_Instance()->Set_ScrollX(-5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollX(-m_Cursor_Speed);
 
 	if (iOffSetMinY > Pt.y)
-		CScrollMgr::Get_Instance()->Set_ScrollY(5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollY(m_Cursor_Speed);
 
 	if (iOffSetMaxY < Pt.y)
-		CScrollMgr::Get_Instance()->Set_ScrollY(-5.f);
+		CScrollMgr::Get_Instance()->Set_ScrollY(-m_Cursor_Speed);
 }
