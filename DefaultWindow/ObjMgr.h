@@ -46,6 +46,7 @@ private:
 	list<CObj*>				m_ObjList[OBJ_END];
 	list<CObj_Dynamic*>		m_Dynamic_Obj_List[OBJ_END];
 	list<CObj*>				m_RenderList[RENDER_END];
+	list<CObj_Dynamic*>		m_Dynamic_RenderList[RENDER_END];
 		
 	static CObjMgr*	m_pInstance;
 

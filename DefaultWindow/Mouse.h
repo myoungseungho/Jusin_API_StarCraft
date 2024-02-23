@@ -1,6 +1,6 @@
 #pragma once
-#include "Obj.h"
-class CMouse :	public CObj
+#include "Obj_Dynamic.h"
+class CMouse :	public CObj_Dynamic
 {
 public:
 	CMouse();

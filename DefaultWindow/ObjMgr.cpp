@@ -48,6 +48,23 @@ int CObjMgr::Update()
 		}
 	}
 
+	for (size_t i = 0; i < OBJ_END; ++i)
+	{
+		for (auto iter = m_ObjList[i].begin();
+			iter != m_ObjList[i].end(); )
+		{
+			int iResult = (*iter)->Update();
+
+			if (OBJ_DEAD == iResult)
+			{
+				Safe_Delete<CObj*>(*iter);
+				iter = m_ObjList[i].erase(iter);
+			}
+			else
+				++iter;
+		}
+	}
+
 	return 0;
 }
 
@@ -63,6 +80,20 @@ void CObjMgr::Late_Update()
 				break;
 
 			RENDERID eID = iter->Get_RenderID();
+			m_Dynamic_RenderList[eID].push_back(iter);
+		}
+	}
+
+	for (size_t i = 0; i < OBJ_END; ++i)
+	{
+		for (auto& iter : m_ObjList[i])
+		{
+			iter->Late_Update();
+
+			if (m_ObjList[i].empty())
+				break;
+
+			RENDERID eID = iter->Get_RenderID();
 			m_RenderList[eID].push_back(iter);
 		}
 	}
@@ -70,6 +101,19 @@ void CObjMgr::Late_Update()
 
 void CObjMgr::Render(HDC hDC)
 {
+	for (size_t i = 0; i < RENDER_END; ++i)
+	{
+		m_Dynamic_RenderList[i].sort([](CObj_Dynamic* pDst, CObj_Dynamic* pSrc)->bool
+			{
+				return pDst->Get_Info().fY < pSrc->Get_Info().fY;
+			});
+
+		for (auto& iter : m_Dynamic_RenderList[i])
+			iter->Render(hDC);
+
+		m_Dynamic_RenderList[i].clear();
+	}
+
 	for (size_t i = 0; i < RENDER_END; ++i)
 	{
 		m_RenderList[i].sort([](CObj* pDst, CObj* pSrc)->bool
@@ -92,6 +136,11 @@ void CObjMgr::Release()
 		m_ObjList[i].clear();
 	}
 
+	for (size_t i = 0; i < OBJ_END; ++i)
+	{
+		for_each(m_Dynamic_Obj_List[i].begin(), m_Dynamic_Obj_List[i].end(), Safe_Delete<CObj_Dynamic*>);
+		m_Dynamic_Obj_List[i].clear();
+	}
 }
 
 void CObjMgr::Delete_ID(OBJID eID)
