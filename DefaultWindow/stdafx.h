@@ -23,6 +23,10 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
+
+#include <io.h>
+#include <iostream>
+
 #ifdef _DEBUG
 
 #define _CRTDBG_MAP_ALLOC

@@ -5,8 +5,9 @@
 #include "KeyMgr.h"
 #include "TileMgr.h"
 #include "ObjMgr.h"
+#include "UnitControlMgr.h"
 
-CMouse::CMouse()
+CMouse::CMouse() : m_bHasSelectUnit(false)
 {
 }
 
@@ -100,7 +101,34 @@ void CMouse::KeyInput()
 
 		if (target != nullptr)
 		{
-			int i = 3;
+			//이미 유닛이 한마리 선택되었다면
+			if (m_bHasSelectUnit)
+			{
+				CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+			}
+
+			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+
+			if (dynamicObj != nullptr)
+			{
+				m_bHasSelectUnit = true;
+				CUnitControlMgr::Get_Instance()->Set_Add_Unit(dynamicObj);
+			}
 		}
+	}
+
+	//클릭 되었을 때 유닛 체크
+	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_RBUTTON))
+	{
+		if (!m_bHasSelectUnit)
+			return;
+
+		//유닛 이동
+		POINT	Pt;
+		GetCursorPos(&Pt);
+		ScreenToClient(g_hWnd, &Pt);
+
+		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 	}
 }

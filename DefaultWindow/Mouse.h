@@ -14,5 +14,8 @@ public:
 	virtual void Release() override;
 private:
 	void KeyInput();
+
+private:
+	bool m_bHasSelectUnit;
 };
 

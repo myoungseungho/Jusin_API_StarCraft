@@ -2,7 +2,7 @@
 #include "State.h"
 class CStateMgr
 {
-public:
+private:
 	CStateMgr();
 	~CStateMgr();
 public:

@@ -6,7 +6,7 @@
 #include "Scv_Idle_State.h"
 #include "Scv_Walk_State.h"
 #include "Scv_Attack_State.h"
-CScv::CScv()
+CScv::CScv() : m_dwTime(0)
 {
 	InsertBmpFile();
 }
@@ -37,6 +37,20 @@ int CScv::Update()
 	__super::Update_Rect();
 
 	m_CurrentState->Update(this);
+
+#ifdef _DEBUG
+
+	if (m_dwTime + 1000 < GetTickCount())
+	{
+		cout << "Left : " << m_tRect.left << endl;
+		cout << "Right : " << m_tRect.right << endl;
+		cout << "Top : " << m_tRect.top << endl;
+		cout << "Bottom : " << m_tRect.bottom << endl;
+
+		m_dwTime = GetTickCount();
+	}
+
+#endif
 	return OBJ_NOEVENT;
 }
 

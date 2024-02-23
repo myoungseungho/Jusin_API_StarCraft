@@ -1,23 +1,42 @@
 #include "stdafx.h"
-#include "AStar.h"
-
-CAStar::CAStar()
+#include "AStarMgr.h"
+#include "TileMgr.h"
+CAStarMgr::CAStarMgr()
 {
 }
 
-CAStar::~CAStar()
+CAStarMgr::~CAStarMgr()
 {
+}
+
+
+void CAStarMgr::Initialize()
+{
+	for (size_t i = 0; i < m_MapSize; i++)
+	{
+		vector<bool> row;
+		for (size_t j = 0; j < m_MapSize; j++)
+		{
+			row.push_back(false);
+		}
+
+		m_Obstacles.push_back(row);
+	}
+
+	//TileMgr에서 Tile
+	m_Obstacles[1][1] = true;
+	m_Obstacles[2][2] = true;
 }
 
 // 옥타일 거리 계산 함수
-double CAStar::OctileDistance(int x1, int y1, int x2, int y2) {
+double CAStarMgr::OctileDistance(int x1, int y1, int x2, int y2) {
 	int dx = abs(x1 - x2);
 	int dy = abs(y1 - y2);
 	return sqrt(2) * min(dx, dy) + abs(dx - dy); // 대각선 이동 후 남은 직선 이동
 }
 
 // 대각선 이동이 가능한지 확인하는 함수
-bool CAStar:: CanMoveDiagonally(const vector<vector<bool>>& obstacles, int currentX, int currentY, int nextX, int nextY) {
+bool CAStarMgr::CanMoveDiagonally(const vector<vector<bool>>& obstacles, int currentX, int currentY, int nextX, int nextY) {
 	if (abs(currentX - nextX) == 1 && abs(currentY - nextY) == 1) { // 대각선 이동인 경우
 		// 대각선 이동 경로에 장애물이 있는지 확인
 		if (obstacles[currentX][nextY] || obstacles[nextX][currentY]) {
@@ -28,7 +47,8 @@ bool CAStar:: CanMoveDiagonally(const vector<vector<bool>>& obstacles, int curre
 }
 
 
-bool CAStar::AStarSearch(const pair<int, int>& start, const pair<int, int>& goal, int n, const vector<vector<bool>>& obstacles)
+
+bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& goal, int n, const vector<vector<bool>>& obstacles)
 {
 	vector<vector<bool>> closedSet(n, vector<bool>(n, false)); // 이미 평가한 노드 집합
 	priority_queue<Node, vector<Node>, CompareNode> openSet; // 평가할 노드의 우선순위 큐

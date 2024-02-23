@@ -16,5 +16,8 @@ public:
 
 protected:
 	virtual void InsertBmpFile() override;
+
+private:
+	DWORD m_dwTime;
 };
 

@@ -38,7 +38,6 @@ void CObjMgr::Add_UI_Object(UI_OBJID eID, CObj* pObj)
 }
 
 
-
 int CObjMgr::Update()
 {
 	for (size_t i = 0; i < DYNAMIC_OBJ_END; ++i)
@@ -217,4 +216,6 @@ CObj* CObjMgr::Get_Target(float _fX, float _fY)
 			}
 		}
 	}
+
+	return nullptr;
 }

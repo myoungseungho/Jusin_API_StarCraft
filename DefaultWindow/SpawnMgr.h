@@ -5,7 +5,7 @@
 #include "Obj_UI.h"
 class CSpawnMgr
 {
-public:
+private:
 	CSpawnMgr();
 	~CSpawnMgr();
 public:

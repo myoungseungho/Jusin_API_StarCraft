@@ -121,6 +121,9 @@
     <Filter Include="02. Design\11. AStarMgr">
       <UniqueIdentifier>{754129c0-3958-4f98-9390-cf29defa630f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\12. UnitControlMgr">
+      <UniqueIdentifier>{30f53ef9-b948-44ed-9e4a-7a455cf48554}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -306,11 +309,14 @@
     <ClInclude Include="Tank_Walk_State.h">
       <Filter>01. Obj\04. Tank</Filter>
     </ClInclude>
-    <ClInclude Include="AStar.h">
+    <ClInclude Include="AStarMgr.h">
       <Filter>02. Design\11. AStarMgr</Filter>
     </ClInclude>
     <ClInclude Include="Obj_UI.h">
       <Filter>01. Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitControlMgr.h">
+      <Filter>02. Design\12. UnitControlMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -485,11 +491,14 @@
     <ClCompile Include="Tank.cpp">
       <Filter>01. Obj\04. Tank</Filter>
     </ClCompile>
-    <ClCompile Include="AStar.cpp">
+    <ClCompile Include="AStarMgr.cpp">
       <Filter>02. Design\11. AStarMgr</Filter>
     </ClCompile>
     <ClCompile Include="Obj_UI.cpp">
       <Filter>01. Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitControlMgr.cpp">
+      <Filter>02. Design\12. UnitControlMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
