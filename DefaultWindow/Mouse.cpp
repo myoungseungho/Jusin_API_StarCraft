@@ -143,7 +143,7 @@ void CMouse::KeyInput()
 
 		for (auto& iter : vecUnit)
 		{
-			iter->ChangeStateByType(WALK_STATE);
+			iter->ChangeStateByType(Pt, WALK_STATE);
 		}
 	}
 }

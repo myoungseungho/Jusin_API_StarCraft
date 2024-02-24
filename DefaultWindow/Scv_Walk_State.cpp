@@ -9,8 +9,6 @@ CScv_Walk_State::~CScv_Walk_State()
 {
 }
 
-
-
 void CScv_Walk_State::Initialize(CObj_Dynamic* _scv)
 {
 	m_pFrameCopy = _scv->Get_Frame();
@@ -22,11 +20,24 @@ void CScv_Walk_State::Initialize(CObj_Dynamic* _scv)
 	m_pFrameCopy->iMotion = 1;
 	m_pFrameCopy->dwSpeed = 200;
 	m_pFrameCopy->dwTime = GetTickCount();
+
+
+	POINT scvPoint = _scv->GetMousePT();
+	INFO info = _scv->Get_Info();
+
+	int ScvX = info.fX / TILECX;
+	int ScvY = info.fY / TILECY;
+
+	int	TileX = scvPoint.x / TILECX;
+	int	TileY = scvPoint.y / TILECY;
+
+	IWalkState::Set_Astar(ScvX, ScvY, TileX, TileY);
 }
 
 int CScv_Walk_State::Update(CObj_Dynamic*)
 {
-	return 0;
+
+	return OBJ_NOEVENT;
 }
 
 void CScv_Walk_State::Late_Update(CObj_Dynamic*)

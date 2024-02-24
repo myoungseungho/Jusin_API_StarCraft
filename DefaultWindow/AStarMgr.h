@@ -26,15 +26,17 @@ public:
 public:
 	void		Initialize();
 public:
-	bool AStarSearch(const pair<int, int>& start, const pair<int, int>& goal, int n, const vector<vector<bool>>& obstacles);
+	vector<pair<int, int>> AStarSearch(const pair<int, int>& start, const pair<int, int>& goal);
 	bool CanMoveDiagonally(const vector<vector<bool>>& obstacles, int currentX, int currentY, int nextX, int nextY);
 	double OctileDistance(int x1, int y1, int x2, int y2);
+public:
+	int GetMapSize() { return m_MapSize; }
 private:
 	void Init_ObstacleTile();
 private:
 	static CAStarMgr* m_pInstance;
 
-	
+
 	vector<vector<bool>> m_Obstacles;
 	int m_MapSize = TILEX; // ∏ ¿« ≈©±‚
 };

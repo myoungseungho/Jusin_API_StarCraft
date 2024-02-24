@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Obj_Dynamic.h"
 #include "StateMgr.h"
-CObj_Dynamic::CObj_Dynamic() : m_CurrentState(nullptr) , m_bDead(false)
+CObj_Dynamic::CObj_Dynamic() : m_CurrentState(nullptr), m_bDead(false)
 {
 }
 
@@ -34,3 +34,11 @@ void CObj_Dynamic::ChangeStateByType(STATEID _sId)
 	IState* newState = CStateMgr::Get_Instance()->GetState(this->GetType(), _sId);
 	ChangeState(newState);
 }
+
+void CObj_Dynamic::ChangeStateByType(POINT _pt, STATEID _sId)
+{
+	m_MousePT = _pt;
+	IState* newState = CStateMgr::Get_Instance()->GetState(this->GetType(), _sId);
+	ChangeState(newState);
+}
+

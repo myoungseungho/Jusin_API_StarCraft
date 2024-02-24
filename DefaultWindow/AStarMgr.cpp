@@ -63,10 +63,10 @@ bool CAStarMgr::CanMoveDiagonally(const vector<vector<bool>>& obstacles, int cur
 
 
 
-bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& goal, int n, const vector<vector<bool>>& obstacles)
+vector<pair<int, int>> CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& goal)
 {
-	vector<vector<pair<int, int>>> cameFrom(n, vector<pair<int, int>>(n, { -1, -1 })); // 부모 노드 추적
-	vector<vector<bool>> closedSet(n, vector<bool>(n, false)); // 이미 평가한 노드 집합
+	vector<vector<pair<int, int>>> cameFrom(m_MapSize, vector<pair<int, int>>(m_MapSize, { -1, -1 })); // 부모 노드 추적
+	vector<vector<bool>> closedSet(m_MapSize, vector<bool>(m_MapSize, false)); // 이미 평가한 노드 집합
 	priority_queue<Node, vector<Node>, CompareNode> openSet; // 평가할 노드의 우선순위 큐
 
 	openSet.push(Node(start.first, start.second, 0, OctileDistance(start.first, start.second, goal.first, goal.second)));
@@ -91,7 +91,7 @@ bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& g
 				cout << "(" << p.first << ", " << p.second << ") ";
 			}
 			cout << "Goal reached with cost: " << current.cost << endl;
-			return true;
+			return path;
 		}
 
 		closedSet[current.x][current.y] = true; // 현재 노드를 폐쇄 집합에 추가
@@ -107,8 +107,8 @@ bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& g
 			// 대각선 이동 비용을 다르게 적용
 			double moveCost = (dir.first == 0 || dir.second == 0) ? 1.0 : sqrt(2);
 
-			if (nextX >= 0 && nextX < n && nextY >= 0 && nextY < n && !closedSet[nextX][nextY] && !obstacles[nextX][nextY]) {
-				if (CanMoveDiagonally(obstacles, current.x, current.y, nextX, nextY)) { // 대각선 이동 가능한지 추가 검사
+			if (nextX >= 0 && nextX < m_MapSize && nextY >= 0 && nextY < m_MapSize && !closedSet[nextX][nextY] && !m_Obstacles[nextX][nextY]) {
+				if (CanMoveDiagonally(m_Obstacles, current.x, current.y, nextX, nextY)) { // 대각선 이동 가능한지 추가 검사
 					double nextCost = current.cost + moveCost;
 					double nextHeuristic = OctileDistance(nextX, nextY, goal.first, goal.second);
 					openSet.push(Node(nextX, nextY, nextCost, nextHeuristic));
@@ -117,7 +117,9 @@ bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& g
 			}
 		}
 	}
-	return false;
+
+	//빈컨테이너 반환
+	return vector<pair<int, int>>();
 }
 
 //int main() {
