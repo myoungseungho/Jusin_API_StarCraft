@@ -42,10 +42,10 @@ int CScv::Update()
 
 	__super::Update_Rect();
 
-	/*if (GetAsyncKeyState(VK_RIGHT))
+	if (GetAsyncKeyState(VK_RIGHT))
 	{
 		__super::Set_PosX(3.f);
-	}*/
+	}
 
 //#ifdef _DEBUG
 //
