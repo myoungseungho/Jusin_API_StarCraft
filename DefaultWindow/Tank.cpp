@@ -3,6 +3,10 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "StateMgr.h"
+#include "Tank_Idle_State.h"
+#include "Tank_Walk_State.h"
+#include "Tank_Attack_State.h"
+#include "Tank_Die_State.h"
 CTank::CTank()
 {
 	InsertBmpFile();
@@ -17,7 +21,12 @@ void CTank::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		ChangeStateByType(IDLE_STATE);
+		m_vecState.push_back(new CTank_Idle_State);
+		m_vecState.push_back(new CTank_Walk_State);
+		m_vecState.push_back(new CTank_Attack_State);
+		m_vecState.push_back(new CTank_Die_State);
+
+		ChangeState(m_vecState[IDLE_STATE]);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;

@@ -3,6 +3,10 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "StateMgr.h"
+#include "FireBat_Idle_State.h"
+#include "FireBat_Walk_State.h"
+#include "FireBat_Attack_State.h"
+#include "FireBat_Die_State.h"
 
 CFireBat::CFireBat()
 {
@@ -18,7 +22,12 @@ void CFireBat::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		ChangeStateByType(IDLE_STATE);
+		m_vecState.push_back(new CFireBat_Idle_State);
+		m_vecState.push_back(new CFireBat_Walk_State);
+		m_vecState.push_back(new CFireBat_Attack_State);
+		m_vecState.push_back(new CFireBat_Die_State);
+
+		ChangeState(m_vecState[IDLE_STATE]);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;

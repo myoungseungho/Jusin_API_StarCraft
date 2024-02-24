@@ -10,7 +10,6 @@
 #include "BmpMgr.h"
 #include "SceneMgr.h"
 #include "TileMgr.h"
-#include "StateMgr.h"
 #include "SpawnMgr.h"
 
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
@@ -31,7 +30,6 @@ void CMainGame::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainUI.bmp", L"MainUI");
 
-	CStateMgr::Get_Instance()->Initialize();
 	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 
 //#ifdef _DEBUG
@@ -92,7 +90,6 @@ void CMainGame::Release()
 	CLineMgr::Get_Instance()->Destroy_Instance();
 	CSceneMgr::Get_Instance()->Destroy_Instance();
 	CObjMgr::Get_Instance()->Destroy_Instance();
-	CStateMgr::Get_Instance()->Destroy_Instance();
 	CSpawnMgr::Get_Instance()->Destroy_Instance();
 	ReleaseDC(g_hWnd, m_hDC);	
 }

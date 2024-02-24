@@ -3,7 +3,10 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "StateMgr.h"
-
+#include "Marine_Idle_State.h"
+#include "Marine_Walk_State.h"
+#include "Marine_Attack_State.h"
+#include "Marine_Die_State.h"
 CMarine::CMarine()
 {
 	InsertBmpFile();
@@ -18,7 +21,12 @@ void CMarine::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		ChangeStateByType(IDLE_STATE);
+		m_vecState.push_back(new CMarine_Idle_State);
+		m_vecState.push_back(new CMarine_Walk_State);
+		m_vecState.push_back(new CMarine_Attack_State);
+		m_vecState.push_back(new CMarine_Die_State);
+
+		ChangeState(m_vecState[IDLE_STATE]);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;

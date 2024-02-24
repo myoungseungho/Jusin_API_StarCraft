@@ -36,6 +36,7 @@ protected:
 	float		m_fSpeed;
 	float		m_fDistance;
 	bool		m_bDead;
+	vector<IState*> m_vecState;
 	IState* m_CurrentState;
 
 	POINT		m_MousePT;

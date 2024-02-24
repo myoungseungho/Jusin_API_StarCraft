@@ -6,6 +6,7 @@
 #include "Scv_Idle_State.h"
 #include "Scv_Walk_State.h"
 #include "Scv_Attack_State.h"
+#include "Scv_Die_State.h"
 CScv::CScv() : m_dwTime(0)
 {
 	InsertBmpFile();
@@ -20,9 +21,12 @@ void CScv::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = CStateMgr::Get_Instance()->GetState(DYANMIC_OBJ_SCV, IDLE_STATE);
-		m_CurrentState = IdleState;
-		ChangeState(IdleState);
+		m_vecState.push_back(new CScv_Idle_State);
+		m_vecState.push_back(new CScv_Walk_State);
+		m_vecState.push_back(new CScv_Attack_State);
+		m_vecState.push_back(new CScv_Die_State);
+
+		ChangeState(m_vecState[IDLE_STATE]);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;

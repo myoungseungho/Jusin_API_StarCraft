@@ -3,6 +3,10 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "StateMgr.h"
+#include "Medic_Idle_State.h"
+#include "Medic_Walk_State.h"
+#include "Medic_Attack_State.h"
+#include "Medic_Die_State.h"
 CMedic::CMedic()
 {
 	InsertBmpFile();
@@ -17,7 +21,12 @@ void CMedic::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		ChangeStateByType(IDLE_STATE);
+		m_vecState.push_back(new CMedic_Idle_State);
+		m_vecState.push_back(new CMedic_Walk_State);
+		m_vecState.push_back(new CMedic_Attack_State);
+		m_vecState.push_back(new CMedic_Die_State);
+
+		ChangeState(m_vecState[IDLE_STATE]);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;
