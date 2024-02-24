@@ -168,7 +168,7 @@ void CObjMgr::Release()
 		m_Static_Obj_List[i].clear();
 	}
 
-	for (size_t i = 0; i < STATIC_OBJ_END; ++i)
+	for (size_t i = 0; i < UI_OBJ_END; ++i)
 	{
 		for_each(m_UI_Obj_List[i].begin(), m_UI_Obj_List[i].end(), Safe_Delete<CObj*>);
 		m_UI_Obj_List[i].clear();

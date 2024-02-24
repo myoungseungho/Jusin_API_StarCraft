@@ -52,7 +52,7 @@ void CStage::Late_Update()
 {
 	CTileMgr::Get_Instance()->Late_Update();
 	CObjMgr::Get_Instance()->Late_Update();
-	Key_Input();
+	//Key_Input();
 	OffSet();
 }
 

@@ -20,6 +20,12 @@ void CMedic::Initialize()
 {
 	if (m_CurrentState == NON_STATE)
 	{
+		m_eRender = RENDER_GAMEOBJECT;
+
+		//처음 크기 고정
+		m_tInfo.fCX = 64.f;
+		m_tInfo.fCY = 64.f;
+
 		m_vecState.push_back(new CMedic_Idle_State);
 		m_vecState.push_back(new CMedic_Walk_State);
 		m_vecState.push_back(new CMedic_Attack_State);
@@ -27,12 +33,6 @@ void CMedic::Initialize()
 
 		ChangeState(IDLE_STATE);
 	}
-
-	m_eRender = RENDER_GAMEOBJECT;
-
-	//처음 크기 고정
-	m_tInfo.fCX = 64.f;
-	m_tInfo.fCY = 64.f;
 }
 
 int CMedic::Update()

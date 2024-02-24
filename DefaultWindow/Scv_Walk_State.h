@@ -13,7 +13,10 @@ public:
     void Render(CObj_Dynamic*, HDC hDC) override;
     void Release(CObj_Dynamic*) override;
 
-    // IState을(를) 통해 상속됨
     void Move_Frame() override;
+
+private:
+    void Move(CObj_Dynamic*);
+    DWORD m_dwTime;
 };
 

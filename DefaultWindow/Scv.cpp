@@ -20,6 +20,12 @@ void CScv::Initialize()
 {
 	if (m_CurrentState == NON_STATE)
 	{
+		m_eRender = RENDER_GAMEOBJECT;
+
+		//처음 크기 고정
+		m_tInfo.fCX = 72.f;
+		m_tInfo.fCY = 72.f;
+
 		m_vecState.push_back(new CScv_Idle_State);
 		m_vecState.push_back(new CScv_Walk_State);
 		m_vecState.push_back(new CScv_Attack_State);
@@ -27,33 +33,36 @@ void CScv::Initialize()
 
 		ChangeState(IDLE_STATE);
 	}
-
-	m_eRender = RENDER_GAMEOBJECT;
-
-	//처음 크기 고정
-	m_tInfo.fCX = 72.f;
-	m_tInfo.fCY = 72.f;
 }
 
 int CScv::Update()
 {
-	__super::Update_Rect();
-
 	m_vecState[m_CurrentState]->Update(this);
 
-#ifdef _DEBUG
 
-	if (m_dwTime + 1000 < GetTickCount())
+	__super::Update_Rect();
+
+	/*if (GetAsyncKeyState(VK_RIGHT))
 	{
-		cout << "Left : " << m_tRect.left << endl;
-		cout << "Right : " << m_tRect.right << endl;
-		cout << "Top : " << m_tRect.top << endl;
-		cout << "Bottom : " << m_tRect.bottom << endl;
+		__super::Set_PosX(3.f);
+	}*/
 
-		m_dwTime = GetTickCount();
-	}
+//#ifdef _DEBUG
+//
+//	if (m_dwTime + 1000 < GetTickCount())
+//	{
+//		system("cls");
+//		cout << "Left : " << m_tRect.left << endl;
+//		cout << "Right : " << m_tRect.right << endl;
+//		cout << "Top : " << m_tRect.top << endl;
+//		cout << "Bottom : " << m_tRect.bottom << endl;
+//		cout << "X : " << m_tInfo.fX << endl;
+//		cout << "Y : " << m_tInfo.fY << endl;
+//		m_dwTime = GetTickCount();
+//	}
+//#endif
 
-#endif
+
 	return OBJ_NOEVENT;
 }
 

@@ -85,6 +85,24 @@ void CTileMgr::Picking(POINT pt, int _iDrawID, int _iOption)
 	dynamic_cast<CTile*>(m_vecTile[iIndex])->Set_Value(_iDrawID, _iOption);
 }
 
+
+vector<CObj*> CTileMgr::GetVecPath(vector<pair<int, int>> _vecPath)
+{
+	vector<CObj*> pathTiles;
+	for (const auto& pos : _vecPath) {
+		int x = pos.first;
+		int y = pos.second;
+		// 타일의 인덱스 계산
+		int index = y * TILEX + x;
+		// 인덱스를 사용하여 전체 타일 벡터에서 해당 타일을 추출
+		if (index >= 0 && index < m_vecTile.size()) {
+			pathTiles.push_back(m_vecTile[index]);
+		}
+	}
+
+	return pathTiles;
+}
+
 void CTileMgr::Save_Tile()
 {
 	HANDLE	hFile = CreateFile(L"../Data/Tile.dat",

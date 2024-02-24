@@ -20,6 +20,12 @@ void CTank::Initialize()
 {
 	if (m_CurrentState == NON_STATE)
 	{
+		m_eRender = RENDER_GAMEOBJECT;
+
+		//처음 크기 고정
+		m_tInfo.fCX = 128.f;
+		m_tInfo.fCY = 128.f;
+
 		m_vecState.push_back(new CTank_Idle_State);
 		m_vecState.push_back(new CTank_Walk_State);
 		m_vecState.push_back(new CTank_Attack_State);
@@ -27,12 +33,6 @@ void CTank::Initialize()
 
 		ChangeState(IDLE_STATE);
 	}
-
-	m_eRender = RENDER_GAMEOBJECT;
-
-	//처음 크기 고정
-	m_tInfo.fCX = 128.f;
-	m_tInfo.fCY = 128.f;
 }
 
 int CTank::Update()

@@ -72,13 +72,14 @@ void CMainGame::Render()
 	
 	//¹é¹öÆÛ
 	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Back");
-	CSceneMgr::Get_Instance()->Render(hMemDC);
 	BitBlt(m_hDC,
 		0, 0, WINCX, WINCY,
 		hMemDC,
 		0,
 		0,
 		SRCCOPY);	
+
+	CSceneMgr::Get_Instance()->Render(hMemDC);
 }
 
 void CMainGame::Release()

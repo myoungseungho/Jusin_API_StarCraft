@@ -86,11 +86,11 @@ vector<pair<int, int>> CAStarMgr::AStarSearch(const pair<int, int>& start, const
 			}
 			path.push_back({ start.first, start.second }); // 시작점 추가
 			reverse(path.begin(), path.end()); // 경로 뒤집기
-			// 경로 출력
-			for (const auto& p : path) {
-				cout << "(" << p.first << ", " << p.second << ") ";
-			}
-			cout << "Goal reached with cost: " << current.cost << endl;
+			//// 경로 출력
+			//for (const auto& p : path) {
+			//	cout << "(" << p.first << ", " << p.second << ") ";
+			//}
+			//cout << "Goal reached with cost: " << current.cost << endl;
 			return path;
 		}
 

@@ -20,6 +20,12 @@ void CMarine::Initialize()
 {
 	if (m_CurrentState == NON_STATE)
 	{
+		m_eRender = RENDER_GAMEOBJECT;
+
+		//처음 크기 고정
+		m_tInfo.fCX = 64.f;
+		m_tInfo.fCY = 64.f;
+
 		m_vecState.push_back(new CMarine_Idle_State);
 		m_vecState.push_back(new CMarine_Walk_State);
 		m_vecState.push_back(new CMarine_Attack_State);
@@ -27,12 +33,6 @@ void CMarine::Initialize()
 
 		ChangeState(IDLE_STATE);
 	}
-
-	m_eRender = RENDER_GAMEOBJECT;
-
-	//처음 크기 고정
-	m_tInfo.fCX = 64.f;
-	m_tInfo.fCY = 64.f;
 }
 
 int CMarine::Update()

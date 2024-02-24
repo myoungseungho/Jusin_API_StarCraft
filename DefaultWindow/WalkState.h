@@ -17,5 +17,8 @@ public:
 	void Render(CObj_Dynamic*, HDC hDC) override;
 	void Release(CObj_Dynamic*) override;
 	void Move_Frame() override;
+
+protected:
+	vector<CObj*> m_vecPathTile;
 };
 
