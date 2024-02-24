@@ -40,6 +40,7 @@ private:
 	vector<vector<bool>> m_Obstacles;
 
 	int m_MapSize = TILEX; // ∏ ¿« ≈©±‚
+
 };
 
 

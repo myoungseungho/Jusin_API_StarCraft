@@ -57,6 +57,13 @@ bool CAStarMgr::CanMoveDiagonally(const vector<vector<bool>>& obstacles, int cur
 		if (obstacles[currentX][nextY] || obstacles[nextX][currentY]) {
 			return false; // 장애물이 있으면 이동 불가
 		}
+
+
+		//if (!obstacles[nextX][nextY]) {
+		//	return true;
+		//}
+
+		return false;
 	}
 	return true; // 대각선 이동 가능
 }
