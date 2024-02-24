@@ -18,14 +18,14 @@ CMedic::~CMedic()
 
 void CMedic::Initialize()
 {
-	if (m_CurrentState == nullptr)
+	if (m_CurrentState == NON_STATE)
 	{
 		m_vecState.push_back(new CMedic_Idle_State);
 		m_vecState.push_back(new CMedic_Walk_State);
 		m_vecState.push_back(new CMedic_Attack_State);
 		m_vecState.push_back(new CMedic_Die_State);
 
-		ChangeState(m_vecState[IDLE_STATE]);
+		ChangeState(IDLE_STATE);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;
@@ -39,13 +39,13 @@ int CMedic::Update()
 {
 	__super::Update_Rect();
 
-	m_CurrentState->Update(this);
+	m_vecState[m_CurrentState]->Update(this);
 	return OBJ_NOEVENT;
 }
 
 void CMedic::Late_Update()
 {
-	m_CurrentState->Late_Update(this);
+	m_vecState[m_CurrentState]->Late_Update(this);
 
 	__super::Move_Frame();
 }
@@ -69,11 +69,13 @@ void CMedic::Render(HDC hDC)
 		(int)m_tInfo.fCX,	// 출력할 비트맵 가로
 		(int)m_tInfo.fCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
+
+	m_vecState[m_CurrentState]->Render(this, hDC);
 }
 
 void CMedic::Release()
 {
-	m_CurrentState->Release(this);
+	m_vecState[m_CurrentState]->Release(this);
 }
 
 void CMedic::InsertBmpFile()

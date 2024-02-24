@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Obj_Dynamic.h"
-CObj_Dynamic::CObj_Dynamic() : m_CurrentState(nullptr), m_bDead(false)
+CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false)
 {
 }
 
@@ -22,22 +22,15 @@ void CObj_Dynamic::Move_Frame()
 	}
 }
 
-void CObj_Dynamic::ChangeState(IState* _newState)
+void CObj_Dynamic::ChangeState(STATEID _sId)
 {
-	m_CurrentState = _newState;
-	m_CurrentState->Initialize(this);
+	m_CurrentState = _sId;
+	m_vecState[_sId]->Initialize(this);
 }
 
-//void CObj_Dynamic::ChangeStateByType(STATEID _sId)
-//{
-//	IState* newState = CStateMgr::Get_Instance()->GetState(this->GetType(), _sId);
-//	ChangeState(newState);
-//}
-//
-//void CObj_Dynamic::ChangeStateByType(POINT _pt, STATEID _sId)
-//{
-//	m_MousePT = _pt;
-//	IState* newState = CStateMgr::Get_Instance()->GetState(this->GetType(), _sId);
-//	ChangeState(newState);
-//}
+void CObj_Dynamic::ChangeStateWithMouse(POINT _pt, STATEID _sId)
+{
+	m_MousePT = _pt;
+	ChangeState(_sId);
+}
 
