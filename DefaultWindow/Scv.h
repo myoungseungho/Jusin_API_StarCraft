@@ -19,5 +19,8 @@ protected:
 
 private:
 	DWORD m_dwTime;
+
+	// CObj_Dynamic을(를) 통해 상속됨
+	DYNAMIC_OBJID GetType() const override;
 };
 

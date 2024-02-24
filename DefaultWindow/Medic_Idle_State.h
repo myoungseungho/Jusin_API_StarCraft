@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "IdleState.h"
 class CMedic_Idle_State :
-    public IState
+    public IIdleState
 {
 public:
 	CMedic_Idle_State();

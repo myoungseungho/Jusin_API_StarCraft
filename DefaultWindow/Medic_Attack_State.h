@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "AttackState.h"
 class CMedic_Attack_State :
-    public IState
+    public IAttackState
 {
 public:
     CMedic_Attack_State();

@@ -118,6 +118,11 @@ void CMouse::KeyInput()
 				CUnitControlMgr::Get_Instance()->Set_Add_Unit(dynamicObj);
 			}
 		}
+		else
+		{
+			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+			m_bHasSelectUnit = false;
+		}
 	}
 
 	//클릭 되었을 때 유닛 체크
@@ -133,5 +138,12 @@ void CMouse::KeyInput()
 
 		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+		vector<CObj_Dynamic*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnit();
+
+		for (auto& iter : vecUnit)
+		{
+			iter->ChangeStateByType(WALK_STATE);
+		}
 	}
 }

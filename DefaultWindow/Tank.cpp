@@ -17,9 +17,7 @@ void CTank::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYNAMIC_OBJ_TANK))[IDLE_STATE];
-		m_CurrentState = IdleState;
-		ChangeState(IdleState);
+		ChangeStateByType(IDLE_STATE);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;
@@ -92,4 +90,9 @@ void CTank::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Down_Right_170.bmp", L"Tank_Upper_Down_Right_170");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Down.bmp", L"Tank_Upper_Down");
 
+}
+
+DYNAMIC_OBJID CTank::GetType() const
+{
+	return DYNAMIC_OBJ_TANK;
 }

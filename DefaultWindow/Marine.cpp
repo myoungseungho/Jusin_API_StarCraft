@@ -18,9 +18,7 @@ void CMarine::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYNAMIC_OBJ_MARINE))[IDLE_STATE];
-		m_CurrentState = IdleState;
-		ChangeState(IdleState);
+		ChangeStateByType(IDLE_STATE);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;
@@ -96,4 +94,9 @@ void CMarine::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Attack/Mairen_Attack_Down_180.bmp", L"Mairen_Attack_Down_180");
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Die/Marine_Dead.bmp", L"Marine_Dead");
+}
+
+DYNAMIC_OBJID CMarine::GetType() const
+{
+	return DYNAMIC_OBJ_MARINE;
 }

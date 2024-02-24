@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "AttackState.h"
 class CTank_Attack_State :
-    public IState
+    public IAttackState
 {
 public:
     CTank_Attack_State();

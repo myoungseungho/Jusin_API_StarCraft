@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "DieState.h"
 class CTank_Die_State :
-    public IState
+    public IDieState
 {
 public:
     CTank_Die_State();

@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "AttackState.h"
 class CFireBat_Attack_State :
-    public IState
+    public IAttackState
 {
 public:
     CFireBat_Attack_State();

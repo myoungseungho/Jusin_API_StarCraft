@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "AttackState.h"
 class CMarine_Attack_State :
-    public IState
+    public IAttackState
 {
 public:
     CMarine_Attack_State();

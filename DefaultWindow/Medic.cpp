@@ -17,9 +17,7 @@ void CMedic::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYNAMIC_OBJ_MEDIC))[IDLE_STATE];
-		m_CurrentState = IdleState;
-		ChangeState(IdleState);
+		ChangeStateByType(IDLE_STATE);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;
@@ -95,4 +93,9 @@ void CMedic::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Down_Right_170.bmp", L"Medic_Attack_Down_Right_170");
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Die/Medic_Die.bmp", L"Medic_Die");
+}
+
+DYNAMIC_OBJID CMedic::GetType() const
+{
+	return DYNAMIC_OBJ_MEDIC;
 }

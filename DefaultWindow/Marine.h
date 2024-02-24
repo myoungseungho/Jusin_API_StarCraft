@@ -13,5 +13,8 @@ public:
     void Release() override;
 public:
     virtual void InsertBmpFile();
+
+    // CObj_Dynamic을(를) 통해 상속됨
+    DYNAMIC_OBJID GetType() const override;
 };
 

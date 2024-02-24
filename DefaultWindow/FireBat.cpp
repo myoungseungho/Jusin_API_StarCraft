@@ -18,9 +18,7 @@ void CFireBat::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYNAMIC_OBJ_FIREBAT))[IDLE_STATE];
-		m_CurrentState = IdleState;
-		ChangeState(IdleState);
+		ChangeStateByType(IDLE_STATE);
 	}
 
 	m_eRender = RENDER_GAMEOBJECT;
@@ -106,4 +104,9 @@ void CFireBat::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down_Right_150.bmp", L"FireBat_Bullet_Down_Right_150");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down_Right_170.bmp", L"FireBat_Bullet_Down_Right_170");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down.bmp", L"FireBat_Bullet_Down");
+}
+
+DYNAMIC_OBJID CFireBat::GetType() const
+{
+	return DYNAMIC_OBJ_FIREBAT;
 }

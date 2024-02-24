@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "IdleState.h"
 class CScv_Idle_State :
-	public IState
+	public IIdleState
 {
 public:
 	CScv_Idle_State();

@@ -15,6 +15,18 @@ CAStarMgr::~CAStarMgr()
 
 void CAStarMgr::Initialize()
 {
+	Init_ObstacleTile();
+}
+
+// 옥타일 거리 계산 함수
+double CAStarMgr::OctileDistance(int x1, int y1, int x2, int y2) {
+	int dx = abs(x1 - x2);
+	int dy = abs(y1 - y2);
+	return sqrt(2) * min(dx, dy) + abs(dx - dy); // 대각선 이동 후 남은 직선 이동
+}
+
+void CAStarMgr::Init_ObstacleTile()
+{
 	for (size_t i = 0; i < m_MapSize; i++)
 	{
 		vector<bool> row;
@@ -26,6 +38,7 @@ void CAStarMgr::Initialize()
 		m_Obstacles.push_back(row);
 	}
 
+	//장애물 타일 로드
 	vector<CObj*> obstcalesTile = CTileMgr::Get_Instance()->GetVecObstcales();
 
 	for (auto iter : obstcalesTile)
@@ -35,13 +48,6 @@ void CAStarMgr::Initialize()
 
 		m_Obstacles[x][y] = true;
 	}
-}
-
-// 옥타일 거리 계산 함수
-double CAStarMgr::OctileDistance(int x1, int y1, int x2, int y2) {
-	int dx = abs(x1 - x2);
-	int dy = abs(y1 - y2);
-	return sqrt(2) * min(dx, dy) + abs(dx - dy); // 대각선 이동 후 남은 직선 이동
 }
 
 // 대각선 이동이 가능한지 확인하는 함수
@@ -59,6 +65,7 @@ bool CAStarMgr::CanMoveDiagonally(const vector<vector<bool>>& obstacles, int cur
 
 bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& goal, int n, const vector<vector<bool>>& obstacles)
 {
+	vector<vector<pair<int, int>>> cameFrom(n, vector<pair<int, int>>(n, { -1, -1 })); // 부모 노드 추적
 	vector<vector<bool>> closedSet(n, vector<bool>(n, false)); // 이미 평가한 노드 집합
 	priority_queue<Node, vector<Node>, CompareNode> openSet; // 평가할 노드의 우선순위 큐
 
@@ -70,6 +77,20 @@ bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& g
 
 		// 목적지에 도달했는지 확인
 		if (current.x == goal.first && current.y == goal.second) {
+			vector<pair<int, int>> path;
+			while (!(current.x == start.first && current.y == start.second)) {
+				path.push_back({ current.x, current.y });
+				auto parent = cameFrom[current.x][current.y];
+				current.x = parent.first;
+				current.y = parent.second;
+			}
+			path.push_back({ start.first, start.second }); // 시작점 추가
+			reverse(path.begin(), path.end()); // 경로 뒤집기
+			// 경로 출력
+			for (const auto& p : path) {
+				cout << "(" << p.first << ", " << p.second << ") ";
+			}
+			cout << "Goal reached with cost: " << current.cost << endl;
 			return true;
 		}
 
@@ -91,6 +112,7 @@ bool CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& g
 					double nextCost = current.cost + moveCost;
 					double nextHeuristic = OctileDistance(nextX, nextY, goal.first, goal.second);
 					openSet.push(Node(nextX, nextY, nextCost, nextHeuristic));
+					cameFrom[nextX][nextY] = { current.x, current.y }; // 부모 노드 업데이트
 				}
 			}
 		}

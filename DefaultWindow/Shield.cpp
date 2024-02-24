@@ -50,3 +50,8 @@ void CShield::Render(HDC hDC)
 void CShield::Release()
 {
 }
+
+DYNAMIC_OBJID CShield::GetType() const
+{
+	return DYNAMIC_OBJ_END;
+}

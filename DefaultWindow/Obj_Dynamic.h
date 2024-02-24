@@ -22,7 +22,12 @@ public:
 	void		Set_Dead() { m_bDead = true; }
 	bool		Get_Dead() { return m_bDead; }
 	void		Move_Frame();
+
     void		ChangeState(IState*);
+
+	void ChangeStateByType(STATEID _sId);
+
+	virtual DYNAMIC_OBJID GetType() const PURE;
 
 protected:
 	float		m_fSpeed;

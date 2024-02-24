@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "WalkState.h"
 class CScv_Walk_State :
-    public IState
+    public IWalkState
 {
 public:
     CScv_Walk_State();

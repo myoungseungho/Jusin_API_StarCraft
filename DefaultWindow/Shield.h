@@ -12,5 +12,7 @@ public:
 	virtual void Late_Update() override;
 	virtual void Render(HDC hDC) override;
 	virtual void Release() override;
+
+	DYNAMIC_OBJID GetType() const override;
 };
 

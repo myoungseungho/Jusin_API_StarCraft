@@ -29,7 +29,8 @@ public:
 	bool AStarSearch(const pair<int, int>& start, const pair<int, int>& goal, int n, const vector<vector<bool>>& obstacles);
 	bool CanMoveDiagonally(const vector<vector<bool>>& obstacles, int currentX, int currentY, int nextX, int nextY);
 	double OctileDistance(int x1, int y1, int x2, int y2);
-
+private:
+	void Init_ObstacleTile();
 private:
 	static CAStarMgr* m_pInstance;
 

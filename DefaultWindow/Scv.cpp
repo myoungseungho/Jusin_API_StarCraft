@@ -20,7 +20,7 @@ void CScv::Initialize()
 {
 	if (m_CurrentState == nullptr)
 	{
-		IState* IdleState = (*CStateMgr::Get_Instance()->GetVecObjState(DYANMIC_OBJ_SCV))[IDLE_STATE];
+		IState* IdleState = CStateMgr::Get_Instance()->GetState(DYANMIC_OBJ_SCV, IDLE_STATE);
 		m_CurrentState = IdleState;
 		ChangeState(IdleState);
 	}
@@ -97,4 +97,9 @@ void CScv::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_ATTACK.bmp", L"SCV_ATTACK");
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/ScvAtt/SCV_Bullet.bmp", L"SCV_Bullet");
+}
+
+DYNAMIC_OBJID CScv::GetType() const
+{
+	return DYANMIC_OBJ_SCV;
 }

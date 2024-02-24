@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "IdleState.h"
 class CFireBat_Idle_State :
-    public IState
+    public IIdleState
 {
 public:
     CFireBat_Idle_State();

@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "AttackState.h"
 class CScv_Attack_State :
-    public IState
+    public IAttackState
 {
 public:
     CScv_Attack_State();

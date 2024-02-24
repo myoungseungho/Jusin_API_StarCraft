@@ -1,7 +1,7 @@
 #pragma once
-#include "State.h"
+#include "DieState.h"
 class CScv_Die_State :
-    public IState
+    public IDieState
 {
 public:
     CScv_Die_State();

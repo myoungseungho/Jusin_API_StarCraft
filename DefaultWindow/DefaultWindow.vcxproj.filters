@@ -124,6 +124,9 @@
     <Filter Include="02. Design\12. UnitControlMgr">
       <UniqueIdentifier>{30f53ef9-b948-44ed-9e4a-7a455cf48554}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\State">
+      <UniqueIdentifier>{069f3cf1-2b08-40f2-9016-f0b17b0b182b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -231,9 +234,6 @@
     <ClInclude Include="Scv_Walk_State.h">
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
-    <ClInclude Include="State.h">
-      <Filter>01. Obj</Filter>
-    </ClInclude>
     <ClInclude Include="StateMgr.h">
       <Filter>02. Design\10. StateMgr</Filter>
     </ClInclude>
@@ -317,6 +317,21 @@
     </ClInclude>
     <ClInclude Include="UnitControlMgr.h">
       <Filter>02. Design\12. UnitControlMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>01. Obj\State</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackState.h">
+      <Filter>01. Obj\State</Filter>
+    </ClInclude>
+    <ClInclude Include="DieState.h">
+      <Filter>01. Obj\State</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleState.h">
+      <Filter>01. Obj\State</Filter>
+    </ClInclude>
+    <ClInclude Include="WalkState.h">
+      <Filter>01. Obj\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -413,9 +428,6 @@
     <ClCompile Include="Scv_Walk_State.cpp">
       <Filter>01. Obj\00. SCV</Filter>
     </ClCompile>
-    <ClCompile Include="State.cpp">
-      <Filter>01. Obj</Filter>
-    </ClCompile>
     <ClCompile Include="StateMgr.cpp">
       <Filter>02. Design\10. StateMgr</Filter>
     </ClCompile>
@@ -499,6 +511,21 @@
     </ClCompile>
     <ClCompile Include="UnitControlMgr.cpp">
       <Filter>02. Design\12. UnitControlMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>01. Obj\State</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackState.cpp">
+      <Filter>01. Obj\State</Filter>
+    </ClCompile>
+    <ClCompile Include="DieState.cpp">
+      <Filter>01. Obj\State</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleState.cpp">
+      <Filter>01. Obj\State</Filter>
+    </ClCompile>
+    <ClCompile Include="WalkState.cpp">
+      <Filter>01. Obj\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
