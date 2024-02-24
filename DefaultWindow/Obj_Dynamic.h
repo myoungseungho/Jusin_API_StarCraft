@@ -25,8 +25,8 @@ public:
 
 	void		ChangeState(IState*);
 
-	void ChangeStateByType(STATEID _sId);
-	void ChangeStateByType(POINT _pt, STATEID _sId);
+	/*void ChangeStateByType(STATEID _sId);
+	void ChangeStateByType(POINT _pt, STATEID _sId);*/
 
 	POINT GetMousePT() { return m_MousePT; };
 

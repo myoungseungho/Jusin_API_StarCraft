@@ -234,9 +234,6 @@
     <ClInclude Include="Scv_Walk_State.h">
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
-    <ClInclude Include="StateMgr.h">
-      <Filter>02. Design\10. StateMgr</Filter>
-    </ClInclude>
     <ClInclude Include="Scv_Attack_State.h">
       <Filter>01. Obj\00. SCV</Filter>
     </ClInclude>
@@ -427,9 +424,6 @@
     </ClCompile>
     <ClCompile Include="Scv_Walk_State.cpp">
       <Filter>01. Obj\00. SCV</Filter>
-    </ClCompile>
-    <ClCompile Include="StateMgr.cpp">
-      <Filter>02. Design\10. StateMgr</Filter>
     </ClCompile>
     <ClCompile Include="Scv_Attack_State.cpp">
       <Filter>01. Obj\00. SCV</Filter>

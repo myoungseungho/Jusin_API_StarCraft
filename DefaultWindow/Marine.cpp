@@ -2,7 +2,6 @@
 #include "Marine.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
-#include "StateMgr.h"
 #include "Marine_Idle_State.h"
 #include "Marine_Walk_State.h"
 #include "Marine_Attack_State.h"

@@ -203,7 +203,6 @@
     <ClInclude Include="SpawnMgr.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="State.h" />
-    <ClInclude Include="StateMgr.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tank.h" />
     <ClInclude Include="Tank_Attack_State.h" />
@@ -270,7 +269,6 @@
     <ClCompile Include="SpawnMgr.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="State.cpp" />
-    <ClCompile Include="StateMgr.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

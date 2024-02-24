@@ -2,7 +2,6 @@
 #include "Scv.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
-#include "StateMgr.h"
 #include "Scv_Idle_State.h"
 #include "Scv_Walk_State.h"
 #include "Scv_Attack_State.h"

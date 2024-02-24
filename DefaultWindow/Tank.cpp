@@ -2,7 +2,6 @@
 #include "Tank.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
-#include "StateMgr.h"
 #include "Tank_Idle_State.h"
 #include "Tank_Walk_State.h"
 #include "Tank_Attack_State.h"

@@ -9,7 +9,6 @@
 #include "TileMgr.h"
 #include "Monster.h"
 #include "Scv.h"
-#include "StateMgr.h"
 #include "Marine.h"
 #include "SpawnMgr.h"
 #include "FireBat.h"

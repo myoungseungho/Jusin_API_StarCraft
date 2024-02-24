@@ -2,7 +2,6 @@
 #include "Medic.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
-#include "StateMgr.h"
 #include "Medic_Idle_State.h"
 #include "Medic_Walk_State.h"
 #include "Medic_Attack_State.h"

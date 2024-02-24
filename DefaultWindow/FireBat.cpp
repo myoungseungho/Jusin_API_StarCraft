@@ -2,7 +2,6 @@
 #include "FireBat.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
-#include "StateMgr.h"
 #include "FireBat_Idle_State.h"
 #include "FireBat_Walk_State.h"
 #include "FireBat_Attack_State.h"
