@@ -25,6 +25,7 @@ public:
 	}
 public:
 	void		Initialize();
+
 public:
 	vector<pair<int, int>> AStarSearch(const pair<int, int>& start, const pair<int, int>& goal);
 	bool CanMoveDiagonally(const vector<vector<bool>>& obstacles, int currentX, int currentY, int nextX, int nextY);
@@ -36,8 +37,8 @@ private:
 private:
 	static CAStarMgr* m_pInstance;
 
-
 	vector<vector<bool>> m_Obstacles;
+
 	int m_MapSize = TILEX; // ∏ ¿« ≈©±‚
 };
 

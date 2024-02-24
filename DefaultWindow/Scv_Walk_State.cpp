@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Scv_Walk_State.h"
-
+#include "TileMgr.h"
 CScv_Walk_State::CScv_Walk_State()
 {
 }
@@ -36,7 +36,6 @@ void CScv_Walk_State::Initialize(CObj_Dynamic* _scv)
 
 int CScv_Walk_State::Update(CObj_Dynamic*)
 {
-
 	return OBJ_NOEVENT;
 }
 
@@ -44,8 +43,9 @@ void CScv_Walk_State::Late_Update(CObj_Dynamic*)
 {
 }
 
-void CScv_Walk_State::Render(CObj_Dynamic*, HDC hDC)
+void CScv_Walk_State::Render(CObj_Dynamic* _scv, HDC hDC)
 {
+	
 }
 
 void CScv_Walk_State::Release(CObj_Dynamic*)

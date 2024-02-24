@@ -118,33 +118,5 @@ vector<pair<int, int>> CAStarMgr::AStarSearch(const pair<int, int>& start, const
 		}
 	}
 
-	//빈컨테이너 반환
 	return vector<pair<int, int>>();
 }
-
-//int main() {
-//	pair<int, int> start(0, 0); // 출발지점
-//	pair<int, int> goal(3, 3); // 목적지
-//	int n = 4; // 맵의 크기
-//
-//	// 장애물 설정 /*(n, vector<bool>(n, false));*/
-//	vector<vector<bool>> obstacles;
-//
-//	for (size_t i = 0; i < n; i++)
-//	{
-//		vector<bool> row;
-//		for (size_t j = 0; j < n; j++)
-//		{
-//			row.push_back(false);
-//		}
-//
-//		obstacles.push_back(row);
-//	}
-//
-//	obstacles[1][1] = true;
-//	obstacles[2][2] = true;
-//
-//	AStarSearch(start, goal, n, obstacles);
-//
-//	return 0;
-//}
