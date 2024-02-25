@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Obj_Dynamic.h"
+#include "CollisionMgr.h"
 CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false)
 {
 }

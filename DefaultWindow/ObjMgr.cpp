@@ -136,6 +136,17 @@ void CObjMgr::Late_Update()
 			m_RenderList[eID].push_back(iter);
 		}
 	}
+
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	{
+		for (auto iter : m_Dynamic_Obj_List[i])
+		{
+			list<CObj*> listExceptMe = m_Dynamic_Obj_List[i];
+			listExceptMe.remove(iter);
+
+			CCollisionMgr::Collision_RectEx(iter, listExceptMe);
+		}
+	}
 }
 
 void CObjMgr::Render(HDC hDC)

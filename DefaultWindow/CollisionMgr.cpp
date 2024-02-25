@@ -31,13 +31,13 @@ void CCollisionMgr::Collision_Rect(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic*>
 
 bool CCollisionMgr::Check_Sphere(CObj_Dynamic* pDst, CObj_Dynamic* pSrc)
 {
-	float	fWidth  = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
+	float	fWidth = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
 	float	fHeight = abs(pDst->Get_Info().fY - pSrc->Get_Info().fY);
 
 	float	fDiagonal = sqrt(fWidth * fWidth + fHeight * fHeight);
 
 	float	fRadius = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.5f;
-	
+
 	return fRadius >= fDiagonal;
 }
 
@@ -56,13 +56,13 @@ void CCollisionMgr::Collision_Sphere(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic
 	}
 }
 
-bool CCollisionMgr::Check_Rect(float * pX, float * pY, CObj_Dynamic* pDst, CObj_Dynamic* pSrc)
+bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc)
 {
 	float		fDistance_W = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
 	float		fDistance_H = abs(pDst->Get_Info().fY - pSrc->Get_Info().fY);
 
-	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.5f;
-	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * 0.5f;
+	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.2f;
+	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * 0.2f;
 
 	if ((fRadiusX >= fDistance_W) && (fRadiusY >= fDistance_H))
 	{
@@ -75,7 +75,8 @@ bool CCollisionMgr::Check_Rect(float * pX, float * pY, CObj_Dynamic* pDst, CObj_
 	return false;
 }
 
-void CCollisionMgr::Collision_RectEx(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic*> _Src)
+
+void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 {
 	float	fX(0.f), fY(0.f);
 
@@ -115,6 +116,50 @@ void CCollisionMgr::Collision_RectEx(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic
 					{
 						Dst->Set_PosX(fX);
 					}
+				}
+			}
+		}
+	}
+}
+
+
+void CCollisionMgr::Collision_RectEx(CObj* _Dst, list<CObj*> _Src)
+{
+	float	fX(0.f), fY(0.f);
+
+	for (auto& Src : _Src)
+	{
+		if (Check_Rect(&fX, &fY, _Dst, Src))
+		{
+			// 상하 충돌
+			if (fX > fY)
+			{
+				// 상 충돌
+				if (_Dst->Get_Info().fY < Src->Get_Info().fY)
+				{
+					_Dst->Set_PosY(-fY);
+				}
+
+				// 하 충돌
+				else
+				{
+					_Dst->Set_PosY(fY);
+				}
+			}
+
+			// 좌우 충돌
+			else
+			{
+				// 좌 충돌
+				if (_Dst->Get_Info().fX < Src->Get_Info().fX)
+				{
+					_Dst->Set_PosX(-fX);
+				}
+
+				// 우 충돌
+				else
+				{
+					_Dst->Set_PosX(fX);
 				}
 			}
 		}
