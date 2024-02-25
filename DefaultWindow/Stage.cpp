@@ -16,7 +16,8 @@
 #include "Tank.h"
 #include "Mouse.h"
 #include "AStarMgr.h"
-CStage::CStage() : m_Cursor_Speed(0.f)
+#include "KeyMgr.h"
+CStage::CStage()
 {
 }
 
@@ -28,20 +29,19 @@ CStage::~CStage()
 
 void CStage::Initialize()
 {
-	m_Cursor_Speed = 12.f;
-
 	CTileMgr::Get_Instance()->Load_Tile();
 	CAStarMgr::Get_Instance()->Initialize();
+	CKeyMgr::Get_Instance()->Initialize();
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
 
-	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
-	InitSpawn();
+	Init_Obj_Spawn();
 }
 
 int CStage::Update()
 {
+	CKeyMgr::Get_Instance()->Update();
 	CTileMgr::Get_Instance()->Update();
 	CObjMgr::Get_Instance()->Update();
 
@@ -50,10 +50,9 @@ int CStage::Update()
 
 void CStage::Late_Update()
 {
+	CKeyMgr::Get_Instance()->Late_Update();
 	CTileMgr::Get_Instance()->Late_Update();
 	CObjMgr::Get_Instance()->Late_Update();
-	//Key_Input();
-	OffSet();
 }
 
 void CStage::Render(HDC hDC)
@@ -99,8 +98,9 @@ void CStage::Release()
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_TANK);
 }
 
-void CStage::InitSpawn()
+void CStage::Init_Obj_Spawn()
 {
+	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
 	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, 200.f, 200.f);
 	/*CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(OBJ_SCV, ATTACK_STATE, 200.f, 300.f);
 
@@ -119,56 +119,4 @@ void CStage::InitSpawn()
 	CObj_Dynamic* medic4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, DIE_STATE, 500.f, 500.f);
 
 	CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(OBJ_TANK, WALK_STATE, 600.f, 200.f);*/
-}
-
-
-void CStage::Key_Input()
-{
-	float fY(0.f);
-
-	if (GetAsyncKeyState(VK_RIGHT))
-	{
-		CScrollMgr::Get_Instance()->Set_ScrollX(-10.f);
-	}
-
-	else if (GetAsyncKeyState(VK_LEFT))
-	{
-		CScrollMgr::Get_Instance()->Set_ScrollX(10.f);
-	}
-
-	else if (GetAsyncKeyState(VK_UP))
-	{
-		CScrollMgr::Get_Instance()->Set_ScrollY(10.f);
-
-	}
-
-	else if (GetAsyncKeyState(VK_DOWN))
-	{
-		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
-	}
-}
-
-void CStage::OffSet()
-{
-	int	iOffSetMinX = 0;
-	int	iOffSetMaxX = WINCX;
-
-	int	iOffSetMinY = 0;
-	int	iOffSetMaxY = WINCY;
-
-	POINT	Pt;
-	GetCursorPos(&Pt);
-	ScreenToClient(g_hWnd, &Pt);
-
-	if (iOffSetMinX > Pt.x)
-		CScrollMgr::Get_Instance()->Set_ScrollX(m_Cursor_Speed);
-
-	if (iOffSetMaxX < Pt.x)
-		CScrollMgr::Get_Instance()->Set_ScrollX(-m_Cursor_Speed);
-
-	if (iOffSetMinY > Pt.y)
-		CScrollMgr::Get_Instance()->Set_ScrollY(m_Cursor_Speed);
-
-	if (iOffSetMaxY < Pt.y)
-		CScrollMgr::Get_Instance()->Set_ScrollY(-m_Cursor_Speed);
 }

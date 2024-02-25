@@ -103,6 +103,14 @@ enum STATEID
 	END_STATE
 };
 
+enum MOUSESTATE
+{
+	MOUSE_IDLE_STATE = -1,
+	MOUSE_LCLICK,
+	MOUSE_RCLICK,
+	MOUSE_END
+};
+
 
 typedef struct tagInfo
 {

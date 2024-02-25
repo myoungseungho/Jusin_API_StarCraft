@@ -25,6 +25,7 @@ public:
 	}
 public:
 	void		Initialize();
+	void		Release();
 
 public:
 	list<pair<int, int>> AStarSearch(const pair<int, int>& start, const pair<int, int>& goal);
@@ -40,7 +41,6 @@ private:
 	vector<vector<bool>> m_Obstacles;
 
 	int m_MapSize = TILEX; // ∏ ¿« ≈©±‚
-
 };
 
 

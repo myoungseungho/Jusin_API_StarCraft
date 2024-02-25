@@ -127,6 +127,15 @@
     <Filter Include="01. Obj\State">
       <UniqueIdentifier>{069f3cf1-2b08-40f2-9016-f0b17b0b182b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\13. Command">
+      <UniqueIdentifier>{2a689449-b0f6-4983-9457-84514817ad87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\13. Command\00. LClick_Mouse">
+      <UniqueIdentifier>{6e747243-0019-4f2f-bba2-2620bb3f0729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\13. Command\01. RClick_Mouse">
+      <UniqueIdentifier>{83a52437-eeb3-4ef3-b338-ec7027291463}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -330,6 +339,15 @@
     <ClInclude Include="WalkState.h">
       <Filter>01. Obj\State</Filter>
     </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>02. Design\13. Command</Filter>
+    </ClInclude>
+    <ClInclude Include="LClick_Mouse.h">
+      <Filter>02. Design\13. Command\00. LClick_Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="RClick_Mouse.h">
+      <Filter>02. Design\13. Command\01. RClick_Mouse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -520,6 +538,15 @@
     </ClCompile>
     <ClCompile Include="WalkState.cpp">
       <Filter>01. Obj\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>02. Design\13. Command</Filter>
+    </ClCompile>
+    <ClCompile Include="LClick_Mouse.cpp">
+      <Filter>02. Design\13. Command\00. LClick_Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="RClick_Mouse.cpp">
+      <Filter>02. Design\13. Command\01. RClick_Mouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

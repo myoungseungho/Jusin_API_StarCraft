@@ -14,10 +14,6 @@ public:
 	virtual void Render(HDC hDC) override;
 	virtual void Release() override;
 private:
-	void InitSpawn();
-	void Key_Input();
-	void OffSet();
-private:
-	float m_Cursor_Speed;
+	void Init_Obj_Spawn();
 };
 

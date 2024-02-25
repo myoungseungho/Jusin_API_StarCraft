@@ -11,6 +11,8 @@
 #include "SceneMgr.h"
 #include "TileMgr.h"
 #include "SpawnMgr.h"
+#include "AStarMgr.h"
+#include "UnitControlMgr.h"
 
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
 {
@@ -92,6 +94,8 @@ void CMainGame::Release()
 	CSceneMgr::Get_Instance()->Destroy_Instance();
 	CObjMgr::Get_Instance()->Destroy_Instance();
 	CSpawnMgr::Get_Instance()->Destroy_Instance();
+	CAStarMgr::Get_Instance()->Destroy_Instance();
+	CUnitControlMgr::Get_Instance()->Destroy_Instance();
 	ReleaseDC(g_hWnd, m_hDC);	
 }
 

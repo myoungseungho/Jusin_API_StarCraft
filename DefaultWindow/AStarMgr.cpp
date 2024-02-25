@@ -10,12 +10,18 @@ CAStarMgr::CAStarMgr()
 
 CAStarMgr::~CAStarMgr()
 {
+	Release();
 }
 
 
 void CAStarMgr::Initialize()
 {
 	Init_ObstacleTile();
+}
+
+void CAStarMgr::Release()
+{
+
 }
 
 // 옥타일 거리 계산 함수

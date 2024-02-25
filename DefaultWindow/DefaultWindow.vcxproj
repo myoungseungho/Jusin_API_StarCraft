@@ -154,6 +154,7 @@
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="CollisionMgr.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="DefaultWindow.h" />
     <ClInclude Include="DieState.h" />
     <ClInclude Include="FireBat.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="GuideBullet.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="KeyMgr.h" />
+    <ClInclude Include="LClick_Mouse.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineMgr.h" />
     <ClInclude Include="Logo.h" />
@@ -189,6 +191,7 @@
     <ClInclude Include="Obj_Dynamic.h" />
     <ClInclude Include="Obj_UI.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RClick_Mouse.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
@@ -221,6 +224,7 @@
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="DefaultWindow.cpp" />
     <ClCompile Include="DieState.cpp" />
     <ClCompile Include="FireBat.cpp" />
@@ -231,6 +235,7 @@
     <ClCompile Include="GuideBullet.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
+    <ClCompile Include="LClick_Mouse.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineMgr.cpp" />
     <ClCompile Include="Logo.cpp" />
@@ -256,6 +261,7 @@
     <ClCompile Include="Obj_Dynamic.cpp" />
     <ClCompile Include="Obj_UI.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RClick_Mouse.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="ScrewBullet.cpp" />

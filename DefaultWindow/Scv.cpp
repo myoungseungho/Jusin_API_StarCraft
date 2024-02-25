@@ -80,7 +80,7 @@ void CScv::Render(HDC hDC)
 
 void CScv::Release()
 {
-	m_vecState[m_CurrentState]->Release(this);
+	for_each(m_vecState.begin(),m_vecState.end(),Safe_Delete<IState*>);
 }
 
 
