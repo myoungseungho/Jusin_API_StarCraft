@@ -27,7 +27,7 @@ void CLClick_Mouse::Initialize()
 	POINT	Pt;
 	GetCursorPos(&Pt);
 	ScreenToClient(g_hWnd, &Pt);
-	bool bHasSelectUnit = CKeyMgr::Get_Instance()->Get_bSelectUnit();
+	bool bHasSelect = CKeyMgr::Get_Instance()->Get_bSelectUnit();
 	Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
@@ -39,15 +39,12 @@ void CLClick_Mouse::Initialize()
 
 	if (target != nullptr)
 	{
-		//이미 유닛이 한마리 선택되었다면
-		if (bHasSelectUnit)
-		{
+		//오브젝트가 이미 선택되었다면
+		if (bHasSelect)
 			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
-			CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
-		}
 
-		CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 		CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
+		CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 	}
 	else
 	{

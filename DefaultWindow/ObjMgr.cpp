@@ -229,6 +229,18 @@ CObj* CObjMgr::Get_Target(float _fX, float _fY)
 		}
 	}
 
+	for (size_t i = 0; i < STATIC_OBJ_END; i++)
+	{
+		for (auto iter : m_Static_Obj_List[i])
+		{
+			RECT rect = iter->Get_Rect();
+			if (rect.left <= _fX && rect.right >= _fX && rect.top <= _fY && rect.bottom >= _fY)
+			{
+				return iter;
+			}
+		}
+	}
+
 	return nullptr;
 }
 
