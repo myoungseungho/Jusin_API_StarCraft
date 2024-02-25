@@ -21,7 +21,7 @@ void CObjMgr::Add_Dynamic_Object(DYNAMIC_OBJID eID, CObj* pObj)
 	m_Dynamic_Obj_List[eID].push_back(pObj);
 }
 
-void CObjMgr::Add_Static_Object(STATIC_OBJID eID, CObj* pObj)
+void CObjMgr::Add_Static_Object(BUILDINGSTATE eID, CObj* pObj)
 {
 	if (STATIC_OBJ_END <= eID || nullptr == pObj)
 		return;
@@ -196,7 +196,7 @@ void CObjMgr::Delete_ID_DynamicObj(DYNAMIC_OBJID eId)
 	m_Dynamic_Obj_List[eId].clear();
 }
 
-void CObjMgr::Delete_ID_StaticObj(STATIC_OBJID eId)
+void CObjMgr::Delete_ID_StaticObj(BUILDINGSTATE eId)
 {
 	for (auto& iter : m_Static_Obj_List[eId])
 		Safe_Delete(iter);

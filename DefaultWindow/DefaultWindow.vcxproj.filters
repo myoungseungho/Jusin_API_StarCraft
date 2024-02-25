@@ -19,38 +19,17 @@
     <Filter Include="01. Obj">
       <UniqueIdentifier>{6aa7d5df-8368-4d31-9ac2-4202cb4e5c47}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\00. Player">
-      <UniqueIdentifier>{aaab6f46-7296-47ae-b10a-031025330658}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\01. Bullet">
-      <UniqueIdentifier>{fece5fd1-6766-4601-bf1c-e30668452e7a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design">
       <UniqueIdentifier>{94273d24-295e-40c6-afcc-4296d8032887}</UniqueIdentifier>
     </Filter>
     <Filter Include="02. Design\00. AbstactFactory">
       <UniqueIdentifier>{3f081ade-d188-434a-90b2-f63148f8d050}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\02. Monster">
-      <UniqueIdentifier>{b48e97f3-0715-48ae-bd1d-1c45a6d8012a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\03. Mouse">
-      <UniqueIdentifier>{49a6676e-ddb4-4fb8-a84f-5f0ff0855918}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design\01. CollisionMgr">
       <UniqueIdentifier>{1701abda-9731-4cdf-bdb3-cf6476c83b31}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\04. Shield">
-      <UniqueIdentifier>{2e5920fe-72ba-44c1-bd75-cc6cefae9de5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\01. Bullet\00. ScrewBullet">
-      <UniqueIdentifier>{422afc76-3dda-4926-ac0c-63d02102da1c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design\02. ObjMgr">
       <UniqueIdentifier>{91912d24-e1a9-47bd-83d8-b49b50d99559}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\01. Bullet\01. GuideBullet">
-      <UniqueIdentifier>{7510fbd8-b568-4a49-b9c3-adfc8b08a257}</UniqueIdentifier>
     </Filter>
     <Filter Include="02. Design\03. LineMgr">
       <UniqueIdentifier>{a8f17a46-63d0-4934-ac25-ef6ea417ce93}</UniqueIdentifier>
@@ -88,35 +67,17 @@
     <Filter Include="02. Design\07. SceneMgr">
       <UniqueIdentifier>{7826d931-14cf-4a36-9128-873db95d8a95}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\05. Button">
-      <UniqueIdentifier>{4b5707e4-100e-457f-a4e3-0d1e8ec874b8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design\08. TileMgr">
       <UniqueIdentifier>{3594b657-e6e6-4095-b4fb-096eff22befd}</UniqueIdentifier>
     </Filter>
     <Filter Include="02. Design\08. TileMgr\Tile">
       <UniqueIdentifier>{c3d26921-edd5-4e37-8189-4e64123a51c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\00. SCV">
-      <UniqueIdentifier>{6a4274f2-9f9d-4cff-a275-70366220d155}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\02. FireBat">
-      <UniqueIdentifier>{91f86948-f428-460e-aede-5ddeab4a28ee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\01. Marine">
-      <UniqueIdentifier>{60e8eb9a-e7c8-4e55-99b3-c383d8ce1721}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design\09. SpawnMgr">
       <UniqueIdentifier>{ec70f520-a58d-4872-a9d1-7434d998dfdc}</UniqueIdentifier>
     </Filter>
     <Filter Include="02. Design\10. StateMgr">
       <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\03. Medic">
-      <UniqueIdentifier>{6f65cba0-f856-4439-aad3-7d4a10db076b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\04. Tank">
-      <UniqueIdentifier>{e2c9fba2-ce7c-4e32-8a54-bca847a06d46}</UniqueIdentifier>
     </Filter>
     <Filter Include="02. Design\11. AStarMgr">
       <UniqueIdentifier>{754129c0-3958-4f98-9390-cf29defa630f}</UniqueIdentifier>
@@ -133,23 +94,47 @@
     <Filter Include="02. Design\13. Command\01. RClick_Mouse">
       <UniqueIdentifier>{83a52437-eeb3-4ef3-b338-ec7027291463}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\99.State">
-      <UniqueIdentifier>{069f3cf1-2b08-40f2-9016-f0b17b0b182b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\99.State\00. IdleState">
-      <UniqueIdentifier>{d8bc417e-c17c-4ff3-9d2f-d4fd0c6afcbf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\99.State\01. WalkState">
-      <UniqueIdentifier>{65bdd091-c153-4e30-a290-7858bea58079}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\99.State\02. AttackState">
-      <UniqueIdentifier>{5a3ed58a-0adc-41f8-a7d7-ca175111bbc1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01. Obj\99.State\03. DieState">
-      <UniqueIdentifier>{4ad622c7-c225-4ba8-8dbd-b1dd84749c7b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design\13. Command\02. Drag_LClick_Mouse">
       <UniqueIdentifier>{bb6d4831-5e6d-4243-9fca-242f0507d1d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00. Unit">
+      <UniqueIdentifier>{a852af64-0a1b-4dc8-acef-9d46f5b738cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00. Unit\00. SCV">
+      <UniqueIdentifier>{6a4274f2-9f9d-4cff-a275-70366220d155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00. Unit\01. Marine">
+      <UniqueIdentifier>{60e8eb9a-e7c8-4e55-99b3-c383d8ce1721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00. Unit\02. FireBat">
+      <UniqueIdentifier>{91f86948-f428-460e-aede-5ddeab4a28ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00. Unit\03. Medic">
+      <UniqueIdentifier>{6f65cba0-f856-4439-aad3-7d4a10db076b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00. Unit\03. Mouse">
+      <UniqueIdentifier>{49a6676e-ddb4-4fb8-a84f-5f0ff0855918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\00. Unit\04. Tank">
+      <UniqueIdentifier>{e2c9fba2-ce7c-4e32-8a54-bca847a06d46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding">
+      <UniqueIdentifier>{083f6183-df99-4540-823e-f74c968a0115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99. State">
+      <UniqueIdentifier>{069f3cf1-2b08-40f2-9016-f0b17b0b182b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99. State\00. IdleState">
+      <UniqueIdentifier>{d8bc417e-c17c-4ff3-9d2f-d4fd0c6afcbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99. State\01. WalkState">
+      <UniqueIdentifier>{65bdd091-c153-4e30-a290-7858bea58079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99. State\02. AttackState">
+      <UniqueIdentifier>{5a3ed58a-0adc-41f8-a7d7-ca175111bbc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99. State\03. DieState">
+      <UniqueIdentifier>{4ad622c7-c225-4ba8-8dbd-b1dd84749c7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -174,35 +159,17 @@
     <ClInclude Include="Obj.h">
       <Filter>01. Obj</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>01. Obj\00. Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>01. Obj\01. Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="AbstractFactory.h">
       <Filter>02. Design\00. AbstactFactory</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>01. Obj\02. Monster</Filter>
-    </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>01. Obj\03. Mouse</Filter>
+      <Filter>01. Obj\00. Unit\03. Mouse</Filter>
     </ClInclude>
     <ClInclude Include="CollisionMgr.h">
       <Filter>02. Design\01. CollisionMgr</Filter>
     </ClInclude>
-    <ClInclude Include="Shield.h">
-      <Filter>01. Obj\04. Shield</Filter>
-    </ClInclude>
-    <ClInclude Include="ScrewBullet.h">
-      <Filter>01. Obj\01. Bullet\00. ScrewBullet</Filter>
-    </ClInclude>
     <ClInclude Include="ObjMgr.h">
       <Filter>02. Design\02. ObjMgr</Filter>
-    </ClInclude>
-    <ClInclude Include="GuideBullet.h">
-      <Filter>01. Obj\01. Bullet\01. GuideBullet</Filter>
     </ClInclude>
     <ClInclude Include="Line.h">
       <Filter>02. Design\03. LineMgr\Line</Filter>
@@ -231,9 +198,6 @@
     <ClInclude Include="SceneMgr.h">
       <Filter>02. Design\07. SceneMgr</Filter>
     </ClInclude>
-    <ClInclude Include="MyButton.h">
-      <Filter>01. Obj\05. Button</Filter>
-    </ClInclude>
     <ClInclude Include="MyMenu.h">
       <Filter>03. Scene\01. Menu</Filter>
     </ClInclude>
@@ -250,85 +214,85 @@
       <Filter>03. Scene\02. Edit</Filter>
     </ClInclude>
     <ClInclude Include="Scv.h">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClInclude>
     <ClInclude Include="Scv_Idle_State.h">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClInclude>
     <ClInclude Include="Scv_Walk_State.h">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClInclude>
     <ClInclude Include="Scv_Attack_State.h">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClInclude>
     <ClInclude Include="FireBat.h">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClInclude>
     <ClInclude Include="Obj_Dynamic.h">
       <Filter>01. Obj</Filter>
     </ClInclude>
     <ClInclude Include="Marine.h">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClInclude>
     <ClInclude Include="Marine_Attack_State.h">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClInclude>
     <ClInclude Include="Marine_Idle_State.h">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClInclude>
     <ClInclude Include="Marine_Walk_State.h">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClInclude>
     <ClInclude Include="Marine_Die_State.h">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClInclude>
     <ClInclude Include="FireBat_Attack_State.h">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClInclude>
     <ClInclude Include="FireBat_Die_State.h">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClInclude>
     <ClInclude Include="FireBat_Idle_State.h">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClInclude>
     <ClInclude Include="FireBat_Walk_State.h">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClInclude>
     <ClInclude Include="Scv_Die_State.h">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClInclude>
     <ClInclude Include="SpawnMgr.h">
       <Filter>02. Design\09. SpawnMgr</Filter>
     </ClInclude>
     <ClInclude Include="Medic.h">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClInclude>
     <ClInclude Include="Medic_Walk_State.h">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClInclude>
     <ClInclude Include="Medic_Attack_State.h">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClInclude>
     <ClInclude Include="Medic_Die_State.h">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClInclude>
     <ClInclude Include="Medic_Idle_State.h">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClInclude>
     <ClInclude Include="Tank.h">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClInclude>
     <ClInclude Include="Tank_Attack_State.h">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClInclude>
     <ClInclude Include="Tank_Die_State.h">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClInclude>
     <ClInclude Include="Tank_Idle_State.h">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClInclude>
     <ClInclude Include="Tank_Walk_State.h">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClInclude>
     <ClInclude Include="AStarMgr.h">
       <Filter>02. Design\11. AStarMgr</Filter>
@@ -340,7 +304,7 @@
       <Filter>02. Design\12. UnitControlMgr</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>01. Obj\99.State</Filter>
+      <Filter>01. Obj\99. State</Filter>
     </ClInclude>
     <ClInclude Include="Command.h">
       <Filter>02. Design\13. Command</Filter>
@@ -355,16 +319,22 @@
       <Filter>02. Design\13. Command\02. Drag_LClick_Mouse</Filter>
     </ClInclude>
     <ClInclude Include="IdleState.h">
-      <Filter>01. Obj\99.State\00. IdleState</Filter>
+      <Filter>01. Obj\99. State\00. IdleState</Filter>
     </ClInclude>
     <ClInclude Include="WalkState.h">
-      <Filter>01. Obj\99.State\01. WalkState</Filter>
+      <Filter>01. Obj\99. State\01. WalkState</Filter>
     </ClInclude>
     <ClInclude Include="AttackState.h">
-      <Filter>01. Obj\99.State\02. AttackState</Filter>
+      <Filter>01. Obj\99. State\02. AttackState</Filter>
     </ClInclude>
     <ClInclude Include="DieState.h">
-      <Filter>01. Obj\99.State\03. DieState</Filter>
+      <Filter>01. Obj\99. State\03. DieState</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj_Static.h">
+      <Filter>01. Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Center.h">
+      <Filter>01. Obj\01. Buliding</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -380,32 +350,14 @@
     <ClCompile Include="Obj.cpp">
       <Filter>01. Obj</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>01. Obj\00. Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>01. Obj\01. Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>01. Obj\02. Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>01. Obj\03. Mouse</Filter>
+      <Filter>01. Obj\00. Unit\03. Mouse</Filter>
     </ClCompile>
     <ClCompile Include="CollisionMgr.cpp">
       <Filter>02. Design\01. CollisionMgr</Filter>
     </ClCompile>
-    <ClCompile Include="Shield.cpp">
-      <Filter>01. Obj\04. Shield</Filter>
-    </ClCompile>
-    <ClCompile Include="ScrewBullet.cpp">
-      <Filter>01. Obj\01. Bullet\00. ScrewBullet</Filter>
-    </ClCompile>
     <ClCompile Include="ObjMgr.cpp">
       <Filter>02. Design\02. ObjMgr</Filter>
-    </ClCompile>
-    <ClCompile Include="GuideBullet.cpp">
-      <Filter>01. Obj\01. Bullet\01. GuideBullet</Filter>
     </ClCompile>
     <ClCompile Include="Line.cpp">
       <Filter>02. Design\03. LineMgr\Line</Filter>
@@ -434,9 +386,6 @@
     <ClCompile Include="SceneMgr.cpp">
       <Filter>02. Design\07. SceneMgr</Filter>
     </ClCompile>
-    <ClCompile Include="MyButton.cpp">
-      <Filter>01. Obj\05. Button</Filter>
-    </ClCompile>
     <ClCompile Include="MyMenu.cpp">
       <Filter>03. Scene\01. Menu</Filter>
     </ClCompile>
@@ -453,85 +402,85 @@
       <Filter>03. Scene\02. Edit</Filter>
     </ClCompile>
     <ClCompile Include="Scv.cpp">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClCompile>
     <ClCompile Include="Scv_Idle_State.cpp">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClCompile>
     <ClCompile Include="Scv_Walk_State.cpp">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClCompile>
     <ClCompile Include="Scv_Attack_State.cpp">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClCompile>
     <ClCompile Include="FireBat.cpp">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClCompile>
     <ClCompile Include="Obj_Dynamic.cpp">
       <Filter>01. Obj</Filter>
     </ClCompile>
     <ClCompile Include="Marine.cpp">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClCompile>
     <ClCompile Include="Marine_Attack_State.cpp">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClCompile>
     <ClCompile Include="Marine_Idle_State.cpp">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClCompile>
     <ClCompile Include="Marine_Walk_State.cpp">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClCompile>
     <ClCompile Include="Marine_Die_State.cpp">
-      <Filter>01. Obj\01. Marine</Filter>
+      <Filter>01. Obj\00. Unit\01. Marine</Filter>
     </ClCompile>
     <ClCompile Include="FireBat_Attack_State.cpp">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClCompile>
     <ClCompile Include="FireBat_Die_State.cpp">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClCompile>
     <ClCompile Include="FireBat_Idle_State.cpp">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClCompile>
     <ClCompile Include="FireBat_Walk_State.cpp">
-      <Filter>01. Obj\02. FireBat</Filter>
+      <Filter>01. Obj\00. Unit\02. FireBat</Filter>
     </ClCompile>
     <ClCompile Include="Scv_Die_State.cpp">
-      <Filter>01. Obj\00. SCV</Filter>
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClCompile>
     <ClCompile Include="SpawnMgr.cpp">
       <Filter>02. Design\09. SpawnMgr</Filter>
     </ClCompile>
     <ClCompile Include="Medic.cpp">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClCompile>
     <ClCompile Include="Medic_Idle_State.cpp">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClCompile>
     <ClCompile Include="Medic_Attack_State.cpp">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClCompile>
     <ClCompile Include="Medic_Die_State.cpp">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClCompile>
     <ClCompile Include="Medic_Walk_State.cpp">
-      <Filter>01. Obj\03. Medic</Filter>
+      <Filter>01. Obj\00. Unit\03. Medic</Filter>
     </ClCompile>
     <ClCompile Include="Tank_Attack_State.cpp">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClCompile>
     <ClCompile Include="Tank_Die_State.cpp">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClCompile>
     <ClCompile Include="Tank_Idle_State.cpp">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClCompile>
     <ClCompile Include="Tank_Walk_State.cpp">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClCompile>
     <ClCompile Include="Tank.cpp">
-      <Filter>01. Obj\04. Tank</Filter>
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClCompile>
     <ClCompile Include="AStarMgr.cpp">
       <Filter>02. Design\11. AStarMgr</Filter>
@@ -543,7 +492,7 @@
       <Filter>02. Design\12. UnitControlMgr</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>01. Obj\99.State</Filter>
+      <Filter>01. Obj\99. State</Filter>
     </ClCompile>
     <ClCompile Include="Command.cpp">
       <Filter>02. Design\13. Command</Filter>
@@ -558,16 +507,22 @@
       <Filter>02. Design\13. Command\02. Drag_LClick_Mouse</Filter>
     </ClCompile>
     <ClCompile Include="IdleState.cpp">
-      <Filter>01. Obj\99.State\00. IdleState</Filter>
+      <Filter>01. Obj\99. State\00. IdleState</Filter>
     </ClCompile>
     <ClCompile Include="WalkState.cpp">
-      <Filter>01. Obj\99.State\01. WalkState</Filter>
+      <Filter>01. Obj\99. State\01. WalkState</Filter>
     </ClCompile>
     <ClCompile Include="AttackState.cpp">
-      <Filter>01. Obj\99.State\02. AttackState</Filter>
+      <Filter>01. Obj\99. State\02. AttackState</Filter>
     </ClCompile>
     <ClCompile Include="DieState.cpp">
-      <Filter>01. Obj\99.State\03. DieState</Filter>
+      <Filter>01. Obj\99. State\03. DieState</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj_Static.cpp">
+      <Filter>01. Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Center.cpp">
+      <Filter>01. Obj\01. Buliding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

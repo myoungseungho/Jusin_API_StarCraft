@@ -3,6 +3,7 @@
 #include "Obj.h"
 #include "Obj_Dynamic.h"
 #include "Obj_UI.h"
+#include "Obj_Static.h"
 template<typename T>
 class CAbstractFactory
 {
@@ -85,6 +86,33 @@ public:
 	static CObj_UI* Create_UI(float _fX, float _fY, float _fAngle)
 	{
 		CObj_UI* pObj = new T;
+		pObj->Initialize();
+		pObj->Set_Pos(_fX, _fY);
+		pObj->Set_Angle(_fAngle);
+
+		return pObj;
+	}
+
+	static CObj_Static* Create_Static()
+	{
+		CObj_Static* pObj = new T;
+		pObj->Initialize();
+
+		return pObj;
+	}
+
+	static CObj_Static* Create_Static(float _fX, float _fY)
+	{
+		CObj_Static* pObj = new T;
+		pObj->Initialize();
+		pObj->Set_Pos(_fX, _fY);
+
+		return pObj;
+	}
+
+	static CObj_Static* Create_Static(float _fX, float _fY, float _fAngle)
+	{
+		CObj_Static* pObj = new T;
 		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
 		pObj->Set_Angle(_fAngle);

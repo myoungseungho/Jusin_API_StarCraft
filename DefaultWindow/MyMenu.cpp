@@ -3,7 +3,6 @@
 #include "BmpMgr.h"
 #include "ObjMgr.h"
 #include "AbstractFactory.h"
-#include "MyButton.h"
 
 CMyMenu::CMyMenu()
 {

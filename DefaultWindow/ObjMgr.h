@@ -11,7 +11,7 @@ private:
 
 public:
 	void	Add_Dynamic_Object(DYNAMIC_OBJID eID, CObj* pObj);
-	void    Add_Static_Object(STATIC_OBJID eID, CObj* pObj);
+	void    Add_Static_Object(BUILDINGSTATE eID, CObj* pObj);
 	void    Add_UI_Object(UI_OBJID eID, CObj* pObj);
 
 	int		Update();
@@ -20,7 +20,7 @@ public:
 	void	Release();
 
 	void	Delete_ID_DynamicObj(DYNAMIC_OBJID eId);
-	void	Delete_ID_StaticObj(STATIC_OBJID eId);
+	void	Delete_ID_StaticObj(BUILDINGSTATE eId);
 	void	Delete_ID_UIObj(UI_OBJID eId);
 
 public:

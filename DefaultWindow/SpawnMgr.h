@@ -3,6 +3,7 @@
 #include "ObjMgr.h"
 #include "AbstractFactory.h"
 #include "Obj_UI.h"
+#include "Obj_Static.h"
 class CSpawnMgr
 {
 private:
@@ -30,6 +31,9 @@ public:
 	CObj_Dynamic* Spawn_DynamicObj(DYNAMIC_OBJID _Id, float _fX, float _fY);
 
 	template<typename T>
+	CObj_Static* Spawn_StaticObj(BUILDINGSTATE _Id, float _fX, float _fY);
+
+	template<typename T>
 	CObj_UI* Spawn_UIObj(UI_OBJID _Id);
 
 	template<typename T>
@@ -48,6 +52,15 @@ inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(DYNAMIC_OBJID _Id, float _fX, f
 	CObjMgr::Get_Instance()->Add_Dynamic_Object(_Id, obj_Dynamic);
 
 	return obj_Dynamic;
+}
+
+template<typename T>
+inline CObj_Static* CSpawnMgr::Spawn_StaticObj(BUILDINGSTATE _Id, float _fX, float _fY)
+{
+	CObj_Static* obj_Static = CAbstractFactory<T>::Create_Static(_fX, _fY);
+	CObjMgr::Get_Instance()->Add_Static_Object(_Id, obj_Static);
+
+	return obj_Static;
 }
 
 
