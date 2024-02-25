@@ -124,9 +124,6 @@
     <Filter Include="02. Design\12. UnitControlMgr">
       <UniqueIdentifier>{30f53ef9-b948-44ed-9e4a-7a455cf48554}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\State">
-      <UniqueIdentifier>{069f3cf1-2b08-40f2-9016-f0b17b0b182b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="02. Design\13. Command">
       <UniqueIdentifier>{2a689449-b0f6-4983-9457-84514817ad87}</UniqueIdentifier>
     </Filter>
@@ -135,6 +132,24 @@
     </Filter>
     <Filter Include="02. Design\13. Command\01. RClick_Mouse">
       <UniqueIdentifier>{83a52437-eeb3-4ef3-b338-ec7027291463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99.State">
+      <UniqueIdentifier>{069f3cf1-2b08-40f2-9016-f0b17b0b182b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99.State\00. IdleState">
+      <UniqueIdentifier>{d8bc417e-c17c-4ff3-9d2f-d4fd0c6afcbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99.State\01. WalkState">
+      <UniqueIdentifier>{65bdd091-c153-4e30-a290-7858bea58079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99.State\02. AttackState">
+      <UniqueIdentifier>{5a3ed58a-0adc-41f8-a7d7-ca175111bbc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\99.State\03. DieState">
+      <UniqueIdentifier>{4ad622c7-c225-4ba8-8dbd-b1dd84749c7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\13. Command\02. Drag_LClick_Mouse">
+      <UniqueIdentifier>{bb6d4831-5e6d-4243-9fca-242f0507d1d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -325,19 +340,7 @@
       <Filter>02. Design\12. UnitControlMgr</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>01. Obj\State</Filter>
-    </ClInclude>
-    <ClInclude Include="AttackState.h">
-      <Filter>01. Obj\State</Filter>
-    </ClInclude>
-    <ClInclude Include="DieState.h">
-      <Filter>01. Obj\State</Filter>
-    </ClInclude>
-    <ClInclude Include="IdleState.h">
-      <Filter>01. Obj\State</Filter>
-    </ClInclude>
-    <ClInclude Include="WalkState.h">
-      <Filter>01. Obj\State</Filter>
+      <Filter>01. Obj\99.State</Filter>
     </ClInclude>
     <ClInclude Include="Command.h">
       <Filter>02. Design\13. Command</Filter>
@@ -347,6 +350,21 @@
     </ClInclude>
     <ClInclude Include="RClick_Mouse.h">
       <Filter>02. Design\13. Command\01. RClick_Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Drag_LMouse_Long.h">
+      <Filter>02. Design\13. Command\02. Drag_LClick_Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleState.h">
+      <Filter>01. Obj\99.State\00. IdleState</Filter>
+    </ClInclude>
+    <ClInclude Include="WalkState.h">
+      <Filter>01. Obj\99.State\01. WalkState</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackState.h">
+      <Filter>01. Obj\99.State\02. AttackState</Filter>
+    </ClInclude>
+    <ClInclude Include="DieState.h">
+      <Filter>01. Obj\99.State\03. DieState</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -525,19 +543,7 @@
       <Filter>02. Design\12. UnitControlMgr</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>01. Obj\State</Filter>
-    </ClCompile>
-    <ClCompile Include="AttackState.cpp">
-      <Filter>01. Obj\State</Filter>
-    </ClCompile>
-    <ClCompile Include="DieState.cpp">
-      <Filter>01. Obj\State</Filter>
-    </ClCompile>
-    <ClCompile Include="IdleState.cpp">
-      <Filter>01. Obj\State</Filter>
-    </ClCompile>
-    <ClCompile Include="WalkState.cpp">
-      <Filter>01. Obj\State</Filter>
+      <Filter>01. Obj\99.State</Filter>
     </ClCompile>
     <ClCompile Include="Command.cpp">
       <Filter>02. Design\13. Command</Filter>
@@ -547,6 +553,21 @@
     </ClCompile>
     <ClCompile Include="RClick_Mouse.cpp">
       <Filter>02. Design\13. Command\01. RClick_Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="Drag_LMouse_Long.cpp">
+      <Filter>02. Design\13. Command\02. Drag_LClick_Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleState.cpp">
+      <Filter>01. Obj\99.State\00. IdleState</Filter>
+    </ClCompile>
+    <ClCompile Include="WalkState.cpp">
+      <Filter>01. Obj\99.State\01. WalkState</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackState.cpp">
+      <Filter>01. Obj\99.State\02. AttackState</Filter>
+    </ClCompile>
+    <ClCompile Include="DieState.cpp">
+      <Filter>01. Obj\99.State\03. DieState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

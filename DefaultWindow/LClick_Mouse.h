@@ -7,6 +7,7 @@ public:
 	CLClick_Mouse();
 	virtual ~CLClick_Mouse();
 public:
+	void Initialize() override;
 	void Execute() override { LClick(); };
 private:
 	void LClick();

@@ -18,6 +18,7 @@ public:
 	bool		Key_Pressing(int _iKey);
 	bool		Key_Down(int _iKey);
 	bool		Key_Up(int _iKey);
+	//bool		Key_Drag(int _iKey);
 public:
 	void Set_Mouse_State(MOUSESTATE _mId) { m_Current_Mouse_Click = _mId; }
 	void OffSet();
@@ -52,6 +53,9 @@ private:
 
 	MOUSESTATE m_Current_Mouse_Click;
 	bool m_bHasSelectUnit;
+	bool m_IsDragLClick;
 	float m_Cursor_Speed;
+	DWORD	m_dwTime;
+	DWORD	m_deltaTime;
 };
 

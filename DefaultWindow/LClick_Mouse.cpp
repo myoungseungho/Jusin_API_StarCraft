@@ -50,3 +50,7 @@ void CLClick_Mouse::LClick()
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
 	}
 }
+
+void CLClick_Mouse::Initialize()
+{
+}

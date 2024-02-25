@@ -7,8 +7,10 @@ public:
     CRClick_Mouse();
     virtual ~CRClick_Mouse();
 public:
+    void Initialize() override;
     void Execute() override { RClick(); };
 private:
     void RClick();
+
 };
 

@@ -40,3 +40,7 @@ void CRClick_Mouse::RClick()
 		iter->ChangeStateWithMouse(Pt, WALK_STATE);
 	}
 }
+
+void CRClick_Mouse::Initialize()
+{
+}

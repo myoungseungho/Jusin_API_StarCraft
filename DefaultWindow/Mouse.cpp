@@ -55,7 +55,6 @@ int CMouse::Update()
 
 void CMouse::Late_Update()
 {
-	//KeyInput();
 	__super::Move_Frame();
 }
 
@@ -82,73 +81,4 @@ void CMouse::Render(HDC hDC)
 
 void CMouse::Release()
 {
-}
-
-void CMouse::KeyInput()
-{
-	//클릭 되었을 때 유닛 체크
-	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_LBUTTON))
-	{
-		POINT	Pt;
-		GetCursorPos(&Pt);
-		ScreenToClient(g_hWnd, &Pt);
-
-		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
-		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-
-		int	TileX = Pt.x / TILECX;
-		int	TileY = Pt.y / TILECY;
-
-		//좌표에 해당하는 유닛을 반환한다.
-		CObj* target = CObjMgr::Get_Instance()->Get_Target(Pt.x, Pt.y);
-
-		if (target != nullptr)
-		{
-			//이미 유닛이 한마리 선택되었다면
-			if (m_bHasSelectUnit)
-			{
-				CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
-			}
-
-			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
-
-			if (dynamicObj != nullptr)
-			{
-				m_bHasSelectUnit = true;
-				CUnitControlMgr::Get_Instance()->Set_Add_Unit(dynamicObj);
-			}
-		}
-		else
-		{
-			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
-			m_bHasSelectUnit = false;
-		}
-	}
-
-	//클릭 되었을 때 유닛 체크
-	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_RBUTTON))
-	{
-		if (!m_bHasSelectUnit)
-			return;
-
-		//유닛 이동
-		POINT	Pt;
-		GetCursorPos(&Pt);
-		ScreenToClient(g_hWnd, &Pt);
-
-		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
-		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-
-		//마우스 창 밖으로 나가면
-		if (Pt.x<0 || Pt.x>MAPCX || Pt.y<0 || Pt.y>MAPCY)
-			return;
-
-
-		vector<CObj_Dynamic*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnit();
-
-		for (auto& iter : vecUnit)
-		{
-			iter->ChangeStateWithMouse(Pt, WALK_STATE);
-		}
-	}
 }
