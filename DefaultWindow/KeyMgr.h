@@ -53,10 +53,16 @@ private:
 	vector<CCommand*> m_vecMouseCommand;
 
 	MOUSESTATE m_Current_Mouse_Click;
+
 	bool m_bHasSelectUnit;
-	bool m_IsDragLClick;
+	bool m_IsLClick;
+	bool m_IsDragClick;
 	float m_Cursor_Speed;
+	float m_Threshold_Drag;
 	DWORD	m_dwTime;
 	DWORD	m_deltaTime;
+
+	POINT m_InitPoint;
+	POINT m_CurrentPoint;
 };
 

@@ -6,9 +6,11 @@
 #include "ScrollMgr.h"
 CKeyMgr* CKeyMgr::m_pInstance = nullptr;
 
-CKeyMgr::CKeyMgr() : m_Current_Mouse_Click(MOUSE_IDLE_STATE), m_Cursor_Speed(0.f), m_bHasSelectUnit(false), m_dwTime(0), m_deltaTime(0), m_IsDragLClick(false)
+CKeyMgr::CKeyMgr() : m_Current_Mouse_Click(MOUSE_IDLE_STATE), m_Cursor_Speed(0.f), m_bHasSelectUnit(false), m_dwTime(0), m_deltaTime(0), m_IsLClick(false), m_Threshold_Drag(0.f), m_IsDragClick(false)
 {
 	ZeroMemory(m_bKeyState, sizeof(m_bKeyState));
+	ZeroMemory(&m_CurrentPoint, sizeof(m_CurrentPoint));
+	ZeroMemory(&m_InitPoint, sizeof(m_InitPoint));
 }
 
 CKeyMgr::~CKeyMgr()
@@ -20,6 +22,8 @@ void CKeyMgr::Initialize()
 {
 	m_Cursor_Speed = 12.f;
 	m_deltaTime = 1 / 65;
+	m_Threshold_Drag = 10.f;
+
 	m_vecMouseCommand.push_back(new CLClick_Mouse);
 	m_vecMouseCommand.push_back(new CRClick_Mouse);
 	m_vecMouseCommand.push_back(new Drag_LMouse_Long);
@@ -27,15 +31,14 @@ void CKeyMgr::Initialize()
 
 void CKeyMgr::Update()
 {
-
 	KeyBoard_HandleInput();
 
 	//왼쪽 누르고 있으면
 	if (Key_Pressing(VK_LBUTTON))
 	{
-		if (m_IsDragLClick == false)
+		if (m_IsLClick == false)
 		{
-			m_IsDragLClick = true;
+			m_IsLClick = true;
 
 			POINT	Pt;
 			GetCursorPos(&Pt);
@@ -44,24 +47,53 @@ void CKeyMgr::Update()
 			Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 			Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
+			m_InitPoint = Pt;
+		}
+
+		POINT	Pt;
+		GetCursorPos(&Pt);
+		ScreenToClient(g_hWnd, &Pt);
+
+		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+		LONG distanceX = abs(m_InitPoint.x - Pt.x);
+		LONG distanceY = abs(m_InitPoint.y - Pt.y);
+
+		//드래그 했다면
+		if (distanceX >= m_Threshold_Drag || distanceY >= m_Threshold_Drag)
+		{
 			m_Current_Mouse_Click = MOUSE_LDRAG;
-			m_vecMouseCommand[MOUSE_LDRAG]->Initialize(Pt);
+			m_vecMouseCommand[MOUSE_LDRAG]->Initialize(m_InitPoint);
+			m_IsDragClick = true;
 		}
 	}
 
 	//뗐을 때
 	if (Key_Up(VK_LBUTTON))
 	{
-		/*	m_Current_Mouse_Click = MOUSE_LCLICK;
-			m_Current_Mouse_Click = MOUSE_IDLE_STATE;*/
+		if (m_IsDragClick)
+		{
+			m_Current_Mouse_Click = MOUSE_IDLE_STATE;
+			m_IsDragClick = false;
+			m_IsLClick = false;
+		}
+		else
+		{
+			m_Current_Mouse_Click = MOUSE_LCLICK;
+			m_vecMouseCommand[MOUSE_LCLICK]->Initialize();
+		}
+
 	}
 
 
 	if (Key_Up(VK_RBUTTON))
 	{
-		/*m_Current_Mouse_Click = MOUSE_RCLICK;
-		m_Current_Mouse_Click = MOUSE_IDLE_STATE;*/
+		m_Current_Mouse_Click = MOUSE_RCLICK;
+		m_vecMouseCommand[MOUSE_RCLICK]->Initialize();
+		//m_Current_Mouse_Click = MOUSE_IDLE_STATE;
 	}
+	
 
 	Mouse_HandleInput();
 }

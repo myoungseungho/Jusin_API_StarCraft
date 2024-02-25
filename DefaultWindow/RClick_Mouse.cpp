@@ -15,6 +15,11 @@ CRClick_Mouse::~CRClick_Mouse()
 
 void CRClick_Mouse::RClick()
 {
+
+}
+
+void CRClick_Mouse::Initialize()
+{
 	bool bHasSelectUnit = CKeyMgr::Get_Instance()->Get_bSelectUnit();
 
 	if (!bHasSelectUnit)
@@ -39,8 +44,4 @@ void CRClick_Mouse::RClick()
 	{
 		iter->ChangeStateWithMouse(Pt, WALK_STATE);
 	}
-}
-
-void CRClick_Mouse::Initialize()
-{
 }

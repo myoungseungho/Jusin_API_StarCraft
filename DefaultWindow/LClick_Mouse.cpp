@@ -15,6 +15,11 @@ CLClick_Mouse::~CLClick_Mouse()
 
 void CLClick_Mouse::LClick()
 {
+	
+}
+
+void CLClick_Mouse::Initialize()
+{
 	POINT	Pt;
 	GetCursorPos(&Pt);
 	ScreenToClient(g_hWnd, &Pt);
@@ -49,8 +54,4 @@ void CLClick_Mouse::LClick()
 		CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
 	}
-}
-
-void CLClick_Mouse::Initialize()
-{
 }
