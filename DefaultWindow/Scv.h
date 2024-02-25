@@ -18,8 +18,6 @@ protected:
 	virtual void InsertBmpFile() override;
 
 private:
-
-private:
 	DYNAMIC_OBJID GetType() const override;
 };
 

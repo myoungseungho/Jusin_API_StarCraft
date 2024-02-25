@@ -6,8 +6,14 @@ CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false)
 
 CObj_Dynamic::~CObj_Dynamic()
 {
+	Release();
 }
 
+
+void CObj_Dynamic::Release()
+{
+	for_each(m_vecState.begin(), m_vecState.end(), Safe_Delete<IState*>);
+}
 
 void CObj_Dynamic::Move_Frame()
 {
