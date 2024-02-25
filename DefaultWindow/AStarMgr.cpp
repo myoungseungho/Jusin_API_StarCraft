@@ -4,7 +4,7 @@
 
 CAStarMgr* CAStarMgr::m_pInstance = nullptr;
 
-CAStarMgr::CAStarMgr()
+CAStarMgr::CAStarMgr() :m_bInit(true)
 {
 }
 
@@ -33,26 +33,35 @@ double CAStarMgr::OctileDistance(int x1, int y1, int x2, int y2) {
 
 void CAStarMgr::Init_ObstacleTile()
 {
-	for (size_t i = 0; i < m_MapSize; i++)
+	if (m_bInit == true)
 	{
-		vector<bool> row;
-		for (size_t j = 0; j < m_MapSize; j++)
+		m_Obstacles.reserve(128);
+		for (size_t i = 0; i < m_MapSize; i++)
 		{
-			row.push_back(false);
+			vector<bool> row;
+			row.reserve(128);
+			for (size_t j = 0; j < m_MapSize; j++)
+			{
+				row.push_back(false);
+			}
+
+			m_Obstacles.push_back(row);
 		}
 
-		m_Obstacles.push_back(row);
+		m_bInit = false;
 	}
-
-	//장애물 타일 로드
-	vector<CObj*> obstcalesTile = CTileMgr::Get_Instance()->GetVecObstcales();
-
-	for (auto iter : obstcalesTile)
+	else
 	{
-		int x = iter->Get_Info().fX / TILECX;
-		int y = iter->Get_Info().fY / TILECY;
+		//장애물 타일 로드
+		vector<CObj*> obstcalesTile = CTileMgr::Get_Instance()->GetVecObstcales();
 
-		m_Obstacles[x][y] = true;
+		for (auto iter : obstcalesTile)
+		{
+			int x = iter->Get_Info().fX / TILECX;
+			int y = iter->Get_Info().fY / TILECY;
+
+			m_Obstacles[x][y] = true;
+		}
 	}
 }
 

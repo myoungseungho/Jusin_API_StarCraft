@@ -2,6 +2,7 @@
 #include "Center.h"
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
+#include "TileMgr.h"
 CCenter::CCenter()
 {
 	InsertBmpFile();
@@ -33,6 +34,7 @@ void CCenter::Initialize()
 int CCenter::Update()
 {
 	__super::Update_Rect();
+
 	if (!m_IsInfoUpdate)
 	{
 		CObj_Static::Initialize();

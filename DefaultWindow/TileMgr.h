@@ -39,6 +39,7 @@ public:
 	vector<CObj*>& GetVecObstcales() { return m_vecObstcales; }
 	list<CObj*> GetListPath(list<pair<int,int>>);
 	list<CObj*> GetStaticTile(CObj*);
+	void SetVecObstcales(list<CObj*>);
 public:
 	void		Save_Tile();
 	void		Load_Tile();

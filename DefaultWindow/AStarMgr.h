@@ -33,7 +33,6 @@ public:
 	double OctileDistance(int x1, int y1, int x2, int y2);
 public:
 	int GetMapSize() { return m_MapSize; }
-private:
 	void Init_ObstacleTile();
 private:
 	static CAStarMgr* m_pInstance;
@@ -41,6 +40,7 @@ private:
 	vector<vector<bool>> m_Obstacles;
 
 	int m_MapSize = TILEX; // ∏ ¿« ≈©±‚
+	bool m_bInit;
 };
 
 

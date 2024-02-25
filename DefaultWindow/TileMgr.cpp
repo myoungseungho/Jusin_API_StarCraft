@@ -2,7 +2,7 @@
 #include "TileMgr.h"
 #include "AbstractFactory.h"
 #include "ScrollMgr.h"
-
+#include "AStarMgr.h"
 CTileMgr* CTileMgr::m_pInstance = nullptr;
 
 CTileMgr::CTileMgr()
@@ -131,6 +131,16 @@ list<CObj*> CTileMgr::GetStaticTile(CObj* _staticObj)
 	}
 
 	return listTile;
+}
+
+void CTileMgr::SetVecObstcales(list<CObj*> _list)
+{
+	for (auto iter : _list)
+	{
+		m_vecObstcales.push_back(iter);
+	}
+
+	CAStarMgr::Get_Instance()->Init_ObstacleTile();
 }
 
 

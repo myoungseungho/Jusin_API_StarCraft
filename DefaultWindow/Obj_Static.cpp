@@ -18,7 +18,11 @@ void CObj_Static::Initialize()
 		CTile* iterTile = dynamic_cast<CTile*>(iter);
 
 		if (iterTile != nullptr)
+		{
 			iterTile->Set_Value(1, 0);
+		}
 	}
+
+	CTileMgr::Get_Instance()->SetVecObstcales(staticTileList);
 }
 
