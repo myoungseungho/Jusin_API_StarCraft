@@ -8,7 +8,6 @@ public:
 	virtual ~IWalkState();
 public:
 	void Set_Astar(float, float, float, float);
-	vector<pair<int, int>> m_Path;
 
 public:
 	void Initialize(CObj_Dynamic*) override;
@@ -19,6 +18,7 @@ public:
 	void Move_Frame() override;
 
 protected:
-	vector<CObj*> m_vecPathTile;
+	list<CObj*> m_listPathTile;
+	list<pair<int, int>> m_Path;
 };
 

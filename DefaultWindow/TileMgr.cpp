@@ -86,9 +86,9 @@ void CTileMgr::Picking(POINT pt, int _iDrawID, int _iOption)
 }
 
 
-vector<CObj*> CTileMgr::GetVecPath(vector<pair<int, int>> _vecPath)
+list<CObj*> CTileMgr::GetListPath(list<pair<int, int>> _vecPath)
 {
-	vector<CObj*> pathTiles;
+	list<CObj*> pathTiles;
 	for (const auto& pos : _vecPath) {
 		int x = pos.first;
 		int y = pos.second;

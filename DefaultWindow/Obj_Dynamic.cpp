@@ -31,7 +31,7 @@ void CObj_Dynamic::ChangeState(STATEID _sId)
 void CObj_Dynamic::ChangeStateWithMouse(POINT _pt, STATEID _sId)
 {
 	m_MousePT = _pt;
-	//ChangeState(_sId);
-	Initialize();
+	ChangeState(_sId);
+	//Initialize();
 }
 

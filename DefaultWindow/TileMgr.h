@@ -37,7 +37,7 @@ public:
 
 public:
 	vector<CObj*>& GetVecObstcales() { return m_vecObstcales; }
-	vector<CObj*> GetVecPath(vector<pair<int,int>>);
+	list<CObj*> GetListPath(list<pair<int,int>>);
 public:
 	void		Save_Tile();
 	void		Load_Tile();

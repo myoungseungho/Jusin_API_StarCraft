@@ -18,8 +18,8 @@ void CScv_Walk_State::Initialize(CObj_Dynamic* _scv)
 
 	*m_pFrameKeyCopy = L"SCV_IDLE";
 	m_pFrameCopy->iFrameStart = 0;
-	m_pFrameCopy->iFrameEnd = 5;
-	m_pFrameCopy->iMotion = 1;
+	m_pFrameCopy->iFrameEnd = 16;
+	m_pFrameCopy->iMotion = 0;
 	m_pFrameCopy->dwSpeed = 200;
 	m_pFrameCopy->dwTime = GetTickCount();
 
@@ -34,16 +34,11 @@ void CScv_Walk_State::Initialize(CObj_Dynamic* _scv)
 
 	IWalkState::Set_Astar(ScvX, ScvY, TileX, TileY);
 
-	m_vecPathTile = CTileMgr::Get_Instance()->GetVecPath(m_Path);
+	m_listPathTile = CTileMgr::Get_Instance()->GetListPath(m_Path);
 }
 
 int CScv_Walk_State::Update(CObj_Dynamic* _scv)
 {
-	if (GetAsyncKeyState(VK_RIGHT))
-	{
-		_scv->Set_PosX(3.f);
-	}
-
 	Move(_scv);
 	return 0;
 }
@@ -54,23 +49,7 @@ void CScv_Walk_State::Late_Update(CObj_Dynamic*)
 
 void CScv_Walk_State::Render(CObj_Dynamic* _scv, HDC hDC)
 {
-	//int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
-	//int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-
-	//HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(*m_pFrameKeyCopy);
-
-	//GdiTransparentBlt(
-	//	hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-	//	_scv->Get_Rect().left + iScrollX, // 복사 받을 위치 좌표
-	//	_scv->Get_Rect().top + iScrollY,
-	//	(int)_scv->Get_Info().fCX,	// 복사 받을 이미지의 가로, 세로
-	//	(int)_scv->Get_Info().fCY,
-	//	hMemDC,		// 비트맵을 가지고 있는 DC
-	//	(int)_scv->Get_Info().fCX * (*m_pFrameCopy).iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
-	//	(int)_scv->Get_Info().fCY * (*m_pFrameCopy).iMotion,
-	//	(int)_scv->Get_Info().fCX,	// 출력할 비트맵 가로
-	//	(int)_scv->Get_Info().fCY,	// 출력할 비트맵 세로
-	//	RGB(0, 0, 0));	// 제거할 색상 값
+	
 }
 
 void CScv_Walk_State::Release(CObj_Dynamic*)
@@ -84,12 +63,12 @@ void CScv_Walk_State::Move_Frame()
 void CScv_Walk_State::Move(CObj_Dynamic* _scv)
 {
 	// 현재 목표 타일이 없거나 경로를 모두 완료한 경우
-	if (m_vecPathTile.empty()) {
+	if (m_listPathTile.empty()) {
 		return; // 이동 중지
 	}
 
 	// 현재 목표 타일
-	CObj* currentTargetTile = m_vecPathTile.front();
+	CObj* currentTargetTile = m_listPathTile.front();
 	dynamic_cast<CTile*>(currentTargetTile)->Set_Value(1, 0);
 
 	// 현재 목표 타일의 중심 좌표 계산
@@ -106,7 +85,7 @@ void CScv_Walk_State::Move(CObj_Dynamic* _scv)
 	float length = sqrt(dirX * dirX + dirY * dirY);
 
 	// 단위 방향 벡터와 속도를 사용하여 이동
-	float speed = 1.0f; // 적당한 속도 값
+	float speed = 5.0f; // 적당한 속도 값
 	if (length > speed) { // 목표까지의 거리가 속도보다 클 경우, 이동 실행
 		dirX = (dirX / length) * speed;
 		dirY = (dirY / length) * speed;
@@ -115,8 +94,8 @@ void CScv_Walk_State::Move(CObj_Dynamic* _scv)
 	}
 	else {
 		// 목표 타일에 도달했거나 매우 가까운 경우, 목표 타일을 다음 타일로 변경
-		m_vecPathTile.erase(m_vecPathTile.begin()); // 현재 목표 타일 제거
-		if (!m_vecPathTile.empty()) {
+		m_listPathTile.pop_front();
+		if (!m_listPathTile.empty()) {
 			// 다음 타일로 이동을 계속합니다.
 			Move(_scv);
 		}

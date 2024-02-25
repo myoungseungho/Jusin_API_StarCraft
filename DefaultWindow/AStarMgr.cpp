@@ -64,7 +64,7 @@ bool CAStarMgr::CanMoveDiagonally(const vector<vector<bool>>& obstacles, int cur
 
 
 
-vector<pair<int, int>> CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& goal)
+list<pair<int, int>> CAStarMgr::AStarSearch(const pair<int, int>& start, const pair<int, int>& goal)
 {
 	//각 노드까지의 시작점으로부터 총 비용 저장
 	//초기값은 무한대로 설정하고 아직 방문하지 않은 노드들
@@ -89,7 +89,7 @@ vector<pair<int, int>> CAStarMgr::AStarSearch(const pair<int, int>& start, const
 
 		// 목적지에 도달했는지 확인
 		if (current.x == goal.first && current.y == goal.second) {
-			vector<pair<int, int>> path;
+			list<pair<int, int>> path;
 			while (!(current.x == start.first && current.y == start.second)) {
 				path.push_back({ current.x, current.y });
 				auto parent = cameFrom[current.x][current.y];
@@ -128,5 +128,5 @@ vector<pair<int, int>> CAStarMgr::AStarSearch(const pair<int, int>& start, const
 		}
 	}
 
-	return vector<pair<int, int>>();
+	return list<pair<int, int>>();
 }
