@@ -74,13 +74,21 @@ void CKeyMgr::Update()
 	{
 		if (m_IsDragClick)
 		{
+			//DragClickÀ» 
+			m_vecMouseCommand[MOUSE_LDRAG]->Release();
+
 			m_Current_Mouse_Click = MOUSE_IDLE_STATE;
+
 			m_IsDragClick = false;
 			m_IsLClick = false;
 			ZeroMemory(&m_InitPoint, sizeof(m_InitPoint));
 		}
 		else
 		{
+			for (auto iter : m_vecMouseCommand)
+			{
+				iter->Release();
+			}
 			m_Current_Mouse_Click = MOUSE_LCLICK;
 			m_vecMouseCommand[MOUSE_LCLICK]->Initialize();
 			m_Current_Mouse_Click = MOUSE_IDLE_STATE;
