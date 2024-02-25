@@ -77,13 +77,16 @@ void CKeyMgr::Update()
 			m_Current_Mouse_Click = MOUSE_IDLE_STATE;
 			m_IsDragClick = false;
 			m_IsLClick = false;
+			ZeroMemory(&m_InitPoint, sizeof(m_InitPoint));
 		}
 		else
 		{
 			m_Current_Mouse_Click = MOUSE_LCLICK;
 			m_vecMouseCommand[MOUSE_LCLICK]->Initialize();
+			m_Current_Mouse_Click = MOUSE_IDLE_STATE;
+			m_IsLClick = false;
+			ZeroMemory(&m_InitPoint, sizeof(m_InitPoint));
 		}
-
 	}
 
 
@@ -91,7 +94,8 @@ void CKeyMgr::Update()
 	{
 		m_Current_Mouse_Click = MOUSE_RCLICK;
 		m_vecMouseCommand[MOUSE_RCLICK]->Initialize();
-		//m_Current_Mouse_Click = MOUSE_IDLE_STATE;
+		m_Current_Mouse_Click = MOUSE_IDLE_STATE;
+		ZeroMemory(&m_InitPoint, sizeof(m_InitPoint));
 	}
 	
 
