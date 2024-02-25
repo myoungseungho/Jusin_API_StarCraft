@@ -103,11 +103,36 @@ list<CObj*> CTileMgr::GetListPath(list<pair<int, int>> _vecPath)
 	return pathTiles;
 }
 
-vector<CObj*> CTileMgr::GetDragTile(POINT pt)
+list<CObj*> CTileMgr::GetStaticTile(CObj* _staticObj)
 {
-	return m_vecDrags;
-	return vector<CObj*>();
+	RECT objRect = _staticObj->Get_Rect();
+	INFO objInfo = _staticObj->Get_Info();
+
+	int iScrollX = CScrollMgr::Get_Instance()->Get_ScrollX();
+	int iScrollY = CScrollMgr::Get_Instance()->Get_ScrollY();
+
+	// 사각형이 걸치는 타일의 가로, 세로 인덱스 범위 계산
+	int startCol = (objRect.left + iScrollX) / TILECX;
+	int endCol = (objRect.right + iScrollX) / TILECX;
+	int startRow = (objRect.top + iScrollY) / TILECY;
+	int endRow = (objRect.bottom + iScrollY) / TILECY;
+
+	list<CObj*> listTile;
+
+	for (size_t i = startCol; i < endCol; i++)
+	{
+		for (size_t j = startRow + 2; j < endRow; j++)
+		{
+			int index = j * TILEX + i;
+			if (index >= 0 && index < m_vecTile.size()) {
+				listTile.push_back(m_vecTile[index]);
+			}
+		}
+	}
+
+	return listTile;
 }
+
 
 void CTileMgr::Save_Tile()
 {

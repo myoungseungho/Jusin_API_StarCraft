@@ -15,11 +15,9 @@ CMineral::~CMineral()
 
 void CMineral::Initialize()
 {
-	//처음 크기 고정
 	m_tInfo.fCX = 64.f;
 	m_tInfo.fCY = 96.f;
 
-	//건물은 애니메이션이 없잖아?
 	m_pFrameKey = L"Mineral";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
@@ -33,6 +31,11 @@ void CMineral::Initialize()
 int CMineral::Update()
 {
 	__super::Update_Rect();
+	if (!m_IsInfoUpdate)
+	{
+		CObj_Static::Initialize();
+		m_IsInfoUpdate = true;
+	}
 	return 0;
 }
 

@@ -21,7 +21,6 @@ void CTile::Initialize()
 
 int CTile::Update()
 {
-
 	__super::Update_Rect();
 
 	return OBJ_NOEVENT;

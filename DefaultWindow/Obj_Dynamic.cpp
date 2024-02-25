@@ -39,6 +39,5 @@ void CObj_Dynamic::ChangeStateWithMouse(POINT _pt, STATEID _sId)
 {
 	m_MousePT = _pt;
 	ChangeState(_sId);
-	//Initialize();
 }
 

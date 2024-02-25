@@ -106,7 +106,6 @@ public:
 		CObj_Static* pObj = new T;
 		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
-
 		return pObj;
 	}
 

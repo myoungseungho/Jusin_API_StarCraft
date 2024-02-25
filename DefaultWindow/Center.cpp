@@ -27,11 +27,18 @@ void CCenter::Initialize()
 	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
+
 }
 
 int CCenter::Update()
 {
 	__super::Update_Rect();
+	if (!m_IsInfoUpdate)
+	{
+		CObj_Static::Initialize();
+		m_IsInfoUpdate = true;
+	}
+
 	return 0;
 }
 
