@@ -97,7 +97,6 @@ void CKeyMgr::Update()
 		}
 	}
 
-
 	if (Key_Up(VK_RBUTTON))
 	{
 		m_Current_Mouse_Click = MOUSE_RCLICK;
@@ -105,7 +104,6 @@ void CKeyMgr::Update()
 		m_Current_Mouse_Click = MOUSE_IDLE_STATE;
 		ZeroMemory(&m_InitPoint, sizeof(m_InitPoint));
 	}
-	
 
 	Mouse_HandleInput();
 }

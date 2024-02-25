@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Obj_UI.h"
 class CStage :
 	public CScene
 {
@@ -15,5 +16,8 @@ public:
 	virtual void Release() override;
 private:
 	void Init_Obj_Spawn();
+
+private:
+	CObj_UI* m_Mouse;
 };
 

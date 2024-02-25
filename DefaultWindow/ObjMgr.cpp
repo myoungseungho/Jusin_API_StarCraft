@@ -133,7 +133,9 @@ void CObjMgr::Late_Update()
 				break;
 
 			RENDERID eID = iter->Get_RenderID();
-			m_RenderList[eID].push_back(iter);
+
+			if (eID != RENDER_SUPER)
+				m_RenderList[eID].push_back(iter);
 		}
 	}
 

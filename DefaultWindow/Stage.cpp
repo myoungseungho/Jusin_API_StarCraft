@@ -72,9 +72,7 @@ void CStage::Render(HDC hDC)
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
 
-	//UI창 고정
 	HDC	hUIDC = CBmpMgr::Get_Instance()->Find_Image(L"MainUI");
-
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
 		0, // 복사 받을 위치 좌표
@@ -87,6 +85,8 @@ void CStage::Render(HDC hDC)
 		WINCX,	// 출력할 비트맵 가로
 		WINCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
+
+	m_Mouse->Render(hDC);
 }
 
 void CStage::Release()
@@ -100,7 +100,7 @@ void CStage::Release()
 
 void CStage::Init_Obj_Spawn()
 {
-	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
+	m_Mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
 	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, 200.f, 200.f);
 	CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, 300.f, 200.f);
 	CObj_Dynamic* scv3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, 400.f, 200.f);
