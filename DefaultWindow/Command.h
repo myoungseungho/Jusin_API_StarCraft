@@ -11,5 +11,7 @@ public:
 
 	virtual void Execute() PURE;
 	virtual void Render(HDC);
+
+	virtual void Release() PURE;
 };
 

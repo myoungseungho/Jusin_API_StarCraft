@@ -18,6 +18,10 @@ void CRClick_Mouse::RClick()
 
 }
 
+void CRClick_Mouse::Release()
+{
+}
+
 void CRClick_Mouse::Initialize()
 {
 	bool bHasSelectUnit = CKeyMgr::Get_Instance()->Get_bSelectUnit();

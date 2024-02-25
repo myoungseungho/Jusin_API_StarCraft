@@ -219,3 +219,23 @@ CObj* CObjMgr::Get_Target(float _fX, float _fY)
 
 	return nullptr;
 }
+
+vector<CObj*> CObjMgr::Get_Targets(POINT _initPoint, POINT _goalPoint)
+{
+	vector<CObj*> vecDragObj;
+
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	{
+		for (auto iter : m_Dynamic_Obj_List[i])
+		{
+			INFO info = iter->Get_Info();
+
+			if (info.fX >= _initPoint.x && info.fX <= _goalPoint.x && info.fY >= _initPoint.y && info.fY <= _goalPoint.y)
+			{
+				vecDragObj.push_back(iter);
+			}
+		}
+	}
+
+	return vecDragObj;
+}

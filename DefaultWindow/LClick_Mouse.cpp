@@ -15,7 +15,11 @@ CLClick_Mouse::~CLClick_Mouse()
 
 void CLClick_Mouse::LClick()
 {
-	
+
+}
+
+void CLClick_Mouse::Release()
+{
 }
 
 void CLClick_Mouse::Initialize()
@@ -41,13 +45,8 @@ void CLClick_Mouse::Initialize()
 			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 		}
 
-		CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
-
-		if (dynamicObj != nullptr)
-		{
-			CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
-			CUnitControlMgr::Get_Instance()->Set_Add_Unit(dynamicObj);
-		}
+		CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
+		CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 	}
 	else
 	{

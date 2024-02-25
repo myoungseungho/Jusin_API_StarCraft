@@ -25,6 +25,7 @@ public:
 
 public:
 	CObj* Get_Target(float _fX, float _fY);
+	vector<CObj*> Get_Targets(POINT _initPoint, POINT _goalPoint);
 
 public:
 	static		CObjMgr* Get_Instance()

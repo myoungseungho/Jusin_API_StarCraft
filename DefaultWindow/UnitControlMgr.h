@@ -23,7 +23,8 @@ public:
 		}
 	}
 
-	void Set_Add_Unit(CObj_Dynamic*);
+	void Set_Add_Unit(CObj*);
+	void Set_Add_Unit(vector<CObj*>);
 	void Set_Clear_Unit();
 	vector<CObj_Dynamic*>& GetVecUnit() { return m_vecUnit; };
 

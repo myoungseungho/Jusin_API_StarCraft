@@ -14,8 +14,12 @@ public:
     void Execute() override { DragLClick(); };
 private:
     void DragLClick();
+    void UpdatePT();
 private:
     POINT m_InitPoint;
     POINT m_CurrentPoint;
+
+    // CCommand을(를) 통해 상속됨
+    void Release() override;
 };
 
