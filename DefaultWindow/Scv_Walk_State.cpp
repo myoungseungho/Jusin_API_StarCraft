@@ -49,7 +49,7 @@ void CScv_Walk_State::Late_Update(CObj_Dynamic*)
 
 void CScv_Walk_State::Render(CObj_Dynamic* _scv, HDC hDC)
 {
-	
+
 }
 
 void CScv_Walk_State::Release(CObj_Dynamic*)

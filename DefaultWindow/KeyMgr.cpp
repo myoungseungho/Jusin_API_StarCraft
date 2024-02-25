@@ -22,7 +22,7 @@ void CKeyMgr::Initialize()
 {
 	m_Cursor_Speed = 12.f;
 	m_deltaTime = 1 / 65;
-	m_Threshold_Drag = 10.f;
+	m_Threshold_Drag = 30.f;
 
 	m_vecMouseCommand.push_back(new CLClick_Mouse);
 	m_vecMouseCommand.push_back(new CRClick_Mouse);
@@ -85,10 +85,11 @@ void CKeyMgr::Update()
 		}
 		else
 		{
-			for (auto iter : m_vecMouseCommand)
+			/*for (auto iter : m_vecMouseCommand)
 			{
 				iter->Release();
-			}
+			}*/
+
 			m_Current_Mouse_Click = MOUSE_LCLICK;
 			m_vecMouseCommand[MOUSE_LCLICK]->Initialize();
 			m_Current_Mouse_Click = MOUSE_IDLE_STATE;

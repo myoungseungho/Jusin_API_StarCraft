@@ -31,6 +31,7 @@ void CMineral::Initialize()
 int CMineral::Update()
 {
 	__super::Update_Rect();
+
 	if (!m_IsInfoUpdate)
 	{
 		CObj_Static::Initialize();

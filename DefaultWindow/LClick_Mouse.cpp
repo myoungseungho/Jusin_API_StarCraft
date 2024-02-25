@@ -43,6 +43,7 @@ void CLClick_Mouse::Initialize()
 		if (bHasSelectUnit)
 		{
 			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+			CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 		}
 
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(true);

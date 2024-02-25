@@ -20,12 +20,16 @@ void Drag_LMouse_Long::Initialize()
 
 void Drag_LMouse_Long::Initialize(POINT _pt)
 {
+	CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 	m_InitPoint = _pt;
 }
 
 void Drag_LMouse_Long::Render(HDC _hdc)
 {
-	Rectangle(_hdc, m_InitPoint.x, m_InitPoint.y, m_CurrentPoint.x, m_CurrentPoint.y);
+	int iScrollX = CScrollMgr::Get_Instance()->Get_ScrollX();
+	int iScrollY = CScrollMgr::Get_Instance()->Get_ScrollY();
+
+	Rectangle(_hdc, m_InitPoint.x + iScrollX, m_InitPoint.y + iScrollY, m_CurrentPoint.x + iScrollX, m_CurrentPoint.y + iScrollY);
 }
 
 
