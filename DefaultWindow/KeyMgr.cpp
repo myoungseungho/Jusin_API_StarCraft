@@ -71,6 +71,23 @@ void CKeyMgr::Late_Update()
 	OffSet();
 }
 
+void CKeyMgr::Render(HDC _hDC)
+{
+	switch (m_Current_Mouse_Click)
+	{
+	case MOUSE_LCLICK:
+		m_vecMouseCommand[MOUSE_LCLICK]->Render(_hDC);
+		break;
+	case MOUSE_RCLICK:
+		m_vecMouseCommand[MOUSE_RCLICK]->Render(_hDC);
+		break;
+	case MOUSE_LDRAG:
+		m_vecMouseCommand[MOUSE_LDRAG]->Render(_hDC);
+	default:
+		break;
+	}
+}
+
 void CKeyMgr::Release()
 {
 	for_each(m_vecMouseCommand.begin(), m_vecMouseCommand.end(), Safe_Delete<CCommand*>);

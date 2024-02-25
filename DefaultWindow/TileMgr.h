@@ -38,6 +38,8 @@ public:
 public:
 	vector<CObj*>& GetVecObstcales() { return m_vecObstcales; }
 	list<CObj*> GetListPath(list<pair<int,int>>);
+	vector<CObj*> GetDragTile(POINT pt);
+
 public:
 	void		Save_Tile();
 	void		Load_Tile();
@@ -46,5 +48,6 @@ private:
 	static CTileMgr*	m_pInstance;
 	vector<CObj*>		m_vecTile;
 	vector<CObj*>		m_vecObstcales;
+	vector<CObj*>		m_vecDrags;
 };
 

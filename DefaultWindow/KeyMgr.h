@@ -13,6 +13,7 @@ public:
 	void Initialize();
 	void Update();
 	void Late_Update();
+	void Render(HDC);
 	void Release();
 public:
 	bool		Key_Pressing(int _iKey);

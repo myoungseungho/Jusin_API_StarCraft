@@ -103,6 +103,12 @@ list<CObj*> CTileMgr::GetListPath(list<pair<int, int>> _vecPath)
 	return pathTiles;
 }
 
+vector<CObj*> CTileMgr::GetDragTile(POINT pt)
+{
+	return m_vecDrags;
+	return vector<CObj*>();
+}
+
 void CTileMgr::Save_Tile()
 {
 	HANDLE	hFile = CreateFile(L"../Data/Tile.dat",

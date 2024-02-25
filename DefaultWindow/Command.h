@@ -10,5 +10,6 @@ public:
 	virtual void Initialize(POINT);
 
 	virtual void Execute() PURE;
+	virtual void Render(HDC);
 };
 

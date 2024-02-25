@@ -10,10 +10,12 @@ public:
 public:
     void Initialize() override;
     void Initialize(POINT) override;
+    void Render(HDC _hdc);
     void Execute() override { DragLClick(); };
 private:
     void DragLClick();
 private:
     POINT m_InitPoint;
+    POINT m_CurrentPoint;
 };
 
