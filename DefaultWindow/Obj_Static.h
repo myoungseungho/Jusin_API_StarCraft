@@ -1,18 +1,20 @@
 #pragma once
 #include "Obj.h"
 class CObj_Static :
-    public CObj
+	public CObj
 {
 public:
-    CObj_Static();
-    virtual ~CObj_Static();
+	CObj_Static();
+	virtual ~CObj_Static();
 public:
-    virtual void Initialize();
-    int Update() PURE;
-    void Late_Update()PURE;
-    void Render(HDC hDC) PURE;
-    void Release() PURE;
+	void Initialize() PURE;
+	int Update() PURE;
+	void Late_Update()PURE;
+	void Render(HDC hDC) PURE;
+	void Release() PURE;
+public:
+	void SetObstcale();
 
-    bool m_IsInfoUpdate;
+	bool m_IsInfoUpdate;
 };
 

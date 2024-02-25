@@ -37,7 +37,7 @@ int CCenter::Update()
 
 	if (!m_IsInfoUpdate)
 	{
-		CObj_Static::Initialize();
+		SetObstcale();
 		m_IsInfoUpdate = true;
 	}
 

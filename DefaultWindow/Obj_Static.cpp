@@ -9,7 +9,7 @@ CObj_Static::~CObj_Static()
 {
 }
 
-void CObj_Static::Initialize()
+void CObj_Static::SetObstcale()
 {
 	list<CObj*> staticTileList = CTileMgr::Get_Instance()->GetStaticTile(this);
 

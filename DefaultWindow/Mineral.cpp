@@ -34,7 +34,7 @@ int CMineral::Update()
 
 	if (!m_IsInfoUpdate)
 	{
-		CObj_Static::Initialize();
+		SetObstcale();
 		m_IsInfoUpdate = true;
 	}
 	return 0;
