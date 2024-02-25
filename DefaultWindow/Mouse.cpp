@@ -55,7 +55,7 @@ int CMouse::Update()
 
 void CMouse::Late_Update()
 {
-	KeyInput();
+	//KeyInput();
 	__super::Move_Frame();
 }
 

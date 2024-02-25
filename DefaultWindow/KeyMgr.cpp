@@ -5,7 +5,7 @@
 #include "ScrollMgr.h"
 CKeyMgr* CKeyMgr::m_pInstance = nullptr;
 
-CKeyMgr::CKeyMgr() : m_Current_Mouse_Click(MOUSE_IDLE_STATE), m_LClick_Mouse(nullptr), m_Cursor_Speed(0.f)
+CKeyMgr::CKeyMgr() : m_Current_Mouse_Click(MOUSE_IDLE_STATE), m_Cursor_Speed(0.f), m_bHasSelectUnit(false)
 {
 	ZeroMemory(m_bKeyState, sizeof(m_bKeyState));
 }
@@ -19,31 +19,26 @@ void CKeyMgr::Initialize()
 {
 	m_Cursor_Speed = 12.f;
 
-	m_vecMouseState.push_back(new CLClick_Mouse);
-	m_vecMouseState.push_back(new CRClick_Mouse);
+	m_vecMouseCommand.push_back(new CLClick_Mouse);
+	m_vecMouseCommand.push_back(new CRClick_Mouse);
 }
 
 void CKeyMgr::Update()
 {
-	if (GetAsyncKeyState(VK_RIGHT))
+	m_Current_Mouse_Click = MOUSE_IDLE_STATE;
+
+	KeyBoard_HandleInput();
+
+	//클릭 되었을 때 유닛 체크
+	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_LBUTTON))
 	{
-		CScrollMgr::Get_Instance()->Set_ScrollX(-10.f);
+		m_Current_Mouse_Click = MOUSE_LCLICK;
 	}
 
-	else if (GetAsyncKeyState(VK_LEFT))
+	//클릭 되었을 때 유닛 체크
+	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_RBUTTON))
 	{
-		CScrollMgr::Get_Instance()->Set_ScrollX(10.f);
-	}
-
-	else if (GetAsyncKeyState(VK_UP))
-	{
-		CScrollMgr::Get_Instance()->Set_ScrollY(10.f);
-
-	}
-
-	else if (GetAsyncKeyState(VK_DOWN))
-	{
-		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
+		m_Current_Mouse_Click = MOUSE_RCLICK;
 	}
 
 	Mouse_HandleInput();
@@ -56,7 +51,7 @@ void CKeyMgr::Late_Update()
 
 void CKeyMgr::Release()
 {
-	for_each(m_vecMouseState.begin(), m_vecMouseState.end(), Safe_Delete<CCommand*>);
+	for_each(m_vecMouseCommand.begin(), m_vecMouseCommand.end(), Safe_Delete<CCommand*>);
 }
 
 bool CKeyMgr::Key_Pressing(int _iKey)
@@ -108,16 +103,38 @@ void CKeyMgr::Mouse_HandleInput()
 	switch (m_Current_Mouse_Click)
 	{
 	case MOUSE_LCLICK:
-		m_vecMouseState[MOUSE_LCLICK]->Execute();
+		m_vecMouseCommand[MOUSE_LCLICK]->Execute();
 		break;
 	case MOUSE_RCLICK:
-		m_vecMouseState[MOUSE_RCLICK]->Execute();
+		m_vecMouseCommand[MOUSE_RCLICK]->Execute();
 		break;
 	default:
 		break;
 	}
 }
 
+void CKeyMgr::KeyBoard_HandleInput()
+{
+	if (GetAsyncKeyState(VK_RIGHT))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollX(-10.f);
+	}
+
+	else if (GetAsyncKeyState(VK_LEFT))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollX(10.f);
+	}
+
+	else if (GetAsyncKeyState(VK_UP))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollY(10.f);
+	}
+
+	else if (GetAsyncKeyState(VK_DOWN))
+	{
+		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
+	}
+}
 
 void CKeyMgr::OffSet()
 {

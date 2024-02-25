@@ -21,6 +21,8 @@ public:
 public:
 	void Set_Mouse_State(MOUSESTATE _mId) { m_Current_Mouse_Click = _mId; }
 	void OffSet();
+	void Set_bSelectUnit(bool _bUnit) { m_bHasSelectUnit = _bUnit; };
+	bool Get_bSelectUnit() { return m_bHasSelectUnit; }
 
 public:
 	static		CKeyMgr* Get_Instance()
@@ -41,15 +43,15 @@ public:
 	}
 public:
 	void Mouse_HandleInput();
+	void KeyBoard_HandleInput();
 
 private:
 	static CKeyMgr* m_pInstance;
 	bool			m_bKeyState[VK_MAX];
-	vector<CCommand*> m_vecMouseState;
+	vector<CCommand*> m_vecMouseCommand;
 
 	MOUSESTATE m_Current_Mouse_Click;
-	CCommand* m_LClick_Mouse;
-
+	bool m_bHasSelectUnit;
 	float m_Cursor_Speed;
 };
 
