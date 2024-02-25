@@ -33,7 +33,7 @@ void CMineral::Initialize()
 int CMineral::Update()
 {
 	__super::Update_Rect();
-    return 0;
+	return 0;
 }
 
 void CMineral::Late_Update()
@@ -67,5 +67,5 @@ void CMineral::Release()
 
 void CMineral::InsertBmpFile()
 {
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/map/Resource/Mineral.bmp", L"Mineral");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/map/Resource/Mine/Mineral.BMP", L"Mineral");
 }
