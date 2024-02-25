@@ -136,6 +136,9 @@
     <Filter Include="01. Obj\99. State\03. DieState">
       <UniqueIdentifier>{4ad622c7-c225-4ba8-8dbd-b1dd84749c7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\02. Mineral">
+      <UniqueIdentifier>{a854709e-90e1-4d0a-9d9a-8150bfd6918d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -336,6 +339,9 @@
     <ClInclude Include="Center.h">
       <Filter>01. Obj\01. Buliding</Filter>
     </ClInclude>
+    <ClInclude Include="Mineral.h">
+      <Filter>01. Obj\02. Mineral</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -523,6 +529,9 @@
     </ClCompile>
     <ClCompile Include="Center.cpp">
       <Filter>01. Obj\01. Buliding</Filter>
+    </ClCompile>
+    <ClCompile Include="Mineral.cpp">
+      <Filter>01. Obj\02. Mineral</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

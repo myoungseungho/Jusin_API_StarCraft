@@ -180,6 +180,7 @@
     <ClInclude Include="Medic_Die_State.h" />
     <ClInclude Include="Medic_Idle_State.h" />
     <ClInclude Include="Medic_Walk_State.h" />
+    <ClInclude Include="Mineral.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MyBmp.h" />
     <ClInclude Include="MyEdit.h" />
@@ -246,6 +247,7 @@
     <ClCompile Include="Medic_Die_State.cpp" />
     <ClCompile Include="Medic_Idle_State.cpp" />
     <ClCompile Include="Medic_Walk_State.cpp" />
+    <ClCompile Include="Mineral.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MyBmp.cpp" />
     <ClCompile Include="MyEdit.cpp" />
