@@ -45,6 +45,7 @@ void CLClick_Mouse::Initialize()
 
 		CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
+		dynamic_cast<CObj_Dynamic*>(target)->ChangeState(IDLE_STATE);
 	}
 	else
 	{

@@ -30,7 +30,6 @@ int CScv_Idle_State::Update(CObj_Dynamic*)
 
 void CScv_Idle_State::Late_Update(CObj_Dynamic* _scv)
 {
-	//_scv->Move_Frame();
 }
 
 void CScv_Idle_State::Render(CObj_Dynamic* _scv, HDC hDC)
