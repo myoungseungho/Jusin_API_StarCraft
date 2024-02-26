@@ -33,6 +33,10 @@ void CUIMgr::Initialize()
 	m_vecUnitUI[DYANMIC_OBJ_SCV].push_back(attackIcon);
 	m_vecUnitUI[DYANMIC_OBJ_SCV].push_back(buildIcon);
 	m_vecUnitUI[DYANMIC_OBJ_SCV].push_back(advancedbuildIcon);
+
+	m_vecUnitUI[DYNAMIC_OBJ_MARINE].push_back(moveIcon);
+	m_vecUnitUI[DYNAMIC_OBJ_MARINE].push_back(stopIcon);
+	m_vecUnitUI[DYNAMIC_OBJ_MARINE].push_back(attackIcon);
 }
 
 void CUIMgr::Render(HDC hDC)
