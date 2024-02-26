@@ -23,6 +23,7 @@
 #include "Factory.h"
 #include "Starport.h"
 #include "TechTreeMgr.h"
+#include "UIMgr.h"
 CStage::CStage()
 {
 }
@@ -91,6 +92,8 @@ void CStage::Render(HDC hDC)
 		WINCX,	// 출력할 비트맵 가로
 		WINCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
+
+	CUIMgr::Get_Instance()->Render(hDC);
 
 	m_Mouse->Render(hDC);
 }
