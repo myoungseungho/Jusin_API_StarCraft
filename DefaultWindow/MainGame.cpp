@@ -11,6 +11,7 @@
 #include "SpawnMgr.h"
 #include "AStarMgr.h"
 #include "UnitControlMgr.h"
+#include "TechTreeMgr.h"
 
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
 {
@@ -95,6 +96,7 @@ void CMainGame::Release()
 	CSpawnMgr::Get_Instance()->Destroy_Instance();
 	CAStarMgr::Get_Instance()->Destroy_Instance();
 	CUnitControlMgr::Get_Instance()->Destroy_Instance();
+	CTechTreeMgr::Get_Instance()->Destroy_Instance();
 	ReleaseDC(g_hWnd, m_hDC);	
 }
 
