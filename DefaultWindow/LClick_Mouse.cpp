@@ -37,11 +37,7 @@ void CLClick_Mouse::Initialize()
 		CObj* target = CObjMgr::Get_Instance()->Get_Target_UI(Pt.x, Pt.y);
 		if (target != nullptr)
 		{
-			CObj_UI* obj_UI = dynamic_cast<CObj_UI*>(target);
-			if (obj_UI)
-			{
-				obj_UI->Initialize();
-			}
+			CUIMgr::Get_Instance()->Set_SCV_UI(target);
 		}
 	}
 	else
@@ -61,12 +57,14 @@ void CLClick_Mouse::Initialize()
 			if (bHasSelect)
 				CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 
+			CUIMgr::Get_Instance()->SetUI(target);
 			CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 			CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 			dynamic_cast<CObj_Dynamic*>(target)->ChangeState(IDLE_STATE);
 		}
 		else
 		{
+			CUIMgr::Get_Instance()->SetClear();
 			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 			CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
 		}

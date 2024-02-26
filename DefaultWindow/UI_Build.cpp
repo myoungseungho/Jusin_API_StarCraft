@@ -30,6 +30,8 @@ void CUI_Build_Icon::Initialize()
 
 int CUI_Build_Icon::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
 	return 0;
 }
 
@@ -49,4 +51,9 @@ void CUI_Build_Icon::Release()
 void CUI_Build_Icon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Unituse/Build_Image.bmp", L"Build_Image");
+}
+
+ICONSTATE CUI_Build_Icon::GetType() const
+{
+	return ICON_BUILD;
 }

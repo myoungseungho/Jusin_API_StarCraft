@@ -30,6 +30,8 @@ void CUI_Depot_Icon::Initialize()
 
 int CUI_Depot_Icon::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
     return 0;
 }
 
@@ -49,4 +51,9 @@ void CUI_Depot_Icon::Release()
 void CUI_Depot_Icon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/BasicBuilding/Depot_Icon.bmp", L"Depot_Icon");
+}
+
+ICONSTATE CUI_Depot_Icon::GetType() const
+{
+	return ICON_DEPOT;
 }

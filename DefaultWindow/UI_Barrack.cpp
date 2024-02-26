@@ -31,6 +31,8 @@ void CUI_Barrack_Icon::Initialize()
 
 int CUI_Barrack_Icon::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
     return 0;
 }
 
@@ -50,4 +52,9 @@ void CUI_Barrack_Icon::Release()
 void CUI_Barrack_Icon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/BasicBuilding/Barrack_Icon.bmp", L"Barrack_Icon");
+}
+
+ICONSTATE CUI_Barrack_Icon::GetType() const
+{
+	return ICON_BARRACK;
 }

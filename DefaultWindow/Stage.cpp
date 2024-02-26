@@ -43,7 +43,9 @@ void CStage::Initialize()
 	CTechTreeMgr::Get_Instance()->Initialize();
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
+
 	Init_Obj_Spawn();
+	CUIMgr::Get_Instance()->Initialize();
 }
 
 int CStage::Update()

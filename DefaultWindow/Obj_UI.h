@@ -13,6 +13,9 @@ public:
 	virtual void Render(HDC hDC);
 	void Release() PURE;
 
+	virtual ICONSTATE GetType() const PURE;
+
+
     void		Move_Frame();
 	HDC			Get_HDC();
 };

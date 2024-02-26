@@ -31,6 +31,8 @@ void CUI_StarPort_Icon::Initialize()
 
 int CUI_StarPort_Icon::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
 	return 0;
 }
 
@@ -50,4 +52,9 @@ void CUI_StarPort_Icon::Release()
 void CUI_StarPort_Icon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/AdvancedBuilding/StarPort_Icon.bmp", L"StarPort_Icon");
+}
+
+ICONSTATE CUI_StarPort_Icon::GetType() const
+{
+	return ICON_STARPORT;
 }

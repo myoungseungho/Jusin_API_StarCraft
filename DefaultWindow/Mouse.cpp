@@ -82,3 +82,8 @@ void CMouse::Render(HDC hDC)
 void CMouse::Release()
 {
 }
+
+ICONSTATE CMouse::GetType() const
+{
+	return ICON_END;
+}

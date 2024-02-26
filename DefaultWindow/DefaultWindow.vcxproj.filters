@@ -451,7 +451,7 @@
       <Filter>01. Obj\03. UI\02. Build_Icon\04. StarPort_Icon</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>01. Obj\03. UI\03. BackGround</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -693,7 +693,7 @@
       <Filter>01. Obj\03. UI\02. Build_Icon\04. StarPort_Icon</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>01. Obj\03. UI\03. BackGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

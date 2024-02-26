@@ -30,6 +30,9 @@ void CUI_Move_Icon::Initialize()
 
 int CUI_Move_Icon::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	return 0;
 }
 
@@ -49,4 +52,9 @@ void CUI_Move_Icon::Release()
 void CUI_Move_Icon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Unituse/Move_Image.bmp", L"Move_Image");
+}
+
+ICONSTATE CUI_Move_Icon::GetType() const
+{
+	return ICON_MOVE;
 }

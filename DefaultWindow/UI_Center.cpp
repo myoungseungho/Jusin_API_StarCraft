@@ -31,6 +31,8 @@ void CUI_Center_Icon::Initialize()
 
 int CUI_Center_Icon::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
     return 0;
 }
 
@@ -50,4 +52,9 @@ void CUI_Center_Icon::Release()
 void CUI_Center_Icon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/BasicBuilding/Center_Icon.bmp", L"Center_Icon");
+}
+
+ICONSTATE CUI_Center_Icon::GetType() const
+{
+	return ICON_CENTER;
 }

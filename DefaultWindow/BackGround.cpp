@@ -43,3 +43,8 @@ void CBackGround::Render(HDC hDC)
 void CBackGround::Release()
 {
 }
+
+ICONSTATE CBackGround::GetType() const
+{
+	return ICON_END;
+}

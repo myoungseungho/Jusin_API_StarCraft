@@ -30,6 +30,8 @@ void CUI_Stop_Icon::Initialize()
 
 int CUI_Stop_Icon::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
 	return 0;
 }
 
@@ -49,4 +51,9 @@ void CUI_Stop_Icon::Release()
 void CUI_Stop_Icon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Unituse/Stop_Image.bmp", L"Stop_Image");
+}
+
+ICONSTATE CUI_Stop_Icon::GetType() const
+{
+	return ICON_STOP;
 }
