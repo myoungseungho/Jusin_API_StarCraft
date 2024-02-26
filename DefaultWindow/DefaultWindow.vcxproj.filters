@@ -157,6 +157,9 @@
     <Filter Include="02. Design\14. TechTreeMgr">
       <UniqueIdentifier>{526a97f4-f87f-46b2-9c79-defb337f5ec4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\15. UIMgr">
+      <UniqueIdentifier>{77ecd527-2cf1-4e8b-95fe-67b483adc523}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -375,6 +378,9 @@
     <ClInclude Include="TechTreeMgr.h">
       <Filter>02. Design\14. TechTreeMgr</Filter>
     </ClInclude>
+    <ClInclude Include="UIMgr.h">
+      <Filter>02. Design\15. UIMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -580,6 +586,9 @@
     </ClCompile>
     <ClCompile Include="TechTreeMgr.cpp">
       <Filter>02. Design\14. TechTreeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMgr.cpp">
+      <Filter>02. Design\15. UIMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

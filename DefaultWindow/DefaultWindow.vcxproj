@@ -217,6 +217,7 @@
     <ClInclude Include="TechTreeMgr.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMgr.h" />
+    <ClInclude Include="UIMgr.h" />
     <ClInclude Include="UnitControlMgr.h" />
     <ClInclude Include="WalkState.h" />
   </ItemGroup>
@@ -292,6 +293,7 @@
     <ClCompile Include="TechTreeMgr.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileMgr.cpp" />
+    <ClCompile Include="UIMgr.cpp" />
     <ClCompile Include="UnitControlMgr.cpp" />
     <ClCompile Include="WalkState.cpp" />
   </ItemGroup>
