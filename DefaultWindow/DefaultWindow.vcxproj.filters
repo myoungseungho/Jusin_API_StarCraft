@@ -76,27 +76,6 @@
     <Filter Include="02. Design\09. SpawnMgr">
       <UniqueIdentifier>{ec70f520-a58d-4872-a9d1-7434d998dfdc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Design\10. StateMgr">
-      <UniqueIdentifier>{a4e2d366-e18f-4ce8-a731-2f112c5c3863}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02. Design\11. AStarMgr">
-      <UniqueIdentifier>{754129c0-3958-4f98-9390-cf29defa630f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02. Design\12. UnitControlMgr">
-      <UniqueIdentifier>{30f53ef9-b948-44ed-9e4a-7a455cf48554}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02. Design\13. Command">
-      <UniqueIdentifier>{2a689449-b0f6-4983-9457-84514817ad87}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02. Design\13. Command\00. LClick_Mouse">
-      <UniqueIdentifier>{6e747243-0019-4f2f-bba2-2620bb3f0729}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02. Design\13. Command\01. RClick_Mouse">
-      <UniqueIdentifier>{83a52437-eeb3-4ef3-b338-ec7027291463}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="02. Design\13. Command\02. Drag_LClick_Mouse">
-      <UniqueIdentifier>{bb6d4831-5e6d-4243-9fca-242f0507d1d3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01. Obj\00. Unit">
       <UniqueIdentifier>{a852af64-0a1b-4dc8-acef-9d46f5b738cd}</UniqueIdentifier>
     </Filter>
@@ -154,10 +133,28 @@
     <Filter Include="01. Obj\01. Buliding\04. Starport">
       <UniqueIdentifier>{93e5d888-2df6-4e24-ac71-83fa8a64b2d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Design\14. TechTreeMgr">
+    <Filter Include="02. Design\10. AStarMgr">
+      <UniqueIdentifier>{754129c0-3958-4f98-9390-cf29defa630f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\11. UnitControlMgr">
+      <UniqueIdentifier>{30f53ef9-b948-44ed-9e4a-7a455cf48554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\12. Command">
+      <UniqueIdentifier>{2a689449-b0f6-4983-9457-84514817ad87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\12. Command\00. LClick_Mouse">
+      <UniqueIdentifier>{6e747243-0019-4f2f-bba2-2620bb3f0729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\12. Command\01. RClick_Mouse">
+      <UniqueIdentifier>{83a52437-eeb3-4ef3-b338-ec7027291463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\12. Command\02. Drag_LClick_Mouse">
+      <UniqueIdentifier>{bb6d4831-5e6d-4243-9fca-242f0507d1d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\13. TechTreeMgr">
       <UniqueIdentifier>{526a97f4-f87f-46b2-9c79-defb337f5ec4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Design\15. UIMgr">
+    <Filter Include="02. Design\14. UIMgr">
       <UniqueIdentifier>{77ecd527-2cf1-4e8b-95fe-67b483adc523}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -319,28 +316,28 @@
       <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClInclude>
     <ClInclude Include="AStarMgr.h">
-      <Filter>02. Design\11. AStarMgr</Filter>
+      <Filter>02. Design\10. AStarMgr</Filter>
     </ClInclude>
     <ClInclude Include="Obj_UI.h">
       <Filter>01. Obj</Filter>
     </ClInclude>
     <ClInclude Include="UnitControlMgr.h">
-      <Filter>02. Design\12. UnitControlMgr</Filter>
+      <Filter>02. Design\11. UnitControlMgr</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
       <Filter>01. Obj\99. State</Filter>
     </ClInclude>
     <ClInclude Include="Command.h">
-      <Filter>02. Design\13. Command</Filter>
+      <Filter>02. Design\12. Command</Filter>
     </ClInclude>
     <ClInclude Include="LClick_Mouse.h">
-      <Filter>02. Design\13. Command\00. LClick_Mouse</Filter>
+      <Filter>02. Design\12. Command\00. LClick_Mouse</Filter>
     </ClInclude>
     <ClInclude Include="RClick_Mouse.h">
-      <Filter>02. Design\13. Command\01. RClick_Mouse</Filter>
+      <Filter>02. Design\12. Command\01. RClick_Mouse</Filter>
     </ClInclude>
     <ClInclude Include="Drag_LMouse_Long.h">
-      <Filter>02. Design\13. Command\02. Drag_LClick_Mouse</Filter>
+      <Filter>02. Design\12. Command\02. Drag_LClick_Mouse</Filter>
     </ClInclude>
     <ClInclude Include="IdleState.h">
       <Filter>01. Obj\99. State\00. IdleState</Filter>
@@ -376,10 +373,10 @@
       <Filter>01. Obj\01. Buliding\01. SupplyDepot</Filter>
     </ClInclude>
     <ClInclude Include="TechTreeMgr.h">
-      <Filter>02. Design\14. TechTreeMgr</Filter>
+      <Filter>02. Design\13. TechTreeMgr</Filter>
     </ClInclude>
     <ClInclude Include="UIMgr.h">
-      <Filter>02. Design\15. UIMgr</Filter>
+      <Filter>02. Design\14. UIMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -528,28 +525,28 @@
       <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClCompile>
     <ClCompile Include="AStarMgr.cpp">
-      <Filter>02. Design\11. AStarMgr</Filter>
+      <Filter>02. Design\10. AStarMgr</Filter>
     </ClCompile>
     <ClCompile Include="Obj_UI.cpp">
       <Filter>01. Obj</Filter>
     </ClCompile>
     <ClCompile Include="UnitControlMgr.cpp">
-      <Filter>02. Design\12. UnitControlMgr</Filter>
+      <Filter>02. Design\11. UnitControlMgr</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
       <Filter>01. Obj\99. State</Filter>
     </ClCompile>
     <ClCompile Include="Command.cpp">
-      <Filter>02. Design\13. Command</Filter>
+      <Filter>02. Design\12. Command</Filter>
     </ClCompile>
     <ClCompile Include="LClick_Mouse.cpp">
-      <Filter>02. Design\13. Command\00. LClick_Mouse</Filter>
+      <Filter>02. Design\12. Command\00. LClick_Mouse</Filter>
     </ClCompile>
     <ClCompile Include="RClick_Mouse.cpp">
-      <Filter>02. Design\13. Command\01. RClick_Mouse</Filter>
+      <Filter>02. Design\12. Command\01. RClick_Mouse</Filter>
     </ClCompile>
     <ClCompile Include="Drag_LMouse_Long.cpp">
-      <Filter>02. Design\13. Command\02. Drag_LClick_Mouse</Filter>
+      <Filter>02. Design\12. Command\02. Drag_LClick_Mouse</Filter>
     </ClCompile>
     <ClCompile Include="IdleState.cpp">
       <Filter>01. Obj\99. State\00. IdleState</Filter>
@@ -585,10 +582,10 @@
       <Filter>01. Obj\01. Buliding\01. SupplyDepot</Filter>
     </ClCompile>
     <ClCompile Include="TechTreeMgr.cpp">
-      <Filter>02. Design\14. TechTreeMgr</Filter>
+      <Filter>02. Design\13. TechTreeMgr</Filter>
     </ClCompile>
     <ClCompile Include="UIMgr.cpp">
-      <Filter>02. Design\15. UIMgr</Filter>
+      <Filter>02. Design\14. UIMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
