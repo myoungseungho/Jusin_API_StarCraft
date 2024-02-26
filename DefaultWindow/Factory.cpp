@@ -15,17 +15,17 @@ CFactory::~CFactory()
 
 void CFactory::Initialize()
 {
-	////처음 크기 고정
-	//m_tInfo.fCX = 128.f;
-	//m_tInfo.fCY = 160.f;
+	//처음 크기 고정
+	m_tInfo.fCX = 128.f;
+	m_tInfo.fCY = 160.f;
 
-	////건물은 애니메이션이 없잖아?
-	//m_pFrameKey = L"Center";
-	//m_tFrame.iFrameStart = 0;
-	//m_tFrame.iFrameEnd = 0;
-	//m_tFrame.iMotion = 0;
-	//m_tFrame.dwSpeed = 200;
-	//m_tFrame.dwTime = GetTickCount();
+	//건물은 애니메이션이 없잖아?
+	m_pFrameKey = L"Factory";
+	m_tFrame.iFrameStart = 0;
+	m_tFrame.iFrameEnd = 0;
+	m_tFrame.iMotion = 0;
+	m_tFrame.dwSpeed = 200;
+	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
 }
@@ -74,5 +74,5 @@ void CFactory::Release()
 
 void CFactory::InsertBmpFile()
 {
-	//CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Control/Center.bmp", L"Center");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Factory/Factory.bmp", L"Factory");
 }

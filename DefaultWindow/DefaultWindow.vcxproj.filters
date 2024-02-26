@@ -154,6 +154,9 @@
     <Filter Include="01. Obj\01. Buliding\04. Starport">
       <UniqueIdentifier>{93e5d888-2df6-4e24-ac71-83fa8a64b2d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\14. TechTreeMgr">
+      <UniqueIdentifier>{526a97f4-f87f-46b2-9c79-defb337f5ec4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -369,6 +372,9 @@
     <ClInclude Include="SupplyDepot.h">
       <Filter>01. Obj\01. Buliding\01. SupplyDepot</Filter>
     </ClInclude>
+    <ClInclude Include="TechTreeMgr.h">
+      <Filter>02. Design\14. TechTreeMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -571,6 +577,9 @@
     </ClCompile>
     <ClCompile Include="SupplyDepot.cpp">
       <Filter>01. Obj\01. Buliding\01. SupplyDepot</Filter>
+    </ClCompile>
+    <ClCompile Include="TechTreeMgr.cpp">
+      <Filter>02. Design\14. TechTreeMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

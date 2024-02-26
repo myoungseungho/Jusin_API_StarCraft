@@ -18,6 +18,10 @@
 #include "Obj_Static.h"
 #include "Center.h"
 #include "Mineral.h"
+#include "SupplyDepot.h"
+#include "Barrack.h"
+#include "Factory.h"
+#include "Starport.h"
 CStage::CStage()
 {
 }
@@ -107,6 +111,12 @@ void CStage::Init_Obj_Spawn()
 	CObj_Dynamic* scv3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 400.f, 200.f);
 
 	CObj_Static* center = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, 300.f, 300.f);
+	CObj_Static* depot = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CSupplyDepot>(STATIC_OBJ_DEPOT, FACTION_ALLY, 500.f, 300.f);
+	CObj_Static* barrack = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CBarrack>(STATIC_OBJ_BARRACK, FACTION_ALLY, 500.f, 500.f);
+	CObj_Static* cfactory = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory>(STATIC_OBJ_FACTORY, FACTION_ALLY, 500.f, 700.f);
+	CObj_Static* starport = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, 700.f, 300.f);
+
+
 	CObj_Static* mineral1 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 130.f, 100.f);
 	CObj_Static* mineral2 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 100.f, 150.f);
 	CObj_Static* mineral3 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 130.f, 200.f);

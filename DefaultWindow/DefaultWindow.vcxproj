@@ -214,6 +214,7 @@
     <ClInclude Include="Tank_Idle_State.h" />
     <ClInclude Include="Tank_Walk_State.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TechTreeMgr.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMgr.h" />
     <ClInclude Include="UnitControlMgr.h" />
@@ -288,6 +289,7 @@
     <ClCompile Include="Tank_Die_State.cpp" />
     <ClCompile Include="Tank_Idle_State.cpp" />
     <ClCompile Include="Tank_Walk_State.cpp" />
+    <ClCompile Include="TechTreeMgr.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileMgr.cpp" />
     <ClCompile Include="UnitControlMgr.cpp" />
