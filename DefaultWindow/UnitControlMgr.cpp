@@ -15,7 +15,9 @@ void CUnitControlMgr::Set_Add_Unit(CObj* _unit)
 {
 	CObj_Dynamic* pDynamicObj = dynamic_cast<CObj_Dynamic*>(_unit);
 	if (pDynamicObj != nullptr)
+	{
 		m_vecUnit.push_back(pDynamicObj);
+	}
 }
 
 void CUnitControlMgr::Set_Add_Unit(vector<CObj*> _vec)

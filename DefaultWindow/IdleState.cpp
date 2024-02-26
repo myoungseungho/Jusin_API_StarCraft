@@ -19,7 +19,7 @@ IIdleState::~IIdleState()
 
 void IIdleState::Initialize(CObj_Dynamic* _unit)
 {
-	CObj_UI* moveIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+	/*CObj_UI* moveIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJ_ICON, 655.f, 468.f);
 	CObj_UI* stopIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJ_ICON, 713.f, 468.f);
 	CObj_UI* attackIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Attack_Icon>(UI_OBJ_ICON, 768.f, 468.f);
 
@@ -41,7 +41,7 @@ void IIdleState::Initialize(CObj_Dynamic* _unit)
 	{
 		iter->Initialize();
 		CUIMgr::Get_Instance()->Set_UI(iter);
-	}
+	}*/
 }
 
 int IIdleState::Update(CObj_Dynamic*)

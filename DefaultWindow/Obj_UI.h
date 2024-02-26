@@ -14,7 +14,6 @@ public:
 	void Release() PURE;
 
     void		Move_Frame();
-	void		Set_UI();
 	HDC			Get_HDC();
 };
 

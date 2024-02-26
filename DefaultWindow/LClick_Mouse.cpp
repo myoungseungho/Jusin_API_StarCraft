@@ -44,14 +44,12 @@ void CLClick_Mouse::Initialize()
 		if (bHasSelect)
 			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 
-		CUIMgr::Get_Instance()->Init_VecUI();
 		CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 		dynamic_cast<CObj_Dynamic*>(target)->ChangeState(IDLE_STATE);
 	}
 	else
 	{
-		CUIMgr::Get_Instance()->Init_VecUI();
 		CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
 	}

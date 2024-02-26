@@ -12,6 +12,7 @@ CObj_UI::~CObj_UI()
 
 void CObj_UI::Initialize()
 {
+	__super::Update_Rect();
 }
 
 int CObj_UI::Update()
@@ -44,10 +45,6 @@ void CObj_UI::Move_Frame()
 	}
 }
 
-void CObj_UI::Set_UI()
-{
-	CUIMgr::Get_Instance()->Set_UI(this);
-}
 
 HDC CObj_UI::Get_HDC()
 {

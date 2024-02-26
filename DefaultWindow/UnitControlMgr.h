@@ -31,5 +31,6 @@ public:
 private:
 	static CUnitControlMgr* m_pInstance;
 	vector<CObj_Dynamic*> m_vecUnit;
+	vector<HDC> m_vecHDC[DYNAMIC_OBJ_END];
 };
 
