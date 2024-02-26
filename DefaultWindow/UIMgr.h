@@ -27,12 +27,10 @@ public:
 	void Initialize();
 	void Render(HDC hDC);
 public:
-	void Set_UI(CObj*);
+	void Set_UI(CObj_UI*);
+	void Init_VecUI();
 private:
 	static CUIMgr* m_pInstance;
-	vector<CObj*> m_vecUI;
-
-	TCHAR* m_pFrameKey;
-	FRAME		m_tFrame;
+	vector<CObj_UI*> m_vecUI;
 };
 

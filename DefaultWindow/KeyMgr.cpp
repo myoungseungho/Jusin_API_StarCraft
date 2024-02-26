@@ -85,11 +85,6 @@ void CKeyMgr::Update()
 		}
 		else
 		{
-			/*for (auto iter : m_vecMouseCommand)
-			{
-				iter->Release();
-			}*/
-
 			m_Current_Mouse_Click = MOUSE_LCLICK;
 			m_vecMouseCommand[MOUSE_LCLICK]->Initialize();
 			m_Current_Mouse_Click = MOUSE_IDLE_STATE;

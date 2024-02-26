@@ -81,7 +81,7 @@ void CMainGame::Render()
 		SRCCOPY);	
 
 	CSceneMgr::Get_Instance()->Render(hMemDC);
-	CKeyMgr::Get_Instance()->Render(hMemDC);
+	//CKeyMgr::Get_Instance()->Render(hMemDC);
 }
 
 void CMainGame::Release()

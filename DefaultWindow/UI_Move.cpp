@@ -13,12 +13,20 @@ CUI_Move_Icon::~CUI_Move_Icon()
 
 void CUI_Move_Icon::Initialize()
 {
+	//처음 크기 고정
+	m_tInfo.fCX = 40.f;
+	m_tInfo.fCY = 40.f;
+	__super::Update_Rect();
+
 	m_pFrameKey = L"Move_Image";
-	m_tFrame.iFrameStart = 0;
-	m_tFrame.iFrameEnd = 0;
+	m_tFrame.iFrameStart = 1;
+	m_tFrame.iFrameEnd = 1;
 	m_tFrame.iMotion = 0;
 	m_tFrame.dwSpeed = 200;
 	m_tFrame.dwTime = GetTickCount();
+
+	m_eRender = RENDER_UI;
+
 }
 
 int CUI_Move_Icon::Update()

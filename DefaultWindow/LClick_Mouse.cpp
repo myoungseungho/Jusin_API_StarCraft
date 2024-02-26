@@ -5,6 +5,7 @@
 #include "ObjMgr.h"
 #include "UnitControlMgr.h"
 #include "KeyMgr.h"
+#include "UIMgr.h"
 CLClick_Mouse::CLClick_Mouse()
 {
 }

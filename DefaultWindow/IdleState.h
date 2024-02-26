@@ -1,5 +1,6 @@
 #pragma once
 #include "State.h"
+#include "Obj_UI.h"
 class IIdleState :
     public IState
 {
@@ -14,5 +15,7 @@ public:
 	void Render(CObj_Dynamic*, HDC hDC) override;
 	void Release(CObj_Dynamic*) override;
 	void Move_Frame() override;
+protected:
+	vector<CObj_UI*> m_vecIcon;
 };
 
