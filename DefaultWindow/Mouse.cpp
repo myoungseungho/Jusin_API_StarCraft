@@ -31,7 +31,7 @@ void CMouse::Initialize()
 	m_tInfo.fCX = 128.f;
 	m_tInfo.fCY = 128.f;
 
-	m_eRender = RENDER_SUPER;
+	m_eRender = RENDER_UI;
 }
 
 int CMouse::Update()

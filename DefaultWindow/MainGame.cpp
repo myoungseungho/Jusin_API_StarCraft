@@ -29,7 +29,6 @@ void CMainGame::Initialize()
 	m_hDC = GetDC(g_hWnd);
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainUI.bmp", L"MainUI");
 
 	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ObjMgr.h"
 #include "CollisionMgr.h"
-
+#include "BmpMgr.h"
 CObjMgr* CObjMgr::m_pInstance = nullptr;
 
 CObjMgr::CObjMgr()
@@ -133,9 +133,7 @@ void CObjMgr::Late_Update()
 				break;
 
 			RENDERID eID = iter->Get_RenderID();
-
-			if (eID != RENDER_SUPER)
-				m_RenderList[eID].push_back(iter);
+			m_RenderList[eID].push_back(iter);
 		}
 	}
 

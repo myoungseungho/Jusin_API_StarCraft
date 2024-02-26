@@ -16,8 +16,5 @@ public:
 	virtual void Release() override;
 private:
 	void Init_Obj_Spawn();
-
-private:
-	CObj_UI* m_Mouse;
 };
 

@@ -151,6 +151,7 @@
     <ClInclude Include="AbstractFactory.h" />
     <ClInclude Include="AStarMgr.h" />
     <ClInclude Include="AttackState.h" />
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="Barrack.h" />
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="Center.h" />
@@ -234,6 +235,7 @@
   <ItemGroup>
     <ClCompile Include="AStarMgr.cpp" />
     <ClCompile Include="AttackState.cpp" />
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="Barrack.cpp" />
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="Center.cpp" />

@@ -69,7 +69,7 @@ inline CObj_UI* CSpawnMgr::Spawn_UIObj(UI_OBJID _Id)
 {
 	CObj_UI* obj_UI = CAbstractFactory<T>::Create_UI();
 	CObjMgr::Get_Instance()->Add_UI_Object(_Id, obj_UI);
-
+	obj_UI->Initialize();
 	return obj_UI;
 }
 

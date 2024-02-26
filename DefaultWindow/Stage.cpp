@@ -24,6 +24,7 @@
 #include "Starport.h"
 #include "TechTreeMgr.h"
 #include "UIMgr.h"
+#include "BackGround.h"
 CStage::CStage()
 {
 }
@@ -42,7 +43,6 @@ void CStage::Initialize()
 	CTechTreeMgr::Get_Instance()->Initialize();
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
-	CUIMgr::Get_Instance()->Initialize();
 	Init_Obj_Spawn();
 }
 
@@ -51,7 +51,6 @@ int CStage::Update()
 	CKeyMgr::Get_Instance()->Update();
 	CTileMgr::Get_Instance()->Update();
 	CObjMgr::Get_Instance()->Update();
-
 	return 0;
 }
 
@@ -78,24 +77,6 @@ void CStage::Render(HDC hDC)
 
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
-
-	HDC	hUIDC = CBmpMgr::Get_Instance()->Find_Image(L"MainUI");
-	GdiTransparentBlt(
-		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		0, // 복사 받을 위치 좌표
-		0,
-		WINCX,	// 복사 받을 이미지의 가로, 세로
-		WINCY,
-		hUIDC,		// 비트맵을 가지고 있는 DC
-		0,			// 비트맵 출력 시작 좌표 LEFT, TOP
-		0,
-		WINCX,	// 출력할 비트맵 가로
-		WINCY,	// 출력할 비트맵 세로
-		RGB(0, 0, 0));	// 제거할 색상 값
-
-
-	CUIMgr::Get_Instance()->Render(hDC);
-	m_Mouse->Render(hDC);
 }
 
 void CStage::Release()
@@ -109,7 +90,6 @@ void CStage::Release()
 
 void CStage::Init_Obj_Spawn()
 {
-	m_Mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
 	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
 	CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 300.f, 200.f);
 	CObj_Dynamic* scv3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 400.f, 200.f);
@@ -132,6 +112,7 @@ void CStage::Init_Obj_Spawn()
 	CObj_Static* mineral6 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 100.f, 350.f);
 	CObj_Static* mineral7 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 130.f, 400.f);
 
+	
 
 	//CObj_Dynamic* marine3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, ATTACK_STATE, 300.f, 400.f);
 	//CObj_Dynamic* marine4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, DIE_STATE, 300.f, 500.f);
@@ -146,4 +127,7 @@ void CStage::Init_Obj_Spawn()
 	//CObj_Dynamic* medic4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(OBJ_MEDIC, DIE_STATE, 500.f, 500.f);
 
 	//CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(OBJ_TANK, WALK_STATE, 600.f, 200.f);
+
+	CObj_UI* mainUI = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBackGround>(UI_OBJ_MAINUI);
+	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
 }
