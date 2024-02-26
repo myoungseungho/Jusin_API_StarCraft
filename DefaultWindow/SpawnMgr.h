@@ -28,10 +28,10 @@ public:
 	}
 
 	template<typename T>
-	CObj_Dynamic* Spawn_DynamicObj(DYNAMIC_OBJID _Id, float _fX, float _fY);
+	CObj_Dynamic* Spawn_DynamicObj(DYNAMIC_OBJID _Id, FACTIONSTATE _fId, float _fX, float _fY);
 
 	template<typename T>
-	CObj_Static* Spawn_StaticObj(BUILDINGSTATE _Id, float _fX, float _fY);
+	CObj_Static* Spawn_StaticObj(BUILDINGSTATE _Id, FACTIONSTATE _fId, float _fX, float _fY);
 
 	template<typename T>
 	CObj_UI* Spawn_UIObj(UI_OBJID _Id);
@@ -46,20 +46,20 @@ private:
 };
 
 template<typename T>
-inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(DYNAMIC_OBJID _Id, float _fX, float _fY)
+inline CObj_Dynamic* CSpawnMgr::Spawn_DynamicObj(DYNAMIC_OBJID _Id, FACTIONSTATE _fId, float _fX, float _fY)
 {
 	CObj_Dynamic* obj_Dynamic = CAbstractFactory<T>::Create_Dynamic(_fX, _fY);
 	CObjMgr::Get_Instance()->Add_Dynamic_Object(_Id, obj_Dynamic);
-
+	obj_Dynamic->Set_FactionState(_fId);
 	return obj_Dynamic;
 }
 
 template<typename T>
-inline CObj_Static* CSpawnMgr::Spawn_StaticObj(BUILDINGSTATE _Id, float _fX, float _fY)
+inline CObj_Static* CSpawnMgr::Spawn_StaticObj(BUILDINGSTATE _Id, FACTIONSTATE _fId, float _fX, float _fY)
 {
 	CObj_Static* obj_Static = CAbstractFactory<T>::Create_Static(_fX, _fY);
 	CObjMgr::Get_Instance()->Add_Static_Object(_Id, obj_Static);
-
+	obj_Static->Set_FactionState(_fId);
 	return obj_Static;
 }
 

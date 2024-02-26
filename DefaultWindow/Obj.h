@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Define.h"
 class CObj
 {
@@ -22,7 +21,7 @@ public:
 	RECT		Get_Rect() { return m_tRect; }
 	void		Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
 	void		Set_Target(CObj* pTarget) { m_pTarget = pTarget; }
-	
+
 	INFO		Get_Info() { return m_tInfo; }
 	RENDERID	Get_RenderID() { return m_eRender; }
 
@@ -35,8 +34,10 @@ public:
 public:
 	void		Update_Rect();
 
-	FRAME*		Get_Frame() { return &m_tFrame; }
-	TCHAR**		Get_FrameKey() { return &m_pFrameKey; }
+	FRAME* Get_Frame() { return &m_tFrame; }
+	TCHAR** Get_FrameKey() { return &m_pFrameKey; }
+	FACTIONSTATE Get_FactionState() { return m_Faction; }
+	void		Set_FactionState(FACTIONSTATE m_Id) { m_Faction = m_Id; };
 	void		Set_FrameKey(TCHAR* pFrameKey) { m_pFrameKey = pFrameKey; }
 protected:
 	virtual void InsertBmpFile();
@@ -50,9 +51,11 @@ protected:
 
 	CObj* m_pTarget;
 
-	TCHAR*		m_pFrameKey;
+	TCHAR* m_pFrameKey;
 	FRAME		m_tFrame;
 
 	RENDERID	m_eRender;
+
+	FACTIONSTATE m_Faction;
 };
 

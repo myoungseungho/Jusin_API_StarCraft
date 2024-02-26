@@ -16,7 +16,6 @@ public:
     void Move_Frame() override;
 
 private:
-    void Move(CObj_Dynamic*);
     DWORD m_dwTime;
 };
 

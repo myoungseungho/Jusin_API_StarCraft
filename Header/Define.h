@@ -116,6 +116,15 @@ enum BUILDINGSTATE
 	STATIC_OBJ_END
 };
 
+enum FACTIONSTATE
+{
+	FACTION_NON, // 어느 쪽에도 속하지 않음
+	FACTION_ALLY, // 아군
+	FACTION_ENEMY, // 적군
+	FACTION_RESOURCE, //자원
+	FACTION_END
+};
+
 
 typedef struct tagInfo
 {

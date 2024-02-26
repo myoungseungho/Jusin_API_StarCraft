@@ -16,8 +16,14 @@ public:
 	virtual void		Release(CObj_Dynamic*)		PURE;
 protected:
 	virtual void Move_Frame() PURE;
+public:
+	void Set_Astar(float, float, float, float);
+	void Move(CObj_Dynamic*);
 protected:
 	FRAME* m_pFrameCopy;
 	TCHAR** m_pFrameKeyCopy;
+protected:
+	list<CObj*> m_listPathTile;
+	list<pair<int, int>> m_Path;
 };
 

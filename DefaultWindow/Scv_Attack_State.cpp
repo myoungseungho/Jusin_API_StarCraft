@@ -2,6 +2,7 @@
 #include "Scv_Attack_State.h"
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
+#include "TileMgr.h"
 CScv_Attack_State::CScv_Attack_State() :m_AttackFileSize(0), m_pFrameKey_Attack(nullptr), m_Offset_Attack(0)
 {
 }
@@ -31,10 +32,24 @@ void CScv_Attack_State::Initialize(CObj_Dynamic* _scv)
 
 	m_AttackFileSize = 48;
 	m_Offset_Attack = 30;
+
+	POINT scvPoint = _scv->GetMousePT();
+	INFO info = _scv->Get_Info();
+
+	int ScvX = info.fX / TILECX;
+	int ScvY = info.fY / TILECY;
+
+	int	TileX = scvPoint.x / TILECX;
+	int	TileY = scvPoint.y / TILECY;
+
+	Set_Astar(ScvX, ScvY, TileX, TileY);
+
+	m_listPathTile = CTileMgr::Get_Instance()->GetListPath(m_Path);
 }
 
 int CScv_Attack_State::Update(CObj_Dynamic* _scv)
 {
+	Move(_scv);
 	return 0;
 }
 
