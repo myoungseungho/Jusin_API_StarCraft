@@ -10,7 +10,7 @@ public:
 	void Initialize() PURE;
 	int Update() PURE;
 	void Late_Update()PURE;
-	void Render(HDC hDC) PURE;
+	virtual void Render(HDC hDC);
 	void Release() PURE;
 
     void		Move_Frame();

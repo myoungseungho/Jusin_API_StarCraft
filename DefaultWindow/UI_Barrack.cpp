@@ -14,12 +14,19 @@ CUI_Barrack_Icon::~CUI_Barrack_Icon()
 
 void CUI_Barrack_Icon::Initialize()
 {
+	//처음 크기 고정
+	m_tInfo.fCX = 40.f;
+	m_tInfo.fCY = 40.f;
+	__super::Update_Rect();
+
 	m_pFrameKey = L"Barrack_Icon";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
 	m_tFrame.dwSpeed = 200;
 	m_tFrame.dwTime = GetTickCount();
+
+	m_eRender = RENDER_UI;
 }
 
 int CUI_Barrack_Icon::Update()
@@ -33,6 +40,7 @@ void CUI_Barrack_Icon::Late_Update()
 
 void CUI_Barrack_Icon::Render(HDC hDC)
 {
+	CObj_UI::Render(hDC);
 }
 
 void CUI_Barrack_Icon::Release()

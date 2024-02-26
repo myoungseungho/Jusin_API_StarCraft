@@ -39,6 +39,7 @@ void CUI_Attack_Icon::Late_Update()
 
 void CUI_Attack_Icon::Render(HDC hDC)
 {
+	CObj_UI::Render(hDC);
 }
 
 void CUI_Attack_Icon::Release()

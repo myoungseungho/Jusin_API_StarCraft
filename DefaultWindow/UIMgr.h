@@ -26,13 +26,10 @@ public:
 public:
 	void Initialize();
 	void Render(HDC hDC);
-//public:
-//	void Set_UI(CObj_UI*);
-//	void Init_VecUI();
+	void Release();
+	
 private:
 	static CUIMgr* m_pInstance;
 	vector<CObj_UI*> m_vecUnitUI[DYNAMIC_OBJ_END];
-
-	vector<HDC> m_vecUI;
 };
 

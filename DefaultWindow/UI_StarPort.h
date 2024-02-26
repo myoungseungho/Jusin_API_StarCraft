@@ -3,6 +3,7 @@
 class CUI_StarPort_Icon :
     public CObj_UI
 {
+public:
     CUI_StarPort_Icon();
     virtual ~CUI_StarPort_Icon();
 public:

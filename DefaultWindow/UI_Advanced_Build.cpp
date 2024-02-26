@@ -39,6 +39,7 @@ void CUI_Advanced_Build_Icon::Late_Update()
 
 void CUI_Advanced_Build_Icon::Render(HDC hDC)
 {
+	CObj_UI::Render(hDC);
 }
 
 void CUI_Advanced_Build_Icon::Release()

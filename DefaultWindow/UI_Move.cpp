@@ -26,7 +26,6 @@ void CUI_Move_Icon::Initialize()
 	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_UI;
-
 }
 
 int CUI_Move_Icon::Update()
@@ -40,6 +39,7 @@ void CUI_Move_Icon::Late_Update()
 
 void CUI_Move_Icon::Render(HDC hDC)
 {
+	CObj_UI::Render(hDC);
 }
 
 void CUI_Move_Icon::Release()

@@ -9,6 +9,11 @@
 #include "UI_Attack.h"
 #include "UI_Build.h"
 #include "UI_Advanced_Build.h"
+#include "UI_Center.h"
+#include "UI_Barrack.h"
+#include "UI_Depot.h"
+#include "UI_Factory.h"
+#include "UI_StarPort.h"
 
 CUIMgr* CUIMgr::m_pInstance = nullptr;
 
@@ -25,8 +30,15 @@ void CUIMgr::Initialize()
 	CObj_UI* moveIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJ_ICON, 655.f, 468.f);
 	CObj_UI* stopIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJ_ICON, 713.f, 468.f);
 	CObj_UI* attackIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Attack_Icon>(UI_OBJ_ICON, 768.f, 468.f);
-	CObj_UI* buildIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Build_Icon>(UI_OBJ_ICON, 655.f, 570);
-	CObj_UI* advancedbuildIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Advanced_Build_Icon>(UI_OBJ_ICON, 715.f, 570);
+	CObj_UI* buildIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Build_Icon>(UI_OBJ_ICON, 655.f, 570.f);
+	CObj_UI* advancedbuildIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Advanced_Build_Icon>(UI_OBJ_ICON, 715.f, 570.f);
+
+	CObj_UI* centerIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Center_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+	CObj_UI* depotIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Depot_Icon>(UI_OBJ_ICON, 713.f, 468.f);
+	CObj_UI* barrackIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Barrack_Icon>(UI_OBJ_ICON, 655.f, 519.f);
+	CObj_UI* factoryIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+	CObj_UI* starportIcon = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Icon>(UI_OBJ_ICON, 655.f, 519.f);
+
 
 	m_vecUnitUI[DYANMIC_OBJ_SCV].push_back(moveIcon);
 	m_vecUnitUI[DYANMIC_OBJ_SCV].push_back(stopIcon);
@@ -48,20 +60,14 @@ void CUIMgr::Render(HDC hDC)
 
 	for (auto iter : m_vecUnitUI[vecUnit.back()->GetType()])
 	{
-		RECT m_tRect = iter->Get_Rect();
-		INFO m_tInfo = iter->Get_Info();
-		FRAME* m_tFrame = iter->Get_Frame();
-		GdiTransparentBlt(
-			hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-			m_tRect.left,	// 복사 받을 이미지의 가로, 세로
-			m_tRect.top,
-			(int)m_tInfo.fCX,	// 복사 받을 이미지의 가로, 세로
-			(int)m_tInfo.fCY,
-			iter->Get_HDC(),		// 비트맵을 가지고 있는 DC
-			(int)m_tInfo.fCX * m_tFrame->iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
-			(int)m_tInfo.fCY * m_tFrame->iMotion,
-			(int)m_tInfo.fCX,	// 출력할 비트맵 가로
-			(int)m_tInfo.fCY,	// 출력할 비트맵 세로
-			RGB(0, 0, 0));	// 제거할 색상 값
+		iter->Render(hDC);
+	}
+}
+
+void CUIMgr::Release()
+{
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	{
+		for_each(m_vecUnitUI[i].begin(), m_vecUnitUI[i].end(), Safe_Delete<CObj_UI*>);
 	}
 }

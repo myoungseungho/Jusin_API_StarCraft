@@ -3,6 +3,7 @@
 class CUI_Factory_Icon :
     public CObj_UI
 {
+public:
     CUI_Factory_Icon();
     virtual ~CUI_Factory_Icon();
 public:

@@ -39,6 +39,7 @@ void CUI_Stop_Icon::Late_Update()
 
 void CUI_Stop_Icon::Render(HDC hDC)
 {
+	CObj_UI::Render(hDC);
 }
 
 void CUI_Stop_Icon::Release()
