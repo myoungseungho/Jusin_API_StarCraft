@@ -46,5 +46,7 @@ private:
 	CObj_UI* m_DepotIcon;
 	CObj_UI* m_FactoryIcon;
 	CObj_UI* m_StarPortIcon;
+
+	vector<CObj_UI*> m_vecIcon;
 };
 
