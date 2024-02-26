@@ -42,7 +42,7 @@ void CStage::Initialize()
 	CTechTreeMgr::Get_Instance()->Initialize();
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
-
+	CUIMgr::Get_Instance()->Initialize();
 	Init_Obj_Spawn();
 }
 
@@ -93,8 +93,8 @@ void CStage::Render(HDC hDC)
 		WINCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
 
-	CUIMgr::Get_Instance()->Render(hDC);
 
+	CUIMgr::Get_Instance()->Render(hDC);
 	m_Mouse->Render(hDC);
 }
 
@@ -128,7 +128,6 @@ void CStage::Init_Obj_Spawn()
 	CObj_Static* mineral5 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 130.f, 300.f);
 	CObj_Static* mineral6 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 100.f, 350.f);
 	CObj_Static* mineral7 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 130.f, 400.f);
-
 
 	//CObj_Dynamic* marine1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, 300.f, 200.f);
 	//CObj_Dynamic* marine2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(OBJ_MARINE, WALK_STATE, 300.f, 300.f);

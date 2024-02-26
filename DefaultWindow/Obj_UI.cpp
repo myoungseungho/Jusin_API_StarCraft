@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Obj_UI.h"
-
+#include "UIMgr.h"
+#include "BmpMgr.h"
 CObj_UI::CObj_UI()
 {
 }
@@ -41,4 +42,15 @@ void CObj_UI::Move_Frame()
 
 		m_tFrame.dwTime = GetTickCount();
 	}
+}
+
+void CObj_UI::Set_UI()
+{
+	CUIMgr::Get_Instance()->Set_UI(this);
+}
+
+HDC CObj_UI::Get_HDC()
+{
+	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
+	return hMemDC;
 }

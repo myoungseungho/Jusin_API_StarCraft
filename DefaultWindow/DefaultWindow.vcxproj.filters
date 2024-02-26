@@ -157,6 +157,45 @@
     <Filter Include="02. Design\14. UIMgr">
       <UniqueIdentifier>{77ecd527-2cf1-4e8b-95fe-67b483adc523}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI">
+      <UniqueIdentifier>{0c529b83-b3d5-42bd-9198-2b87eaa10b1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\00. Unit_Icon">
+      <UniqueIdentifier>{3e6d8713-b14a-4a7c-b5c8-20dc4cef66d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\00. Unit_Icon\00. Move_Icon">
+      <UniqueIdentifier>{1ab2fd11-1f5f-46cb-bdfe-d5bc9399af7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\00. Unit_Icon\01. Stop_Icon">
+      <UniqueIdentifier>{a91695e0-c384-4c46-b2b0-4204480ee2b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\00. Unit_Icon\02. Attack_Icon">
+      <UniqueIdentifier>{c26feb39-505f-4c7c-8475-f9df5e3a7777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\00. Unit_Icon\03. Build_Icon">
+      <UniqueIdentifier>{02c9fadf-eb3a-4604-a097-6aaaff583e3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\00. Unit_Icon\04. Advanced_Build_Icon">
+      <UniqueIdentifier>{70b5c63d-e0d0-4ce4-a886-1af0469bd1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Build_Icon">
+      <UniqueIdentifier>{995fc909-413f-41cb-98c8-14b5f5752ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Build_Icon\00. Center_Icon">
+      <UniqueIdentifier>{f28c5240-4aea-4851-8d56-969bcfd3b2e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Build_Icon\01. Barrack_Icon">
+      <UniqueIdentifier>{79fca366-dfe7-4ece-bb60-ad1f79f38eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Build_Icon\02. Depot_Icon">
+      <UniqueIdentifier>{c155ea2c-26db-4bce-b14c-1b6c4f4ce5c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Build_Icon\03 Factory_Icon">
+      <UniqueIdentifier>{b1c72110-3631-4517-9632-f0472f0f91af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Build_Icon\04. StarPort_Icon">
+      <UniqueIdentifier>{0a0b06e7-196d-451e-b61b-35ca717ecd44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -378,6 +417,36 @@
     <ClInclude Include="UIMgr.h">
       <Filter>02. Design\14. UIMgr</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Move.h">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\00. Move_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Attack.h">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\02. Attack_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Build.h">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\03. Build_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Advanced_Build.h">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\04. Advanced_Build_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Stop_Icon.h">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\01. Stop_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Barrack.h">
+      <Filter>01. Obj\03. UI\01. Build_Icon\01. Barrack_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Center.h">
+      <Filter>01. Obj\03. UI\01. Build_Icon\00. Center_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Depot.h">
+      <Filter>01. Obj\03. UI\01. Build_Icon\02. Depot_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Factory.h">
+      <Filter>01. Obj\03. UI\01. Build_Icon\03 Factory_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_StarPort.h">
+      <Filter>01. Obj\03. UI\01. Build_Icon\04. StarPort_Icon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -586,6 +655,36 @@
     </ClCompile>
     <ClCompile Include="UIMgr.cpp">
       <Filter>02. Design\14. UIMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Move.cpp">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\00. Move_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Attack.cpp">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\02. Attack_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Build.cpp">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\03. Build_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Advanced_Build.cpp">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\04. Advanced_Build_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Stop_Icon.cpp">
+      <Filter>01. Obj\03. UI\00. Unit_Icon\01. Stop_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Barrack.cpp">
+      <Filter>01. Obj\03. UI\01. Build_Icon\01. Barrack_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Center.cpp">
+      <Filter>01. Obj\03. UI\01. Build_Icon\00. Center_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Depot.cpp">
+      <Filter>01. Obj\03. UI\01. Build_Icon\02. Depot_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Factory.cpp">
+      <Filter>01. Obj\03. UI\01. Build_Icon\03 Factory_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_StarPort.cpp">
+      <Filter>01. Obj\03. UI\01. Build_Icon\04. StarPort_Icon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

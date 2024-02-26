@@ -218,6 +218,16 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMgr.h" />
     <ClInclude Include="UIMgr.h" />
+    <ClInclude Include="UI_Advanced_Build.h" />
+    <ClInclude Include="UI_Attack.h" />
+    <ClInclude Include="UI_Barrack.h" />
+    <ClInclude Include="UI_Build.h" />
+    <ClInclude Include="UI_Center.h" />
+    <ClInclude Include="UI_Depot.h" />
+    <ClInclude Include="UI_Factory.h" />
+    <ClInclude Include="UI_Move.h" />
+    <ClInclude Include="UI_StarPort.h" />
+    <ClInclude Include="UI_Stop_Icon.h" />
     <ClInclude Include="UnitControlMgr.h" />
     <ClInclude Include="WalkState.h" />
   </ItemGroup>
@@ -294,6 +304,16 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileMgr.cpp" />
     <ClCompile Include="UIMgr.cpp" />
+    <ClCompile Include="UI_Advanced_Build.cpp" />
+    <ClCompile Include="UI_Attack.cpp" />
+    <ClCompile Include="UI_Barrack.cpp" />
+    <ClCompile Include="UI_Build.cpp" />
+    <ClCompile Include="UI_Center.cpp" />
+    <ClCompile Include="UI_Depot.cpp" />
+    <ClCompile Include="UI_Factory.cpp" />
+    <ClCompile Include="UI_Move.cpp" />
+    <ClCompile Include="UI_StarPort.cpp" />
+    <ClCompile Include="UI_Stop_Icon.cpp" />
     <ClCompile Include="UnitControlMgr.cpp" />
     <ClCompile Include="WalkState.cpp" />
   </ItemGroup>

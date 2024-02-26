@@ -56,7 +56,6 @@ void CScv::Late_Update()
 
 void CScv::Render(HDC hDC)
 {
-
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
@@ -75,6 +74,7 @@ void CScv::Render(HDC hDC)
 		(int)m_tInfo.fCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
 
+
 	m_vecState[m_CurrentState]->Render(this, hDC);
 }
 
@@ -89,7 +89,6 @@ void CScv::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_IDLE.bmp", L"SCV_IDLE");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_ATTACK.bmp", L"SCV_ATTACK");
-
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/ScvAtt/SCV_Bullet.bmp", L"SCV_Bullet");
 }
 

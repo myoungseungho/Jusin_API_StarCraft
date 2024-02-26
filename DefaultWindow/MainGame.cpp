@@ -12,7 +12,7 @@
 #include "AStarMgr.h"
 #include "UnitControlMgr.h"
 #include "TechTreeMgr.h"
-
+#include "UIMgr.h"
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
 {
 	ZeroMemory(m_szFPS, sizeof(m_szFPS));
@@ -97,6 +97,7 @@ void CMainGame::Release()
 	CAStarMgr::Get_Instance()->Destroy_Instance();
 	CUnitControlMgr::Get_Instance()->Destroy_Instance();
 	CTechTreeMgr::Get_Instance()->Destroy_Instance();
+	CUIMgr::Get_Instance()->Destroy_Instance();
 	ReleaseDC(g_hWnd, m_hDC);	
 }
 

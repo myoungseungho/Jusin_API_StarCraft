@@ -1,4 +1,6 @@
 #pragma once
+#include "Define.h"
+#include "Obj_UI.h"
 class CUIMgr
 {
 private:
@@ -24,7 +26,13 @@ public:
 public:
 	void Initialize();
 	void Render(HDC hDC);
+public:
+	void Set_UI(CObj*);
 private:
 	static CUIMgr* m_pInstance;
+	vector<CObj*> m_vecUI;
+
+	TCHAR* m_pFrameKey;
+	FRAME		m_tFrame;
 };
 
