@@ -12,8 +12,6 @@ CScv_Idle_State::~CScv_Idle_State()
 
 void CScv_Idle_State::Initialize(CObj_Dynamic* _scv)
 {
-	IIdleState::Initialize(_scv);
-
 	m_pFrameCopy = _scv->Get_Frame();
 	m_pFrameKeyCopy = _scv->Get_FrameKey();
 
