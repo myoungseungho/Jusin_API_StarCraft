@@ -139,6 +139,21 @@
     <Filter Include="01. Obj\02. Mineral">
       <UniqueIdentifier>{a854709e-90e1-4d0a-9d9a-8150bfd6918d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\01. Buliding\00. Center">
+      <UniqueIdentifier>{f31ec42e-5b57-45cb-a53e-506d5abb5302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\01. SupplyDepot">
+      <UniqueIdentifier>{31baf79e-e0d4-4221-b1bf-75f7f6a05d1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\02. Barrack">
+      <UniqueIdentifier>{b3e856ce-da26-48e4-8df3-8a8840c145cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\03. Factory">
+      <UniqueIdentifier>{122de035-391b-4b2f-a2f3-adfa0dfec17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\04. Starport">
+      <UniqueIdentifier>{93e5d888-2df6-4e24-ac71-83fa8a64b2d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -336,11 +351,23 @@
     <ClInclude Include="Obj_Static.h">
       <Filter>01. Obj</Filter>
     </ClInclude>
-    <ClInclude Include="Center.h">
-      <Filter>01. Obj\01. Buliding</Filter>
-    </ClInclude>
     <ClInclude Include="Mineral.h">
       <Filter>01. Obj\02. Mineral</Filter>
+    </ClInclude>
+    <ClInclude Include="Center.h">
+      <Filter>01. Obj\01. Buliding\00. Center</Filter>
+    </ClInclude>
+    <ClInclude Include="Barrack.h">
+      <Filter>01. Obj\01. Buliding\02. Barrack</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>01. Obj\01. Buliding\03. Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Starport.h">
+      <Filter>01. Obj\01. Buliding\04. Starport</Filter>
+    </ClInclude>
+    <ClInclude Include="SupplyDepot.h">
+      <Filter>01. Obj\01. Buliding\01. SupplyDepot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -527,11 +554,23 @@
     <ClCompile Include="Obj_Static.cpp">
       <Filter>01. Obj</Filter>
     </ClCompile>
-    <ClCompile Include="Center.cpp">
-      <Filter>01. Obj\01. Buliding</Filter>
-    </ClCompile>
     <ClCompile Include="Mineral.cpp">
       <Filter>01. Obj\02. Mineral</Filter>
+    </ClCompile>
+    <ClCompile Include="Center.cpp">
+      <Filter>01. Obj\01. Buliding\00. Center</Filter>
+    </ClCompile>
+    <ClCompile Include="Barrack.cpp">
+      <Filter>01. Obj\01. Buliding\02. Barrack</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>01. Obj\01. Buliding\03. Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Starport.cpp">
+      <Filter>01. Obj\01. Buliding\04. Starport</Filter>
+    </ClCompile>
+    <ClCompile Include="SupplyDepot.cpp">
+      <Filter>01. Obj\01. Buliding\01. SupplyDepot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

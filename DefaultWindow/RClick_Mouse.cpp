@@ -53,7 +53,7 @@ void CRClick_Mouse::Initialize()
 		if (target != nullptr)
 		{
 			FACTIONSTATE factionId = target->Get_FactionState();
-			CScv* scv = dynamic_cast<CScv*>(target);
+			CScv* scv = dynamic_cast<CScv*>(iter);
 
 			switch (factionId)
 			{
