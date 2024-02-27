@@ -36,9 +36,6 @@ void CFactory::Initialize()
 
 int CFactory::Update()
 {
-	if (m_bDead)
-		return OBJ_DEAD;
-
 	__super::Update_Rect();
 
 	if (!m_UIBuilding)

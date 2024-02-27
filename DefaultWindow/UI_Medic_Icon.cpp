@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "UI_Medic_Icon.h"
+#include "BmpMgr.h"
 
 CUI_Medic_Icon::CUI_Medic_Icon()
 {
@@ -19,7 +20,7 @@ void CUI_Medic_Icon::Initialize()
 	__super::Update_Rect();
 
 
-	m_pFrameKey = L"Center_Icon";
+	m_pFrameKey = L"MEDIC_ICON";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -51,6 +52,7 @@ void CUI_Medic_Icon::Release()
 
 void CUI_Medic_Icon::InsertBmpFile()
 {
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/MEDIC_ICON.bmp", L"MEDIC_ICON");
 }
 
 ICONSTATE CUI_Medic_Icon::GetType() const

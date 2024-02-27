@@ -36,8 +36,6 @@ void CSupplyDepot::Initialize()
 
 int CSupplyDepot::Update()
 {
-	if (m_bDead)
-		return OBJ_DEAD;
 
 	__super::Update_Rect();
 

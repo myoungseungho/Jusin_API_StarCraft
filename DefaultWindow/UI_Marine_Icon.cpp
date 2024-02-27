@@ -19,8 +19,7 @@ void CUI_Marine_Icon::Initialize()
 	m_tInfo.fCY = 40.f;
 	__super::Update_Rect();
 
-
-	m_pFrameKey = L"Center_Icon";
+	m_pFrameKey = L"MARINE_ICON";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -43,6 +42,7 @@ void CUI_Marine_Icon::Late_Update()
 
 void CUI_Marine_Icon::Render(HDC hDC)
 {
+	CObj_UI::Render(hDC);
 }
 
 void CUI_Marine_Icon::Release()
@@ -51,6 +51,7 @@ void CUI_Marine_Icon::Release()
 
 void CUI_Marine_Icon::InsertBmpFile()
 {
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/MARINE_ICON.bmp", L"MARINE_ICON");
 }
 
 ICONSTATE CUI_Marine_Icon::GetType() const

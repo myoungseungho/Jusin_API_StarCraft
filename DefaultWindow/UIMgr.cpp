@@ -26,6 +26,11 @@
 #include "Factory_UI.h"
 #include "StarPort_UI.h"
 #include "TechTreeMgr.h"
+#include "UI_SCV_Icon.h"
+#include "UI_Marine_Icon.h"
+#include "UI_FireBat_Icon.h"
+#include "UI_Medic_Icon.h"
+#include "UI_Tank_Icon.h"
 CUIMgr* CUIMgr::m_pInstance = nullptr;
 
 CUIMgr::CUIMgr() :m_MoveIcon(nullptr), m_StopIcon(nullptr), m_AttackIcon(nullptr), m_BuildIcon(nullptr)
@@ -81,15 +86,13 @@ void CUIMgr::SetUI(CObj* _unit)
 	SetClear_IconObj();
 
 	CObj_Dynamic* dynamic_unit = dynamic_cast<CObj_Dynamic*>(_unit);
+	CObj_Static* staticObj = dynamic_cast<CObj_Static*>(_unit);
 
 	if (dynamic_unit != nullptr)
-	{
 		DynamicSetUI(dynamic_unit->GetType());
 
-		CObj_Static* staticObj = dynamic_cast<CObj_Static*>(_unit);
-		if (staticObj != nullptr)
-			StaticSetUI(staticObj->GetType());
-	}
+	if (staticObj != nullptr)
+		StaticSetUI(staticObj->GetType());
 }
 
 void CUIMgr::Set_SCV_UI(CObj* _unit)
@@ -165,6 +168,12 @@ void CUIMgr::SetClear_IconObj()
 		if (iter != nullptr)
 			iter->Set_Dead();
 	}
+
+	for (auto iter : m_vecBuildingIcon)
+	{
+		if (iter != nullptr)
+			iter->Set_Dead();
+	}
 }
 
 void CUIMgr::SetClear_StaticObj()
@@ -207,14 +216,16 @@ void CUIMgr::StaticSetUI(BUILDINGSTATE objId)
 {
 	if (objId == STATIC_OBJ_CENTER)
 	{
-		m_vecBuildingIcon[DYANMIC_OBJ_SCV] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+		m_vecBuildingIcon[DYANMIC_OBJ_SCV] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Icon>(UI_OBJ_ICON, 655.f, 468.f);
 	}
 	else if (objId == STATIC_OBJ_BARRACK)
 	{
-
+		m_vecBuildingIcon[DYNAMIC_OBJ_MARINE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_FIREBAT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Icon>(UI_OBJ_ICON, 713.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_MEDIC] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Icon>(UI_OBJ_ICON, 768.f, 468.f);
 	}
 	else if (objId == STATIC_OBJ_FACTORY)
 	{
-
+		m_vecBuildingIcon[DYNAMIC_OBJ_TANK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Icon>(UI_OBJ_ICON, 655.f, 468.f);
 	}
 }

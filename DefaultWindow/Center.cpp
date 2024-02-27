@@ -36,9 +36,6 @@ void CCenter::Initialize()
 
 int CCenter::Update()
 {
-	if (m_bDead)
-		return OBJ_DEAD;
-
 	__super::Update_Rect();
 
 	return 0;

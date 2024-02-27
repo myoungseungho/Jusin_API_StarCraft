@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "UI_FireBat_Icon.h"
-
+#include "BmpMgr.h"
 CUI_FireBat_Icon::CUI_FireBat_Icon()
 {
     InsertBmpFile();
@@ -19,7 +19,7 @@ void CUI_FireBat_Icon::Initialize()
 	__super::Update_Rect();
 
 
-	m_pFrameKey = L"Center_Icon";
+	m_pFrameKey = L"FIREBAT_ICON";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -51,6 +51,7 @@ void CUI_FireBat_Icon::Release()
 
 void CUI_FireBat_Icon::InsertBmpFile()
 {
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/FIREBAT_ICON.bmp", L"FIREBAT_ICON");
 }
 
 ICONSTATE CUI_FireBat_Icon::GetType() const

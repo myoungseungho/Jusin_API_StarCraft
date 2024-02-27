@@ -79,7 +79,7 @@ void CLClick_Mouse::Initialize()
 			CUIMgr::Get_Instance()->SetUI(target);
 			//유닛이 선택된건 아니니까
 			CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
-
+			CUIMgr::Get_Instance()->SetUI(target);
 		}
 		else if (target == nullptr)
 		{

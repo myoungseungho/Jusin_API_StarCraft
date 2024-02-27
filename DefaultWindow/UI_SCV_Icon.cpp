@@ -20,7 +20,7 @@ void CUI_SCV_Icon::Initialize()
 	__super::Update_Rect();
 
 
-	m_pFrameKey = L"Center_Icon";
+	m_pFrameKey = L"SCV_ICON";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -52,6 +52,7 @@ void CUI_SCV_Icon::Release()
 
 void CUI_SCV_Icon::InsertBmpFile()
 {
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/SCV_ICON.bmp", L"SCV_ICON");
 }
 
 ICONSTATE CUI_SCV_Icon::GetType() const
