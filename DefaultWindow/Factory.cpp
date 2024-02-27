@@ -3,6 +3,9 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "TileMgr.h"
+#include "Obj_Dynamic.h"
+#include "SpawnMgr.h"
+#include "Tank.h"
 CFactory::CFactory()
 {
 	InsertBmpFile();
@@ -76,9 +79,17 @@ void CFactory::Release()
 {
 }
 
-void CFactory::Spawn_Unit()
+void CFactory::Spawn_Unit(DYNAMIC_OBJID _objId)
 {
+	CObj_Dynamic* obj = nullptr;
+	if (_objId == DYNAMIC_OBJ_TANK)
+	{
+		obj = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, m_tInfo.fX, m_tInfo.fY + m_tInfo.fCY * 0.5f + 10.f);
+	}
+
+	m_vecWaitUnit.push_back(obj);
 }
+
 
 void CFactory::InsertBmpFile()
 {

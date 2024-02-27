@@ -13,7 +13,7 @@ public:
 	void Render(HDC hDC) override;
 	void Release() override;
 public:
-	virtual void Spawn_Unit();
+	virtual void Spawn_Unit(DYNAMIC_OBJID);
 protected:
 	virtual void InsertBmpFile() override;
 

@@ -259,9 +259,12 @@ void CUIMgr::StaticSetUI(BUILDINGSTATE objId)
 		m_vecBuildingIcon[DYNAMIC_OBJ_MARINE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Icon>(UI_OBJ_ICON, 655.f, 468.f);
 		m_vecBuildingIcon[DYNAMIC_OBJ_FIREBAT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Icon>(UI_OBJ_ICON, 713.f, 468.f);
 		m_vecBuildingIcon[DYNAMIC_OBJ_MEDIC] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Icon>(UI_OBJ_ICON, 768.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_FIREBAT]->SetDrawID(1);
+		m_vecBuildingIcon[DYNAMIC_OBJ_MEDIC]->SetDrawID(1);
 	}
 	else if (objId == STATIC_OBJ_FACTORY)
 	{
 		m_vecBuildingIcon[DYNAMIC_OBJ_TANK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_TANK]->SetDrawID(1);
 	}
 }

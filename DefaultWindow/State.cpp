@@ -31,7 +31,7 @@ int IState::Move(CObj_Dynamic* _unit)
 
 	// 현재 목표 타일
 	CObj* currentTargetTile = m_listPathTile.front();
-	dynamic_cast<CTile*>(currentTargetTile)->Set_Value(1, 0);
+	//dynamic_cast<CTile*>(currentTargetTile)->Set_Value(1, 0);
 
 	// 현재 목표 타일의 중심 좌표 계산
 	float targetX = currentTargetTile->Get_Info().fX;

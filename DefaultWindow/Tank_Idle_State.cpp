@@ -9,8 +9,17 @@ CTank_Idle_State::~CTank_Idle_State()
 {
 }
 
-void CTank_Idle_State::Initialize(CObj_Dynamic*)
+void CTank_Idle_State::Initialize(CObj_Dynamic* _tank)
 {
+	m_pFrameCopy = _tank->Get_Frame();
+	m_pFrameKeyCopy = _tank->Get_FrameKey();
+
+	*m_pFrameKeyCopy = L"Lower_Tank_Walk_Right_90";
+	m_pFrameCopy->iFrameStart = 0;
+	m_pFrameCopy->iFrameEnd = 5;
+	m_pFrameCopy->iMotion = 0;
+	m_pFrameCopy->dwSpeed = 100;
+	m_pFrameCopy->dwTime = GetTickCount();
 }
 
 int CTank_Idle_State::Update(CObj_Dynamic*)
