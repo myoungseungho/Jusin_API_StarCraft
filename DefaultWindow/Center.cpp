@@ -33,12 +33,29 @@ void CCenter::Initialize()
 
 int CCenter::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	__super::Update_Rect();
 
 	if (!m_IsInfoUpdate)
 	{
 		SetObstcale();
 		m_IsInfoUpdate = true;
+	}
+
+	//건물이라면
+	if (m_UIBuilding)
+	{
+		POINT	Pt;
+		GetCursorPos(&Pt);
+		ScreenToClient(g_hWnd, &Pt);
+
+		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+		m_tInfo.fX = Pt.x;
+		m_tInfo.fY = Pt.y;
 	}
 
 	return 0;
@@ -76,4 +93,9 @@ void CCenter::Release()
 void CCenter::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Control/Center.bmp", L"Center");
+}
+
+BUILDINGSTATE CCenter::GetType() const
+{
+	return STATIC_OBJ_CENTER;
 }

@@ -33,6 +33,9 @@ void CSupplyDepot::Initialize()
 
 int CSupplyDepot::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	__super::Update_Rect();
 
 	if (!m_IsInfoUpdate)
@@ -76,4 +79,9 @@ void CSupplyDepot::Release()
 void CSupplyDepot::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Depot/Depot.bmp", L"Depot");
+}
+
+BUILDINGSTATE CSupplyDepot::GetType() const
+{
+	return STATIC_OBJ_DEPOT;
 }

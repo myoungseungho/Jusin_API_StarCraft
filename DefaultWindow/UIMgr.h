@@ -1,6 +1,7 @@
 #pragma once
 #include "Define.h"
 #include "Obj_UI.h"
+#include "Obj_Static.h"
 class CUIMgr
 {
 private:
@@ -31,7 +32,10 @@ public:
 	void SetUI(CObj*);
 	void Set_SCV_UI(CObj*);
 	void SetClear();
+	void DynamicSetUI(DYNAMIC_OBJID);
+	void StaticSetUI(BUILDINGSTATE);
 	
+	bool GetIngBuilding() { return m_bBuildIng; }
 private:
 	static CUIMgr* m_pInstance;
 
@@ -48,5 +52,15 @@ private:
 	CObj_UI* m_StarPortIcon;
 
 	vector<CObj_UI*> m_vecIcon;
+
+	CObj_Static* m_center;
+	CObj_Static* m_depot;
+	CObj_Static* m_barrack;
+	CObj_Static* m_factory;
+	CObj_Static* m_starport;
+
+	vector<CObj_Static*> m_vecBuiding;
+
+	bool m_bBuildIng;
 };
 

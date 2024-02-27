@@ -13,8 +13,13 @@ public:
 	void Render(HDC hDC) PURE;
 	void Release() PURE;
 public:
-	void SetObstcale();
+	virtual BUILDINGSTATE GetType() const PURE;
 
+public:
+	void SetObstcale();
+	void SetUIBuiding(bool _isBuilding) { m_UIBuilding = _isBuilding; }
+public:
 	bool m_IsInfoUpdate;
+	bool m_UIBuilding;
 };
 

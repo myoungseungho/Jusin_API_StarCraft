@@ -32,6 +32,9 @@ void CBarrack::Initialize()
 
 int CBarrack::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	__super::Update_Rect();
 
 	if (!m_IsInfoUpdate)
@@ -75,4 +78,9 @@ void CBarrack::Release()
 void CBarrack::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Barrack/Barrack.bmp", L"Barrack");
+}
+
+BUILDINGSTATE CBarrack::GetType() const
+{
+	return STATIC_OBJ_BARRACK;
 }

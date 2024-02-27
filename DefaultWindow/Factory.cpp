@@ -32,6 +32,9 @@ void CFactory::Initialize()
 
 int CFactory::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	__super::Update_Rect();
 
 	if (!m_IsInfoUpdate)
@@ -75,4 +78,9 @@ void CFactory::Release()
 void CFactory::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Factory/Factory.bmp", L"Factory");
+}
+
+BUILDINGSTATE CFactory::GetType() const
+{
+	return STATIC_OBJ_FACTORY;
 }

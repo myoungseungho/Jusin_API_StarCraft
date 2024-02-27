@@ -32,6 +32,9 @@ void CStarport::Initialize()
 
 int CStarport::Update()
 {
+	if (m_bDead)
+		return OBJ_DEAD;
+
 	__super::Update_Rect();
 
 	if (!m_IsInfoUpdate)
@@ -75,4 +78,9 @@ void CStarport::Release()
 void CStarport::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Starport/StarPort.bmp", L"StarPort");
+}
+
+BUILDINGSTATE CStarport::GetType() const
+{
+	return STATIC_OBJ_STARPORT;
 }

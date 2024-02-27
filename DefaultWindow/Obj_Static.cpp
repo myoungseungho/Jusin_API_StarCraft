@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Obj_Static.h"
 #include "TileMgr.h"
-CObj_Static::CObj_Static() : m_IsInfoUpdate(false)
+CObj_Static::CObj_Static() : m_IsInfoUpdate(false), m_UIBuilding(false)
 {
 }
 

@@ -73,3 +73,8 @@ void CMineral::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/map/Resource/Mine/Mineral.BMP", L"Mineral");
 }
+
+BUILDINGSTATE CMineral::GetType() const
+{
+	return STATIC_OBJ_MINERAL;
+}
