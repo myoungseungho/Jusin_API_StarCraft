@@ -10,6 +10,7 @@ public:
     void Initialize() override;
     int Update() override;
     void Late_Update() override;
+    virtual void Render(HDC hDC);
     void Release() override;
     ICONSTATE GetType() const override;
 

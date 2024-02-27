@@ -29,7 +29,7 @@ void CCenter_UI::Initialize()
 	m_tFrame.dwSpeed = 200;
 	m_tFrame.dwTime = GetTickCount();
 
-	m_eRender = RENDER_BUILDING;
+	m_eRender = RENDER_UI;
 }
 
 int CCenter_UI::Update()

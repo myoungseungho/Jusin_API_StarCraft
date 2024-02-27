@@ -102,8 +102,6 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 			break;
 		}
 
-		m_vecTest.push_back(build);
-
 		_scv->Set_CollisionState(COLLISION_OK);
 		_scv->ChangeStateWithMouse(mousePT, IDLE_STATE);
 		CUIMgr::Get_Instance()->SetClear_CurrentBuilding();

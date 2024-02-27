@@ -100,6 +100,7 @@ void CLClick_Mouse::Initialize()
 					target->ChangeStateWithMouse(Pt, BUILD_STATE);
 					CUIMgr::Get_Instance()->SetClear_StaticObj();
 					CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
+					CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 				}
 			}
 			else
