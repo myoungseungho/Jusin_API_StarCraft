@@ -21,7 +21,6 @@ void CCenter::Initialize()
 
 	__super::Update_Rect();
 
-
 	//건물은 애니메이션이 없잖아?
 	m_pFrameKey = L"Center";
 	m_tFrame.iFrameStart = 0;
@@ -40,25 +39,15 @@ int CCenter::Update()
 
 	__super::Update_Rect();
 
-	if (!m_IsInfoUpdate)
+	//한번만 호출되게 하려고 함. SetPos가 Init 이후에 호출되기 때문에
+	if (!m_IsInfoUpdate && !m_UIBuilding)
 	{
 		SetObstcale();
 		m_IsInfoUpdate = true;
 	}
+	else if (m_UIBuilding)
+		UIBuilding();
 
-	//건물이라면
-	if (m_UIBuilding)
-	{
-		POINT	Pt;
-		GetCursorPos(&Pt);
-		ScreenToClient(g_hWnd, &Pt);
-
-		Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
-		Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-
-		m_tInfo.fX = Pt.x;
-		m_tInfo.fY = Pt.y;
-	}
 
 	return 0;
 }

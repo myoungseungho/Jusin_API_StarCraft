@@ -108,14 +108,11 @@ list<CObj*> CTileMgr::GetStaticTile(CObj* _staticObj)
 	RECT objRect = _staticObj->Get_Rect();
 	INFO objInfo = _staticObj->Get_Info();
 
-	int iScrollX = CScrollMgr::Get_Instance()->Get_ScrollX();
-	int iScrollY = CScrollMgr::Get_Instance()->Get_ScrollY();
-
 	// 사각형이 걸치는 타일의 가로, 세로 인덱스 범위 계산
-	int startCol = (objRect.left + iScrollX) / TILECX;
-	int endCol = (objRect.right + iScrollX) / TILECX;
-	int startRow = (objRect.top + iScrollY) / TILECY;
-	int endRow = (objRect.bottom + iScrollY) / TILECY;
+	int startCol = (objRect.left) / TILECX;
+	int endCol = (objRect.right) / TILECX;
+	int startRow = (objRect.top) / TILECY;
+	int endRow = (objRect.bottom) / TILECY;
 
 	list<CObj*> listTile;
 

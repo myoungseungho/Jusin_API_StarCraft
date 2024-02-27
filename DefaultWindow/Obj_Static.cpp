@@ -37,3 +37,18 @@ void CObj_Static::SetObstcale()
 	CTileMgr::Get_Instance()->SetVecObstcales(staticTileList);
 }
 
+void CObj_Static::UIBuilding()
+{
+	POINT	Pt;
+	GetCursorPos(&Pt);
+	ScreenToClient(g_hWnd, &Pt);
+
+	Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+	Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+	m_tInfo.fX = Pt.x;
+	m_tInfo.fY = Pt.y;
+}
+
+
+
