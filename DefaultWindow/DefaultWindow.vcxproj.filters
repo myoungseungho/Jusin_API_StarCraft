@@ -202,6 +202,24 @@
     <Filter Include="01. Obj\99. State\04. BuildState">
       <UniqueIdentifier>{a49c2123-33e6-4d5d-a7cd-b39e2928edc2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI">
+      <UniqueIdentifier>{b796c62e-b6d2-45bf-9474-c4c760dde171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\00. Center_UI">
+      <UniqueIdentifier>{458bf4ee-3df0-4cbc-a0ee-814eb1b804ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\01. Depot_UI">
+      <UniqueIdentifier>{542262bd-328e-4875-8a91-a94208bc859b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\02. Barrack_UI">
+      <UniqueIdentifier>{919677f9-a2a1-447d-b2a6-e4141ec081ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\03. Factory_UI">
+      <UniqueIdentifier>{4f5b5e50-17d0-47ab-8d16-3689d34d9c8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\04. StarPort_UI">
+      <UniqueIdentifier>{05a8218a-13c1-4118-81d6-cec430a4f383}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -462,6 +480,21 @@
     <ClInclude Include="Scv_Build_State.h">
       <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClInclude>
+    <ClInclude Include="Barrack_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\02. Barrack_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Center_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\00. Center_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Depot_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\01. Depot_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\03. Factory_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="StarPort_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\04. StarPort_UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -709,6 +742,21 @@
     </ClCompile>
     <ClCompile Include="Scv_Build_State.cpp">
       <Filter>01. Obj\00. Unit\00. SCV</Filter>
+    </ClCompile>
+    <ClCompile Include="Barrack_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\02. Barrack_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Center_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\00. Center_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Depot_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\01. Depot_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\03. Factory_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="StarPort_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\04. StarPort_UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

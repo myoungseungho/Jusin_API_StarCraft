@@ -12,5 +12,8 @@ public:
     void Late_Update() override;
     void Release() override;
     ICONSTATE GetType() const override;
+
+protected:
+    virtual void InsertBmpFile() override;
 };
 

@@ -12,6 +12,7 @@ public:
 	void Late_Update()PURE;
 	virtual void Render(HDC hDC);
 	void Release() PURE;
+	void UpdateMouse();
 
 	virtual ICONSTATE GetType() const PURE;
 

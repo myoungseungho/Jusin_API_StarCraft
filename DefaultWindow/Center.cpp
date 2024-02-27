@@ -41,14 +41,6 @@ int CCenter::Update()
 
 	__super::Update_Rect();
 
-	if (!m_UIBuilding)
-	{
-		//bool bCanBuild = CTileMgr::Get_Instance()->CanAddBuild(this);
-	}
-	else if (m_UIBuilding)
-		UIBuilding();
-
-
 	return 0;
 }
 

@@ -33,11 +33,11 @@ public:
 	void Set_SCV_UI(CObj*);
 	void SetClear_IconObj();
 	void SetClear_StaticObj();
-	void SetClear_CurrentBuilding() { m_CurrentBuilding = STATIC_OBJ_END; };
+	void SetClear_CurrentBuilding() { m_CurrentBuilding = UI_STATIC_OBJ_END; };
 	void DynamicSetUI(DYNAMIC_OBJID);
 	void StaticSetUI(BUILDINGSTATE);
 
-	BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }
+	UI_BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }
 private:
 	static CUIMgr* m_pInstance;
 
@@ -55,14 +55,14 @@ private:
 
 	vector<CObj_UI*> m_vecIcon;
 
-	CObj_Static* m_center;
-	CObj_Static* m_depot;
-	CObj_Static* m_barrack;
-	CObj_Static* m_factory;
-	CObj_Static* m_starport;
+	CObj_UI* m_center;
+	CObj_UI* m_depot;
+	CObj_UI* m_barrack;
+	CObj_UI* m_factory;
+	CObj_UI* m_starport;
 
-	vector<CObj_Static*> m_vecBuiding;
+	vector<CObj_UI*> m_vecBuiding;
 
-	BUILDINGSTATE m_CurrentBuilding;
+	UI_BUILDINGSTATE m_CurrentBuilding;
 };
 

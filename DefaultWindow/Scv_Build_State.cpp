@@ -70,9 +70,9 @@ void CScv_Build_State::Release(CObj_Dynamic*)
 
 void CScv_Build_State::Build(CObj_Dynamic* _scv)
 {
-	BUILDINGSTATE buildState = CUIMgr::Get_Instance()->GetBuilding();
+	UI_BUILDINGSTATE buildState = CUIMgr::Get_Instance()->GetBuilding();
 
-	if (buildState != STATIC_OBJ_END)
+	if (buildState != UI_STATIC_OBJ_END)
 	{
 		POINT mousePT = _scv->GetMousePT();
 		CObj_Static* build;

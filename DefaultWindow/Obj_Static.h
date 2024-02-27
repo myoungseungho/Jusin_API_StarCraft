@@ -17,7 +17,6 @@ public:
 
 public:
 	void SetObstcale();
-	void SetUIBuiding(bool _isBuilding) { m_UIBuilding = _isBuilding; }
 	void UIBuilding();
 public:
 	bool m_UIBuilding;

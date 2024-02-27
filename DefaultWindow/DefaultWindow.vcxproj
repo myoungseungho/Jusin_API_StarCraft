@@ -153,14 +153,18 @@
     <ClInclude Include="AttackState.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="Barrack.h" />
+    <ClInclude Include="Barrack_UI.h" />
     <ClInclude Include="BmpMgr.h" />
     <ClInclude Include="BuildState.h" />
     <ClInclude Include="Center.h" />
+    <ClInclude Include="Center_UI.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="DefaultWindow.h" />
+    <ClInclude Include="Depot_UI.h" />
     <ClInclude Include="DieState.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="Factory_UI.h" />
     <ClInclude Include="FireBat.h" />
     <ClInclude Include="FireBat_Attack_State.h" />
     <ClInclude Include="FireBat_Die_State.h" />
@@ -208,6 +212,7 @@
     <ClInclude Include="SpawnMgr.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Starport.h" />
+    <ClInclude Include="StarPort_UI.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SupplyDepot.h" />
@@ -239,14 +244,18 @@
     <ClCompile Include="AttackState.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="Barrack.cpp" />
+    <ClCompile Include="Barrack_UI.cpp" />
     <ClCompile Include="BmpMgr.cpp" />
     <ClCompile Include="BuildState.cpp" />
     <ClCompile Include="Center.cpp" />
+    <ClCompile Include="Center_UI.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="DefaultWindow.cpp" />
+    <ClCompile Include="Depot_UI.cpp" />
     <ClCompile Include="DieState.cpp" />
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="Factory_UI.cpp" />
     <ClCompile Include="FireBat.cpp" />
     <ClCompile Include="FireBat_Attack_State.cpp" />
     <ClCompile Include="FireBat_Die_State.cpp" />
@@ -293,6 +302,7 @@
     <ClCompile Include="SpawnMgr.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Starport.cpp" />
+    <ClCompile Include="StarPort_UI.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

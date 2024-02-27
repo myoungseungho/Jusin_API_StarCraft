@@ -2,6 +2,7 @@
 #include "Obj_UI.h"
 #include "UIMgr.h"
 #include "BmpMgr.h"
+#include "ScrollMgr.h"
 CObj_UI::CObj_UI()
 {
 }
@@ -42,6 +43,19 @@ void CObj_UI::Render(HDC hDC)
 
 void CObj_UI::Release()
 {
+}
+
+void CObj_UI::UpdateMouse()
+{
+	POINT	Pt;
+	GetCursorPos(&Pt);
+	ScreenToClient(g_hWnd, &Pt);
+
+	Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+	Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+	m_tInfo.fX = Pt.x;
+	m_tInfo.fY = Pt.y;
 }
 
 void CObj_UI::Move_Frame()

@@ -1,5 +1,16 @@
 #include "stdafx.h"
 #include "Barrack_UI.h"
+#include "BmpMgr.h"
+
+CBarrack_UI::CBarrack_UI()
+{
+    InsertBmpFile();
+}
+
+CBarrack_UI::~CBarrack_UI()
+{
+    Release();
+}
 
 void CBarrack_UI::Initialize()
 {
@@ -21,4 +32,9 @@ void CBarrack_UI::Release()
 ICONSTATE CBarrack_UI::GetType() const
 {
     return ICON_END;
+}
+
+void CBarrack_UI::InsertBmpFile()
+{
+    CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Barrack/Barrack.bmp", L"Barrack");
 }
