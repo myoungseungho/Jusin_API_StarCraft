@@ -23,8 +23,8 @@ public:
 	static CObj*		Create(float _fX, float _fY)
 	{
 		CObj*		pObj = new T;
-		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
+		pObj->Initialize();
 
 		return pObj;
 	}
@@ -32,8 +32,8 @@ public:
 	static CObj*		Create(float _fX, float _fY, float _fAngle)
 	{
 		CObj*		pObj = new T;
-		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
+		pObj->Initialize();
 		pObj->Set_Angle(_fAngle);
 
 		return pObj;
@@ -50,8 +50,8 @@ public:
 	static CObj_Dynamic* Create_Dynamic(float _fX, float _fY)
 	{
 		CObj_Dynamic* pObj = new T;
-		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
+		pObj->Initialize();
 
 		return pObj;
 	}
@@ -59,8 +59,8 @@ public:
 	static CObj_Dynamic* Create_Dynamic(float _fX, float _fY, float _fAngle)
 	{
 		CObj_Dynamic* pObj = new T;
-		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
+		pObj->Initialize();
 		pObj->Set_Angle(_fAngle);
 
 		return pObj;
@@ -77,8 +77,8 @@ public:
 	static CObj_UI* Create_UI(float _fX, float _fY)
 	{
 		CObj_UI* pObj = new T;
-		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
+		pObj->Initialize();
 
 		return pObj;
 	}
@@ -86,8 +86,8 @@ public:
 	static CObj_UI* Create_UI(float _fX, float _fY, float _fAngle)
 	{
 		CObj_UI* pObj = new T;
-		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
+		pObj->Initialize();
 		pObj->Set_Angle(_fAngle);
 
 		return pObj;
@@ -104,8 +104,8 @@ public:
 	static CObj_Static* Create_Static(float _fX, float _fY)
 	{
 		CObj_Static* pObj = new T;
-		pObj->Initialize();
 		pObj->Set_Pos(_fX, _fY);
+		pObj->Initialize();
 		return pObj;
 	}
 

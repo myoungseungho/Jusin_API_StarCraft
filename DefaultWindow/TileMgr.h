@@ -40,6 +40,7 @@ public:
 	list<CObj*> GetListPath(list<pair<int,int>>);
 	list<CObj*> GetStaticTile(CObj*);
 	void SetVecObstcales(list<CObj*>);
+	bool CanAddBuild(CObj*);
 public:
 	void		Save_Tile();
 	void		Load_Tile();

@@ -29,6 +29,7 @@ void CSupplyDepot::Initialize()
 
 	m_eRender = RENDER_BUILDING;
 
+	SetObstcale();
 }
 
 int CSupplyDepot::Update()
@@ -37,13 +38,6 @@ int CSupplyDepot::Update()
 		return OBJ_DEAD;
 
 	__super::Update_Rect();
-
-	if (!m_IsInfoUpdate)
-	{
-		SetObstcale();
-		m_IsInfoUpdate = true;
-	}
-
 	return 0;
 }
 

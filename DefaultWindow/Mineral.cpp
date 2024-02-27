@@ -18,6 +18,8 @@ void CMineral::Initialize()
 	m_tInfo.fCX = 64.f;
 	m_tInfo.fCY = 96.f;
 
+	__super::Update_Rect();
+
 	m_pFrameKey = L"Mineral";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
@@ -26,17 +28,14 @@ void CMineral::Initialize()
 	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
+
+	SetObstcale();
 }
 
 int CMineral::Update()
 {
 	__super::Update_Rect();
 
-	if (!m_IsInfoUpdate)
-	{
-		SetObstcale();
-		m_IsInfoUpdate = true;
-	}
 	return 0;
 }
 

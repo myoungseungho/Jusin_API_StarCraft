@@ -30,6 +30,8 @@ void CCenter::Initialize()
 	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
+
+	SetObstcale();
 }
 
 int CCenter::Update()
@@ -39,11 +41,9 @@ int CCenter::Update()
 
 	__super::Update_Rect();
 
-	//한번만 호출되게 하려고 함. SetPos가 Init 이후에 호출되기 때문에
-	if (!m_IsInfoUpdate && !m_UIBuilding)
+	if (!m_UIBuilding)
 	{
-		SetObstcale();
-		m_IsInfoUpdate = true;
+		bool bCanBuild = CTileMgr::Get_Instance()->CanAddBuild(this);
 	}
 	else if (m_UIBuilding)
 		UIBuilding();

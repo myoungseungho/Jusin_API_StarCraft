@@ -7,6 +7,7 @@
 #include "KeyMgr.h"
 #include "UIMgr.h"
 #include "Obj_Static.h"
+#include "TileMgr.h"
 CLClick_Mouse::CLClick_Mouse()
 {
 }
@@ -95,6 +96,8 @@ void CLClick_Mouse::Initialize()
 					Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
 					CObj_Dynamic* target = vecUnit.back();
+
+
 					target->ChangeStateWithMouse(Pt, BUILD_STATE);
 					CUIMgr::Get_Instance()->SetClear_StaticObj();
 					CKeyMgr::Get_Instance()->Set_bSelectUnit(false);

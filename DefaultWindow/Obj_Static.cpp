@@ -2,7 +2,7 @@
 #include "Obj_Static.h"
 #include "TileMgr.h"
 #include "ScrollMgr.h"
-CObj_Static::CObj_Static() : m_IsInfoUpdate(false), m_UIBuilding(false)
+CObj_Static::CObj_Static() : m_UIBuilding(false)
 {
 }
 
