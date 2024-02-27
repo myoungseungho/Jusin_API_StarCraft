@@ -10,6 +10,7 @@
 #include "Factory.h"
 #include "Starport.h"
 #include "ScrollMgr.h"
+#include "CollisionMgr.h"
 CScv_Build_State::CScv_Build_State() : m_build_Start(false)
 {
 }
@@ -76,6 +77,8 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 		POINT mousePT = _scv->GetMousePT();
 
 		CObj_Static* build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, mousePT.x, mousePT.y);
+
+		_scv->Set_CollisionState(COLLISION_OK);
 		_scv->ChangeStateWithMouse(mousePT, IDLE_STATE);
 		CUIMgr::Get_Instance()->SetClear_CurrentBuilding();
 		m_build_Start = false;

@@ -131,6 +131,12 @@ enum ICONSTATE
 	ICON_END
 };
 
+enum COLLISIONSTATE
+{
+	COLLISION_NOT,
+	COLLISION_OK,
+	COLLISION_END
+};
 
 typedef struct tagInfo
 {

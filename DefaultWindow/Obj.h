@@ -23,6 +23,9 @@ public:
 	RECT		Get_Rect() { return m_tRect; }
 	void		Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
 	void		Set_Target(CObj* pTarget) { m_pTarget = pTarget; }
+	void		Set_CollisionState(COLLISIONSTATE _cId) { m_Collision = _cId; };
+	COLLISIONSTATE Get_CollisionState() { return m_Collision; };
+
 
 	INFO		Get_Info() { return m_tInfo; }
 	RENDERID	Get_RenderID() { return m_eRender; }
@@ -62,5 +65,7 @@ protected:
 	FACTIONSTATE m_Faction;
 
 	bool m_bDead;
+
+	COLLISIONSTATE m_Collision;
 };
 

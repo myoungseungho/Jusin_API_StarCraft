@@ -144,6 +144,14 @@ void CObjMgr::Late_Update()
 			list<CObj*> listExceptMe = m_Dynamic_Obj_List[i];
 			listExceptMe.remove(iter);
 			CCollisionMgr::Collision_RectEx(iter, listExceptMe);
+
+			if (iter->Get_CollisionState() == COLLISION_OK)
+			{
+				for (size_t j = 0; j < STATIC_OBJ_END; j++)
+				{
+					CCollisionMgr::Collision_RectEx(iter, m_Static_Obj_List[j]);
+				}
+			}
 		}
 	}
 }

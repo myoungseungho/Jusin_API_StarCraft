@@ -42,6 +42,9 @@ void CScv::Initialize()
 
 int CScv::Update()
 {
+	if (m_Collision == COLLISION_OK)
+		m_Collision = COLLISION_END;
+
 	m_vecState[m_CurrentState]->Update(this);
 
 	__super::Update_Rect();
