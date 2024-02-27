@@ -13,11 +13,15 @@ public:
 	virtual void Render(HDC hDC);
 	void Release() PURE;
 	void UpdateMouse();
+	void SetDrawID(int _drawId) { m_iDrawID = _drawId; };
 
 	virtual ICONSTATE GetType() const PURE;
 
-
     void		Move_Frame();
 	HDC			Get_HDC();
+
+protected:
+	int			m_iDrawID;
+	int			m_iOption;
 };
 

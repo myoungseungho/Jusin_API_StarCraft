@@ -33,7 +33,13 @@ void CBarrack_UI::Initialize()
 
 int CBarrack_UI::Update()
 {
-    return 0;
+	if (m_bDead)
+		return OBJ_DEAD;
+
+	__super::Update_Rect();
+
+	UpdateMouse();
+	return 0;
 }
 
 void CBarrack_UI::Late_Update()

@@ -11,6 +11,7 @@
 #include "Starport.h"
 #include "ScrollMgr.h"
 #include "CollisionMgr.h"
+#include "TechTreeMgr.h"
 CScv_Build_State::CScv_Build_State() : m_build_Start(false)
 {
 }
@@ -87,9 +88,11 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 			break;
 		case STATIC_OBJ_BARRACK:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CBarrack>(STATIC_OBJ_BARRACK, FACTION_ALLY, mousePT.x, mousePT.y);
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_BARRACK);
 			break;
 		case STATIC_OBJ_FACTORY:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory>(STATIC_OBJ_FACTORY, FACTION_ALLY, mousePT.x, mousePT.y);
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_FACTORY);
 			break;
 		case STATIC_OBJ_STARPORT:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, mousePT.x, mousePT.y);

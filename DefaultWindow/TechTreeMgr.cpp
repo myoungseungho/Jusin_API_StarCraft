@@ -44,3 +44,14 @@ void CTechTreeMgr::SetBuiding(BUILDINGSTATE _build)
 		break;
 	}
 }
+
+bool CTechTreeMgr::GetCanBuild(BUILDINGSTATE _state)
+{
+	for (auto iter : m_vecPossibleBuilding)
+	{
+		if (iter == _state)
+			return true;
+	}
+	return false;
+}
+

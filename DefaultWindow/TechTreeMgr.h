@@ -28,6 +28,7 @@ public:
 public:
 	void Initialize();
 	void SetBuiding(BUILDINGSTATE _build);
+	bool GetCanBuild(BUILDINGSTATE);
 private:
 	static CTechTreeMgr* m_pInstance;
 

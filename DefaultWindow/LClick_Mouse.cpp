@@ -28,7 +28,7 @@ void CLClick_Mouse::Release()
 void CLClick_Mouse::Initialize()
 {
 	POINT	Pt;
-	GetCursorPos(&Pt); 
+	GetCursorPos(&Pt);
 	ScreenToClient(g_hWnd, &Pt);
 	bool bHasSelect = CKeyMgr::Get_Instance()->Get_bSelectUnit();
 
@@ -79,7 +79,7 @@ void CLClick_Mouse::Initialize()
 				}
 			}
 		}
-		else
+		else if (target == nullptr)
 		{
 			UI_BUILDINGSTATE BuildingState = CUIMgr::Get_Instance()->GetBuilding();
 			if (BuildingState != UI_STATIC_OBJ_END)
