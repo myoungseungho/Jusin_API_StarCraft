@@ -39,7 +39,9 @@ void CScv_Walk_State::Initialize(CObj_Dynamic* _scv)
 
 int CScv_Walk_State::Update(CObj_Dynamic* _scv)
 {
-	Move(_scv);
+	if (Move(_scv) == MOVE_OK)
+		_scv->ChangeState(IDLE_STATE);
+
 	return 0;
 }
 

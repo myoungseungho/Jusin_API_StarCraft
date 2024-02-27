@@ -22,8 +22,11 @@ void CFireBat_Walk_State::Initialize(CObj_Dynamic* _fireBat)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CFireBat_Walk_State::Update(CObj_Dynamic*)
+int CFireBat_Walk_State::Update(CObj_Dynamic* _fireBat)
 {
+	if (Move(_fireBat) == MOVE_OK)
+		_fireBat->ChangeState(IDLE_STATE);
+
 	return 0;
 }
 

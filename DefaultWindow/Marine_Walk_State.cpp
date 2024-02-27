@@ -38,7 +38,8 @@ void CMarine_Walk_State::Initialize(CObj_Dynamic* _marine)
 
 int CMarine_Walk_State::Update(CObj_Dynamic* _marine)
 {
-	Move(_marine);
+	if (Move(_marine) == MOVE_OK)
+		_marine->ChangeState(IDLE_STATE);
 	return 0;
 }
 

@@ -22,8 +22,11 @@ void CTank_Walk_State::Initialize(CObj_Dynamic* _tank)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CTank_Walk_State::Update(CObj_Dynamic*)
+int CTank_Walk_State::Update(CObj_Dynamic* _tank)
 {
+	if (Move(_tank) == MOVE_OK)
+		_tank->ChangeState(IDLE_STATE);
+
     return 0;
 }
 

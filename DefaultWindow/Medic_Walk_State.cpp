@@ -23,8 +23,11 @@ void CMedic_Walk_State::Initialize(CObj_Dynamic* _medic)
 	
 }
 
-int CMedic_Walk_State::Update(CObj_Dynamic*)
+int CMedic_Walk_State::Update(CObj_Dynamic* _medic)
 {
+	if (Move(_medic) == MOVE_OK)
+		_medic->ChangeState(IDLE_STATE);
+
 	return 0;
 }
 
