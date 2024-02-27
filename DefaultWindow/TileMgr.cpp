@@ -140,6 +140,23 @@ void CTileMgr::SetVecObstcales(list<CObj*> _list)
 	CAStarMgr::Get_Instance()->Init_ObstacleTile();
 }
 
+void CTileMgr::SetStaticObstcales(CObj_Static* _obj)
+{
+	list<CObj*> staticTileList = GetStaticTile(_obj);
+
+	for (auto iter : staticTileList)
+	{
+		CTile* iterTile = dynamic_cast<CTile*>(iter);
+
+		if (iterTile != nullptr)
+		{
+			iterTile->Set_Value(1, 0);
+		}
+	}
+
+	CTileMgr::Get_Instance()->SetVecObstcales(staticTileList);
+}
+
 bool CTileMgr::CanAddBuild(CObj* _obj)
 {
 	//obj에 해당하는 타일 가져오기

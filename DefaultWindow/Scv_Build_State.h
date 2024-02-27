@@ -1,5 +1,6 @@
 #pragma once
 #include "BuildState.h"
+#include "Obj_Static.h"
 class CScv_Build_State :
     public IBuildState
 {
@@ -16,5 +17,6 @@ private:
     void Build(CObj_Dynamic* _scv);
 private:
     bool m_build_Start;
+    vector<CObj_Static*> m_vecTest;
 };
 

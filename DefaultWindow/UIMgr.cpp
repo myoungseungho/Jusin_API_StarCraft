@@ -136,6 +136,7 @@ void CUIMgr::SetClear_IconObj()
 		if (iter != nullptr)
 			iter->Set_Dead();
 	}
+
 }
 
 void CUIMgr::SetClear_StaticObj()

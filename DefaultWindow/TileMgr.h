@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Tile.h"
+#include "Obj_Static.h"
 
 class CTileMgr
 {
@@ -40,6 +41,7 @@ public:
 	list<CObj*> GetListPath(list<pair<int,int>>);
 	list<CObj*> GetStaticTile(CObj*);
 	void SetVecObstcales(list<CObj*>);
+	void SetStaticObstcales(CObj_Static*);
 	bool CanAddBuild(CObj*);
 public:
 	void		Save_Tile();

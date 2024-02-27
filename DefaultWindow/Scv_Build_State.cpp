@@ -76,6 +76,7 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 	{
 		POINT mousePT = _scv->GetMousePT();
 		CObj_Static* build;
+
 		switch (buildState)
 		{
 		case STATIC_OBJ_CENTER:
@@ -100,6 +101,8 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 		default:
 			break;
 		}
+
+		m_vecTest.push_back(build);
 
 		_scv->Set_CollisionState(COLLISION_OK);
 		_scv->ChangeStateWithMouse(mousePT, IDLE_STATE);

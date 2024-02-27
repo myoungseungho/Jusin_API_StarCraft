@@ -38,7 +38,6 @@ public:
 	void StaticSetUI(BUILDINGSTATE);
 
 	BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }
-	void SetCurrentBuilding(BUILDINGSTATE _bId) { m_CurrentBuilding = _bId; }
 private:
 	static CUIMgr* m_pInstance;
 

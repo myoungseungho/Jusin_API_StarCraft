@@ -43,7 +43,7 @@ int CCenter::Update()
 
 	if (!m_UIBuilding)
 	{
-		bool bCanBuild = CTileMgr::Get_Instance()->CanAddBuild(this);
+		//bool bCanBuild = CTileMgr::Get_Instance()->CanAddBuild(this);
 	}
 	else if (m_UIBuilding)
 		UIBuilding();
