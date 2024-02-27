@@ -19,6 +19,9 @@ void CCenter::Initialize()
 	m_tInfo.fCX = 128.f;
 	m_tInfo.fCY = 160.f;
 
+	__super::Update_Rect();
+
+
 	//건물은 애니메이션이 없잖아?
 	m_pFrameKey = L"Center";
 	m_tFrame.iFrameStart = 0;
@@ -28,7 +31,6 @@ void CCenter::Initialize()
 	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
-
 }
 
 int CCenter::Update()

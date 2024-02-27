@@ -24,7 +24,7 @@ CUIMgr* CUIMgr::m_pInstance = nullptr;
 
 CUIMgr::CUIMgr() :m_MoveIcon(nullptr), m_StopIcon(nullptr), m_AttackIcon(nullptr), m_BuildIcon(nullptr)
 , m_AdvancedbuildIcon(nullptr), m_CenterIcon(nullptr), m_BarrackIcon(nullptr), m_DepotIcon(nullptr), m_FactoryIcon(nullptr), m_StarPortIcon(nullptr),
-m_center(nullptr), m_depot(nullptr), m_barrack(nullptr), m_factory(nullptr), m_starport(nullptr), m_bBuildIng(false)
+m_center(nullptr), m_depot(nullptr), m_barrack(nullptr), m_factory(nullptr), m_starport(nullptr), m_CurrentBuilding(STATIC_OBJ_END)
 {
 
 }
@@ -65,7 +65,7 @@ void CUIMgr::Release()
 
 void CUIMgr::SetUI(CObj* _unit)
 {
-	SetClear();
+	SetClear_IconObj();
 
 	CObj_Dynamic* dynamic_unit = dynamic_cast<CObj_Dynamic*>(_unit);
 	if (dynamic_unit != nullptr)
@@ -82,7 +82,7 @@ void CUIMgr::SetUI(CObj* _unit)
 
 void CUIMgr::Set_SCV_UI(CObj* _unit)
 {
-	SetClear();
+	SetClear_IconObj();
 
 	ICONSTATE ICONId = dynamic_cast<CObj_UI*>(_unit)->GetType();
 
@@ -101,48 +101,52 @@ void CUIMgr::Set_SCV_UI(CObj* _unit)
 	{
 		m_vecBuiding[STATIC_OBJ_CENTER] = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, 0.f, 0.f);
 		m_vecBuiding[STATIC_OBJ_CENTER]->SetUIBuiding(true);
-		m_bBuildIng = true;
+		m_CurrentBuilding = STATIC_OBJ_CENTER;
 	}
 	else if (ICONId == ICON_DEPOT)
 	{
 		m_vecBuiding[STATIC_OBJ_DEPOT] = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CSupplyDepot>(STATIC_OBJ_DEPOT, FACTION_ALLY, 0.f, 0.f);
 		m_vecBuiding[STATIC_OBJ_DEPOT]->SetUIBuiding(true);
-		m_bBuildIng = true;
+		m_CurrentBuilding = STATIC_OBJ_DEPOT;
 	}
 	else if (ICONId == ICON_BARRACK)
 	{
 		m_vecBuiding[STATIC_OBJ_BARRACK] = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CBarrack>(STATIC_OBJ_BARRACK, FACTION_ALLY, 0.f, 0.f);
 		m_vecBuiding[STATIC_OBJ_BARRACK]->SetUIBuiding(true);
-		m_bBuildIng = true;
+		m_CurrentBuilding = STATIC_OBJ_BARRACK;
 	}
 	else if (ICONId == ICON_FACTORY)
 	{
 		m_vecBuiding[STATIC_OBJ_FACTORY] = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory>(STATIC_OBJ_FACTORY, FACTION_ALLY, 0.f, 0.f);
 		m_vecBuiding[STATIC_OBJ_FACTORY]->SetUIBuiding(true);
-		m_bBuildIng = true;
+		m_CurrentBuilding = STATIC_OBJ_FACTORY;
 	}
 	else if (ICONId == ICON_STARPORT)
 	{
 		m_vecBuiding[STATIC_OBJ_STARPORT] = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, 0.f, 0.f);
 		m_vecBuiding[STATIC_OBJ_STARPORT]->SetUIBuiding(true);
-		m_bBuildIng = true;
+		m_CurrentBuilding = STATIC_OBJ_STARPORT;
 	}
 }
 
-void CUIMgr::SetClear()
+void CUIMgr::SetClear_IconObj()
 {
 	for (auto iter : m_vecIcon)
 	{
 		if (iter != nullptr)
 			iter->Set_Dead();
 	}
+}
 
+void CUIMgr::SetClear_StaticObj()
+{
 	for (auto iter : m_vecBuiding)
 	{
 		if (iter != nullptr)
 			iter->Set_Dead();
 	}
 }
+
 
 void CUIMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 {

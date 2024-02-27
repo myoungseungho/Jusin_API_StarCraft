@@ -18,7 +18,7 @@ protected:
 	virtual void Move_Frame() PURE;
 public:
 	void Set_Astar(float, float, float, float);
-	void Move(CObj_Dynamic*);
+	int Move(CObj_Dynamic*);
 protected:
 	FRAME* m_pFrameCopy;
 	TCHAR** m_pFrameKeyCopy;

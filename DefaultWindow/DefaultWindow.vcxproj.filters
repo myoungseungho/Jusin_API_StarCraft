@@ -199,6 +199,9 @@
     <Filter Include="01. Obj\03. UI\03. BackGround">
       <UniqueIdentifier>{e14f9b41-1be8-4737-a5c2-b3135e35249b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\99. State\04. BuildState">
+      <UniqueIdentifier>{a49c2123-33e6-4d5d-a7cd-b39e2928edc2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -453,6 +456,12 @@
     <ClInclude Include="BackGround.h">
       <Filter>01. Obj\03. UI\03. BackGround</Filter>
     </ClInclude>
+    <ClInclude Include="BuildState.h">
+      <Filter>01. Obj\99. State\04. BuildState</Filter>
+    </ClInclude>
+    <ClInclude Include="Scv_Build_State.h">
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -694,6 +703,12 @@
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>01. Obj\03. UI\03. BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildState.cpp">
+      <Filter>01. Obj\99. State\04. BuildState</Filter>
+    </ClCompile>
+    <ClCompile Include="Scv_Build_State.cpp">
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

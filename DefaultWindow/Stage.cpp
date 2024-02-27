@@ -79,6 +79,7 @@ void CStage::Render(HDC hDC)
 
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
+	CKeyMgr::Get_Instance()->Render(hDC);
 }
 
 void CStage::Release()

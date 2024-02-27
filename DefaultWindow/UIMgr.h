@@ -31,11 +31,14 @@ public:
 public:
 	void SetUI(CObj*);
 	void Set_SCV_UI(CObj*);
-	void SetClear();
+	void SetClear_IconObj();
+	void SetClear_StaticObj();
+	void SetClear_CurrentBuilding() { m_CurrentBuilding = STATIC_OBJ_END; };
 	void DynamicSetUI(DYNAMIC_OBJID);
 	void StaticSetUI(BUILDINGSTATE);
-	
-	bool GetIngBuilding() { return m_bBuildIng; }
+
+	BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }
+	void SetCurrentBuilding(BUILDINGSTATE _bId) { m_CurrentBuilding = _bId; }
 private:
 	static CUIMgr* m_pInstance;
 
@@ -61,6 +64,6 @@ private:
 
 	vector<CObj_Static*> m_vecBuiding;
 
-	bool m_bBuildIng;
+	BUILDINGSTATE m_CurrentBuilding;
 };
 

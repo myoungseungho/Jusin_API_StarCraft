@@ -22,11 +22,11 @@ void IState::Set_Astar(float _fX, float _fY, float _goalX, float _goalY)
 	m_Path = CAStarMgr::Get_Instance()->AStarSearch(start, goal);
 }
 
-void IState::Move(CObj_Dynamic* _unit)
+int IState::Move(CObj_Dynamic* _unit)
 {
 	// 현재 목표 타일이 없거나 경로를 모두 완료한 경우
 	if (m_listPathTile.empty()) {
-		return; // 이동 중지
+		return MOVE_OK; // 이동 중지
 	}
 
 	// 현재 목표 타일

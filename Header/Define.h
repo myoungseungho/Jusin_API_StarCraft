@@ -20,6 +20,9 @@
 
 #define			VK_MAX		0xff
 
+#define			MOVE_NOTOK	0
+#define			MOVE_OK		1
+
 enum DIRECTION
 {
 	DIR_LEFT,
@@ -80,6 +83,7 @@ enum STATEID
 	WALK_STATE,
 	ATTACK_STATE,
 	DIE_STATE,
+	BUILD_STATE,
 	END_STATE
 };
 

@@ -6,6 +6,7 @@
 #include "Scv_Walk_State.h"
 #include "Scv_Attack_State.h"
 #include "Scv_Die_State.h"
+#include "Scv_Build_State.h"
 #include "Tile.h"
 #include "AStarMgr.h"
 #include "TileMgr.h"
@@ -33,6 +34,7 @@ void CScv::Initialize()
 		m_vecState.push_back(new CScv_Walk_State);
 		m_vecState.push_back(new CScv_Attack_State);
 		m_vecState.push_back(new CScv_Die_State);
+		m_vecState.push_back(new CScv_Build_State);
 
 		ChangeState(IDLE_STATE);
 	}
