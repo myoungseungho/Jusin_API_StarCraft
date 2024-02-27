@@ -52,7 +52,9 @@ void CLClick_Mouse::Initialize()
 		CObj* target = CObjMgr::Get_Instance()->Get_Target(Pt.x, Pt.y);
 		//유닛만 해당
 		CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+		CObj_Static* staticObj = dynamic_cast<CObj_Static*>(target);
 
+		//타겟이 다이나믹 오브젝트라면
 		if (target != nullptr && dynamicObj)
 		{
 			//오브젝트가 이미 선택되었다면
@@ -61,23 +63,23 @@ void CLClick_Mouse::Initialize()
 
 			CUIMgr::Get_Instance()->SetUI(target);
 
-			//선택된 유닛이 다이나믹 오브젝트라면
-			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
-			if (dynamicObj != nullptr)
-			{
-				CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
-				CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
-				dynamic_cast<CObj_Dynamic*>(target)->ChangeState(IDLE_STATE);
-			}
-			else
-			{
-				//선택된 유닛이 스태틱 오브젝트라면
-				CObj_Static* staticObj = dynamic_cast<CObj_Static*>(target);
-				if (staticObj != nullptr)
-				{
 
-				}
-			}
+			CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
+			CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
+			dynamic_cast<CObj_Dynamic*>(target)->ChangeState(IDLE_STATE);
+
+		}
+		//타겟이 
+		else if (target != nullptr && staticObj)
+		{
+			//오브젝트가 이미 선택되었다면
+			if (bHasSelect)
+				CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+
+			CUIMgr::Get_Instance()->SetUI(target);
+			//유닛이 선택된건 아니니까
+			CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
+
 		}
 		else if (target == nullptr)
 		{

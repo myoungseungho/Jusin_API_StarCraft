@@ -53,7 +53,7 @@ private:
 	CObj_UI* m_FactoryIcon;
 	CObj_UI* m_StarPortIcon;
 
-	vector<CObj_UI*> m_vecIcon;
+	vector<CObj_UI*> m_vecUnitIcon;
 
 	CObj_UI* m_center;
 	CObj_UI* m_depot;
@@ -61,8 +61,16 @@ private:
 	CObj_UI* m_factory;
 	CObj_UI* m_starport;
 
-	vector<CObj_UI*> m_vecBuiding;
+	vector<CObj_UI*> m_vecBuilding;
 
 	UI_BUILDINGSTATE m_CurrentBuilding;
+
+	CObj_UI* m_ScvIcon;
+	CObj_UI* m_MarineIcon;
+	CObj_UI* m_FireBatIcon;
+	CObj_UI* m_MedicIcon;
+	CObj_UI* m_TankIcon;
+
+	vector<CObj_UI*> m_vecBuildingIcon;
 };
 

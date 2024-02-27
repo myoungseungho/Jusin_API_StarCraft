@@ -220,6 +220,24 @@
     <Filter Include="01. Obj\03. UI\04. BuildingUI\04. StarPort_UI">
       <UniqueIdentifier>{05a8218a-13c1-4118-81d6-cec430a4f383}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\05. Spawn_Icon">
+      <UniqueIdentifier>{5dab2da5-9330-4c40-ad5e-29f5b1b7bdae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\05. Spawn_Icon\00. SCV_Icon">
+      <UniqueIdentifier>{d10038cf-7850-423c-a3ef-a704da4b8668}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\05. Spawn_Icon\01. Marine_Icon">
+      <UniqueIdentifier>{82f5c22d-5afd-46fa-9eb1-d6bb3935c234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\05. Spawn_Icon\02. FireBat_Icon">
+      <UniqueIdentifier>{210bf425-f4f2-4613-8d22-351b8a6915cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\05. Spawn_Icon\03. Medic_Icon">
+      <UniqueIdentifier>{6c3aed18-acdf-42d4-9a73-a1fe96473a5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon">
+      <UniqueIdentifier>{fbc27436-8425-40bc-93e2-ac0e19681154}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -495,6 +513,21 @@
     <ClInclude Include="StarPort_UI.h">
       <Filter>01. Obj\03. UI\04. BuildingUI\04. StarPort_UI</Filter>
     </ClInclude>
+    <ClInclude Include="UI_FireBat_Icon.h">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\02. FireBat_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Marine_Icon.h">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\01. Marine_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Medic_Icon.h">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\03. Medic_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_SCV_Icon.h">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\00. SCV_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Tank_Icon.h">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -757,6 +790,21 @@
     </ClCompile>
     <ClCompile Include="StarPort_UI.cpp">
       <Filter>01. Obj\03. UI\04. BuildingUI\04. StarPort_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_FireBat_Icon.cpp">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\02. FireBat_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Marine_Icon.cpp">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\01. Marine_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Medic_Icon.cpp">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\03. Medic_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_SCV_Icon.cpp">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\00. SCV_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Tank_Icon.cpp">
+      <Filter>01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
