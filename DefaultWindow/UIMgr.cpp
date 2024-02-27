@@ -221,7 +221,6 @@ void CUIMgr::SetClear_StaticObj()
 	}
 }
 
-
 void CUIMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 {
 	if (objId == DYANMIC_OBJ_SCV)
