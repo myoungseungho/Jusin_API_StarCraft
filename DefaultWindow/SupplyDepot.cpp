@@ -78,6 +78,10 @@ void CSupplyDepot::Release()
 {
 }
 
+void CSupplyDepot::Spawn_Unit()
+{
+}
+
 void CSupplyDepot::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Depot/Depot.bmp", L"Depot");

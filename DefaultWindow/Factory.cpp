@@ -76,6 +76,10 @@ void CFactory::Release()
 {
 }
 
+void CFactory::Spawn_Unit()
+{
+}
+
 void CFactory::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Factory/Factory.bmp", L"Factory");

@@ -1,5 +1,7 @@
 #pragma once
 #include "Command.h"
+#include "Define.h"
+#include "Obj.h"
 class CLClick_Mouse :
 	public CCommand
 {
@@ -11,6 +13,10 @@ public:
 	void Execute() override { LClick(); };
 private:
 	void LClick();
+	void HandleUIClick(POINT);
+	void HandleDynamicObjectClick(CObj*);
+	void HandleStaticObjectClick(CObj*);
+	void HandleNoTargetClick();
 	void Release() override;
 };
 

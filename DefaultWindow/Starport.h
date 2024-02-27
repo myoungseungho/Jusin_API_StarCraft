@@ -12,6 +12,8 @@ public:
     void Late_Update() override;
     void Render(HDC hDC) override;
     void Release() override;
+public:
+    virtual void Spawn_Unit();
 protected:
     virtual void InsertBmpFile() override;
 

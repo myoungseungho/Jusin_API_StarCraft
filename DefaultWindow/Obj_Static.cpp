@@ -10,6 +10,11 @@ CObj_Static::~CObj_Static()
 {
 }
 
+
+void CObj_Static::Spawn_Unit(DYNAMIC_OBJID)
+{
+}
+
 void CObj_Static::SetObstcale()
 {
 	CTileMgr::Get_Instance()->SetStaticObstcales(this);

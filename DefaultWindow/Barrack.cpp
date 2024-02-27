@@ -3,6 +3,11 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "TileMgr.h"
+#include "Obj_Dynamic.h"
+#include "SpawnMgr.h"
+#include "Marine.h"
+#include "FireBat.h"
+#include "Medic.h"
 CBarrack::CBarrack()
 {
 	InsertBmpFile();
@@ -75,6 +80,25 @@ void CBarrack::Render(HDC hDC)
 
 void CBarrack::Release()
 {
+}
+
+void CBarrack::Spawn_Unit(DYNAMIC_OBJID _objId)
+{
+	CObj_Dynamic* obj = nullptr;
+	if (_objId == DYNAMIC_OBJ_MARINE)
+	{
+		obj = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, m_tInfo.fX, m_tInfo.fY + m_tInfo.fCY * 0.5f + 10.f);
+	}
+	else if (_objId == DYNAMIC_OBJ_FIREBAT)
+	{
+		obj = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ALLY, m_tInfo.fX, m_tInfo.fY + m_tInfo.fCY * 0.5f + 10.f);
+	}
+	else if (_objId == DYNAMIC_OBJ_MEDIC)
+	{
+		obj = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ALLY, m_tInfo.fX, m_tInfo.fY + m_tInfo.fCY * 0.5f + 10.f);
+	}
+
+	m_vecWaitUnit.push_back(obj);
 }
 
 void CBarrack::InsertBmpFile()

@@ -78,6 +78,10 @@ void CStarport::Release()
 {
 }
 
+void CStarport::Spawn_Unit()
+{
+}
+
 void CStarport::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Starport/StarPort.bmp", L"StarPort");

@@ -29,8 +29,8 @@ public:
 	void Render(HDC hDC);
 	void Release();
 public:
-	void SetUI(CObj*);
-	void Set_SCV_UI(CObj*);
+	void OnClickUnit(CObj*);
+	void OnClickIcon(CObj*);
 	void SetClear_IconObj();
 	void SetClear_StaticObj();
 	void SetClear_CurrentBuilding() { m_CurrentBuilding = UI_STATIC_OBJ_END; };

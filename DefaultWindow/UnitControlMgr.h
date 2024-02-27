@@ -23,14 +23,18 @@ public:
 		}
 	}
 
+	void Set_Add_Building(CObj*);
 	void Set_Add_Unit(CObj*);
 	void Set_Add_Unit(vector<CObj*>);
 	void Set_Clear_Unit();
+	void Set_Clear_Building() { m_Building = nullptr; };
 	vector<CObj_Dynamic*>& GetVecUnit() { return m_vecUnit; };
+	CObj* GetBuilding() { return m_Building; };
 
 private:
 	static CUnitControlMgr* m_pInstance;
 	vector<CObj_Dynamic*> m_vecUnit;
 	vector<HDC> m_vecHDC[DYNAMIC_OBJ_END];
+	CObj* m_Building;
 };
 

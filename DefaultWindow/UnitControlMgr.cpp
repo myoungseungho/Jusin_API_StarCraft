@@ -3,12 +3,17 @@
 
 CUnitControlMgr* CUnitControlMgr::m_pInstance = nullptr;
 
-CUnitControlMgr::CUnitControlMgr()
+CUnitControlMgr::CUnitControlMgr() : m_Building(nullptr)
 {
 }
 
 CUnitControlMgr::~CUnitControlMgr()
 {
+}
+
+void CUnitControlMgr::Set_Add_Building(CObj* _building)
+{
+	m_Building = _building;
 }
 
 void CUnitControlMgr::Set_Add_Unit(CObj* _unit)

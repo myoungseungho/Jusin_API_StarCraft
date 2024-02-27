@@ -21,6 +21,12 @@ void CFireBat::Initialize()
 {
 	if (m_CurrentState == NON_STATE)
 	{
+		m_eRender = RENDER_GAMEOBJECT;
+
+		//처음 크기 고정
+		m_tInfo.fCX = 32.f;
+		m_tInfo.fCY = 32.f;
+
 		m_vecState.push_back(new CFireBat_Idle_State);
 		m_vecState.push_back(new CFireBat_Walk_State);
 		m_vecState.push_back(new CFireBat_Attack_State);
@@ -28,12 +34,6 @@ void CFireBat::Initialize()
 
 		ChangeState(IDLE_STATE);
 	}
-
-	m_eRender = RENDER_GAMEOBJECT;
-
-	//처음 크기 고정
-	m_tInfo.fCX = 32.f;
-	m_tInfo.fCY = 32.f;
 }
 
 int CFireBat::Update()
@@ -76,7 +76,7 @@ void CFireBat::Render(HDC hDC)
 
 void CFireBat::Release()
 {
-	for_each(m_vecState.begin(), m_vecState.end(), Safe_Delete<IState*>);
+	m_vecState[m_CurrentState]->Release(this);
 }
 
 void CFireBat::InsertBmpFile()

@@ -31,6 +31,11 @@
 #include "UI_FireBat_Icon.h"
 #include "UI_Medic_Icon.h"
 #include "UI_Tank_Icon.h"
+#include "Scv.h"
+#include "Marine.h"
+#include "FireBat.h"
+#include "Medic.h"
+#include "Tank.h"
 CUIMgr* CUIMgr::m_pInstance = nullptr;
 
 CUIMgr::CUIMgr() :m_MoveIcon(nullptr), m_StopIcon(nullptr), m_AttackIcon(nullptr), m_BuildIcon(nullptr)
@@ -81,7 +86,7 @@ void CUIMgr::Release()
 
 }
 
-void CUIMgr::SetUI(CObj* _unit)
+void CUIMgr::OnClickUnit(CObj* _unit)
 {
 	SetClear_IconObj();
 
@@ -95,11 +100,17 @@ void CUIMgr::SetUI(CObj* _unit)
 		StaticSetUI(staticObj->GetType());
 }
 
-void CUIMgr::Set_SCV_UI(CObj* _unit)
+void CUIMgr::OnClickIcon(CObj* _unit)
 {
-	SetClear_IconObj();
-
 	ICONSTATE ICONId = dynamic_cast<CObj_UI*>(_unit)->GetType();
+
+	if (CUnitControlMgr::Get_Instance()->GetBuilding())
+	{
+
+	}
+	else
+		SetClear_IconObj();
+
 
 	if (ICONId == ICON_BUILD)
 	{
@@ -158,6 +169,31 @@ void CUIMgr::Set_SCV_UI(CObj* _unit)
 
 		m_vecBuilding[UI_STATIC_OBJ_STARPORT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CStarPort_UI>(UI_OBJ_BUILDING, 0.f, 0.f);
 		m_CurrentBuilding = UI_STATIC_OBJ_STARPORT;
+	}
+	else if (ICONId == ICON_SCV)
+	{
+		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYANMIC_OBJ_SCV);
+	}
+	else if (ICONId == ICON_MARINE)
+	{
+		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_MARINE);
+	}
+	else if (ICONId == ICON_FIREBAT)
+	{
+		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_FIREBAT);
+	}
+	else if (ICONId == ICON_MEDIC)
+	{
+		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_MEDIC);
+	}
+	else if (ICONId == ICON_TANK)
+	{
+		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_TANK);
 	}
 }
 
