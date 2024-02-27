@@ -75,8 +75,31 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 	if (buildState != STATIC_OBJ_END)
 	{
 		POINT mousePT = _scv->GetMousePT();
-
-		CObj_Static* build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, mousePT.x, mousePT.y);
+		CObj_Static* build;
+		switch (buildState)
+		{
+		case STATIC_OBJ_CENTER:
+			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, mousePT.x, mousePT.y);
+			break;
+		case STATIC_OBJ_DEPOT:
+			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CSupplyDepot>(STATIC_OBJ_DEPOT, FACTION_ALLY, mousePT.x, mousePT.y);
+			break;
+		case STATIC_OBJ_BARRACK:
+			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CBarrack>(STATIC_OBJ_BARRACK, FACTION_ALLY, mousePT.x, mousePT.y);
+			break;
+		case STATIC_OBJ_FACTORY:
+			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory>(STATIC_OBJ_FACTORY, FACTION_ALLY, mousePT.x, mousePT.y);
+			break;
+		case STATIC_OBJ_STARPORT:
+			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, mousePT.x, mousePT.y);
+			break;
+		case STATIC_OBJ_MINERAL:
+			break;
+		case STATIC_OBJ_END:
+			break;
+		default:
+			break;
+		}
 
 		_scv->Set_CollisionState(COLLISION_OK);
 		_scv->ChangeStateWithMouse(mousePT, IDLE_STATE);

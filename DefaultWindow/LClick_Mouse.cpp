@@ -28,7 +28,7 @@ void CLClick_Mouse::Release()
 void CLClick_Mouse::Initialize()
 {
 	POINT	Pt;
-	GetCursorPos(&Pt);
+	GetCursorPos(&Pt); 
 	ScreenToClient(g_hWnd, &Pt);
 	bool bHasSelect = CKeyMgr::Get_Instance()->Get_bSelectUnit();
 
@@ -96,7 +96,6 @@ void CLClick_Mouse::Initialize()
 					Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
 					CObj_Dynamic* target = vecUnit.back();
-
 
 					target->ChangeStateWithMouse(Pt, BUILD_STATE);
 					CUIMgr::Get_Instance()->SetClear_StaticObj();

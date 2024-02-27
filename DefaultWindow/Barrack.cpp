@@ -19,6 +19,8 @@ void CBarrack::Initialize()
 	m_tInfo.fCX = 192.f;
 	m_tInfo.fCY = 160.f;
 
+	__super::Update_Rect();
+
 	//건물은 애니메이션이 없잖아?
 	m_pFrameKey = L"Barrack";
 	m_tFrame.iFrameStart = 0;
@@ -38,6 +40,13 @@ int CBarrack::Update()
 		return OBJ_DEAD;
 
 	__super::Update_Rect();
+
+	if (!m_UIBuilding)
+	{
+		bool bCanBuild = CTileMgr::Get_Instance()->CanAddBuild(this);
+	}
+	else if (m_UIBuilding)
+		UIBuilding();
 
 	return 0;
 }

@@ -19,6 +19,8 @@ void CFactory::Initialize()
 	m_tInfo.fCX = 128.f;
 	m_tInfo.fCY = 160.f;
 
+	__super::Update_Rect();
+
 	//건물은 애니메이션이 없잖아?
 	m_pFrameKey = L"Factory";
 	m_tFrame.iFrameStart = 0;
@@ -38,6 +40,13 @@ int CFactory::Update()
 		return OBJ_DEAD;
 
 	__super::Update_Rect();
+
+	if (!m_UIBuilding)
+	{
+		bool bCanBuild = CTileMgr::Get_Instance()->CanAddBuild(this);
+	}
+	else if (m_UIBuilding)
+		UIBuilding();
 	return 0;
 }
 

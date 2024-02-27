@@ -2,7 +2,7 @@
 #include "SupplyDepot.h"
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
-
+#include "TileMgr.h"
 CSupplyDepot::CSupplyDepot()
 {
 	InsertBmpFile();
@@ -18,6 +18,8 @@ void CSupplyDepot::Initialize()
 	//처음 크기 고정
 	m_tInfo.fCX = 96.f;
 	m_tInfo.fCY = 128.f;
+
+	__super::Update_Rect();
 
 	//건물은 애니메이션이 없잖아?
 	m_pFrameKey = L"Depot";
@@ -38,6 +40,14 @@ int CSupplyDepot::Update()
 		return OBJ_DEAD;
 
 	__super::Update_Rect();
+
+	if (!m_UIBuilding)
+	{
+		bool bCanBuild = CTileMgr::Get_Instance()->CanAddBuild(this);
+	}
+	else if (m_UIBuilding)
+		UIBuilding();
+
 	return 0;
 }
 
