@@ -116,9 +116,9 @@ list<CObj*> CTileMgr::GetStaticTile(CObj* _staticObj)
 
 	list<CObj*> listTile;
 
-	for (size_t i = startCol; i < endCol; i++)
+	for (size_t i = startCol + 1; i < endCol; i++)
 	{
-		for (size_t j = startRow + 1; j < endRow; j++)
+		for (size_t j = startRow + 2; j < endRow; j++)
 		{
 			int index = j * TILEX + i;
 			if (index >= 0 && index < m_vecTile.size()) {

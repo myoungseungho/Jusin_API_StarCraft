@@ -75,9 +75,6 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 	{
 		POINT mousePT = _scv->GetMousePT();
 
-		//mousePT.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
-		//mousePT.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-
 		CObj_Static* build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, mousePT.x, mousePT.y);
 		_scv->ChangeStateWithMouse(mousePT, IDLE_STATE);
 		CUIMgr::Get_Instance()->SetClear_CurrentBuilding();

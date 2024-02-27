@@ -75,7 +75,6 @@ bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc)
 	return false;
 }
 
-
 void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 {
 	float	fX(0.f), fY(0.f);
@@ -121,7 +120,6 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 		}
 	}
 }
-
 
 void CCollisionMgr::Collision_RectEx(CObj* _Dst, list<CObj*> _Src)
 {

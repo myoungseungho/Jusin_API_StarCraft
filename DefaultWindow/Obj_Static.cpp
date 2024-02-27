@@ -12,16 +12,6 @@ CObj_Static::~CObj_Static()
 
 void CObj_Static::SetObstcale()
 {
-	//POINT	Pt;
-	//GetCursorPos(&Pt);
-	//ScreenToClient(g_hWnd, &Pt);
-
-	//Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
-	//Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
-	//
-	//this->Set_PosX(Pt.x);
-	//this->Set_PosY(Pt.y);
-
 	list<CObj*> staticTileList = CTileMgr::Get_Instance()->GetStaticTile(this);
 
 	for (auto iter : staticTileList)
