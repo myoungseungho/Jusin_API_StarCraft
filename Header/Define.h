@@ -154,6 +154,8 @@ enum COLLISIONSTATE
 	COLLISION_END
 };
 
+enum CHANNELID { SOUND_EFFECT, SOUND_BGM, MAXCHANNEL };
+
 typedef struct tagInfo
 {
 	float		fX;			// ÁßÁ¡ X

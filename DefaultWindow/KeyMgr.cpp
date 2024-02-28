@@ -4,6 +4,10 @@
 #include "RClick_Mouse.h"
 #include "Drag_LMouse_Long.h"
 #include "ScrollMgr.h"
+#include "SoundMgr.h"
+
+float		g_fVolume(1.f);
+
 CKeyMgr* CKeyMgr::m_pInstance = nullptr;
 
 CKeyMgr::CKeyMgr() : m_Current_Mouse_Click(MOUSE_IDLE_STATE), m_Cursor_Speed(0.f), m_bHasSelectUnit(false), m_dwTime(0), m_deltaTime(0), m_IsLClick(false), m_Threshold_Drag(0.f), m_IsDragClick(false)
@@ -102,6 +106,32 @@ void CKeyMgr::Update()
 	}
 
 	Mouse_HandleInput();
+
+	if (CKeyMgr::Get_Instance()->Key_Pressing(VK_F3))
+	{
+		CSoundMgr::Get_Instance()->PlaySound(L"Success.wav", SOUND_EFFECT, g_fVolume);
+		return;
+	}
+
+	else if (CKeyMgr::Get_Instance()->Key_Pressing(VK_F4))
+	{
+		g_fVolume -= 0.1f;
+
+		if (0.f > g_fVolume)
+			g_fVolume = 0.f;
+
+		CSoundMgr::Get_Instance()->SetChannelVolume(SOUND_EFFECT, g_fVolume);
+	}
+
+	else if (CKeyMgr::Get_Instance()->Key_Pressing(VK_F5))
+	{
+		g_fVolume += 0.1f;
+
+		if (1.f < g_fVolume)
+			g_fVolume = 1.f;
+
+		CSoundMgr::Get_Instance()->SetChannelVolume(SOUND_EFFECT, g_fVolume);
+	}
 }
 
 void CKeyMgr::Late_Update()

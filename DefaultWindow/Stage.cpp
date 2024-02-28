@@ -25,6 +25,7 @@
 #include "TechTreeMgr.h"
 #include "UIMgr.h"
 #include "BackGround.h"
+#include "SoundMgr.h"
 CStage::CStage()
 {
 }
@@ -46,6 +47,7 @@ void CStage::Initialize()
 
 	Init_Obj_Spawn();
 	CUIMgr::Get_Instance()->Initialize();
+	CSoundMgr::Get_Instance()->Initialize();
 }
 
 int CStage::Update()

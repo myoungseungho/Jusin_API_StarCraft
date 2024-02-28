@@ -209,6 +209,7 @@
     <ClInclude Include="Scv_Die_State.h" />
     <ClInclude Include="Scv_Idle_State.h" />
     <ClInclude Include="Scv_Walk_State.h" />
+    <ClInclude Include="SoundMgr.h" />
     <ClInclude Include="SpawnMgr.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Starport.h" />
@@ -304,6 +305,7 @@
     <ClCompile Include="Scv_Die_State.cpp" />
     <ClCompile Include="Scv_Idle_State.cpp" />
     <ClCompile Include="Scv_Walk_State.cpp" />
+    <ClCompile Include="SoundMgr.cpp" />
     <ClCompile Include="SpawnMgr.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Starport.cpp" />

@@ -238,6 +238,9 @@
     <Filter Include="01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon">
       <UniqueIdentifier>{fbc27436-8425-40bc-93e2-ac0e19681154}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\15. SoundMgr">
+      <UniqueIdentifier>{ca394fd4-ac8e-4da4-afb6-d43c98dc4f6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -528,6 +531,9 @@
     <ClInclude Include="UI_Tank_Icon.h">
       <Filter>01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon</Filter>
     </ClInclude>
+    <ClInclude Include="SoundMgr.h">
+      <Filter>02. Design\15. SoundMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -805,6 +811,9 @@
     </ClCompile>
     <ClCompile Include="UI_Tank_Icon.cpp">
       <Filter>01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundMgr.cpp">
+      <Filter>02. Design\15. SoundMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
