@@ -24,11 +24,7 @@ void CFireBat_Idle_State::Initialize(CObj_Dynamic* _fireBat)
 
 int CFireBat_Idle_State::Update(CObj_Dynamic* _fireBat)
 {
-	if (m_dwTime + 1000 < GetTickCount())
-	{
-		_fireBat->CheckEnemy();
-		m_dwTime = GetTickCount();
-	}
+	_fireBat->CheckEnemy();
 	return 0;
 }
 

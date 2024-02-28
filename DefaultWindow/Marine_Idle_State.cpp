@@ -24,12 +24,8 @@ void CMarine_Idle_State::Initialize(CObj_Dynamic* _marine)
 
 int CMarine_Idle_State::Update(CObj_Dynamic* _marine)
 {
-	if (m_dwTime + 1000 < GetTickCount())
-	{
-		_marine->CheckEnemy();
-		m_dwTime = GetTickCount();
-	}
-    return 0;
+	_marine->CheckEnemy();
+	return 0;
 }
 
 void CMarine_Idle_State::Late_Update(CObj_Dynamic*)

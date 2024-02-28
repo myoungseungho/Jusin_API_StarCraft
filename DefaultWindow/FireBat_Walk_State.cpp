@@ -40,7 +40,10 @@ int CFireBat_Walk_State::Update(CObj_Dynamic* _fireBat)
 {
 	if (Move(_fireBat) == MOVE_OK)
 		_fireBat->ChangeState(IDLE_STATE);
-
+	else
+	{
+		_fireBat->CheckEnemy();
+	}
 	return 0;
 }
 
