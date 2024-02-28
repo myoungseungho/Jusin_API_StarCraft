@@ -25,5 +25,6 @@ protected:
 protected:
 	list<CObj*> m_listPathTile;
 	list<pair<int, int>> m_Path;
+	DWORD m_dwTime;
 };
 

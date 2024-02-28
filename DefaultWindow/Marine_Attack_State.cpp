@@ -22,8 +22,16 @@ void CMarine_Attack_State::Initialize(CObj_Dynamic* _marine)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CMarine_Attack_State::Update(CObj_Dynamic*)
+int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 {
+	if (m_dwTime + 1000 < GetTickCount())
+	{
+		if (!_marine->CheckEnemy())
+		{
+			_marine->ChangeState(IDLE_STATE);
+		}
+		m_dwTime = GetTickCount();
+	}
 	return 0;
 }
 

@@ -2,7 +2,7 @@
 #include "State.h"
 #include "AStarMgr.h"
 #include "Tile.h"
-IState::IState()
+IState::IState() : m_dwTime(GetTickCount())
 {
 }
 

@@ -287,3 +287,19 @@ vector<CObj*> CObjMgr::Get_Targets(POINT _initPoint, POINT _goalPoint)
 
 	return vecDragObj;
 }
+
+list<CObj*> CObjMgr::Get_ListExceptMe(CObj* _obj)
+{
+	list<CObj*> listObj;
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	{
+		for (auto iter : m_Dynamic_Obj_List[i])
+		{
+			listObj.push_back(iter);
+		}
+	}
+
+	listObj.remove(_obj);
+
+	return listObj;
+}

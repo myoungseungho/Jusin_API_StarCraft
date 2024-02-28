@@ -26,6 +26,7 @@ public:
 	void		ChangeState(STATEID);
 
 	void ChangeStateWithMouse(POINT _pt, STATEID _sId);
+	bool CheckEnemy();
 
 	POINT GetMousePT() { return m_MousePT; };
 
