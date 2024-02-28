@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "SoundMgr.h"
-
+#include "Define.h"
 
 CSoundMgr* CSoundMgr::m_pInstance = nullptr;
+float g_fVolume(1.0f);
 CSoundMgr::CSoundMgr()
 {
 	m_pSystem = nullptr;
@@ -24,7 +25,7 @@ void CSoundMgr::Initialize()
 
 	LoadSoundFile();
 
-
+	PlaySound(L"MainBgm.wav", SOUND_EFFECT, g_fVolume);
 }
 void CSoundMgr::Release()
 {
