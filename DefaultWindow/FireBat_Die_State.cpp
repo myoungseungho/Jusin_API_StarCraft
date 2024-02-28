@@ -13,8 +13,13 @@ void CFireBat_Die_State::Initialize(CObj_Dynamic*)
 {
 }
 
-int CFireBat_Die_State::Update(CObj_Dynamic*)
+int CFireBat_Die_State::Update(CObj_Dynamic* _fireBat)
 {
+	if (_fireBat->Get_Frame()->iFrameStart  == _fireBat->Get_Frame()->iFrameEnd)
+	{
+		_fireBat->Set_Dead();
+	}
+
 	return 0;
 }
 

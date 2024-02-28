@@ -41,11 +41,13 @@ int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
 	if (!_fireBat->CheckEnemy())
 	{
 		_fireBat->ChangeState(IDLE_STATE);
+		return 0;
 	}
 	else
 	{
 		if (!m_bAttackDistanceIn)
 			MoveUntilAttackDistance(_fireBat);
+		return 0;
 	}
 
 	return 0;
@@ -122,14 +124,19 @@ void CFireBat_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _fireBat)
 	}
 }
 
-void CFireBat_Attack_State::Move_Frame(CObj_Dynamic*)
+void CFireBat_Attack_State::Move_Frame(CObj_Dynamic* _fireBat)
 {
 	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
 	{
 		++m_tFrame_Attack.iFrameStart;
 
 		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
+		{
 			m_tFrame_Attack.iFrameStart = 0;
+
+			CObj* target = _fireBat->Get_Target();
+			dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_fireBat->Get_Stat().m_Attack);
+		}
 
 		m_tFrame_Attack.dwTime = GetTickCount();
 	}

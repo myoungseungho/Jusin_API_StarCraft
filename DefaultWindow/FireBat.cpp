@@ -45,7 +45,7 @@ void CFireBat::Initialize()
 int CFireBat::Update()
 {
 	if (m_bDead)
-		OBJ_DEAD;
+		return OBJ_DEAD;
 
 	__super::Update_Rect();
 
@@ -85,7 +85,7 @@ void CFireBat::Render(HDC hDC)
 
 void CFireBat::Release()
 {
-	m_vecState[m_CurrentState]->Release(this);
+	for_each(m_vecState.begin(), m_vecState.end(), Safe_Delete<IState*>);
 }
 
 void CFireBat::InsertBmpFile()
