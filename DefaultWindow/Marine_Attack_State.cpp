@@ -36,6 +36,7 @@ void CMarine_Attack_State::Initialize(CObj_Dynamic* _marine)
 
 int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 {
+	//적이 사정거리에 없음
 	if (!_marine->CheckEnemy())
 	{
 		_marine->ChangeState(IDLE_STATE);
@@ -43,11 +44,17 @@ int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 	}
 	else
 	{
+		//적이 사정거리에 있음
+		//아직 공격범위까지 못감
 		if (!m_bAttackDistanceIn)
 			MoveUntilAttackDistance(_marine);
+		//공격범위 까지 감
+		else
+		{
+			Attack(_marine);
+		}
 		return 0;
 	}
-
 
 	return 0;
 }
@@ -95,12 +102,31 @@ void CMarine_Attack_State::Move_Frame(CObj_Dynamic* _marine)
 		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
 		{
 			m_tFrame_Attack.iFrameStart = 0;
-
-			CObj* target = _marine->Get_Target();
-			dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_marine->Get_Stat().m_Attack);
 		}
 
 		m_tFrame_Attack.dwTime = GetTickCount();
+	}
+}
+
+void CMarine_Attack_State::Attack(CObj_Dynamic* _unit)
+{
+	CObj* target = _unit->Get_Target();
+
+	if (target == nullptr || target->Get_Dead())
+	{
+		m_bAttackDistanceIn = false;
+		_unit->ChangeState(IDLE_STATE);
+		return;
+	}
+
+	if (m_tFrame_Attack.iFrameStart == 0)
+	{
+		if (target != nullptr && !target->Get_Dead())
+		{
+			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+			if (dynamicObj != nullptr)
+				dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
+		}
 	}
 }
 

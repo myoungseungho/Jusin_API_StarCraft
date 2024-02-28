@@ -24,15 +24,15 @@ void CMarine_Die_State::Initialize(CObj_Dynamic* _marine)
 
 int CMarine_Die_State::Update(CObj_Dynamic* _marine)
 {
+	m_pFrameCopy = _marine->Get_Frame();
+
 	if (m_pFrameCopy->iFrameStart == m_pFrameCopy->iFrameEnd)
-	{
 		_marine->Set_Dead();
-	}
 
 	return 0;
 }
 
-void CMarine_Die_State::Late_Update(CObj_Dynamic*)
+void CMarine_Die_State::Late_Update(CObj_Dynamic* _marine)
 {
 }
 
@@ -44,6 +44,7 @@ void CMarine_Die_State::Release(CObj_Dynamic*)
 {
 }
 
-void CMarine_Die_State::Move_Frame(CObj_Dynamic*)
+void CMarine_Die_State::Move_Frame(CObj_Dynamic* _unit)
 {
+
 }

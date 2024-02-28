@@ -135,7 +135,12 @@ void CFireBat_Attack_State::Move_Frame(CObj_Dynamic* _fireBat)
 			m_tFrame_Attack.iFrameStart = 0;
 
 			CObj* target = _fireBat->Get_Target();
-			dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_fireBat->Get_Stat().m_Attack);
+			if (target != nullptr && !target->Get_Dead())
+			{
+				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+				if (dynamicObj != nullptr)
+					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_fireBat->Get_Stat().m_Attack);
+			}
 		}
 
 		m_tFrame_Attack.dwTime = GetTickCount();

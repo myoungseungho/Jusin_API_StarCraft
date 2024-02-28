@@ -34,6 +34,11 @@ void IAttackState::Move_Frame(CObj_Dynamic*)
 {
 }
 
+void IAttackState::Attack(CObj_Dynamic*)
+{
+	
+}
+
 
 void IAttackState::MoveUntilAttackDistance(CObj_Dynamic* _marine)
 {

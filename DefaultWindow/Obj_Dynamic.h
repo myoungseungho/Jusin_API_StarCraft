@@ -23,10 +23,10 @@ public:
 	void		Set_Damage(float m_attack)
 	{
 		m_Stat.m_Hp -= m_attack;
-		if (m_Stat.m_Hp <= 0)
+		if (m_Stat.m_Hp <= 0 && !m_OnceDead)
 		{
 			m_Stat.m_Hp = 0;
-
+			m_OnceDead = true;
 			CObj_Dynamic* dynamic_obj = dynamic_cast<CObj_Dynamic*>(this);
 			if (dynamic_cast<CObj_Dynamic*>(this))
 			{
@@ -41,6 +41,7 @@ public:
 	void ChangeStateWithMouse(POINT _pt, STATEID _sId);
 	bool CheckEnemy();
 	POINT GetMousePT() { return m_MousePT; };
+	STATEID GetStateID() { return m_CurrentState; }
 
 	virtual DYNAMIC_OBJID GetType() const PURE;
 
@@ -49,7 +50,7 @@ protected:
 	bool		m_bDead;
 	STATEID		m_CurrentState;
 	vector<IState*> m_vecState;
-
+	bool		m_OnceDead;
 	POINT		m_MousePT;
 };
 

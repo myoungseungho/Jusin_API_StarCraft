@@ -2,7 +2,7 @@
 #include "Obj_Dynamic.h"
 #include "CollisionMgr.h"
 #include "ObjMgr.h"
-CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false)
+CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false), m_OnceDead(false)
 {
 }
 
@@ -24,7 +24,9 @@ void CObj_Dynamic::Move_Frame()
 		++m_tFrame.iFrameStart;
 
 		if (m_tFrame.iFrameStart > m_tFrame.iFrameEnd)
+		{
 			m_tFrame.iFrameStart = 0;
+		}
 
 		m_tFrame.dwTime = GetTickCount();
 	}

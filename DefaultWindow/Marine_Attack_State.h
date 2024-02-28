@@ -15,6 +15,7 @@ public:
 	void Release(CObj_Dynamic*) override;
 
 	void Move_Frame(CObj_Dynamic*) override;
+	virtual void Attack(CObj_Dynamic*);
 protected:
 	virtual void MoveUntilAttackDistance(CObj_Dynamic*) override;
 
