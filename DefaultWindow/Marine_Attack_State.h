@@ -16,5 +16,8 @@ public:
 
     // IState을(를) 통해 상속됨
     void Move_Frame() override;
+private:
+    void MoveUntilAttackDistance(CObj_Dynamic*);
+    bool m_bAttackDistanceIn;
 };
 

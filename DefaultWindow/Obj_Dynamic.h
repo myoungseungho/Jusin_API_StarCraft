@@ -27,13 +27,11 @@ public:
 
 	void ChangeStateWithMouse(POINT _pt, STATEID _sId);
 	bool CheckEnemy();
-
 	POINT GetMousePT() { return m_MousePT; };
 
 	virtual DYNAMIC_OBJID GetType() const PURE;
 
 protected:
-	float		m_fSpeed;
 	float		m_fDistance;
 	bool		m_bDead;
 	STATEID		m_CurrentState;

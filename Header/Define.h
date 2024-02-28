@@ -161,6 +161,7 @@ typedef struct tagStat
 	int m_Attack;
 	float m_AttackRange;
 	float m_DetectionRange;
+	float m_fSpeed;
 }STAT;
 
 enum CHANNELID { SOUND_EFFECT, SOUND_BGM, MAXCHANNEL };

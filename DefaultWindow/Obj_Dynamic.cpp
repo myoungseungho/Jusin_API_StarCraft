@@ -50,14 +50,18 @@ bool CObj_Dynamic::CheckEnemy()
 	{
 		float distance = sqrt((iter->Get_Info().fX - m_tInfo.fX) * (iter->Get_Info().fX - m_tInfo.fX) + (iter->Get_Info().fY - m_tInfo.fY) * (iter->Get_Info().fY - m_tInfo.fY));
 
-		if (m_Stat.m_AttackRange > distance && iter->Get_FactionState() != this->Get_FactionState())
+		if (m_Stat.m_DetectionRange > distance && iter->Get_FactionState() != this->Get_FactionState())
 		{
-			m_pTarget = iter;
-			ChangeState(ATTACK_STATE);
+			if (m_CurrentState != ATTACK_STATE)
+			{
+				ChangeState(ATTACK_STATE);
+				m_pTarget = iter;
+			}
 			return true;
 		}
 	}
 
+	m_pTarget = nullptr;
 	return false;
 }
 

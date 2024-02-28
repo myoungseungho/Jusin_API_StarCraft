@@ -35,7 +35,9 @@ void CMarine::Initialize()
 
 		m_Stat.m_Hp = 60.f;
 		m_Stat.m_Attack = 5.f;
-		m_Stat.m_AttackRange = 200.f;
+		m_Stat.m_AttackRange = 150.f;
+		m_Stat.m_DetectionRange = 250.f;
+		m_Stat.m_fSpeed = 5.f;
 	}
 }
 
