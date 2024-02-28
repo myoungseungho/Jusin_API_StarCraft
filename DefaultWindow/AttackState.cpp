@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "AttackState.h"
 
-IAttackState::IAttackState()
+IAttackState::IAttackState() : m_bAttackDistanceIn(false)
 {
 }
 
@@ -31,5 +31,9 @@ void IAttackState::Release(CObj_Dynamic*)
 }
 
 void IAttackState::Move_Frame()
+{
+}
+
+void IAttackState::MoveUntilAttackDistance(CObj_Dynamic* _marine)
 {
 }

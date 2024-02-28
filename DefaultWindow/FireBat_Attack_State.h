@@ -13,13 +13,16 @@ public:
     void Render(CObj_Dynamic*, HDC hDC) override;
     void Release(CObj_Dynamic*) override;
     
+protected:
+    virtual void MoveUntilAttackDistance(CObj_Dynamic* _marine);
+    void Move_Frame() override;
+
 private:
     TCHAR*      m_pFrameKey_Attack;
     FRAME		m_tFrame_Attack;
     int         m_AttackFileSize;
     int         m_Offset_Attack;
 
-    // IState을(를) 통해 상속됨
-    void Move_Frame() override;
+
 };
 

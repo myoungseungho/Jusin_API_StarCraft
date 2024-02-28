@@ -22,8 +22,13 @@ void CFireBat_Idle_State::Initialize(CObj_Dynamic* _fireBat)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CFireBat_Idle_State::Update(CObj_Dynamic*)
+int CFireBat_Idle_State::Update(CObj_Dynamic* _fireBat)
 {
+	if (m_dwTime + 1000 < GetTickCount())
+	{
+		_fireBat->CheckEnemy();
+		m_dwTime = GetTickCount();
+	}
 	return 0;
 }
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Marine_Attack_State.h"
 
-CMarine_Attack_State::CMarine_Attack_State() : m_bAttackDistanceIn(false)
+CMarine_Attack_State::CMarine_Attack_State()
 {
 }
 

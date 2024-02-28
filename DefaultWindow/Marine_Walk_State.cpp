@@ -40,8 +40,7 @@ int CMarine_Walk_State::Update(CObj_Dynamic* _marine)
 {
 	if (Move(_marine) == MOVE_OK)
 		_marine->ChangeState(IDLE_STATE);
-	//else
-	//	_marine->CheckEnemy();
+
 	return 0;
 }
 

@@ -14,5 +14,9 @@ public:
 	void Render(CObj_Dynamic*, HDC hDC) override;
 	void Release(CObj_Dynamic*) override;
 	void Move_Frame() override;
+
+protected:
+	virtual void MoveUntilAttackDistance(CObj_Dynamic* _marine);
+	bool m_bAttackDistanceIn;
 };
 
