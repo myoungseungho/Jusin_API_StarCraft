@@ -122,10 +122,10 @@ void CStage::Static_Obj_Spawn()
 
 void CStage::Ally_Obj_Spawn()
 {
-	for (size_t i = 0; i < 1; i++)
+	for (size_t i = 0; i < 20; i++)
 	{
-		//CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, 200.f + i * 10.f, 300.f);
-		CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ALLY, 200.f + i * 10.f, 400.f);
+		CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, 200.f + i * 10.f, 300.f);
+		//CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ALLY, 200.f + i * 10.f, 400.f);
 	}
 
 	/*CObj_Dynamic* marine1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, 200.f, 300.f);
@@ -139,7 +139,7 @@ void CStage::Ally_Obj_Spawn()
 
 void CStage::Enemy_Obj_Spawn()
 {
-	for (size_t i = 0; i < 1; i++)
+	for (size_t i = 0; i < 20; i++)
 	{
 		//CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 700.f + i * 10.f, 300.f);
 		CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ENEMY, 700.f + i * 10.f, 400.f);
