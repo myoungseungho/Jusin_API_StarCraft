@@ -16,6 +16,7 @@ public:
 protected:
     virtual void MoveUntilAttackDistance(CObj_Dynamic* _marine);
     virtual void Move_Frame(CObj_Dynamic*) override;
+    virtual void Attack(CObj_Dynamic*) override;
 
 private:
     TCHAR*      m_pFrameKey_Attack;

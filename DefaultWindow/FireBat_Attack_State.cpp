@@ -47,6 +47,11 @@ int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
 	{
 		if (!m_bAttackDistanceIn)
 			MoveUntilAttackDistance(_fireBat);
+		//공격범위 까지 감
+		else
+		{
+			Attack(_fireBat);
+		}
 		return 0;
 	}
 
@@ -133,16 +138,30 @@ void CFireBat_Attack_State::Move_Frame(CObj_Dynamic* _fireBat)
 		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
 		{
 			m_tFrame_Attack.iFrameStart = 0;
-
-			CObj* target = _fireBat->Get_Target();
-			if (target != nullptr && !target->Get_Dead())
-			{
-				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
-				if (dynamicObj != nullptr)
-					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_fireBat->Get_Stat().m_Attack);
-			}
 		}
 
 		m_tFrame_Attack.dwTime = GetTickCount();
+	}
+}
+
+void CFireBat_Attack_State::Attack(CObj_Dynamic* _unit)
+{
+	CObj* target = _unit->Get_Target();
+
+	if (target == nullptr || target->Get_Dead())
+	{
+		m_bAttackDistanceIn = false;
+		_unit->ChangeState(IDLE_STATE);
+		return;
+	}
+
+	if (m_tFrame_Attack.iFrameStart == 0)
+	{
+		if (target != nullptr && !target->Get_Dead())
+		{
+			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+			if (dynamicObj != nullptr)
+				dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
+		}
 	}
 }

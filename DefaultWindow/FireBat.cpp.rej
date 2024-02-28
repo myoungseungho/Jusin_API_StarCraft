@@ -1,0 +1,35 @@
+diff a/DefaultWindow/FireBat.cpp b/DefaultWindow/FireBat.cpp	(rejected hunks)
+@@ -66,18 +66,27 @@
+ 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+ 
+ 	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
++	
++	int fcx = (int)m_tInfo.fCX;
++	int fcy = (int)m_tInfo.fCY;
++
++	if (m_CurrentState == DIE_STATE)
++	{
++		fcx = 200;
++		fcy = 200;
++	}
+ 
+ 	GdiTransparentBlt(
+ 		hDC,		// (���� ����)���������� �׸��� �׸� DC ����
+ 		m_tRect.left + iScrollX, // ���� ���� ��ġ ��ǥ
+ 		m_tRect.top + iScrollY,
+-		(int)m_tInfo.fCX,	// ���� ���� �̹����� ����, ����
+-		(int)m_tInfo.fCY,
++		fcx,	// ���� ���� �̹����� ����, ����
++		fcy,
+ 		hMemDC,		// ��Ʈ���� ������ �ִ� DC
+-		(int)m_tInfo.fCX * m_tFrame.iFrameStart,			// ��Ʈ�� ��� ���� ��ǥ LEFT, TOP
+-		(int)m_tInfo.fCY * m_tFrame.iMotion,
+-		(int)m_tInfo.fCX,	// ����� ��Ʈ�� ����
+-		(int)m_tInfo.fCY,	// ����� ��Ʈ�� ����
++		fcx * m_tFrame.iFrameStart,			// ��Ʈ�� ��� ���� ��ǥ LEFT, TOP
++		fcy * m_tFrame.iMotion,
++		fcx,	// ����� ��Ʈ�� ����
++		fcy,	// ����� ��Ʈ�� ����
+ 		RGB(0, 0, 0));	// ������ ���� ��
+ 
+ 	m_vecState[m_CurrentState]->Render(this, hDC);

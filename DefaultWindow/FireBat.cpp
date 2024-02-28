@@ -121,6 +121,8 @@ void CFireBat::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down_Right_150.bmp", L"FireBat_Bullet_Down_Right_150");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down_Right_170.bmp", L"FireBat_Bullet_Down_Right_170");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/FirebatAtt/FireBat_Bullet_Down.bmp", L"FireBat_Bullet_Down");
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Bang0/FireBat_Die.bmp", L"FireBat_Die");
 }
 
 DYNAMIC_OBJID CFireBat::GetType() const
