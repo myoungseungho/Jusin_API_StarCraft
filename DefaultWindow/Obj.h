@@ -48,8 +48,6 @@ public:
 	void		Set_FactionState(FACTIONSTATE m_Id) { m_Faction = m_Id; };
 	void		Set_FrameKey(TCHAR* pFrameKey) { m_pFrameKey = pFrameKey; }
 	STAT		Get_Stat() { return m_Stat; };
-	void		SetCheckEnemy(bool _bCheck) { m_bCheckEnemy = _bCheck; }
-	bool		GetCheckEnemy() { return m_bCheckEnemy; };
 protected:
 	virtual void InsertBmpFile();
 
@@ -74,7 +72,5 @@ protected:
 	COLLISIONSTATE m_Collision;
 
 	STAT m_Stat;
-
-	bool m_bCheckEnemy;
 };
 
