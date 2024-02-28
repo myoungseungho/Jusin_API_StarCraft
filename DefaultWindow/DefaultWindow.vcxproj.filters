@@ -534,6 +534,9 @@
     <ClInclude Include="SoundMgr.h">
       <Filter>02. Design\15. SoundMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Tank_Siege_Mode.h">
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -814,6 +817,9 @@
     </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>02. Design\15. SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank_Siege_Mode.cpp">
+      <Filter>01. Obj\00. Unit\04. Tank</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

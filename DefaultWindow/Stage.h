@@ -16,5 +16,8 @@ public:
 	virtual void Release() override;
 private:
 	void Init_Obj_Spawn();
+	void Static_Obj_Spawn();
+	void Ally_Obj_Spawn();
+	void Enemy_Obj_Spawn();
 };
 

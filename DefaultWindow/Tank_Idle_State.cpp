@@ -22,8 +22,13 @@ void CTank_Idle_State::Initialize(CObj_Dynamic* _tank)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CTank_Idle_State::Update(CObj_Dynamic*)
+int CTank_Idle_State::Update(CObj_Dynamic* _tank)
 {
+	if (m_dwTime + 1000 < GetTickCount())
+	{
+		_tank->CheckEnemy();
+		m_dwTime = GetTickCount();
+	}
 	return 0;
 }
 
