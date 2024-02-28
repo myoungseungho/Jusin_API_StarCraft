@@ -46,20 +46,26 @@ void CObj_Dynamic::ChangeStateWithMouse(POINT _pt, STATEID _sId)
 
 bool CObj_Dynamic::CheckEnemy()
 {
-	list<CObj*> listExceptMe = CObjMgr::Get_Instance()->Get_ListExceptMe(this);
+	list<CObj*>* pList = CObjMgr::Get_Instance()->GetDynamic_Obj_List();
 
-	for (auto iter : listExceptMe)
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
 	{
-		float distance = sqrt((iter->Get_Info().fX - m_tInfo.fX) * (iter->Get_Info().fX - m_tInfo.fX) + (iter->Get_Info().fY - m_tInfo.fY) * (iter->Get_Info().fY - m_tInfo.fY));
-
-		if (m_Stat.m_DetectionRange > distance && iter->Get_FactionState() != this->Get_FactionState())
+		for (auto iter : pList[i])
 		{
-			if (m_CurrentState != ATTACK_STATE)
+			if (iter == this)
+				continue;
+
+			float distance = sqrt((iter->Get_Info().fX - m_tInfo.fX) * (iter->Get_Info().fX - m_tInfo.fX) + (iter->Get_Info().fY - m_tInfo.fY) * (iter->Get_Info().fY - m_tInfo.fY));
+
+			if (m_Stat.m_DetectionRange > distance && iter->Get_FactionState() != this->Get_FactionState())
 			{
-				ChangeState(ATTACK_STATE);
-				m_pTarget = iter;
+				if (m_CurrentState != ATTACK_STATE)
+				{
+					ChangeState(ATTACK_STATE);
+					m_pTarget = iter;
+				}
+				return true;
 			}
-			return true;
 		}
 	}
 

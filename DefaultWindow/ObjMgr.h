@@ -27,7 +27,7 @@ public:
 	CObj* Get_Target(float _fX, float _fY);
 	CObj* Get_Target_UI(float _fX, float _fY);
 	vector<CObj*> Get_Targets(POINT _initPoint, POINT _goalPoint);
-	list<CObj*> Get_ListExceptMe(CObj*);
+	list<CObj*>* GetDynamic_Obj_List() { return m_Dynamic_Obj_List; };
 public:
 	static		CObjMgr* Get_Instance()
 	{

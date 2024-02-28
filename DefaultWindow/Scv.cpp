@@ -40,6 +40,7 @@ void CScv::Initialize()
 
 		m_Stat.m_Hp = 60.f;
 		m_Stat.m_Attack = 5.f;
+		m_Stat.m_fSpeed = 5.f;
 	}
 }
 
