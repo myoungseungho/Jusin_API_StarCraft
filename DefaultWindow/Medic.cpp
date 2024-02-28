@@ -32,6 +32,8 @@ void CMedic::Initialize()
 		m_vecState.push_back(new CMedic_Die_State);
 
 		ChangeState(IDLE_STATE);
+
+		m_Stat.m_Hp = 60.f;
 	}
 }
 

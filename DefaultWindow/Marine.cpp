@@ -32,6 +32,9 @@ void CMarine::Initialize()
 		m_vecState.push_back(new CMarine_Die_State);
 
 		ChangeState(IDLE_STATE);
+
+		m_Stat.m_Hp = 60.f;
+		m_Stat.m_Attack = 5.f;
 	}
 }
 

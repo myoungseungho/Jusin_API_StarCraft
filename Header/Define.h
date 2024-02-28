@@ -154,6 +154,15 @@ enum COLLISIONSTATE
 	COLLISION_END
 };
 
+typedef struct tagStat
+{
+	int m_Hp;
+	int m_Mp;
+	int m_Attack;
+	float m_AttackRange;
+	float m_DetectionRange;
+}STAT;
+
 enum CHANNELID { SOUND_EFFECT, SOUND_BGM, MAXCHANNEL };
 
 typedef struct tagInfo

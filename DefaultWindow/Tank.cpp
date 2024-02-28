@@ -32,6 +32,9 @@ void CTank::Initialize()
 		m_vecState.push_back(new CTank_Die_State);
 
 		ChangeState(IDLE_STATE);
+
+		m_Stat.m_Hp = 150.f;
+		m_Stat.m_Attack = 30.f;
 	}
 }
 

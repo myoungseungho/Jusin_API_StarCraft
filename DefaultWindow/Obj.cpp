@@ -2,10 +2,11 @@
 #include "Obj.h"
 
 
-CObj::CObj() :m_eDir(DIR_END), m_fAngle(0.f), m_pTarget(nullptr), m_pFrameKey(nullptr), m_eRender(RENDER_END), m_Faction(FACTION_NON), m_bDead(false), m_Collision(COLLISION_END)
+CObj::CObj() :m_eDir(DIR_END), m_fAngle(0.f), m_pTarget(nullptr), m_pFrameKey(nullptr), m_eRender(RENDER_END), m_Faction(FACTION_NON), m_bDead(false), m_Collision(COLLISION_END), m_bCheckEnemy(false)
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	ZeroMemory(&m_tRect, sizeof(RECT));
+	ZeroMemory(&m_Stat, sizeof(STAT));
 }
 
 CObj::~CObj()

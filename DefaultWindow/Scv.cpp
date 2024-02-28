@@ -37,6 +37,9 @@ void CScv::Initialize()
 		m_vecState.push_back(new CScv_Build_State);
 
 		ChangeState(IDLE_STATE);
+
+		m_Stat.m_Hp = 60.f;
+		m_Stat.m_Attack = 5.f;
 	}
 }
 
