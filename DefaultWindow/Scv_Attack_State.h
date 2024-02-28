@@ -12,6 +12,7 @@ public:
     void Late_Update(CObj_Dynamic*) override;
     void Render(CObj_Dynamic*, HDC hDC) override;
     void Release(CObj_Dynamic*) override;
+    void Move_Frame(CObj_Dynamic*) override;
 
 private:
     TCHAR* m_pFrameKey_Attack;
@@ -19,6 +20,5 @@ private:
 
     int    m_AttackFileSize;
     int    m_Offset_Attack;
-    void Move_Frame() override;
 };
 

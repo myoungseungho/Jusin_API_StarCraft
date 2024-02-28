@@ -39,6 +39,6 @@ void CMedic_Die_State::Release(CObj_Dynamic*)
 {
 }
 
-void CMedic_Die_State::Move_Frame()
+void CMedic_Die_State::Move_Frame(CObj_Dynamic*)
 {
 }

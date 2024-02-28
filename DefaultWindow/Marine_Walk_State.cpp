@@ -56,6 +56,6 @@ void CMarine_Walk_State::Release(CObj_Dynamic*)
 {
 }
 
-void CMarine_Walk_State::Move_Frame()
+void CMarine_Walk_State::Move_Frame(CObj_Dynamic*)
 {
 }

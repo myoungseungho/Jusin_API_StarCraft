@@ -55,6 +55,7 @@ void CTank_Walk_State::Release(CObj_Dynamic*)
 {
 }
 
-void CTank_Walk_State::Move_Frame()
+void CTank_Walk_State::Move_Frame(CObj_Dynamic*)
 {
 }
+

@@ -51,10 +51,10 @@ int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
 	return 0;
 }
 
-void CFireBat_Attack_State::Late_Update(CObj_Dynamic*)
+void CFireBat_Attack_State::Late_Update(CObj_Dynamic* _fireBat)
 {
 	if (m_bAttackDistanceIn)
-		Move_Frame();
+		Move_Frame(_fireBat);
 }
 
 void CFireBat_Attack_State::Render(CObj_Dynamic* _fireBat, HDC hDC)
@@ -85,18 +85,6 @@ void CFireBat_Attack_State::Release(CObj_Dynamic*)
 {
 }
 
-void CFireBat_Attack_State::Move_Frame()
-{
-	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
-	{
-		++m_tFrame_Attack.iFrameStart;
-
-		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
-			m_tFrame_Attack.iFrameStart = 0;
-
-		m_tFrame_Attack.dwTime = GetTickCount();
-	}
-}
 
 void CFireBat_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _fireBat)
 {
@@ -131,5 +119,18 @@ void CFireBat_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _fireBat)
 			_fireBat->Set_PosX(dirX);
 			_fireBat->Set_PosY(dirY);
 		}
+	}
+}
+
+void CFireBat_Attack_State::Move_Frame(CObj_Dynamic*)
+{
+	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
+	{
+		++m_tFrame_Attack.iFrameStart;
+
+		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
+			m_tFrame_Attack.iFrameStart = 0;
+
+		m_tFrame_Attack.dwTime = GetTickCount();
 	}
 }

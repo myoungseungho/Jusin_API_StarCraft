@@ -45,6 +45,9 @@ void CScv::Initialize()
 
 int CScv::Update()
 {
+	if (m_bDead)
+		OBJ_DEAD;
+
 	if (m_Collision == COLLISION_OK)
 		m_Collision = COLLISION_END;
 

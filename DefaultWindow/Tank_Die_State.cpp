@@ -30,6 +30,6 @@ void CTank_Die_State::Release(CObj_Dynamic*)
 {
 }
 
-void CTank_Die_State::Move_Frame()
+void CTank_Die_State::Move_Frame(CObj_Dynamic*)
 {
 }

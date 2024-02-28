@@ -14,6 +14,6 @@ public:
 	void Release(CObj_Dynamic*) override;
 
 	// IState을(를) 통해 상속됨
-	void Move_Frame() override;
+	void Move_Frame(CObj_Dynamic*) override;
 };
 

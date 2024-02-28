@@ -30,6 +30,7 @@ void IBuildState::Release(CObj_Dynamic*)
 {
 }
 
-void IBuildState::Move_Frame()
+void IBuildState::Move_Frame(CObj_Dynamic*)
 {
 }
+

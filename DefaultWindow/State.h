@@ -1,6 +1,8 @@
 #pragma once
 #include "Define.h"
 #include "Obj_Dynamic.h"
+
+class CObj;
 class CObj_Dynamic;
 class IState
 {
@@ -15,7 +17,7 @@ public:
 	virtual void		Render(CObj_Dynamic* ,HDC hDC)	PURE;
 	virtual void		Release(CObj_Dynamic*)		PURE;
 protected:
-	virtual void Move_Frame() PURE;
+	virtual void Move_Frame(CObj_Dynamic*) PURE;
 public:
 	void Set_Astar(float, float, float, float);
 	int Move(CObj_Dynamic*);

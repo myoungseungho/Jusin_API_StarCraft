@@ -32,6 +32,6 @@ void IWalkState::Release(CObj_Dynamic*)
 {
 }
 
-void IWalkState::Move_Frame()
+void IWalkState::Move_Frame(CObj_Dynamic*)
 {
 }

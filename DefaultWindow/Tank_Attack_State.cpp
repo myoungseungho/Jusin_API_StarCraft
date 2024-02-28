@@ -51,9 +51,10 @@ void CTank_Attack_State::Release(CObj_Dynamic*)
 {
 }
 
-void CTank_Attack_State::Move_Frame()
+void CTank_Attack_State::Move_Frame(CObj_Dynamic*)
 {
 }
+
 
 void CTank_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _tank)
 {

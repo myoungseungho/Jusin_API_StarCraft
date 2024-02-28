@@ -30,9 +30,10 @@ void IAttackState::Release(CObj_Dynamic*)
 {
 }
 
-void IAttackState::Move_Frame()
+void IAttackState::Move_Frame(CObj_Dynamic*)
 {
 }
+
 
 void IAttackState::MoveUntilAttackDistance(CObj_Dynamic* _marine)
 {

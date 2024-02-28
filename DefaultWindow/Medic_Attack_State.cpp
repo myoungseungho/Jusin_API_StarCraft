@@ -39,6 +39,6 @@ void CMedic_Attack_State::Release(CObj_Dynamic*)
 {
 }
 
-void CMedic_Attack_State::Move_Frame()
+void CMedic_Attack_State::Move_Frame(CObj_Dynamic*)
 {
 }

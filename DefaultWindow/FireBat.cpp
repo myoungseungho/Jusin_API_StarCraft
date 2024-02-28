@@ -44,6 +44,9 @@ void CFireBat::Initialize()
 
 int CFireBat::Update()
 {
+	if (m_bDead)
+		OBJ_DEAD;
+
 	__super::Update_Rect();
 
 	m_vecState[m_CurrentState]->Update(this);

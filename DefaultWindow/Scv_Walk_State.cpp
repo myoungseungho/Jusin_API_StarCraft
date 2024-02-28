@@ -58,6 +58,6 @@ void CScv_Walk_State::Release(CObj_Dynamic*)
 {
 }
 
-void CScv_Walk_State::Move_Frame()
+void CScv_Walk_State::Move_Frame(CObj_Dynamic*)
 {
 }

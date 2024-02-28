@@ -30,6 +30,6 @@ void CFireBat_Die_State::Release(CObj_Dynamic*)
 {
 }
 
-void CFireBat_Die_State::Move_Frame()
+void CFireBat_Die_State::Move_Frame(CObj_Dynamic*)
 {
 }

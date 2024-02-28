@@ -55,7 +55,7 @@ int CScv_Attack_State::Update(CObj_Dynamic* _scv)
 
 void CScv_Attack_State::Late_Update(CObj_Dynamic* _scv)
 {
-	Move_Frame();
+	Move_Frame(_scv);
 }
 
 void CScv_Attack_State::Render(CObj_Dynamic* _scv, HDC hDC)
@@ -83,7 +83,7 @@ void CScv_Attack_State::Release(CObj_Dynamic* _scv)
 {
 }
 
-void CScv_Attack_State::Move_Frame()
+void CScv_Attack_State::Move_Frame(CObj_Dynamic*)
 {
 	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
 	{

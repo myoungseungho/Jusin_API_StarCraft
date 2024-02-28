@@ -30,6 +30,7 @@ void IDieState::Release(CObj_Dynamic*)
 {
 }
 
-void IDieState::Move_Frame()
+void IDieState::Move_Frame(CObj_Dynamic*)
 {
 }
+

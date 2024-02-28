@@ -26,7 +26,7 @@ void CMarine_Attack_State::Initialize(CObj_Dynamic* _marine)
 	m_tFrame_Attack.iFrameStart = 0;
 	m_tFrame_Attack.iFrameEnd = 15;
 	m_tFrame_Attack.iMotion = 0;
-	m_tFrame_Attack.dwSpeed = 50;
+	m_tFrame_Attack.dwSpeed = 20;
 	m_tFrame_Attack.dwTime = GetTickCount();
 
 	m_AttackFileSize = 40;
@@ -39,19 +39,23 @@ int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 	if (!_marine->CheckEnemy())
 	{
 		_marine->ChangeState(IDLE_STATE);
+		return 0;
 	}
 	else
 	{
 		if (!m_bAttackDistanceIn)
 			MoveUntilAttackDistance(_marine);
+		return 0;
 	}
+
+
 	return 0;
 }
 
-void CMarine_Attack_State::Late_Update(CObj_Dynamic*)
+void CMarine_Attack_State::Late_Update(CObj_Dynamic* _marine)
 {
 	if (m_bAttackDistanceIn)
-		Move_Frame();
+		Move_Frame(_marine);
 }
 
 void CMarine_Attack_State::Render(CObj_Dynamic* _marine, HDC hDC)
@@ -82,18 +86,24 @@ void CMarine_Attack_State::Release(CObj_Dynamic*)
 {
 }
 
-void CMarine_Attack_State::Move_Frame()
+void CMarine_Attack_State::Move_Frame(CObj_Dynamic* _marine)
 {
 	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
 	{
 		++m_tFrame_Attack.iFrameStart;
 
 		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
+		{
 			m_tFrame_Attack.iFrameStart = 0;
+
+			CObj* target = _marine->Get_Target();
+			dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_marine->Get_Stat().m_Attack);
+		}
 
 		m_tFrame_Attack.dwTime = GetTickCount();
 	}
 }
+
 
 void CMarine_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _marine)
 {

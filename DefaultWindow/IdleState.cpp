@@ -61,6 +61,6 @@ void IIdleState::Release(CObj_Dynamic*)
 {
 }
 
-void IIdleState::Move_Frame()
+void IIdleState::Move_Frame(CObj_Dynamic*)
 {
 }

@@ -4,7 +4,6 @@
 #include "Define.h"
 
 class IState;
-
 class CObj_Dynamic : public CObj
 {
 public:
@@ -21,6 +20,20 @@ public:
 public:
 	void		Set_Dead() { m_bDead = true; }
 	bool		Get_Dead() { return m_bDead; }
+	void		Set_Damage(float m_attack)
+	{
+		m_Stat.m_Hp -= m_attack;
+		if (m_Stat.m_Hp <= 0)
+		{
+			m_Stat.m_Hp = 0;
+
+			CObj_Dynamic* dynamic_obj = dynamic_cast<CObj_Dynamic*>(this);
+			if (dynamic_cast<CObj_Dynamic*>(this))
+			{
+				dynamic_obj->ChangeState(DIE_STATE);
+			}
+		}
+	};
 	void		Move_Frame();
 
 	void		ChangeState(STATEID);

@@ -10,9 +10,6 @@ IState::~IState()
 {
 }
 
-void IState::Move_Frame()
-{
-}
 
 void IState::Set_Astar(float _fX, float _fY, float _goalX, float _goalY)
 {

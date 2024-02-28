@@ -44,6 +44,6 @@ void CMarine_Idle_State::Release(CObj_Dynamic*)
 {
 }
 
-void CMarine_Idle_State::Move_Frame()
+void CMarine_Idle_State::Move_Frame(CObj_Dynamic*)
 {
 }

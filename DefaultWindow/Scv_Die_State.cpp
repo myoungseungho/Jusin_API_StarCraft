@@ -30,6 +30,6 @@ void CScv_Die_State::Release(CObj_Dynamic*)
 {
 }
 
-void CScv_Die_State::Move_Frame()
+void CScv_Die_State::Move_Frame(CObj_Dynamic*)
 {
 }
