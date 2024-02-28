@@ -22,7 +22,5 @@ private:
     FRAME		m_tFrame_Attack;
     int         m_AttackFileSize;
     int         m_Offset_Attack;
-
-
 };
 

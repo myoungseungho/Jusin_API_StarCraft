@@ -19,5 +19,10 @@ public:
 protected:
 	virtual void MoveUntilAttackDistance(CObj_Dynamic*) override;
 
+private:
+	TCHAR* m_pFrameKey_Attack;
+	FRAME		m_tFrame_Attack;
+	int         m_AttackFileSize;
+	int         m_Offset_Attack;
 };
 

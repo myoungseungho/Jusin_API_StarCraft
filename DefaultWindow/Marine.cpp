@@ -109,6 +109,8 @@ void CMarine::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Attack/Mairen_Attack_Down_180.bmp", L"Mairen_Attack_Down_180");
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Die/Marine_Dead.bmp", L"Marine_Dead");
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/Tspark/Tspark.bmp", L"Tspark");
 }
 
 DYNAMIC_OBJID CMarine::GetType() const
