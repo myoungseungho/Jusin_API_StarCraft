@@ -66,7 +66,7 @@ void CLClick_Mouse::HandleNoTargetClick()
 	if (BuildingState != UI_STATIC_OBJ_END)
 	{
 		//SCV가 이제 해당 위치까지 가야함
-		vector<CObj_Dynamic*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnit();
+		vector<CObj*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
 		if (vecUnit.size() >= 1)
 		{
 			POINT	Pt;
@@ -76,12 +76,14 @@ void CLClick_Mouse::HandleNoTargetClick()
 			Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 			Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
-			CObj_Dynamic* target = vecUnit.back();
-
-			target->ChangeStateWithMouse(Pt, BUILD_STATE);
-			CUIMgr::Get_Instance()->SetClear_StaticObj();
-			CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
-			CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+			if (dynamic_cast<CObj_Dynamic*>(vecUnit.back()))
+			{
+				CObj_Dynamic* target = dynamic_cast<CObj_Dynamic*>(vecUnit.back());
+				target->ChangeStateWithMouse(Pt, BUILD_STATE);
+				CUIMgr::Get_Instance()->SetClear_StaticObj();
+				CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
+				CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+			}
 		}
 	}
 	else

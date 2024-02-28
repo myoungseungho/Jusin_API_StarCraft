@@ -104,13 +104,13 @@ void CUIMgr::OnClickIcon(CObj* _unit)
 {
 	ICONSTATE ICONId = dynamic_cast<CObj_UI*>(_unit)->GetType();
 
-	if (CUnitControlMgr::Get_Instance()->GetBuilding())
+	//건물이라면
+	if (dynamic_cast<CObj_Static*>(CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding().back()))
 	{
 
 	}
 	else
 		SetClear_IconObj();
-
 
 	if (ICONId == ICON_BUILD)
 	{
