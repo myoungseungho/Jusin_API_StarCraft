@@ -104,7 +104,7 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_RUP];
 		}
 	}
-	else if (_unit->GetType() == ATTACK_STATE)
+	else if (_unit->GetStateID() == ATTACK_STATE)
 	{
 		if (degree > -22.5f && degree <= 22.5f) {
 			//µ¿ÂÊ

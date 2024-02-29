@@ -113,23 +113,6 @@ void CFireBat_Attack_State::Move_Frame(CObj_Dynamic* _fireBat)
 
 void CFireBat_Attack_State::Attack(CObj_Dynamic* _unit)
 {
-	CObj* target = _unit->Get_Target();
-
-	if (target == nullptr || target->Get_Dead())
-	{
-		_unit->SetAttackRun(false);
-		_unit->ChangeState(IDLE_STATE);
-		_unit->Set_Clear_Target();
-		return;
-	}
-
-	if (m_tFrame_Attack.iFrameStart == 0)
-	{
-		if (target != nullptr && !target->Get_Dead())
-		{
-			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
-			if (dynamicObj != nullptr)
-				dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
-		}
-	}
+	IAttackState::Attack(_unit);
 }
+

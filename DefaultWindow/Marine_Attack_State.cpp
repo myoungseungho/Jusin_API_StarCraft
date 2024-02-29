@@ -15,9 +15,9 @@ void CMarine_Attack_State::Initialize(CObj_Dynamic* _marine)
 	m_pFrameCopy = _marine->Get_Frame();
 	m_pFrameKeyCopy = _marine->Get_FrameKey();
 
-	*m_pFrameKeyCopy = L"Marine_Walk_Right_90";
+	*m_pFrameKeyCopy = L"Mairen_Attack_Right_90";
 	m_pFrameCopy->iFrameStart = 0;
-	m_pFrameCopy->iFrameEnd = 17;
+	m_pFrameCopy->iFrameEnd = 5;
 	m_pFrameCopy->iMotion = 0;
 	m_pFrameCopy->dwSpeed = 50;
 	m_pFrameCopy->dwTime = GetTickCount();
@@ -110,24 +110,5 @@ void CMarine_Attack_State::Move_Frame(CObj_Dynamic* _marine)
 
 void CMarine_Attack_State::Attack(CObj_Dynamic* _unit)
 {
-	CObj* target = _unit->Get_Target();
-
-	if (target == nullptr || target->Get_Dead())
-	{
-		_unit->SetAttackRun(false);
-		_unit->ChangeState(IDLE_STATE);
-		_unit->Set_Clear_Target();
-		return;
-	}
-
-	if (m_tFrame_Attack.iFrameStart == 0)
-	{
-		if (target != nullptr && !target->Get_Dead())
-		{
-			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
-			if (dynamicObj != nullptr)
-				dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
-		}
-	}
+	IAttackState::Attack(_unit);
 }
-
