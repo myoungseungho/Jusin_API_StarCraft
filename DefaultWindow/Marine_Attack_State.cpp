@@ -31,7 +31,7 @@ void CMarine_Attack_State::Initialize(CObj_Dynamic* _marine)
 
 	m_AttackFileSize = 40;
 
-	m_bAttackDistanceIn = false;
+	_marine->SetAttackRun(false);
 }
 
 int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
@@ -40,7 +40,7 @@ int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 	if (_marine->Get_Target())
 	{
 		//아직 공격사정거리는 안됨
-		if (!m_bAttackDistanceIn)
+		if (!_marine->GetAttackRun())
 			MoveUntilAttackDistance(_marine);
 		//공격범위 까지 감
 		else
@@ -60,13 +60,13 @@ int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 
 void CMarine_Attack_State::Late_Update(CObj_Dynamic* _marine)
 {
-	if (m_bAttackDistanceIn)
+	if (_marine->GetAttackRun())
 		Move_Frame(_marine);
 }
 
 void CMarine_Attack_State::Render(CObj_Dynamic* _marine, HDC hDC)
 {
-	if (!m_bAttackDistanceIn)
+	if (!_marine->GetAttackRun())
 		return;
 
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
@@ -113,7 +113,7 @@ void CMarine_Attack_State::Attack(CObj_Dynamic* _unit)
 
 	if (target == nullptr || target->Get_Dead())
 	{
-		m_bAttackDistanceIn = false;
+		_unit->SetAttackRun(false);
 		_unit->ChangeState(IDLE_STATE);
 		_unit->Set_Clear_Target();
 		return;
@@ -142,7 +142,7 @@ void CMarine_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _marine)
 
 	if (length < _marine->Get_Stat().m_AttackRange) { // 목표까지의 거리가 속도보다 클 경우, 이동 실행
 
-		m_bAttackDistanceIn = true;
+		_marine->SetAttackRun(true);
 
 		m_pFrameCopy = _marine->Get_Frame();
 		m_pFrameKeyCopy = _marine->Get_FrameKey();

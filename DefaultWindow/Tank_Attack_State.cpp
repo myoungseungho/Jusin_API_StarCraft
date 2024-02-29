@@ -21,7 +21,7 @@ void CTank_Attack_State::Initialize(CObj_Dynamic* _tank)
 	m_pFrameCopy->dwSpeed = 50;
 	m_pFrameCopy->dwTime = GetTickCount();
 
-	m_bAttackDistanceIn = false;
+	_tank->SetAttackRun(false);
 }
 
 int CTank_Attack_State::Update(CObj_Dynamic* _tank)
@@ -32,7 +32,7 @@ int CTank_Attack_State::Update(CObj_Dynamic* _tank)
 	}
 	else
 	{
-		if (!m_bAttackDistanceIn)
+		if (!_tank->GetAttackRun())
 			MoveUntilAttackDistance(_tank);
 	}
 
@@ -67,8 +67,8 @@ void CTank_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _tank)
 		float length = sqrt(dirX * dirX + dirY * dirY);
 
 		if (length < _tank->Get_Stat().m_AttackRange) { // 목표까지의 거리가 속도보다 클 경우, 이동 실행
-
-			m_bAttackDistanceIn = true;
+			
+			_tank->SetAttackRun(true);
 
 			m_pFrameCopy = _tank->Get_Frame();
 			m_pFrameKeyCopy = _tank->Get_FrameKey();

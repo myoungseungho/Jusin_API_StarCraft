@@ -33,7 +33,7 @@ void CFireBat_Attack_State::Initialize(CObj_Dynamic* _fireBat)
 	m_AttackFileSize = 224;
 	m_Offset_Attack = -90;
 
-	m_bAttackDistanceIn = false;
+	_fireBat->SetAttackRun(false);
 }
 
 int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
@@ -42,7 +42,7 @@ int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
 	if (_fireBat->Get_Target())
 	{
 		//아직 공격사정거리는 안됨
-		if (!m_bAttackDistanceIn)
+		if (!_fireBat->GetAttackRun())
 			MoveUntilAttackDistance(_fireBat);
 		//공격범위 까지 감
 		else
@@ -62,13 +62,13 @@ int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
 
 void CFireBat_Attack_State::Late_Update(CObj_Dynamic* _fireBat)
 {
-	if (m_bAttackDistanceIn)
+	if (_fireBat->GetAttackRun())
 		Move_Frame(_fireBat);
 }
 
 void CFireBat_Attack_State::Render(CObj_Dynamic* _fireBat, HDC hDC)
 {
-	if (!m_bAttackDistanceIn)
+	if (!_fireBat->GetAttackRun())
 		return;
 
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
@@ -106,7 +106,7 @@ void CFireBat_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _fireBat)
 
 	if (length < _fireBat->Get_Stat().m_AttackRange) { // 목표까지의 거리가 속도보다 클 경우, 이동 실행
 
-		m_bAttackDistanceIn = true;
+		_fireBat->SetAttackRun(true);
 
 		m_pFrameCopy = _fireBat->Get_Frame();
 		m_pFrameKeyCopy = _fireBat->Get_FrameKey();
@@ -150,7 +150,7 @@ void CFireBat_Attack_State::Attack(CObj_Dynamic* _unit)
 
 	if (target == nullptr || target->Get_Dead())
 	{
-		m_bAttackDistanceIn = false;
+		_unit->SetAttackRun(false);
 		_unit->ChangeState(IDLE_STATE);
 		_unit->Set_Clear_Target();
 		return;

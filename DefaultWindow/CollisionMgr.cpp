@@ -61,8 +61,8 @@ bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc)
 	float		fDistance_W = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
 	float		fDistance_H = abs(pDst->Get_Info().fY - pSrc->Get_Info().fY);
 
-	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.5f;
-	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * 0.5f;
+	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.3f;
+	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * 0.3f;
 
 	if ((fRadiusX >= fDistance_W) && (fRadiusY >= fDistance_H))
 	{
@@ -88,7 +88,7 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 			CObj_Dynamic* SrcDynamicObj = dynamic_cast<CObj_Dynamic*>(Src);
 
 			//Attack_State에서 Move하는 도중에는 충돌 처리 안되다가 Move 안할때는 어떤 State에서라도 충돌처리 되게 끔 바꾸자.
-			if (Dst == Src || DstDynamicObj->GetStateID() == WALK_STATE || SrcDynamicObj->GetStateID() == ATTACK_STATE)
+			if (Dst == Src || DstDynamicObj->GetStateID() == WALK_STATE || DstDynamicObj->GetAttackRun() || SrcDynamicObj->GetAttackRun())
 				continue;
 
 			/*&& Dst->Get_CollisionState() == COLLISION_NOT && Src->Get_CollisionState() == COLLISION_NOT*/

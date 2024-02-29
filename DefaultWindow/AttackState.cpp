@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "AttackState.h"
 
-IAttackState::IAttackState() : m_bAttackDistanceIn(false)
+IAttackState::IAttackState()
 {
 }
 

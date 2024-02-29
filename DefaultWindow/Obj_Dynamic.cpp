@@ -2,7 +2,7 @@
 #include "Obj_Dynamic.h"
 #include "CollisionMgr.h"
 #include "ObjMgr.h"
-CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false), m_OnceDead(false)
+CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false), m_OnceDead(false), m_AttackRun(false)
 {
 }
 

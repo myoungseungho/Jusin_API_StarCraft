@@ -39,6 +39,8 @@ public:
 	void		ChangeState(STATEID);
 
 	void ChangeStateWithMouse(POINT _pt, STATEID _sId);
+	void SetAttackRun(bool _bAttackRun) { m_AttackRun = _bAttackRun; }
+	bool GetAttackRun() { return m_AttackRun; }
 	bool CheckEnemy();
 	POINT GetMousePT() { return m_MousePT; };
 	STATEID GetStateID() { return m_CurrentState; }
@@ -52,5 +54,6 @@ protected:
 	vector<IState*> m_vecState;
 	bool		m_OnceDead;
 	POINT		m_MousePT;
+	bool		m_AttackRun;
 };
 
