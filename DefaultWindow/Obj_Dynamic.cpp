@@ -46,26 +46,37 @@ void CObj_Dynamic::ChangeStateWithMouse(POINT _pt, STATEID _sId)
 
 bool CObj_Dynamic::CheckEnemy()
 {
+	if (m_pTarget != nullptr)
+		return true;
+
 	list<CObj*>* pList = CObjMgr::Get_Instance()->GetDynamic_Obj_List();
+	float nearDistnace = (numeric_limits<float>::max)();
+	CObj* target = nullptr;
 
 	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
 	{
 		for (auto iter : pList[i])
 		{
-			if (iter == this)
+			if (iter == this || iter->Get_FactionState() == this->Get_FactionState())
 				continue;
 
 			float distance = sqrt((iter->Get_Info().fX - m_tInfo.fX) * (iter->Get_Info().fX - m_tInfo.fX) + (iter->Get_Info().fY - m_tInfo.fY) * (iter->Get_Info().fY - m_tInfo.fY));
 
-			if (m_Stat.m_DetectionRange > distance && iter->Get_FactionState() != this->Get_FactionState())
+			if (distance < nearDistnace)
 			{
-				if (m_CurrentState != ATTACK_STATE)
-				{
-					ChangeState(ATTACK_STATE);
-					m_pTarget = iter;
-				}
-				return true;
+				nearDistnace = distance;
+				target = iter;
 			}
+		}
+	}
+
+	if (m_Stat.m_DetectionRange > nearDistnace)
+	{
+		if (m_CurrentState != ATTACK_STATE)
+		{
+			ChangeState(ATTACK_STATE);
+			m_pTarget = target;
+			return true;
 		}
 	}
 

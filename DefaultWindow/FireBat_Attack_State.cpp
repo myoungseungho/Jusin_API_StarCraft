@@ -152,6 +152,7 @@ void CFireBat_Attack_State::Attack(CObj_Dynamic* _unit)
 	{
 		m_bAttackDistanceIn = false;
 		_unit->ChangeState(IDLE_STATE);
+		_unit->Set_Clear_Target();
 		return;
 	}
 

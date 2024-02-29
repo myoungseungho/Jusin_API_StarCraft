@@ -36,26 +36,6 @@ void CMarine_Attack_State::Initialize(CObj_Dynamic* _marine)
 
 int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 {
-	////적이 사정거리에 없음
-	//if (!_marine->CheckEnemy())
-	//{
-	//	_marine->ChangeState(IDLE_STATE);
-	//	return 0;
-	//}
-	//else
-	//{
-	//	//적이 사정거리에 있음
-	//	//아직 공격범위까지 못감
-	//	if (!m_bAttackDistanceIn)
-	//		MoveUntilAttackDistance(_marine);
-	//	//공격범위 까지 감
-	//	else
-	//	{
-	//		Attack(_marine);
-	//	}
-	//	return 0;
-	//}
-
 	//타겟이 있다면
 	if (_marine->Get_Target())
 	{
@@ -135,6 +115,7 @@ void CMarine_Attack_State::Attack(CObj_Dynamic* _unit)
 	{
 		m_bAttackDistanceIn = false;
 		_unit->ChangeState(IDLE_STATE);
+		_unit->Set_Clear_Target();
 		return;
 	}
 

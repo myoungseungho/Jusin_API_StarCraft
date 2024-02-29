@@ -157,25 +157,6 @@ void CObjMgr::Late_Update()
 			}
 		}
 	}
-
-
-	//for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
-	//{
-	//	for (auto iter : m_Dynamic_Obj_List[i])
-	//	{
-	//		list<CObj*> listExceptMe = m_Dynamic_Obj_List[i];
-	//		listExceptMe.remove(iter);
-	//		//CCollisionMgr::Collision_RectEx(iter, listExceptMe);
-
-	//		if (iter->Get_CollisionState() == COLLISION_OK)
-	//		{
-	//			for (size_t j = 0; j < STATIC_OBJ_END; j++)
-	//			{
-	//				CCollisionMgr::Collision_RectEx(iter, m_Static_Obj_List[j]);
-	//			}
-	//		}
-	//	}
-	//}
 }
 
 void CObjMgr::Render(HDC hDC)

@@ -26,7 +26,7 @@ public:
 	RECT		Get_Rect() { return m_tRect; }
 	void		Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
 	void		Set_Target(CObj* pTarget) { m_pTarget = pTarget; }
-
+	void		Set_Clear_Target() { m_pTarget = nullptr; }
 	void		Set_CollisionState(COLLISIONSTATE _cId) { m_Collision = _cId; };
 	CObj* Get_Target() { return m_pTarget; }
 	COLLISIONSTATE Get_CollisionState() { return m_Collision; };
