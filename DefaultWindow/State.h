@@ -21,12 +21,14 @@ protected:
 public:
 	void Set_Astar(float, float, float, float);
 	int Move(CObj_Dynamic* _unit);
-	FRAME* m_pFrameCopy;
-	TCHAR** m_pFrameKeyCopy;
 protected:
 	list<CObj*> m_listPathTile;
 	list<pair<int, int>> m_Path;
 	DWORD m_dwTime;
+	FRAME* m_pFrameCopy;
+	TCHAR** m_pFrameKeyCopy;
+	FRAME  m_tFrame_Attack;
+	TCHAR* m_pFrameKey_Attack;
 protected:
 	void DetermineKey(CObj_Dynamic*, float);
 };
