@@ -135,6 +135,8 @@ void CMarine_Attack_State::Attack(CObj_Dynamic* _unit)
 void CMarine_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _marine)
 {
 	CObj* target = _marine->Get_Target();
+	if (target == nullptr || target->Get_Dead())
+		_marine->ChangeState(IDLE_STATE);
 
 	// 이동해야 할 방향 벡터 계산
 	float dirX = target->Get_Info().fX - _marine->Get_Info().fX;

@@ -99,6 +99,8 @@ void CFireBat_Attack_State::Release(CObj_Dynamic*)
 void CFireBat_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _fireBat)
 {
 	CObj* target = _fireBat->Get_Target();
+	if (target == nullptr || target->Get_Dead())
+		_fireBat->ChangeState(IDLE_STATE);
 
 	// 이동해야 할 방향 벡터 계산
 	float dirX = target->Get_Info().fX - _fireBat->Get_Info().fX;
