@@ -26,6 +26,8 @@ int IState::Move(CObj_Dynamic* _unit)
 		return MOVE_OK; // 이동 중지
 	}
 
+	m_pFrameKeyCopy = _unit->Get_FrameKey();
+
 	// 현재 목표 타일
 	CObj* currentTargetTile = m_listPathTile.front();
 	//dynamic_cast<CTile*>(currentTargetTile)->Set_Value(1, 0);
@@ -41,6 +43,8 @@ int IState::Move(CObj_Dynamic* _unit)
 	// 이동해야 할 방향 벡터 계산
 	float dirX = targetX - unitX;
 	float dirY = targetY - unitY;
+	float radian = atan2(dirY, dirX);
+	float degree = (radian * 180) / PI;
 	float length = sqrt(dirX * dirX + dirY * dirY);
 
 	// 단위 방향 벡터와 속도를 사용하여 이동
@@ -50,6 +54,8 @@ int IState::Move(CObj_Dynamic* _unit)
 		dirY = (dirY / length) * speed;
 		_unit->Set_PosX(dirX);
 		_unit->Set_PosY(dirY);
+
+		DetermineKey(_unit, degree);
 	}
 	else {
 		// 목표 타일에 도달했거나 매우 가까운 경우, 목표 타일을 다음 타일로 변경
@@ -57,6 +63,80 @@ int IState::Move(CObj_Dynamic* _unit)
 		if (!m_listPathTile.empty()) {
 			// 다음 타일로 이동을 계속합니다.
 			Move(_unit);
+		}
+	}
+}
+
+void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
+{
+	if (_unit->GetStateID() == WALK_STATE)
+	{
+		if (degree > -22.5f && degree <= 22.5f) {
+			//동쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_RIGHT);
+		}
+		else if (degree > 22.5f && degree <= 67.5f) {
+			// 남동쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_RDOWN);
+		}
+		else if (degree > 67.5f && degree <= 112.5f) {
+			// 남쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_DOWN);
+		}
+		else if (degree > 112.5f && degree <= 157.5f) {
+			// 남서쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_LDOWN);
+		}
+		else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
+			// 서쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_LEFT);
+		}
+		else if (degree > -157.5f && degree <= -112.5f) {
+			// 북서쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_LUP);
+		}
+		else if (degree > -112.5f && degree <= -67.5f) {
+			// 북쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_UP);
+		}
+		else if (degree > -67.5f && degree <= -22.5f) {
+			// 북동쪽
+			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_RUP);
+		}
+	}
+	else if (_unit->GetStateID() == ATTACK_STATE)
+	{
+		if (degree > -22.5f && degree <= 22.5f) {
+			//동쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_RIGHT);
+		}
+		else if (degree > 22.5f && degree <= 67.5f) {
+			// 남동쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_RDOWN);
+		}
+		else if (degree > 67.5f && degree <= 112.5f) {
+			// 남쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_DOWN);
+		}
+		else if (degree > 112.5f && degree <= 157.5f) {
+			// 남서쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_LDOWN);
+		}
+		else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
+			// 서쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_LEFT);
+		}
+		else if (degree > -157.5f && degree <= -112.5f) {
+			// 북서쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_LUP);
+		}
+		else if (degree > -112.5f && degree <= -67.5f) {
+			// 북쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_UP);
+		}
+		else if (degree > -67.5f && degree <= -22.5f) {
+			// 북동쪽
+			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_RUP);
 		}
 	}
 }

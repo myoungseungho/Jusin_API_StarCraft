@@ -20,13 +20,14 @@ protected:
 	virtual void Move_Frame(CObj_Dynamic*) PURE;
 public:
 	void Set_Astar(float, float, float, float);
-	int Move(CObj_Dynamic*);
-protected:
+	int Move(CObj_Dynamic* _unit);
 	FRAME* m_pFrameCopy;
 	TCHAR** m_pFrameKeyCopy;
 protected:
 	list<CObj*> m_listPathTile;
 	list<pair<int, int>> m_Path;
 	DWORD m_dwTime;
+private:
+	void DetermineKey(CObj_Dynamic*, float);
 };
 

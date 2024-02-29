@@ -25,7 +25,7 @@ void CScv_Build_State::Initialize(CObj_Dynamic* _scv)
 	m_pFrameCopy = _scv->Get_Frame();
 	m_pFrameKeyCopy = _scv->Get_FrameKey();
 
-	*m_pFrameKeyCopy = L"SCV_IDLE";
+	*m_pFrameKeyCopy = L"SCV_DOWNLEFT";
 	m_pFrameCopy->iFrameStart = 0;
 	m_pFrameCopy->iFrameEnd = 16;
 	m_pFrameCopy->iMotion = 0;

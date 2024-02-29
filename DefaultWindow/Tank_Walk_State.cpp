@@ -21,18 +21,7 @@ void CTank_Walk_State::Initialize(CObj_Dynamic* _tank)
 	m_pFrameCopy->dwSpeed = 50;
 	m_pFrameCopy->dwTime = GetTickCount();
 
-	POINT scvPoint = _tank->GetMousePT();
-	INFO info = _tank->Get_Info();
-
-	int ScvX = info.fX / TILECX;
-	int ScvY = info.fY / TILECY;
-
-	int	TileX = scvPoint.x / TILECX;
-	int	TileY = scvPoint.y / TILECY;
-
-	Set_Astar(ScvX, ScvY, TileX, TileY);
-
-	m_listPathTile = CTileMgr::Get_Instance()->GetListPath(m_Path);
+	IWalkState::Initialize(_tank);
 }
 
 int CTank_Walk_State::Update(CObj_Dynamic* _tank)
