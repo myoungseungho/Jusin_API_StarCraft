@@ -39,7 +39,6 @@ CStage::~CStage()
 void CStage::Initialize()
 {
 	CTileMgr::Get_Instance()->Load_Tile();
-	CAStarMgr::Get_Instance()->Initialize();
 	CKeyMgr::Get_Instance()->Initialize();
 	CTechTreeMgr::Get_Instance()->Initialize();
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
@@ -49,6 +48,7 @@ void CStage::Initialize()
 
 	CUIMgr::Get_Instance()->Initialize();
 	CSoundMgr::Get_Instance()->Initialize();
+	CAStarMgr::Get_Instance()->Initialize();
 }
 
 int CStage::Update()

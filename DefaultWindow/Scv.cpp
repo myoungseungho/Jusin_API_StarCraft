@@ -102,6 +102,7 @@ void CScv::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_IDLE.bmp", L"SCV_IDLE");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_ATTACK.bmp", L"SCV_ATTACK");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/ScvAtt/SCV_Bullet.bmp", L"SCV_Bullet");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Bang1/SCV_Die.bmp", L"SCV_Die");
 }
 
 DYNAMIC_OBJID CScv::GetType() const
