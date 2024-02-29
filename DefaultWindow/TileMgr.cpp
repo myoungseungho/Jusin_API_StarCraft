@@ -140,6 +140,7 @@ void CTileMgr::SetVecObstcales(list<CObj*> _list)
 	CAStarMgr::Get_Instance()->Init_ObstacleTile();
 }
 
+
 void CTileMgr::SetStaticObstcales(CObj_Static* _obj)
 {
 	list<CObj*> staticTileList = GetStaticTile(_obj);

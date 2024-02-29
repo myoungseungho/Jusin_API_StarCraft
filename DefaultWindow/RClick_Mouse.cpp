@@ -65,7 +65,7 @@ void CRClick_Mouse::Initialize()
 				dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
 				break;
 			case FACTION_ENEMY:
-				dynamicIter->ChangeStateWithMouse(Pt, ATTACK_STATE);
+				dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
 				break;
 			case FACTION_RESOURCE:
 				if (scv != nullptr)

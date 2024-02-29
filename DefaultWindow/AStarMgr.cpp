@@ -50,18 +50,16 @@ void CAStarMgr::Init_ObstacleTile()
 
 		m_bInit = false;
 	}
-	else
+
+	//장애물 타일 로드
+	vector<CObj*> obstcalesTile = CTileMgr::Get_Instance()->GetVecObstcales();
+
+	for (auto iter : obstcalesTile)
 	{
-		//장애물 타일 로드
-		vector<CObj*> obstcalesTile = CTileMgr::Get_Instance()->GetVecObstcales();
+		int x = iter->Get_Info().fX / TILECX;
+		int y = iter->Get_Info().fY / TILECY;
 
-		for (auto iter : obstcalesTile)
-		{
-			int x = iter->Get_Info().fX / TILECX;
-			int y = iter->Get_Info().fY / TILECY;
-
-			m_Obstacles[x][y] = true;
-		}
+		m_Obstacles[x][y] = true;
 	}
 }
 
