@@ -131,39 +131,3 @@ void CMarine_Attack_State::Attack(CObj_Dynamic* _unit)
 	}
 }
 
-
-void CMarine_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _marine)
-{
-	CObj* target = _marine->Get_Target();
-	if (target == nullptr || target->Get_Dead())
-		_marine->ChangeState(IDLE_STATE);
-
-	// 이동해야 할 방향 벡터 계산
-	float dirX = target->Get_Info().fX - _marine->Get_Info().fX;
-	float dirY = target->Get_Info().fY - _marine->Get_Info().fY;
-	float length = sqrt(dirX * dirX + dirY * dirY);
-
-	if (length < _marine->Get_Stat().m_AttackRange) { // 목표까지의 거리가 속도보다 클 경우, 이동 실행
-
-		_marine->SetAttackRun(true);
-
-		m_pFrameCopy = _marine->Get_Frame();
-		m_pFrameKeyCopy = _marine->Get_FrameKey();
-
-		*m_pFrameKeyCopy = L"Mairen_Attack_Right_90";
-		m_pFrameCopy->iFrameStart = 0;
-		m_pFrameCopy->iFrameEnd = 5;
-		m_pFrameCopy->iMotion = 0;
-		m_pFrameCopy->dwSpeed = 100;
-		m_pFrameCopy->dwTime = GetTickCount();
-	}
-	else
-	{
-		// 단위 방향 벡터와 속도를 사용하여 이동
-		float speed = _marine->Get_Stat().m_fSpeed; // 적당한 속도 값
-		dirX = (dirX / length) * speed;
-		dirY = (dirY / length) * speed;
-		_marine->Set_PosX(dirX);
-		_marine->Set_PosY(dirY);
-	}
-}

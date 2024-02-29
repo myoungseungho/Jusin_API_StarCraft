@@ -107,15 +107,23 @@ void CScv::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_DOWNLEFT.bmp", L"SCV_DOWNLEFT");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_LEFT.bmp", L"SCV_LEFT");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_UPLEFT.bmp", L"SCV_UPLEFT");
-
-	m_FrameArrayWalkKey[DIR_UP] = (L"SCV_UP");
-	m_FrameArrayWalkKey[DIR_RUP] = (L"SCV_UPRIGHT");
-	m_FrameArrayWalkKey[DIR_RIGHT] = (L"SCV_RIGHT");
-	m_FrameArrayWalkKey[DIR_RDOWN] = (L"SCV_DOWNRIGHT");
-	m_FrameArrayWalkKey[DIR_DOWN] = (L"SCV_DOWN");
-	m_FrameArrayWalkKey[DIR_LDOWN] = (L"SCV_DOWNLEFT");
-	m_FrameArrayWalkKey[DIR_LEFT] = (L"SCV_LEFT");
-	m_FrameArrayWalkKey[DIR_LUP] = (L"SCV_UPLEFT");
+	
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP] = (L"SCV_UP");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP] = (L"SCV_UPRIGHT");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT] = (L"SCV_RIGHT");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN] = (L"SCV_DOWNRIGHT");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN] = (L"SCV_DOWN");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN] = (L"SCV_DOWNLEFT");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT] = (L"SCV_LEFT");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP] = (L"SCV_UPLEFT");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_UP_Attack.bmp", L"SCV_UP_Attack");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_UPRIGHT_Attack.bmp", L"SCV_UPRIGHT_Attack");
@@ -126,14 +134,22 @@ void CScv::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_LEFT_Attack.bmp", L"SCV_LEFT_Attack");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Attack/SCV_UPLEFT_Attack.bmp", L"SCV_UPLEFT_Attack");
 
-	m_FrameArrayWalkKey[DIR_UP] = (L"SCV_UP_Attack");
-	m_FrameArrayWalkKey[DIR_RUP] = (L"SCV_UPRIGHT_Attack");
-	m_FrameArrayWalkKey[DIR_RIGHT] = (L"SCV_RIGHT_Attack");
-	m_FrameArrayWalkKey[DIR_RDOWN] = (L"SCV_DOWNRIGHT_Attack");
-	m_FrameArrayWalkKey[DIR_DOWN] = (L"SCV_DOWN_Attack");
-	m_FrameArrayWalkKey[DIR_LDOWN] = (L"SCV_DOWNLEFT_Attack");
-	m_FrameArrayWalkKey[DIR_LEFT] = (L"SCV_LEFT_Attack");
-	m_FrameArrayWalkKey[DIR_LUP] = (L"SCV_UPLEFT_Attack");
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP] = (L"SCV_UP_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP] = (L"SCV_UPRIGHT_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT] = (L"SCV_RIGHT_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN] = (L"SCV_DOWNRIGHT_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN] = (L"SCV_DOWN_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN] = (L"SCV_DOWNLEFT_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT] = (L"SCV_LEFT_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP] = (L"SCV_UPLEFT_Attack");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/ScvAtt/SCV_Bullet.bmp", L"SCV_Bullet");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Bang1/SCV_Die.bmp", L"SCV_Die");

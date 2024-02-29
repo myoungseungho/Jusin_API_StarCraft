@@ -16,7 +16,7 @@ void CFireBat_Idle_State::Initialize(CObj_Dynamic* _fireBat)
 
 	*m_pFrameKeyCopy = L"Firebat_Idle";
 	m_pFrameCopy->iFrameStart = 0;
-	m_pFrameCopy->iFrameEnd = 16;
+	m_pFrameCopy->iFrameEnd = 0;
 	m_pFrameCopy->iMotion = 0;
 	m_pFrameCopy->dwSpeed = 100;
 	m_pFrameCopy->dwTime = GetTickCount();

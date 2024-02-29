@@ -13,16 +13,6 @@ CScv_Attack_State::~CScv_Attack_State()
 
 void CScv_Attack_State::Initialize(CObj_Dynamic* _scv)
 {
-	m_pFrameCopy = _scv->Get_Frame();
-	m_pFrameKeyCopy = _scv->Get_FrameKey();
-
-	*m_pFrameKeyCopy = L"SCV_ATTACK";
-	m_pFrameCopy->iFrameStart = 0;
-	m_pFrameCopy->iFrameEnd = 33;
-	m_pFrameCopy->iMotion = 0;
-	m_pFrameCopy->dwSpeed = 200;
-	m_pFrameCopy->dwTime = GetTickCount();
-
 	m_pFrameKey_Attack = L"SCV_Bullet";
 	m_tFrame_Attack.iFrameStart = 0;
 	m_tFrame_Attack.iFrameEnd = 9;

@@ -17,7 +17,6 @@ public:
 	virtual void Attack(CObj_Dynamic*);
 
 protected:
-	virtual void MoveUntilAttackDistance(CObj_Dynamic* _marine);
-	//bool m_bAttackDistanceIn;
+	void MoveUntilAttackDistance(CObj_Dynamic*);
 };
 

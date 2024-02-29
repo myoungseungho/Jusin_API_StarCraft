@@ -14,9 +14,9 @@ void CMarine_Idle_State::Initialize(CObj_Dynamic* _marine)
 	m_pFrameCopy = _marine->Get_Frame();
 	m_pFrameKeyCopy = _marine->Get_FrameKey();
 
-	*m_pFrameKeyCopy = L"Marine_Idle";
+	*m_pFrameKeyCopy = L"MARINE_DOWNLEFT";
 	m_pFrameCopy->iFrameStart = 0;
-	m_pFrameCopy->iFrameEnd = 16;
+	m_pFrameCopy->iFrameEnd = 0;
 	m_pFrameCopy->iMotion = 0;
 	m_pFrameCopy->dwSpeed = 200;
 	m_pFrameCopy->dwTime = GetTickCount();

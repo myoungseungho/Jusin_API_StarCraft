@@ -41,8 +41,8 @@ public:
 	void ChangeStateWithMouse(POINT _pt, STATEID _sId);
 	void SetAttackRun(bool _bAttackRun) { m_AttackRun = _bAttackRun; }
 	bool GetAttackRun() { return m_AttackRun; }
-	wchar_t* GetWalkFrameKey(DIRECTION _dir) { return m_FrameArrayWalkKey[_dir]; }
-	wchar_t* GetAttackFrameKey(DIRECTION _dir) { return m_FrameArrayAttackKey[_dir]; }
+	
+	KEYANDFRAME* GetKeyAndFrame() { return &m_KeyAndFrame; }
 
 	bool CheckEnemy();
 	POINT GetMousePT() { return m_MousePT; };
@@ -58,7 +58,7 @@ protected:
 	bool		m_OnceDead;
 	POINT		m_MousePT;
 	bool		m_AttackRun;
-	wchar_t*	m_FrameArrayWalkKey[DIR_END];
-	wchar_t*	m_FrameArrayAttackKey[DIR_END];
+
+	KEYANDFRAME m_KeyAndFrame;
 };
 

@@ -73,70 +73,77 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 	{
 		if (degree > -22.5f && degree <= 22.5f) {
 			//悼率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_RIGHT);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_RIGHT];
 		}
 		else if (degree > 22.5f && degree <= 67.5f) {
 			// 巢悼率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_RDOWN);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_RDOWN];
 		}
 		else if (degree > 67.5f && degree <= 112.5f) {
 			// 巢率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_DOWN);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_DOWN];
 		}
 		else if (degree > 112.5f && degree <= 157.5f) {
 			// 巢辑率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_LDOWN);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_LDOWN];
 		}
 		else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
 			// 辑率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_LEFT);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_LEFT];
 		}
 		else if (degree > -157.5f && degree <= -112.5f) {
 			// 合辑率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_LUP);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_LUP];
 		}
 		else if (degree > -112.5f && degree <= -67.5f) {
 			// 合率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_UP);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_UP];
 		}
 		else if (degree > -67.5f && degree <= -22.5f) {
 			// 合悼率
-			*m_pFrameKeyCopy = _unit->GetWalkFrameKey(DIR_RUP);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_RUP];
 		}
 	}
-	else if (_unit->GetStateID() == ATTACK_STATE)
+	else if (_unit->GetType() == ATTACK_STATE)
 	{
 		if (degree > -22.5f && degree <= 22.5f) {
 			//悼率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_RIGHT);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_RIGHT];
 		}
 		else if (degree > 22.5f && degree <= 67.5f) {
 			// 巢悼率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_RDOWN);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_RDOWN];
 		}
 		else if (degree > 67.5f && degree <= 112.5f) {
 			// 巢率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_DOWN);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_DOWN];
 		}
 		else if (degree > 112.5f && degree <= 157.5f) {
 			// 巢辑率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_LDOWN);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_LDOWN];
 		}
 		else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
 			// 辑率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_LEFT);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_LEFT];
 		}
 		else if (degree > -157.5f && degree <= -112.5f) {
 			// 合辑率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_LUP);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_LUP];
 		}
 		else if (degree > -112.5f && degree <= -67.5f) {
 			// 合率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_UP);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_UP];
 		}
 		else if (degree > -67.5f && degree <= -22.5f) {
 			// 合悼率
-			*m_pFrameKeyCopy = _unit->GetAttackFrameKey(DIR_RUP);
+			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_RUP];
 		}
 	}
+	
+
+	m_pFrameCopy->iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iFrameStart;
+	m_pFrameCopy->iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iFrameEnd;
+	m_pFrameCopy->iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iMotion;
+	m_pFrameCopy->dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].dwSpeed;
+	m_pFrameCopy->dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].dwTime;
 }
