@@ -44,11 +44,9 @@ void CObj_Dynamic::ChangeStateWithMouse(POINT _pt, STATEID _sId)
 	ChangeState(_sId);
 }
 
+//반경에 더 가까운 적이 있는지 검사
 bool CObj_Dynamic::CheckEnemy()
 {
-	if (m_pTarget != nullptr)
-		return true;
-
 	list<CObj*>* pList = CObjMgr::Get_Instance()->GetDynamic_Obj_List();
 	float nearDistnace = (numeric_limits<float>::max)();
 	CObj* target = nullptr;

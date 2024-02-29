@@ -53,6 +53,7 @@ int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
 	//타겟이 없다면
 	else
 	{
+
 		if (!_fireBat->CheckEnemy())
 			_fireBat->ChangeState(IDLE_STATE);
 	}

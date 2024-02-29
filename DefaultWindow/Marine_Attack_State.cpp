@@ -51,6 +51,7 @@ int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 	//타겟이 없다면
 	else
 	{
+		_marine->Set_Clear_Target();
 		if (!_marine->CheckEnemy())
 			_marine->ChangeState(IDLE_STATE);
 	}
