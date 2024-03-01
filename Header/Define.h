@@ -250,6 +250,8 @@ typedef struct tagKeyFrame
 	wchar_t*   m_FrameArrayWalkKey[DIR_END];
 	wchar_t*   m_FrameArrayAttackKey[DIR_END];
 	wchar_t*   m_FrameBulletAttackKey[DIR_END];
+	wchar_t*   m_FrameTankPosinKey[DIR_END];
+
 	map<wchar_t*, FRAME> _mapKeyFrame;
 }KEYANDFRAME;
 

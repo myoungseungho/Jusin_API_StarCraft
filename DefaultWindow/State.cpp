@@ -103,6 +103,7 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 			// 合悼率
 			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_RUP];
 		}
+
 	}
 	else if (_unit->GetStateID() == ATTACK_STATE)
 	{
@@ -139,7 +140,7 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_RUP];
 		}
 
-		if (_unit->GetType() == DYNAMIC_OBJ_FIREBAT || _unit->GetType() == DYNAMIC_OBJ_TANK)
+		if (_unit->GetType() == DYNAMIC_OBJ_FIREBAT)
 		{
 			if (degree > -22.5f && degree <= 22.5f) {
 				//悼率
@@ -179,6 +180,42 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 			m_tFrame_Attack.iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].iMotion;
 			m_tFrame_Attack.dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwSpeed;
 			m_tFrame_Attack.dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwTime;
+		}
+	}
+
+	if (_unit->GetType() == DYNAMIC_OBJ_TANK)
+	{
+		if (degree > -22.5f && degree <= 22.5f) {
+			//悼率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RIGHT];
+		}
+		else if (degree > 22.5f && degree <= 67.5f) {
+			// 巢悼率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RDOWN];
+		}
+		else if (degree > 67.5f && degree <= 112.5f) {
+			// 巢率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_DOWN];
+		}
+		else if (degree > 112.5f && degree <= 157.5f) {
+			// 巢辑率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LDOWN];
+		}
+		else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
+			// 辑率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LEFT];
+		}
+		else if (degree > -157.5f && degree <= -112.5f) {
+			// 合辑率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LUP];
+		}
+		else if (degree > -112.5f && degree <= -67.5f) {
+			// 合率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_UP];
+		}
+		else if (degree > -67.5f && degree <= -22.5f) {
+			// 合悼率
+			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RUP];
 		}
 	}
 

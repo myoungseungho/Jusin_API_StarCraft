@@ -16,7 +16,6 @@ protected:
     void Move_Frame(CObj_Dynamic*) override;
     virtual void Attack(CObj_Dynamic*) override;
 private:
-    int         m_AttackFileSize;
-    int         m_Offset_Attack;
+    int         m_TankPosinSize;
 };
 

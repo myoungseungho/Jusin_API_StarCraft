@@ -146,22 +146,22 @@ void CTank::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Left.bmp", L"Tank_Upper_Left");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Up_Left.bmp", L"Tank_Upper_Up_Left");
 
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_UP] = (L"Tank_Upper_Up");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_UP],{0,0,0,50,GetTickCount()} });
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RUP] = (L"Tank_Upper_Up_Right_45");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RUP],{0,0,0,50,GetTickCount()} });
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RIGHT] = (L"Tank_Upper_Right");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RIGHT],{0,0,0,50,GetTickCount()} });
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RDOWN] = (L"Tank_Upper_Down_Right_150");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RDOWN],{0,0,0,50,GetTickCount()} });
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_DOWN] = (L"Tank_Upper_Down");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_DOWN],{0,0,0,50,GetTickCount()} });
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LDOWN] = (L"Tank_Upper_Down_Left");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LDOWN],{0,0,0,50,GetTickCount()} });
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LEFT] = (L"Tank_Upper_Left");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
-	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LUP] = (L"Tank_Upper_Up_Left");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_UP] = (L"Tank_Upper_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_UP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_RUP] = (L"Tank_Upper_Up_Right_45");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_RUP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_RIGHT] = (L"Tank_Upper_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_RIGHT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_RDOWN] = (L"Tank_Upper_Down_Right_150");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_RDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_DOWN] = (L"Tank_Upper_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_DOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_LDOWN] = (L"Tank_Upper_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_LDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_LEFT] = (L"Tank_Upper_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinKey[DIR_LUP] = (L"Tank_Upper_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
 }
 
 DYNAMIC_OBJID CTank::GetType() const

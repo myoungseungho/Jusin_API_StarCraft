@@ -18,8 +18,9 @@ public:
 	virtual void Attack(CObj_Dynamic*);
 
 private:
-	TCHAR* m_pFrameKey_Attack;
+	TCHAR*		m_pFrameKey_Attack;
 	FRAME		m_tFrame_Attack;
+
 	int         m_AttackFileSize;
 	int         m_Offset_Attack;
 };

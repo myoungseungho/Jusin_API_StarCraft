@@ -25,10 +25,22 @@ protected:
 	list<CObj*> m_listPathTile;
 	list<pair<int, int>> m_Path;
 	DWORD m_dwTime;
+
+	//메인
 	FRAME* m_pFrameCopy;
 	TCHAR** m_pFrameKeyCopy;
+
+	//탱크 포신
+	FRAME  m_tFrame_TankPosin;
+	TCHAR* m_pFrameKey_TankPosin;
+
+	//피격
 	FRAME  m_tFrame_Attack;
 	TCHAR* m_pFrameKey_Attack;
+		
+	//탱크 포신이펙트
+	FRAME  m_tFrame_Attack_TankPosin;
+	TCHAR* m_pFrameKey_Attack_TankPosin;
 protected:
 	void DetermineKey(CObj_Dynamic*, float);
 };
