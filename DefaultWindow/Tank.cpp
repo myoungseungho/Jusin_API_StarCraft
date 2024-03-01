@@ -190,6 +190,7 @@ void CTank::InsertBmpFile()
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/TankHit/TankHit.bmp", L"TankHit");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Bang2/Tank_BANG.bmp", L"Tank_BANG");
 }
 
 DYNAMIC_OBJID CTank::GetType() const

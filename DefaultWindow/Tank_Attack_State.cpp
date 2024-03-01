@@ -81,8 +81,7 @@ int CTank_Attack_State::Update(CObj_Dynamic* _tank)
 
 void CTank_Attack_State::Late_Update(CObj_Dynamic* _tank)
 {
-	if (_tank->GetAttackRun())
-		Move_Frame(_tank);
+	Move_Frame(_tank);
 }
 
 void CTank_Attack_State::Render(CObj_Dynamic* _tank, HDC hDC)
@@ -140,7 +139,7 @@ void CTank_Attack_State::Release(CObj_Dynamic*)
 {
 }
 
-void CTank_Attack_State::Move_Frame(CObj_Dynamic*)
+void CTank_Attack_State::Move_Frame(CObj_Dynamic* _tank)
 {
 	if (m_tFrame_TankPosin.dwTime + m_tFrame_TankPosin.dwSpeed < GetTickCount())
 	{
@@ -154,16 +153,19 @@ void CTank_Attack_State::Move_Frame(CObj_Dynamic*)
 		m_tFrame_TankPosin.dwTime = GetTickCount();
 	}
 
-	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
+	if (_tank->GetAttackRun())
 	{
-		++m_tFrame_Attack.iFrameStart;
-
-		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
+		if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
 		{
-			m_tFrame_Attack.iFrameStart = 0;
-		}
+			++m_tFrame_Attack.iFrameStart;
 
-		m_tFrame_Attack.dwTime = GetTickCount();
+			if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
+			{
+				m_tFrame_Attack.iFrameStart = 0;
+			}
+
+			m_tFrame_Attack.dwTime = GetTickCount();
+		}
 	}
 }
 
