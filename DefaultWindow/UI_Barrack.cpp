@@ -54,7 +54,13 @@ void CUI_Barrack_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/BasicBuilding/Barrack_Icon.bmp", L"Barrack_Icon");
 }
 
-ICONSTATE CUI_Barrack_Icon::GetType() const
+UIOBJECTTYPE CUI_Barrack_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Barrack_Icon::GetDetailType() const
 {
 	return ICON_BARRACK;
 }
+

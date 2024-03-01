@@ -71,12 +71,19 @@ void CFactory_UI::Release()
 {
 }
 
-ICONSTATE CFactory_UI::GetType() const
-{
-    return ICON_END;
-}
+
 
 void CFactory_UI::InsertBmpFile()
 {
     CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Factory/Factory.bmp", L"Factory");
+}
+
+UIOBJECTTYPE CFactory_UI::GetType() const
+{
+	return UI_OBJECT_BUILD;
+}
+
+int CFactory_UI::GetDetailType() const
+{
+	return UI_STATIC_OBJ_FACTORY;
 }

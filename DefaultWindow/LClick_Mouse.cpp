@@ -39,8 +39,7 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 	if (CKeyMgr::Get_Instance()->Get_bSelectUnit())
 		CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 
-	CUIMgr::Get_Instance()->OnClickUnit(target);
-
+	CUIMgr::Get_Instance()->OnClickObj(target);
 
 	CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 	CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
@@ -57,7 +56,7 @@ void CLClick_Mouse::HandleStaticObjectClick(CObj* target)
 
 	CUnitControlMgr::Get_Instance()->Set_Add_Building(target);
 	CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
-	CUIMgr::Get_Instance()->OnClickUnit(target);
+	CUIMgr::Get_Instance()->OnClickObj(target);
 }
 
 void CLClick_Mouse::HandleNoTargetClick()

@@ -12,9 +12,12 @@ public:
     void Late_Update() override;
     virtual void Render(HDC hDC);
     void Release() override;
-    ICONSTATE GetType() const override;
 
 protected:
     virtual void InsertBmpFile() override;
+
+    // CObj_UI을(를) 통해 상속됨
+    UIOBJECTTYPE GetType() const override;
+    int GetDetailType() const override;
 };
 

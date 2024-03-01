@@ -72,12 +72,17 @@ void CCenter_UI::Release()
 {
 }
 
-ICONSTATE CCenter_UI::GetType() const
-{
-    return ICON_END;
-}
-
 void CCenter_UI::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Control/Center.bmp", L"Center");
+}
+
+UIOBJECTTYPE CCenter_UI::GetType() const
+{
+	return UI_OBJECT_BUILD;
+}
+
+int CCenter_UI::GetDetailType() const
+{
+	return UI_STATIC_OBJ_CENTER;
 }

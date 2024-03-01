@@ -34,10 +34,10 @@ public:
 	CObj_Static* Spawn_StaticObj(BUILDINGSTATE _Id, FACTIONSTATE _fId, float _fX, float _fY);
 
 	template<typename T>
-	CObj_UI* Spawn_UIObj(UI_OBJID _Id);
+	CObj_UI* Spawn_UIObj(UIOBJECTTYPE _Id);
 
 	template<typename T>
-	CObj_UI* Spawn_UIObj(UI_OBJID _Id, float _fX, float _fY);
+	CObj_UI* Spawn_UIObj(UIOBJECTTYPE _Id, float _fX, float _fY);
 
 
 
@@ -65,7 +65,7 @@ inline CObj_Static* CSpawnMgr::Spawn_StaticObj(BUILDINGSTATE _Id, FACTIONSTATE _
 
 
 template<typename T>
-inline CObj_UI* CSpawnMgr::Spawn_UIObj(UI_OBJID _Id)
+inline CObj_UI* CSpawnMgr::Spawn_UIObj(UIOBJECTTYPE _Id)
 {
 	CObj_UI* obj_UI = CAbstractFactory<T>::Create_UI();
 	CObjMgr::Get_Instance()->Add_UI_Object(_Id, obj_UI);
@@ -74,7 +74,7 @@ inline CObj_UI* CSpawnMgr::Spawn_UIObj(UI_OBJID _Id)
 }
 
 template<typename T>
-inline CObj_UI* CSpawnMgr::Spawn_UIObj(UI_OBJID _Id, float _fX, float _fY)
+inline CObj_UI* CSpawnMgr::Spawn_UIObj(UIOBJECTTYPE _Id, float _fX, float _fY)
 {
 	CObj_UI* obj_UI = CAbstractFactory<T>::Create_UI(_fX, _fY);
 	CObjMgr::Get_Instance()->Add_UI_Object(_Id, obj_UI);

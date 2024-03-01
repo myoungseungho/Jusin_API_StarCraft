@@ -53,7 +53,12 @@ void CUI_Attack_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Unituse/Attack_Image.bmp", L"Attack_Image");
 }
 
-ICONSTATE CUI_Attack_Icon::GetType() const
+UIOBJECTTYPE CUI_Attack_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Attack_Icon::GetDetailType() const
 {
 	return ICON_ATTACK;
 }

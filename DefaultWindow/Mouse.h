@@ -17,6 +17,7 @@ private:
 	bool m_bHasSelectUnit;
 
 	// CObj_UI을(를) 통해 상속됨
-	ICONSTATE GetType() const override;
+	UIOBJECTTYPE GetType() const override;
+	int GetDetailType() const override;
 };
 

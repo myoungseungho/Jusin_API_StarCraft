@@ -83,7 +83,12 @@ void CMouse::Release()
 {
 }
 
-ICONSTATE CMouse::GetType() const
+UIOBJECTTYPE CMouse::GetType() const
+{
+	return UI_OBJECT_MOUSE;
+}
+
+int CMouse::GetDetailType() const
 {
 	return ICON_END;
 }

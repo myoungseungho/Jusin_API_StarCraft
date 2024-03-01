@@ -71,12 +71,18 @@ void CStarPort_UI::Release()
 {
 }
 
-ICONSTATE CStarPort_UI::GetType() const
-{
-	return ICON_END;
-}
 
 void CStarPort_UI::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Starport/StarPort.bmp", L"StarPort");
+}
+
+UIOBJECTTYPE CStarPort_UI::GetType() const
+{
+	return UI_OBJECT_BUILD;
+}
+
+int CStarPort_UI::GetDetailType() const
+{
+	return UI_STATIC_OBJ_STARPORT;
 }

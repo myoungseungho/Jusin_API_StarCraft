@@ -54,7 +54,12 @@ void CUI_Move_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Unituse/Move_Image.bmp", L"Move_Image");
 }
 
-ICONSTATE CUI_Move_Icon::GetType() const
+UIOBJECTTYPE CUI_Move_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Move_Icon::GetDetailType() const
 {
 	return ICON_MOVE;
 }

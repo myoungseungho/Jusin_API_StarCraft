@@ -54,7 +54,12 @@ void CUI_StarPort_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/AdvancedBuilding/StarPort_Icon.bmp", L"StarPort_Icon");
 }
 
-ICONSTATE CUI_StarPort_Icon::GetType() const
+UIOBJECTTYPE CUI_StarPort_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_StarPort_Icon::GetDetailType() const
 {
 	return ICON_STARPORT;
 }

@@ -36,6 +36,8 @@ void CBarrack::Initialize()
 
 	m_eRender = RENDER_BUILDING;
 
+	m_Stat.m_MaxHp = 1000.f;
+	m_Stat.m_Hp = 1000.f;
 	SetObstcale();
 }
 

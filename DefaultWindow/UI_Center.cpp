@@ -54,7 +54,13 @@ void CUI_Center_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/BasicBuilding/Center_Icon.bmp", L"Center_Icon");
 }
 
-ICONSTATE CUI_Center_Icon::GetType() const
+
+UIOBJECTTYPE CUI_Center_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Center_Icon::GetDetailType() const
 {
 	return ICON_CENTER;
 }

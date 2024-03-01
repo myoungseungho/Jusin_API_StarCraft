@@ -53,7 +53,12 @@ void CUI_Advanced_Build_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Unituse/Advanced_Image.bmp", L"Advanced_Image");
 }
 
-ICONSTATE CUI_Advanced_Build_Icon::GetType() const
+UIOBJECTTYPE CUI_Advanced_Build_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Advanced_Build_Icon::GetDetailType() const
 {
 	return ICON_ADVANCED_BUILD;
 }

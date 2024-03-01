@@ -54,8 +54,12 @@ void CUI_FireBat_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/FIREBAT_ICON.bmp", L"FIREBAT_ICON");
 }
 
-ICONSTATE CUI_FireBat_Icon::GetType() const
+UIOBJECTTYPE CUI_FireBat_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_FireBat_Icon::GetDetailType() const
 {
 	return ICON_FIREBAT;
-
 }

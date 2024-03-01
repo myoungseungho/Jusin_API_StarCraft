@@ -53,7 +53,12 @@ void CUI_Build_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Unituse/Build_Image.bmp", L"Build_Image");
 }
 
-ICONSTATE CUI_Build_Icon::GetType() const
+UIOBJECTTYPE CUI_Build_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Build_Icon::GetDetailType() const
 {
 	return ICON_BUILD;
 }

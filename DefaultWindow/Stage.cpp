@@ -83,6 +83,7 @@ void CStage::Render(HDC hDC)
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
 	CKeyMgr::Get_Instance()->Render(hDC);
+	CUIMgr::Get_Instance()->Render(hDC);
 }
 
 void CStage::Release()
@@ -100,8 +101,8 @@ void CStage::Init_Obj_Spawn()
 	Ally_Obj_Spawn();
 	Enemy_Obj_Spawn();
 
-	CObj_UI* mainUI = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBackGround>(UI_OBJ_MAINUI);
-	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJ_MOUSE);
+	CObj_UI* mainUI = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBackGround>(UI_OBJECT_MAIN);
+	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJECT_MOUSE);
 }
 
 void CStage::Static_Obj_Spawn()

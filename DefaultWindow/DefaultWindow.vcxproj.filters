@@ -244,6 +244,15 @@
     <Filter Include="04. UI\UIMgr">
       <UniqueIdentifier>{77ecd527-2cf1-4e8b-95fe-67b483adc523}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\06. Unit_Wire">
+      <UniqueIdentifier>{8b430eb5-74f1-4f05-9890-275036c57f65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\06. Unit_Wire\00. Big_Wire">
+      <UniqueIdentifier>{5559e75c-2592-4bce-b04b-e21ab753748c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\06. Unit_Wire\01. Small_Wire">
+      <UniqueIdentifier>{7da25039-666d-43ce-be18-6613f1f3f03a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -546,6 +555,39 @@
     <ClInclude Include="UI_WireMgr.h">
       <Filter>04. UI</Filter>
     </ClInclude>
+    <ClInclude Include="UI_FireBat_Wire_Big.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Marine_Wire_Big.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Medic_Wire_Big.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_SCV_Wire_Big.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Tank_Wire_Big.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_FireBat_Wire_Small.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Marine_Wire_Small.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Medic_Wire_Small.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_SCV_Wire_Small.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Tank_Wire_Small.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Text_Mgr.h">
+      <Filter>04. UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -834,6 +876,39 @@
       <Filter>04. UI</Filter>
     </ClCompile>
     <ClCompile Include="UI_WireMgr.cpp">
+      <Filter>04. UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_FireBat_Wire_Big.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Marine_Wire_Big.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Medic_Wire_Big.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_SCV_Wire_Big.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Tank_Wire_Big.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_FireBat_Wire_Small.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Marine_Wire_Small.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Medic_Wire_Small.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_SCV_Wire_Small.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Tank_Wire_Small.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Text_Mgr.cpp">
       <Filter>04. UI</Filter>
     </ClCompile>
   </ItemGroup>

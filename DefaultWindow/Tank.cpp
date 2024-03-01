@@ -38,6 +38,7 @@ void CTank::Initialize()
 		m_Stat.m_AttackRange = 200.f;
 		m_Stat.m_DetectionRange = 250.f;
 		m_Stat.m_fSpeed = 5.f;
+		m_Stat.m_Hp = 150.f;
 	}
 }
 

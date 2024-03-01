@@ -54,7 +54,12 @@ void CUI_Marine_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/MARINE_ICON.bmp", L"MARINE_ICON");
 }
 
-ICONSTATE CUI_Marine_Icon::GetType() const
+UIOBJECTTYPE CUI_Marine_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Marine_Icon::GetDetailType() const
 {
 	return ICON_MARINE;
 }

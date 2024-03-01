@@ -74,7 +74,7 @@ void CUI_IconMgr::Initialize()
 	m_vecBuildingIcon.push_back(m_TankIcon);
 }
 
-void CUI_IconMgr::OnClickUnit(CObj* _unit)
+void CUI_IconMgr::OnClickObj(CObj* _unit)
 {
 	SetClear_IconObj();
 
@@ -90,7 +90,7 @@ void CUI_IconMgr::OnClickUnit(CObj* _unit)
 
 void CUI_IconMgr::OnClickIcon(CObj* _unit)
 {
-	ICONSTATE ICONId = dynamic_cast<CObj_UI*>(_unit)->GetType();
+	int ICONId = dynamic_cast<CObj_UI*>(_unit)->GetDetailType();
 
 	//건물이라면
 	if (dynamic_cast<CObj_Static*>(CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding().back()))
@@ -102,14 +102,14 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 	if (ICONId == ICON_BUILD)
 	{
-		m_vecUnitIcon[ICON_CENTER] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Center_Icon>(UI_OBJ_ICON, 655.f, 468.f);
-		m_vecUnitIcon[ICON_DEPOT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Depot_Icon>(UI_OBJ_ICON, 713.f, 468.f);
-		m_vecUnitIcon[ICON_BARRACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Barrack_Icon>(UI_OBJ_ICON, 655.f, 518.f);
+		m_vecUnitIcon[ICON_CENTER] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Center_Icon>(UI_OBJECT_ICON, 655.f, 468.f);
+		m_vecUnitIcon[ICON_DEPOT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Depot_Icon>(UI_OBJECT_ICON, 713.f, 468.f);
+		m_vecUnitIcon[ICON_BARRACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Barrack_Icon>(UI_OBJECT_ICON, 655.f, 518.f);
 	}
 	else if (ICONId == ICON_ADVANCED_BUILD)
 	{
-		m_vecUnitIcon[ICON_FACTORY] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Icon>(UI_OBJ_ICON, 655.f, 468.f);
-		m_vecUnitIcon[ICON_STARPORT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Icon>(UI_OBJ_ICON, 655.f, 518.f);
+		m_vecUnitIcon[ICON_FACTORY] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Icon>(UI_OBJECT_ICON, 655.f, 468.f);
+		m_vecUnitIcon[ICON_STARPORT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Icon>(UI_OBJECT_ICON, 655.f, 518.f);
 		bool bCanBuildFactory = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_FACTORY);
 		bool bCanBuildStarPort = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_STARPORT);
 
@@ -124,17 +124,17 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 	}
 	else if (ICONId == ICON_CENTER)
 	{
-		m_vecBuilding[UI_STATIC_OBJ_CENTER] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CCenter_UI>(UI_OBJ_BUILDING, 0.f, 0.f);
+		m_vecBuilding[UI_STATIC_OBJ_CENTER] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CCenter_UI>(UI_OBJECT_BUILD, 0.f, 0.f);
 		m_CurrentBuilding = UI_STATIC_OBJ_CENTER;
 	}
 	else if (ICONId == ICON_DEPOT)
 	{
-		m_vecBuilding[UI_STATIC_OBJ_DEPOT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CDepot_UI>(UI_OBJ_BUILDING, 0.f, 0.f);
+		m_vecBuilding[UI_STATIC_OBJ_DEPOT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CDepot_UI>(UI_OBJECT_BUILD, 0.f, 0.f);
 		m_CurrentBuilding = UI_STATIC_OBJ_DEPOT;
 	}
 	else if (ICONId == ICON_BARRACK)
 	{
-		m_vecBuilding[UI_STATIC_OBJ_BARRACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBarrack_UI>(UI_OBJ_BUILDING, 0.f, 0.f);
+		m_vecBuilding[UI_STATIC_OBJ_BARRACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBarrack_UI>(UI_OBJECT_BUILD, 0.f, 0.f);
 		m_CurrentBuilding = UI_STATIC_OBJ_BARRACK;
 	}
 	else if (ICONId == ICON_FACTORY)
@@ -144,7 +144,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		if (!bCanBuildFactory)
 			return;
 
-		m_vecBuilding[UI_STATIC_OBJ_FACTORY] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CFactory_UI>(UI_OBJ_BUILDING, 0.f, 0.f);
+		m_vecBuilding[UI_STATIC_OBJ_FACTORY] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CFactory_UI>(UI_OBJECT_BUILD, 0.f, 0.f);
 		m_CurrentBuilding = UI_STATIC_OBJ_FACTORY;
 
 	}
@@ -155,7 +155,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		if (!bCanBuildStarPort)
 			return;
 
-		m_vecBuilding[UI_STATIC_OBJ_STARPORT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CStarPort_UI>(UI_OBJ_BUILDING, 0.f, 0.f);
+		m_vecBuilding[UI_STATIC_OBJ_STARPORT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CStarPort_UI>(UI_OBJECT_BUILD, 0.f, 0.f);
 		m_CurrentBuilding = UI_STATIC_OBJ_STARPORT;
 	}
 	else if (ICONId == ICON_SCV)
@@ -213,11 +213,11 @@ void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 {
 	if (objId == DYANMIC_OBJ_SCV)
 	{
-		m_vecUnitIcon[ICON_MOVE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJ_ICON, 655.f, 468.f);
-		m_vecUnitIcon[ICON_STOP] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJ_ICON, 713.f, 468.f);
-		m_vecUnitIcon[ICON_ATTACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Attack_Icon>(UI_OBJ_ICON, 768.f, 468.f);
-		m_vecUnitIcon[ICON_BUILD] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Build_Icon>(UI_OBJ_ICON, 655.f, 570.f);
-		m_vecUnitIcon[ICON_ADVANCED_BUILD] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Advanced_Build_Icon>(UI_OBJ_ICON, 715.f, 570.f);
+		m_vecUnitIcon[ICON_MOVE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJECT_ICON, 655.f, 468.f);
+		m_vecUnitIcon[ICON_STOP] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJECT_ICON, 713.f, 468.f);
+		m_vecUnitIcon[ICON_ATTACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Attack_Icon>(UI_OBJECT_ICON, 768.f, 468.f);
+		m_vecUnitIcon[ICON_BUILD] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Build_Icon>(UI_OBJECT_ICON, 655.f, 570.f);
+		m_vecUnitIcon[ICON_ADVANCED_BUILD] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Advanced_Build_Icon>(UI_OBJECT_ICON, 715.f, 570.f);
 
 		m_vecUnitIcon[ICON_MOVE]->SetDrawID(1);
 		m_vecUnitIcon[ICON_STOP]->SetDrawID(1);
@@ -225,9 +225,9 @@ void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 	}
 	else if (objId == DYNAMIC_OBJ_MARINE || objId == DYNAMIC_OBJ_FIREBAT || objId == DYNAMIC_OBJ_MEDIC || objId == DYNAMIC_OBJ_TANK)
 	{
-		m_vecUnitIcon[ICON_MOVE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJ_ICON, 655.f, 468.f);
-		m_vecUnitIcon[ICON_STOP] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJ_ICON, 713.f, 468.f);
-		m_vecUnitIcon[ICON_ATTACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Attack_Icon>(UI_OBJ_ICON, 768.f, 468.f);
+		m_vecUnitIcon[ICON_MOVE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJECT_ICON, 655.f, 468.f);
+		m_vecUnitIcon[ICON_STOP] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJECT_ICON, 713.f, 468.f);
+		m_vecUnitIcon[ICON_ATTACK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Attack_Icon>(UI_OBJECT_ICON, 768.f, 468.f);
 
 		m_vecUnitIcon[ICON_MOVE]->SetDrawID(1);
 		m_vecUnitIcon[ICON_STOP]->SetDrawID(1);
@@ -239,19 +239,19 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 {
 	if (objId == STATIC_OBJ_CENTER)
 	{
-		m_vecBuildingIcon[DYANMIC_OBJ_SCV] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+		m_vecBuildingIcon[DYANMIC_OBJ_SCV] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Icon>(UI_OBJECT_ICON, 655.f, 468.f);
 	}
 	else if (objId == STATIC_OBJ_BARRACK)
 	{
-		m_vecBuildingIcon[DYNAMIC_OBJ_MARINE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Icon>(UI_OBJ_ICON, 655.f, 468.f);
-		m_vecBuildingIcon[DYNAMIC_OBJ_FIREBAT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Icon>(UI_OBJ_ICON, 713.f, 468.f);
-		m_vecBuildingIcon[DYNAMIC_OBJ_MEDIC] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Icon>(UI_OBJ_ICON, 768.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_MARINE] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Icon>(UI_OBJECT_ICON, 655.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_FIREBAT] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Icon>(UI_OBJECT_ICON, 713.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_MEDIC] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Icon>(UI_OBJECT_ICON, 768.f, 468.f);
 		m_vecBuildingIcon[DYNAMIC_OBJ_FIREBAT]->SetDrawID(1);
 		m_vecBuildingIcon[DYNAMIC_OBJ_MEDIC]->SetDrawID(1);
 	}
 	else if (objId == STATIC_OBJ_FACTORY)
 	{
-		m_vecBuildingIcon[DYNAMIC_OBJ_TANK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Icon>(UI_OBJ_ICON, 655.f, 468.f);
+		m_vecBuildingIcon[DYNAMIC_OBJ_TANK] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Icon>(UI_OBJECT_ICON, 655.f, 468.f);
 		m_vecBuildingIcon[DYNAMIC_OBJ_TANK]->SetDrawID(1);
 	}
 }

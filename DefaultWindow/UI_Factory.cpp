@@ -54,7 +54,12 @@ void CUI_Factory_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/AdvancedBuilding/Factory_Icon.bmp", L"Factory_Icon");
 }
 
-ICONSTATE CUI_Factory_Icon::GetType() const
+UIOBJECTTYPE CUI_Factory_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Factory_Icon::GetDetailType() const
 {
 	return ICON_FACTORY;
 }

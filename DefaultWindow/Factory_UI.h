@@ -12,8 +12,8 @@ public:
     void Late_Update() override;
     virtual void Render(HDC hDC);
     void Release() override;
-    ICONSTATE GetType() const override;
-
+    UIOBJECTTYPE GetType() const override;
+    int GetDetailType() const override;
 protected:
     virtual void InsertBmpFile() override;
 };

@@ -35,6 +35,9 @@ void CFactory::Initialize()
 	m_eRender = RENDER_BUILDING;
 
 	SetObstcale();
+
+	m_Stat.m_Hp = 1500.f;
+	m_Stat.m_MaxHp = 1500.f;
 }
 
 int CFactory::Update()

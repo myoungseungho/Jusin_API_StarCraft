@@ -44,7 +44,12 @@ void CBackGround::Release()
 {
 }
 
-ICONSTATE CBackGround::GetType() const
+UIOBJECTTYPE CBackGround::GetType() const
 {
-	return ICON_END;
+	return UI_OBJECT_BACKGROUND;
+}
+
+int CBackGround::GetDetailType() const
+{
+	return -1;
 }

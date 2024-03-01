@@ -55,7 +55,12 @@ void CUI_SCV_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/SCV_ICON.bmp", L"SCV_ICON");
 }
 
-ICONSTATE CUI_SCV_Icon::GetType() const
+UIOBJECTTYPE CUI_SCV_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_SCV_Icon::GetDetailType() const
 {
 	return ICON_SCV;
 }

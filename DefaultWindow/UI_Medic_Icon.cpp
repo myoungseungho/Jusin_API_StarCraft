@@ -55,7 +55,12 @@ void CUI_Medic_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/MEDIC_ICON.bmp", L"MEDIC_ICON");
 }
 
-ICONSTATE CUI_Medic_Icon::GetType() const
+UIOBJECTTYPE CUI_Medic_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Medic_Icon::GetDetailType() const
 {
 	return ICON_MEDIC;
 }

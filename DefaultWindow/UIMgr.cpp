@@ -38,7 +38,7 @@
 #include "Tank.h"
 CUIMgr* CUIMgr::m_pInstance = nullptr;
 
-CUIMgr::CUIMgr() :m_UI_IconMgr(nullptr)
+CUIMgr::CUIMgr() :m_UI_IconMgr(nullptr), m_UI_WireMgr(nullptr), m_UI_TextMgr(nullptr)
 {
 }
 
@@ -53,11 +53,23 @@ void CUIMgr::Initialize()
 		m_UI_IconMgr = new CUI_IconMgr;
 		m_UI_IconMgr->Initialize();
 	}
+
+	if (m_UI_WireMgr == nullptr)
+	{
+		m_UI_WireMgr = new CUI_WireMgr;
+		m_UI_WireMgr->Initialize();
+	}
+
+	if (m_UI_TextMgr == nullptr)
+	{
+		m_UI_TextMgr = new CUI_Text_Mgr;
+		m_UI_TextMgr->Initialize();
+	}
 }
 
 void CUIMgr::Render(HDC hDC)
 {
-
+	m_UI_TextMgr->Render(hDC);
 }
 
 void CUIMgr::Release()
@@ -65,9 +77,11 @@ void CUIMgr::Release()
 
 }
 
-void CUIMgr::OnClickUnit(CObj* _unit)
+void CUIMgr::OnClickObj(CObj* _unit)
 {
-	m_UI_IconMgr->OnClickUnit(_unit);
+	m_UI_IconMgr->OnClickObj(_unit);
+	m_UI_WireMgr->OnClickObj(_unit);
+	m_UI_TextMgr->OnClickObj(_unit);
 }
 
 void CUIMgr::OnClickIcon(CObj* _unit)
@@ -78,6 +92,8 @@ void CUIMgr::OnClickIcon(CObj* _unit)
 void CUIMgr::SetClear_IconObj()
 {
 	m_UI_IconMgr->SetClear_IconObj();
+	m_UI_WireMgr->SetClear_BigWireObj();
+	m_UI_TextMgr->SetClear_Text();
 }
 
 void CUIMgr::SetClear_StaticObj()

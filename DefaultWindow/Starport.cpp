@@ -32,6 +32,9 @@ void CStarport::Initialize()
 	m_eRender = RENDER_BUILDING;
 
 	SetObstcale();
+
+	m_Stat.m_Hp = 1300.f;
+	m_Stat.m_MaxHp = 1300.f;
 }
 
 int CStarport::Update()

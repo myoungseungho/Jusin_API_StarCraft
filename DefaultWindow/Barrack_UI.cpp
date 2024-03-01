@@ -71,12 +71,17 @@ void CBarrack_UI::Release()
 {
 }
 
-ICONSTATE CBarrack_UI::GetType() const
-{
-    return ICON_END;
-}
-
 void CBarrack_UI::InsertBmpFile()
 {
     CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Barrack/Barrack.bmp", L"Barrack");
+}
+
+UIOBJECTTYPE CBarrack_UI::GetType() const
+{
+	return UI_OBJECT_BUILD;
+}
+
+int CBarrack_UI::GetDetailType() const
+{
+	return UI_STATIC_OBJ_BARRACK;
 }

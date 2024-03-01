@@ -55,7 +55,12 @@ void CUI_Tank_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/TANK_ICON.bmp", L"TANK_ICON");
 }
 
-ICONSTATE CUI_Tank_Icon::GetType() const
+UIOBJECTTYPE CUI_Tank_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Tank_Icon::GetDetailType() const
 {
 	return ICON_TANK;
 }

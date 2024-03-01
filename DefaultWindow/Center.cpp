@@ -33,7 +33,8 @@ void CCenter::Initialize()
 	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
-
+	m_Stat.m_MaxHp = 1500.f;
+	m_Stat.m_Hp = 1500.f;
 	SetObstcale();
 }
 

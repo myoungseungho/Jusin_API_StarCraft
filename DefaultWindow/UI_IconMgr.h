@@ -10,7 +10,7 @@ public:
 public:
 	void Initialize();
 public:
-	void OnClickUnit(CObj* _unit);
+	void OnClickObj(CObj* _unit);
 	void OnClickIcon(CObj* _unit);
 	void SetClear_IconObj();
 	void SetClear_StaticObj();

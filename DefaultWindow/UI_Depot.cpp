@@ -53,7 +53,12 @@ void CUI_Depot_Icon::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/BasicBuilding/Depot_Icon.bmp", L"Depot_Icon");
 }
 
-ICONSTATE CUI_Depot_Icon::GetType() const
+UIOBJECTTYPE CUI_Depot_Icon::GetType() const
+{
+	return UI_OBJECT_ICON;
+}
+
+int CUI_Depot_Icon::GetDetailType() const
 {
 	return ICON_DEPOT;
 }

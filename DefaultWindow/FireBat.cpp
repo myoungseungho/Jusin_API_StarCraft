@@ -39,6 +39,7 @@ void CFireBat::Initialize()
 		m_Stat.m_AttackRange = 50.f;
 		m_Stat.m_DetectionRange = 250.f;
 		m_Stat.m_fSpeed = 5.f;
+		m_Stat.m_MaxHp = 50.f;
 	}
 }
 

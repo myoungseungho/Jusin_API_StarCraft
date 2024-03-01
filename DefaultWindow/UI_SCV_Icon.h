@@ -15,6 +15,8 @@ public:
 protected:
 	virtual void InsertBmpFile() override;
 
-	ICONSTATE GetType() const override;
+	// CObj_UI을(를) 통해 상속됨
+	UIOBJECTTYPE GetType() const override;
+	int GetDetailType() const override;
 };
 

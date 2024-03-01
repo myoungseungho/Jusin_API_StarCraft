@@ -31,6 +31,8 @@ void CSupplyDepot::Initialize()
 
 	m_eRender = RENDER_BUILDING;
 
+	m_Stat.m_MaxHp = 500.f;
+	m_Stat.m_Hp = 500.f;
 	SetObstcale();
 }
 

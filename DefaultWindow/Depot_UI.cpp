@@ -72,12 +72,19 @@ void CDepot_UI::Release()
 {
 }
 
-ICONSTATE CDepot_UI::GetType() const
-{
-    return ICON_END;
-}
+
 
 void CDepot_UI::InsertBmpFile()
 {
     CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Depot/Depot.bmp", L"Depot");
+}
+
+UIOBJECTTYPE CDepot_UI::GetType() const
+{
+	return UI_OBJECT_BUILD;
+}
+
+int CDepot_UI::GetDetailType() const
+{
+	return UI_STATIC_OBJ_DEPOT;
 }
