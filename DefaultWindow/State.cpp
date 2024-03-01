@@ -181,6 +181,47 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 			m_tFrame_Attack.dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwSpeed;
 			m_tFrame_Attack.dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwTime;
 		}
+		else if (_unit->GetType() == DYNAMIC_OBJ_TANK)
+		{
+			if (degree > -22.5f && degree <= 22.5f) {
+				//悼率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_RIGHT];
+			}
+			else if (degree > 22.5f && degree <= 67.5f) {
+				// 巢悼率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_RDOWN];
+			}
+			else if (degree > 67.5f && degree <= 112.5f) {
+				// 巢率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_DOWN];
+			}
+			else if (degree > 112.5f && degree <= 157.5f) {
+				// 巢辑率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_LDOWN];
+			}
+			else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
+				// 辑率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_LEFT];
+			}
+			else if (degree > -157.5f && degree <= -112.5f) {
+				// 合辑率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_LUP];
+			}
+			else if (degree > -112.5f && degree <= -67.5f) {
+				// 合率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_UP];
+			}
+			else if (degree > -67.5f && degree <= -22.5f) {
+				// 合悼率
+				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_RUP];
+			}
+
+			m_tFrame_Attack_TankPosin.iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iFrameStart;
+			m_tFrame_Attack_TankPosin.iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iFrameEnd;
+			m_tFrame_Attack_TankPosin.iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iMotion;
+			m_tFrame_Attack_TankPosin.dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].dwSpeed;
+			m_tFrame_Attack_TankPosin.dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].dwTime;
+		}
 	}
 
 	if (_unit->GetType() == DYNAMIC_OBJ_TANK)

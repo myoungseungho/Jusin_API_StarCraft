@@ -17,5 +17,8 @@ protected:
     virtual void Attack(CObj_Dynamic*) override;
 private:
     int         m_TankPosinSize;
+    int         m_TankPosinLaunchSize;
+    int         m_BulletSize;
+    int         m_Offset_Attack;
 };
 

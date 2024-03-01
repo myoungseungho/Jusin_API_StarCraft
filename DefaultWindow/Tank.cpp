@@ -40,7 +40,6 @@ void CTank::Initialize()
 		m_Stat.m_fSpeed = 5.f;
 		m_Stat.m_MaxHp = 150;
 		lstrcpyW(m_Stat.m_Name, L"Tank");
-
 	}
 }
 
@@ -162,6 +161,35 @@ void CTank::InsertBmpFile()
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameTankPosinKey[DIR_LUP] = (L"Tank_Upper_Up_Left");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
+
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Up.bmp", L"TankLaunch_Up");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Up_Right.bmp", L"TankLaunch_Up_Right");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Right.bmp", L"TankLaunch_Right");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Down_Right.bmp", L"TankLaunch_Down_Right");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Down.bmp", L"TankLaunch_Down");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Down_Left.bmp", L"TankLaunch_Down_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Left.bmp", L"TankLaunch_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Tanklaunch/TankLaunch_Up_Left.bmp", L"TankLaunch_Up_Left");
+
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_UP] = (L"TankLaunch_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_UP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_RUP] = (L"TankLaunch_Up_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_RUP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_RIGHT] = (L"TankLaunch_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_RIGHT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_RDOWN] = (L"TankLaunch_Down_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_RDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_DOWN] = (L"TankLaunch_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_DOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LDOWN] = (L"TankLaunch_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LEFT] = (L"TankLaunch_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LUP] = (L"TankLaunch_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/TankHit/TankHit.bmp", L"TankHit");
 }
 
 DYNAMIC_OBJID CTank::GetType() const
