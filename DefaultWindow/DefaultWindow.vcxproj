@@ -236,6 +236,7 @@
     <ClInclude Include="UI_Depot.h" />
     <ClInclude Include="UI_Factory.h" />
     <ClInclude Include="UI_FireBat_Icon.h" />
+    <ClInclude Include="UI_IconMgr.h" />
     <ClInclude Include="UI_Marine_Icon.h" />
     <ClInclude Include="UI_Medic_Icon.h" />
     <ClInclude Include="UI_Move.h" />
@@ -243,6 +244,7 @@
     <ClInclude Include="UI_StarPort.h" />
     <ClInclude Include="UI_Stop_Icon.h" />
     <ClInclude Include="UI_Tank_Icon.h" />
+    <ClInclude Include="UI_WireMgr.h" />
     <ClInclude Include="UnitControlMgr.h" />
     <ClInclude Include="WalkState.h" />
   </ItemGroup>
@@ -337,6 +339,7 @@
     <ClCompile Include="UI_Depot.cpp" />
     <ClCompile Include="UI_Factory.cpp" />
     <ClCompile Include="UI_FireBat_Icon.cpp" />
+    <ClCompile Include="UI_IconMgr.cpp" />
     <ClCompile Include="UI_Marine_Icon.cpp" />
     <ClCompile Include="UI_Medic_Icon.cpp" />
     <ClCompile Include="UI_Move.cpp" />
@@ -344,6 +347,7 @@
     <ClCompile Include="UI_StarPort.cpp" />
     <ClCompile Include="UI_Stop_Icon.cpp" />
     <ClCompile Include="UI_Tank_Icon.cpp" />
+    <ClCompile Include="UI_WireMgr.cpp" />
     <ClCompile Include="UnitControlMgr.cpp" />
     <ClCompile Include="WalkState.cpp" />
   </ItemGroup>

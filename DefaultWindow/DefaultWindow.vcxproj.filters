@@ -151,9 +151,6 @@
     <Filter Include="02. Design\13. TechTreeMgr">
       <UniqueIdentifier>{526a97f4-f87f-46b2-9c79-defb337f5ec4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Design\14. UIMgr">
-      <UniqueIdentifier>{77ecd527-2cf1-4e8b-95fe-67b483adc523}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01. Obj\03. UI">
       <UniqueIdentifier>{0c529b83-b3d5-42bd-9198-2b87eaa10b1a}</UniqueIdentifier>
     </Filter>
@@ -238,8 +235,14 @@
     <Filter Include="01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon">
       <UniqueIdentifier>{fbc27436-8425-40bc-93e2-ac0e19681154}</UniqueIdentifier>
     </Filter>
-    <Filter Include="02. Design\15. SoundMgr">
+    <Filter Include="04. UI">
+      <UniqueIdentifier>{43a4edb1-794d-4dd7-afcc-581d1ba1a493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Design\14. SoundMgr">
       <UniqueIdentifier>{ca394fd4-ac8e-4da4-afb6-d43c98dc4f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. UI\UIMgr">
+      <UniqueIdentifier>{77ecd527-2cf1-4e8b-95fe-67b483adc523}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -460,7 +463,7 @@
       <Filter>02. Design\13. TechTreeMgr</Filter>
     </ClInclude>
     <ClInclude Include="UIMgr.h">
-      <Filter>02. Design\14. UIMgr</Filter>
+      <Filter>04. UI\UIMgr</Filter>
     </ClInclude>
     <ClInclude Include="UI_Move.h">
       <Filter>01. Obj\03. UI\01. Unit_Icon\00. Move_Icon</Filter>
@@ -532,10 +535,16 @@
       <Filter>01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon</Filter>
     </ClInclude>
     <ClInclude Include="SoundMgr.h">
-      <Filter>02. Design\15. SoundMgr</Filter>
+      <Filter>02. Design\14. SoundMgr</Filter>
     </ClInclude>
     <ClInclude Include="Tank_Siege_Mode.h">
       <Filter>01. Obj\00. Unit\04. Tank</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_IconMgr.h">
+      <Filter>04. UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_WireMgr.h">
+      <Filter>04. UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -744,7 +753,7 @@
       <Filter>02. Design\13. TechTreeMgr</Filter>
     </ClCompile>
     <ClCompile Include="UIMgr.cpp">
-      <Filter>02. Design\14. UIMgr</Filter>
+      <Filter>04. UI\UIMgr</Filter>
     </ClCompile>
     <ClCompile Include="UI_Move.cpp">
       <Filter>01. Obj\03. UI\01. Unit_Icon\00. Move_Icon</Filter>
@@ -816,10 +825,16 @@
       <Filter>01. Obj\03. UI\05. Spawn_Icon\04. Tank_Icon</Filter>
     </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
-      <Filter>02. Design\15. SoundMgr</Filter>
+      <Filter>02. Design\14. SoundMgr</Filter>
     </ClCompile>
     <ClCompile Include="Tank_Siege_Mode.cpp">
       <Filter>01. Obj\00. Unit\04. Tank</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_IconMgr.cpp">
+      <Filter>04. UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_WireMgr.cpp">
+      <Filter>04. UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

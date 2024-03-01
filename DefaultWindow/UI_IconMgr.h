@@ -1,51 +1,26 @@
 #pragma once
-#include "Define.h"
 #include "Obj_UI.h"
-#include "Obj_Static.h"
-#include "UI_IconMgr.h"
+#include "Define.h"
 
-class CUIMgr
+class CUI_IconMgr
 {
-private:
-	CUIMgr();
-	~CUIMgr();
 public:
-	static		CUIMgr* Get_Instance()
-	{
-		if (!m_pInstance)
-		{
-			m_pInstance = new CUIMgr;
-		}
-
-		return m_pInstance;
-	}
-
-	static void	Destroy_Instance()
-	{
-		if (m_pInstance)
-		{
-			delete m_pInstance;
-			m_pInstance = nullptr;
-		}
-	}
+	CUI_IconMgr();
+	~CUI_IconMgr();
 public:
 	void Initialize();
-	void Render(HDC hDC);
-	void Release();
 public:
-	void OnClickUnit(CObj*);
-	void OnClickIcon(CObj*);
+	void OnClickUnit(CObj* _unit);
+	void OnClickIcon(CObj* _unit);
 	void SetClear_IconObj();
 	void SetClear_StaticObj();
-	void SetClear_CurrentBuilding() { m_UI_IconMgr->SetClear_CurrentBuilding(); };
+	void SetClear_CurrentBuilding() { m_CurrentBuilding = UI_STATIC_OBJ_END; };
 	void DynamicSetUI(DYNAMIC_OBJID);
 	void StaticSetUI(BUILDINGSTATE);
 
-	UI_BUILDINGSTATE GetBuilding() { return m_UI_IconMgr->GetBuilding(); }
+	UI_BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }
 private:
-	static CUIMgr* m_pInstance;
-
-	/*CObj_UI* m_MoveIcon;
+	CObj_UI* m_MoveIcon;
 	CObj_UI* m_StopIcon;
 	CObj_UI* m_AttackIcon;
 	CObj_UI* m_BuildIcon;
@@ -75,8 +50,6 @@ private:
 	CObj_UI* m_MedicIcon;
 	CObj_UI* m_TankIcon;
 
-	vector<CObj_UI*> m_vecBuildingIcon;*/
-
-	CUI_IconMgr* m_UI_IconMgr;
+	vector<CObj_UI*> m_vecBuildingIcon;
 };
 
