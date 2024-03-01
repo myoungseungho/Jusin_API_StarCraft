@@ -2,7 +2,7 @@
 #include "Tank_Attack_State.h"
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
-CTank_Attack_State::CTank_Attack_State()
+CTank_Attack_State::CTank_Attack_State() : m_CurrentTimeAttackPosin(GetTickCount())
 {
 }
 
@@ -35,14 +35,14 @@ void CTank_Attack_State::Initialize(CObj_Dynamic* _tank)
 	m_tFrame_Attack_TankPosin.iFrameStart = 0;
 	m_tFrame_Attack_TankPosin.iFrameEnd = 0;
 	m_tFrame_Attack_TankPosin.iMotion = 0;
-	m_tFrame_Attack_TankPosin.dwSpeed = 1000;
+	m_tFrame_Attack_TankPosin.dwSpeed = 200;
 	m_tFrame_Attack_TankPosin.dwTime = GetTickCount();
 
 	m_pFrameKey_Attack = L"TankHit";
 	m_tFrame_Attack.iFrameStart = 0;
 	m_tFrame_Attack.iFrameEnd = 12;
 	m_tFrame_Attack.iMotion = 0;
-	m_tFrame_Attack.dwSpeed = 50;
+	m_tFrame_Attack.dwSpeed = 150;
 	m_tFrame_Attack.dwTime = GetTickCount();
 
 
@@ -104,20 +104,27 @@ void CTank_Attack_State::Render(CObj_Dynamic* _tank, HDC hDC)
 		m_TankPosinSize,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
 
-	HDC	hMemLaunchDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey_Attack_TankPosin);
+	if (!_tank->GetAttackRun())
+		return;
 
-	GdiTransparentBlt(
-		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		(_tank->Get_Rect().left + iScrollX), // 복사 받을 위치 좌표
-		(_tank->Get_Rect().top + iScrollY),
-		m_TankPosinLaunchSize,	// 복사 받을 이미지의 가로, 세로
-		m_TankPosinLaunchSize,
-		hMemLaunchDC,		// 비트맵을 가지고 있는 DC
-		m_TankPosinLaunchSize * m_tFrame_Attack_TankPosin.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
-		m_TankPosinLaunchSize * m_tFrame_Attack_TankPosin.iMotion,
-		m_TankPosinLaunchSize,	// 출력할 비트맵 가로
-		m_TankPosinLaunchSize,	// 출력할 비트맵 세로
-		RGB(0, 0, 0));	// 제거할 색상 값
+	if (m_CurrentTimeAttackPosin + 2000 < GetTickCount())
+	{
+		m_CurrentTimeAttackPosin = GetTickCount();
+		HDC	hMemLaunchDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey_Attack_TankPosin);
+
+		GdiTransparentBlt(
+			hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+			(_tank->Get_Rect().left + iScrollX), // 복사 받을 위치 좌표
+			(_tank->Get_Rect().top + iScrollY),
+			m_TankPosinLaunchSize,	// 복사 받을 이미지의 가로, 세로
+			m_TankPosinLaunchSize,
+			hMemLaunchDC,		// 비트맵을 가지고 있는 DC
+			m_TankPosinLaunchSize * m_tFrame_Attack_TankPosin.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
+			m_TankPosinLaunchSize * m_tFrame_Attack_TankPosin.iMotion,
+			m_TankPosinLaunchSize,	// 출력할 비트맵 가로
+			m_TankPosinLaunchSize,	// 출력할 비트맵 세로
+			RGB(0, 0, 0));	// 제거할 색상 값
+	}
 
 	HDC	hMemBulletDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey_Attack);
 

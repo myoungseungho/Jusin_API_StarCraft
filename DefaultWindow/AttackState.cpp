@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "AttackState.h"
 
-IAttackState::IAttackState()
+IAttackState::IAttackState() : m_currentTime(GetTickCount())
 {
 }
 
@@ -37,7 +37,6 @@ void IAttackState::Move_Frame(CObj_Dynamic*)
 void IAttackState::Attack(CObj_Dynamic* _unit)
 {
 	CObj* target = _unit->Get_Target();
-
 	//이미 동일 타겟으로 하는 다른 유닛이 죽인 상태에서, target->
 	if (target == nullptr || target->Get_Dead())
 	{
@@ -69,6 +68,22 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 			}
 		}
 	}
+	else if (_unit->GetType() == DYNAMIC_OBJ_TANK)
+	{
+		if (m_currentTime + 2000 < GetTickCount())
+		{
+			m_currentTime = GetTickCount();
+			if (target != nullptr && !target->Get_Dead())
+			{
+				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+				if (dynamicObj != nullptr)
+				{
+					DetermineKey(_unit, degree);
+					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
+				}
+			}
+		}
+	}
 	else
 	{
 		if (_unit->Get_Frame()->iFrameStart == 0)
@@ -84,8 +99,6 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 			}
 		}
 	}
-
-	
 }
 
 

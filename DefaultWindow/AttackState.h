@@ -18,5 +18,8 @@ public:
 
 protected:
 	void MoveUntilAttackDistance(CObj_Dynamic*);
+
+private:
+	float m_currentTime;
 };
 

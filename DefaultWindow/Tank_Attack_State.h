@@ -20,5 +20,6 @@ private:
     int         m_TankPosinLaunchSize;
     int         m_BulletSize;
     int         m_Offset_Attack;
+    float       m_CurrentTimeAttackPosin;
 };
 
