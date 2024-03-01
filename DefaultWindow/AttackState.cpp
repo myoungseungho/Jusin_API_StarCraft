@@ -53,19 +53,39 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 	float radian = atan2(dirY, dirX);
 	float degree = (radian * 180) / PI;
 
-
-	if (_unit->Get_Frame()->iFrameStart == 0)
+	//파이어뱃은 유닛의 공격애니메이션 속도에 맞춰서.
+	if (_unit->GetType() == DYNAMIC_OBJ_FIREBAT)
 	{
-		if (target != nullptr && !target->Get_Dead())
+		if (m_tFrame_Attack.iFrameStart == 0)
 		{
-			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
-			if (dynamicObj != nullptr)
+			if (target != nullptr && !target->Get_Dead())
 			{
-				DetermineKey(_unit, degree);
-				dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
+				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+				if (dynamicObj != nullptr)
+				{
+					DetermineKey(_unit, degree);
+					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
+				}
 			}
 		}
 	}
+	else
+	{
+		if (_unit->Get_Frame()->iFrameStart == 0)
+		{
+			if (target != nullptr && !target->Get_Dead())
+			{
+				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
+				if (dynamicObj != nullptr)
+				{
+					DetermineKey(_unit, degree);
+					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
+				}
+			}
+		}
+	}
+
+	
 }
 
 
