@@ -13,5 +13,8 @@ public:
 	void Render(CObj_Dynamic*, HDC hDC) override;
 	void Release(CObj_Dynamic*) override;
 	void Move_Frame(CObj_Dynamic*) override;
+private:
+	int m_AttackFileSize = 128;
+	int m_Offset_Attack = 0;
 };
 

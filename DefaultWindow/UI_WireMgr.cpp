@@ -13,9 +13,15 @@
 #include "UI_Medic_Wire_Small.h"
 #include "UI_Tank_Wire_Big.h"
 #include "UI_Tank_Wire_Small.h"
+#include "UI_Center_Wire.h"
+#include "UI_Depot_Wire.h"
+#include "UI_Barrack_Wire.h"
+#include "UI_Factory_Wire.h"
+#include "UI_StarPort_Wire.h"
 CUI_WireMgr::CUI_WireMgr() :m_Scv_Small_Wire(nullptr), m_Marine_Small_Wire(nullptr), m_FireBat_Small_Wire(nullptr),
 m_Medic_Small_Wire(nullptr), m_Tank_Small_Wire(nullptr),
-m_Scv_Big_Wire(nullptr), m_Marine_Big_Wire(nullptr), m_FireBat_Big_Wire(nullptr), m_Medic_Big_Wire(nullptr), m_Tank_Big_Wire(nullptr)
+m_Scv_Big_Wire(nullptr), m_Marine_Big_Wire(nullptr), m_FireBat_Big_Wire(nullptr), m_Medic_Big_Wire(nullptr), m_Tank_Big_Wire(nullptr),
+m_Center_Big_Wire(nullptr), m_Depot_Big_Wire(nullptr), m_Barrack_Big_Wire(nullptr), m_Factory_Big_Wire(nullptr), m_StarPort_Big_Wire(nullptr)
 {
 }
 
@@ -36,6 +42,11 @@ void CUI_WireMgr::Initialize()
 	m_vecBigWire.push_back(m_FireBat_Big_Wire);
 	m_vecBigWire.push_back(m_Medic_Big_Wire);
 	m_vecBigWire.push_back(m_Tank_Big_Wire);
+	m_vecBigWire.push_back(m_Center_Big_Wire);
+	m_vecBigWire.push_back(m_Depot_Big_Wire);
+	m_vecBigWire.push_back(m_Barrack_Big_Wire);
+	m_vecBigWire.push_back(m_Factory_Big_Wire);
+	m_vecBigWire.push_back(m_StarPort_Big_Wire);
 }
 
 void CUI_WireMgr::OnClickObj(CObj* _unit)
@@ -88,20 +99,19 @@ void CUI_WireMgr::StaticSetUI(BUILDINGSTATE objId)
 	switch (objId)
 	{
 	case STATIC_OBJ_CENTER:
+		m_vecBigWire[WIRE_CENTER_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Center_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
 		break;
 	case STATIC_OBJ_DEPOT:
+		m_vecBigWire[WIRE_DEPOT_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Depot_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
 		break;
 	case STATIC_OBJ_BARRACK:
+		m_vecBigWire[WIRE_BARRACK_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Barrack_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
 		break;
 	case STATIC_OBJ_FACTORY:
+		m_vecBigWire[WIRE_FACTORY_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
 		break;
 	case STATIC_OBJ_STARPORT:
-		break;
-	case STATIC_OBJ_MINERAL:
-		break;
-	case STATIC_OBJ_END:
-		break;
-	default:
+		m_vecBigWire[WIRE_STARPORT_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
 		break;
 	}
 }

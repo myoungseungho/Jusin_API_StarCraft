@@ -26,6 +26,12 @@ private:
 	CObj_UI* m_Medic_Big_Wire;
 	CObj_UI* m_Tank_Big_Wire;
 
+	CObj_UI* m_Center_Big_Wire;
+	CObj_UI* m_Depot_Big_Wire;
+	CObj_UI* m_Barrack_Big_Wire;
+	CObj_UI* m_Factory_Big_Wire;
+	CObj_UI* m_StarPort_Big_Wire;
+
 	vector<CObj_UI*> m_vecSmallWire;
 	vector<CObj_UI*> m_vecBigWire;
 };

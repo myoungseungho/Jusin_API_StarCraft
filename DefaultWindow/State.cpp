@@ -139,7 +139,7 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayAttackKey[DIR_RUP];
 		}
 
-		if (_unit->GetType() == DYNAMIC_OBJ_FIREBAT)
+		if (_unit->GetType() == DYNAMIC_OBJ_FIREBAT || _unit->GetType() == DYNAMIC_OBJ_TANK)
 		{
 			if (degree > -22.5f && degree <= 22.5f) {
 				//µ¿ÂÊ

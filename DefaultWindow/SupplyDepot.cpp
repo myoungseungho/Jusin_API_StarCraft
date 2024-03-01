@@ -31,9 +31,11 @@ void CSupplyDepot::Initialize()
 
 	m_eRender = RENDER_BUILDING;
 
+	SetObstcale();
+
 	m_Stat.m_MaxHp = 500.f;
 	m_Stat.m_Hp = 500.f;
-	SetObstcale();
+	lstrcpyW(m_Stat.m_Name, L"Supply Depot");
 }
 
 int CSupplyDepot::Update()

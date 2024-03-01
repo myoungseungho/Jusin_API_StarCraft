@@ -33,19 +33,21 @@ void CTank::Initialize()
 
 		ChangeState(IDLE_STATE);
 
-		m_Stat.m_Hp = 150.f;
-		m_Stat.m_Attack = 30.f;
+		m_Stat.m_Hp = 150;
+		m_Stat.m_Attack = 30;
 		m_Stat.m_AttackRange = 200.f;
 		m_Stat.m_DetectionRange = 250.f;
 		m_Stat.m_fSpeed = 5.f;
-		m_Stat.m_Hp = 150.f;
+		m_Stat.m_MaxHp = 150;
+		lstrcpyW(m_Stat.m_Name, L"Tank");
+
 	}
 }
 
 int CTank::Update()
 {
 	if (m_bDead)
-		OBJ_DEAD;
+		return OBJ_DEAD;
 
 	__super::Update_Rect();
 
@@ -85,30 +87,81 @@ void CTank::Render(HDC hDC)
 
 void CTank::Release()
 {
-	m_vecState[m_CurrentState]->Release(this);
+	for_each(m_vecState.begin(), m_vecState.end(), Safe_Delete<IState*>);
 }
 
 void CTank::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Up.bmp", L"Lower_Tank_Walk_Up");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Up_Right_30.bmp", L"Lower_Tank_Walk_Up_Right_30");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Up_Right_45.bmp", L"Lower_Tank_Walk_Up_Right_45");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Up_Right_70.bmp", L"Lower_Tank_Walk_Up_Right_70");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Right_90.bmp", L"Lower_Tank_Walk_Right_90");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Down_Right_120.bmp", L"Lower_Tank_Walk_Down_Right_120");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Down_Right_150.bmp", L"Lower_Tank_Walk_Down_Right_150");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Down_Right_170.bmp", L"Lower_Tank_Walk_Down_Right_170");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Down.bmp", L"Lower_Tank_Walk_Down");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Down_Left.bmp", L"Lower_Tank_Walk_Down_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Left.bmp", L"Lower_Tank_Walk_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Lower/Lower_Tank_Walk_Up_Left.bmp", L"Lower_Tank_Walk_Up_Left");
+
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP] = (L"Lower_Tank_Walk_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP] = (L"Lower_Tank_Walk_Up_Right_45");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT] = (L"Lower_Tank_Walk_Right_90");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN] = (L"Lower_Tank_Walk_Down_Right_150");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN] = (L"Lower_Tank_Walk_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN],{0,2,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN] = (L"Lower_Tank_Walk_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT] = (L"Lower_Tank_Walk_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP] = (L"Lower_Tank_Walk_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP],{0,5,0,50,GetTickCount()} });
+
+	//공격모션
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP] = (L"Lower_Tank_Walk_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP] = (L"Lower_Tank_Walk_Up_Right_45");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT] = (L"Lower_Tank_Walk_Right_90");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN] = (L"Lower_Tank_Walk_Down_Right_150");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN] = (L"Lower_Tank_Walk_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN],{0,2,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN] = (L"Lower_Tank_Walk_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT] = (L"Lower_Tank_Walk_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP] = (L"Lower_Tank_Walk_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP],{0,5,0,50,GetTickCount()} });
+
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Up.bmp", L"Tank_Upper_Up");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Up_Right_30.bmp", L"Tank_Upper_Up_Right_30");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Up_Right_45.bmp", L"Tank_Upper_Up_Right_45");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Up_Right_70.bmp", L"Tank_Upper_Up_Right_70");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Right.bmp", L"Tank_Upper_Right");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Down_Right_120.bmp", L"Tank_Upper_Down_Right_120");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Down_Right_150.bmp", L"Tank_Upper_Down_Right_150");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Down_Right_170.bmp", L"Tank_Upper_Down_Right_170");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Down.bmp", L"Tank_Upper_Down");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Down_Left.bmp", L"Tank_Upper_Down_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Left.bmp", L"Tank_Upper_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Tank/Upper/Tank_Upper_Up_Left.bmp", L"Tank_Upper_Up_Left");
+
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_UP] = (L"Tank_Upper_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_UP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RUP] = (L"Tank_Upper_Up_Right_45");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RUP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RIGHT] = (L"Tank_Upper_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RIGHT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RDOWN] = (L"Tank_Upper_Down_Right_150");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_RDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_DOWN] = (L"Tank_Upper_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_DOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LDOWN] = (L"Tank_Upper_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LEFT] = (L"Tank_Upper_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LUP] = (L"Tank_Upper_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameBulletAttackKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
 }
 
 DYNAMIC_OBJID CTank::GetType() const

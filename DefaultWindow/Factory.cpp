@@ -38,6 +38,8 @@ void CFactory::Initialize()
 
 	m_Stat.m_Hp = 1500.f;
 	m_Stat.m_MaxHp = 1500.f;
+
+	lstrcpyW(m_Stat.m_Name, L"Factory");
 }
 
 int CFactory::Update()

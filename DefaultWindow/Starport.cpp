@@ -35,6 +35,8 @@ void CStarport::Initialize()
 
 	m_Stat.m_Hp = 1300.f;
 	m_Stat.m_MaxHp = 1300.f;
+
+	lstrcpyW(m_Stat.m_Name, L"Starport");
 }
 
 int CStarport::Update()

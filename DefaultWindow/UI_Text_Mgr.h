@@ -12,6 +12,6 @@ public:
 	void OnClickObj(CObj*);
 	void SetClear_Text();
 private:
-	CObj* m_clieckObj;
+	CObj* m_ClieckObj;
 };
 

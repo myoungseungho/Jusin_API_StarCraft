@@ -89,7 +89,7 @@ void CUIMgr::OnClickIcon(CObj* _unit)
 	m_UI_IconMgr->OnClickIcon(_unit);
 }
 
-void CUIMgr::SetClear_IconObj()
+void CUIMgr::SetClear_Dynamic_Obj()
 {
 	m_UI_IconMgr->SetClear_IconObj();
 	m_UI_WireMgr->SetClear_BigWireObj();

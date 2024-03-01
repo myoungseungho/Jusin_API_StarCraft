@@ -35,6 +35,7 @@ void CCenter::Initialize()
 	m_eRender = RENDER_BUILDING;
 	m_Stat.m_MaxHp = 1500.f;
 	m_Stat.m_Hp = 1500.f;
+	lstrcpyW(m_Stat.m_Name, L"Center");
 	SetObstcale();
 }
 

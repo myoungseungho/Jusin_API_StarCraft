@@ -87,7 +87,7 @@ void CLClick_Mouse::HandleNoTargetClick()
 	}
 	else
 	{
-		CUIMgr::Get_Instance()->SetClear_IconObj();
+		CUIMgr::Get_Instance()->SetClear_Dynamic_Obj();
 		CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
 	}

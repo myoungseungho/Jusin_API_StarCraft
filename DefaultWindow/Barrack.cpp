@@ -39,6 +39,8 @@ void CBarrack::Initialize()
 	m_Stat.m_MaxHp = 1000.f;
 	m_Stat.m_Hp = 1000.f;
 	SetObstcale();
+
+	lstrcpyW(m_Stat.m_Name, L"Barrack");
 }
 
 int CBarrack::Update()

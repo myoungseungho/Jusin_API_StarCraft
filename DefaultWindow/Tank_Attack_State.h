@@ -12,6 +12,11 @@ public:
     void Late_Update(CObj_Dynamic*) override;
     void Render(CObj_Dynamic*, HDC hDC) override;
     void Release(CObj_Dynamic*) override;
+protected:
     void Move_Frame(CObj_Dynamic*) override;
+    virtual void Attack(CObj_Dynamic*) override;
+private:
+    int         m_AttackFileSize;
+    int         m_Offset_Attack;
 };
 

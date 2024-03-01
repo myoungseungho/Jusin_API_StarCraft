@@ -35,6 +35,7 @@ void CMedic::Initialize()
 
 		m_Stat.m_Hp = 60.f;
 		m_Stat.m_MaxHp = 60.f;
+		lstrcpyW(m_Stat.m_Name, L"Medic");
 	}
 }
 
