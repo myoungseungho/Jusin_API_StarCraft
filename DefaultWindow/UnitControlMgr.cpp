@@ -13,23 +13,16 @@ CUnitControlMgr::~CUnitControlMgr()
 
 void CUnitControlMgr::Late_Update()
 {
-	bool isChange = false;
 	for (auto iter = m_vecUnitOrBuilding.begin(); iter != m_vecUnitOrBuilding.end();)
 	{
 		if (*iter == nullptr || (*iter)->Get_Dead())
 		{
-			iter=m_vecUnitOrBuilding.erase(iter);
-			isChange = true;
+			iter = m_vecUnitOrBuilding.erase(iter);
 		}
 		else
 		{
 			iter++;
 		}
-	}
-
-	if (isChange)
-	{
-		CUIMgr::Get_Instance()->OnDragObj();
 	}
 }
 

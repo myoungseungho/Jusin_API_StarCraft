@@ -8,6 +8,7 @@ public:
 	~CUI_WireMgr();
 public:
 	void Initialize();
+	void Late_Update();
 	void OnClickObj(CObj*);
 	void OnDragObj();
 public:
@@ -36,5 +37,7 @@ private:
 
 	vector<CObj_UI*> m_vecSmallWire[DYNAMIC_OBJ_END];
 	vector<CObj_UI*> m_vecBigWire;
+
+	vector<CObj*> m_vecUnitCopy;
 };
 

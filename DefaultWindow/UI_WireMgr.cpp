@@ -44,6 +44,26 @@ void CUI_WireMgr::Initialize()
 	m_vecBigWire.push_back(m_StarPort_Big_Wire);
 }
 
+void CUI_WireMgr::Late_Update()
+{
+	if (m_vecUnitCopy.size() == 0)
+		return;
+
+	for (auto iter : m_vecUnitCopy)
+	{
+		if (dynamic_cast<CObj_Static*>(iter) != nullptr)
+			return;
+	}
+
+	for (int i = 0; m_vecUnitCopy.size(); i++)
+	{
+		int grade = m_vecUnitCopy[i]->Get_Stat().m_MaxHp / 6;
+		int currentGrade = m_vecUnitCopy[i]->Get_Stat().m_Hp / grade;
+		int frame = currentGrade == 0 ? 5 : currentGrade == 1 ? 5 : currentGrade == 2 ? 4 : currentGrade == 3 ? 3
+			: currentGrade == 4 ? 2 : currentGrade == 5 ? 1 : currentGrade == 6 ? 0 : 0;
+	}
+}
+
 void CUI_WireMgr::OnClickObj(CObj* _unit)
 {
 	SetClear_BigWireObj();
@@ -61,14 +81,13 @@ void CUI_WireMgr::OnClickObj(CObj* _unit)
 void CUI_WireMgr::OnDragObj()
 {
 	SetClear_SmallWireObj();
+	m_vecUnitCopy = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
 
-	vector<CObj*> vecObj = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
-
-	if (vecObj.size() > 1)
+	if (m_vecUnitCopy.size() > 1)
 	{
-		for (size_t i = 0; i < vecObj.size(); i++)
+		for (size_t i = 0; i < m_vecUnitCopy.size(); i++)
 		{
-			float fX = 225.f;
+			float fX = 250.f;
 			float fY = 520.f;
 
 			if (i <= 5)
@@ -81,7 +100,7 @@ void CUI_WireMgr::OnDragObj()
 				fY = 555.f;
 			}
 
-			switch (dynamic_cast<CObj_Dynamic*>(vecObj[i])->GetType())
+			switch (dynamic_cast<CObj_Dynamic*>(m_vecUnitCopy[i])->GetType())
 			{
 			case DYANMIC_OBJ_SCV:
 				m_vecSmallWire[DYANMIC_OBJ_SCV].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Small>(UI_OBJECT_WIRE, fX, fY));

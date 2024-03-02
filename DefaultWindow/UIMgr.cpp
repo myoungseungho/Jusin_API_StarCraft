@@ -68,6 +68,12 @@ void CUIMgr::Initialize()
 	}
 }
 
+void CUIMgr::Late_Update()
+{
+	m_UI_WireMgr->Late_Update();
+}
+
+
 void CUIMgr::Render(HDC hDC)
 {
 	m_UI_TextMgr->Render(hDC);

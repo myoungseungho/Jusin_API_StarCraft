@@ -31,6 +31,7 @@ public:
 	}
 public:
 	void Initialize();
+	void Late_Update();
 	void Render(HDC hDC);
 	void Release();
 public:
