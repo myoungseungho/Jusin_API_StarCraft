@@ -36,6 +36,7 @@ public:
 public:
 	void OnClickObj(CObj*);
 	void OnClickIcon(CObj*);
+	void OnDragObj();
 	void SetClear_Dynamic_Obj();
 	void SetClear_StaticObj();
 	void SetClear_CurrentBuilding() { m_UI_IconMgr->SetClear_CurrentBuilding(); };

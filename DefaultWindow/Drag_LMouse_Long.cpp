@@ -5,6 +5,7 @@
 #include "ObjMgr.h"
 #include "UnitControlMgr.h"
 #include "KeyMgr.h"
+#include "UIMgr.h"
 Drag_LMouse_Long::Drag_LMouse_Long()
 {
 }
@@ -60,6 +61,7 @@ void Drag_LMouse_Long::Release()
 	{
 		CUnitControlMgr::Get_Instance()->Set_Add_Unit(vecTargets);
 		CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
+		CUIMgr::Get_Instance()->OnDragObj();
 	}
 	else
 	{

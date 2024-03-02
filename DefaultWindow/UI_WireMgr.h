@@ -9,10 +9,12 @@ public:
 public:
 	void Initialize();
 	void OnClickObj(CObj*);
+	void OnDragObj();
 public:
 	void DynamicSetUI(DYNAMIC_OBJID);
 	void StaticSetUI(BUILDINGSTATE);
 	void SetClear_BigWireObj();
+	void SetClear_SmallWireObj();
 private:
 	CObj_UI* m_Scv_Small_Wire;
 	CObj_UI* m_Marine_Small_Wire;
@@ -32,7 +34,7 @@ private:
 	CObj_UI* m_Factory_Big_Wire;
 	CObj_UI* m_StarPort_Big_Wire;
 
-	vector<CObj_UI*> m_vecSmallWire;
+	vector<CObj_UI*> m_vecSmallWire[DYNAMIC_OBJ_END];
 	vector<CObj_UI*> m_vecBigWire;
 };
 

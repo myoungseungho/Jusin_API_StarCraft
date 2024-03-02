@@ -18,6 +18,7 @@
 #include "UI_Barrack_Wire.h"
 #include "UI_Factory_Wire.h"
 #include "UI_StarPort_Wire.h"
+#include "UnitControlMgr.h"
 CUI_WireMgr::CUI_WireMgr() :m_Scv_Small_Wire(nullptr), m_Marine_Small_Wire(nullptr), m_FireBat_Small_Wire(nullptr),
 m_Medic_Small_Wire(nullptr), m_Tank_Small_Wire(nullptr),
 m_Scv_Big_Wire(nullptr), m_Marine_Big_Wire(nullptr), m_FireBat_Big_Wire(nullptr), m_Medic_Big_Wire(nullptr), m_Tank_Big_Wire(nullptr),
@@ -31,11 +32,11 @@ CUI_WireMgr::~CUI_WireMgr()
 
 void CUI_WireMgr::Initialize()
 {
-	m_vecSmallWire.push_back(m_Scv_Small_Wire);
-	m_vecSmallWire.push_back(m_Marine_Small_Wire);
-	m_vecSmallWire.push_back(m_FireBat_Small_Wire);
-	m_vecSmallWire.push_back(m_Medic_Small_Wire);
-	m_vecSmallWire.push_back(m_Tank_Small_Wire);
+	//m_vecSmallWire.push_back(m_Scv_Small_Wire);
+	//m_vecSmallWire.push_back(m_Marine_Small_Wire);
+	//m_vecSmallWire.push_back(m_FireBat_Small_Wire);
+	//m_vecSmallWire.push_back(m_Medic_Small_Wire);
+	//m_vecSmallWire.push_back(m_Tank_Small_Wire);
 
 	m_vecBigWire.push_back(m_Scv_Big_Wire);
 	m_vecBigWire.push_back(m_Marine_Big_Wire);
@@ -63,28 +64,66 @@ void CUI_WireMgr::OnClickObj(CObj* _unit)
 		StaticSetUI(staticObj->GetType());
 }
 
+void CUI_WireMgr::OnDragObj()
+{
+	vector<CObj*> vecObj = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
+
+	if (vecObj.size() > 1)
+	{
+		for (size_t i = 0; i < vecObj.size(); i++)
+		{
+			float fX = 225.f;
+			float fY = 520.f;
+
+			if (i <= 5)
+			{
+				fX = fX + i * 40;
+			}
+			else if (i > 5)
+			{
+				fX = fX + (i - 6) * 40;
+				fY = 555.f;
+			}
+
+			switch (dynamic_cast<CObj_Dynamic*>(vecObj[i])->GetType())
+			{
+			case DYANMIC_OBJ_SCV:
+				m_vecSmallWire[DYANMIC_OBJ_SCV].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				break;
+			case DYNAMIC_OBJ_MARINE:
+				m_vecSmallWire[DYNAMIC_OBJ_MARINE].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				break;
+			case DYNAMIC_OBJ_FIREBAT:
+				m_vecSmallWire[DYNAMIC_OBJ_FIREBAT].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				break;
+			case DYNAMIC_OBJ_MEDIC:
+				m_vecSmallWire[DYNAMIC_OBJ_MEDIC].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				break;
+			case DYNAMIC_OBJ_TANK:
+				m_vecSmallWire[DYNAMIC_OBJ_TANK].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				break;
+			}
+		}
+	}
+}
+
 void CUI_WireMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 {
 	switch (objId)
 	{
 	case DYANMIC_OBJ_SCV:
-		//m_vecSmallWire[WIRE_SCV_SMALL] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Small>(UI_OBJECT_WIRE, 400.f, 500.f);
 		m_vecBigWire[WIRE_SCV_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
 		break;
 	case DYNAMIC_OBJ_MARINE:
-		//m_vecSmallWire[WIRE_MARINE_SMALL] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Small>(UI_OBJECT_WIRE, 655.f, 468.f);
 		m_vecBigWire[WIRE_MARINE_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
 		break;
 	case DYNAMIC_OBJ_FIREBAT:
-		//m_vecSmallWire[WIRE_FIREBAT_SMALL] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Small>(UI_OBJECT_WIRE, 655.f, 468.f);
 		m_vecBigWire[WIRE_FIREBAT_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
 		break;
 	case DYNAMIC_OBJ_MEDIC:
-		//m_vecSmallWire[WIRE_MEDIC_SMALL] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Small>(UI_OBJECT_WIRE, 655.f, 468.f);
 		m_vecBigWire[WIRE_MEDIC_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
 		break;
 	case DYNAMIC_OBJ_TANK:
-		//m_vecSmallWire[WIRE_TANK_SMALL] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Small>(UI_OBJECT_WIRE, 655.f, 468.f);
 		m_vecBigWire[WIRE_TANK_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
 		break;
 	case DYNAMIC_OBJ_END:
@@ -122,5 +161,17 @@ void CUI_WireMgr::SetClear_BigWireObj()
 	{
 		if (iter != nullptr)
 			iter->Set_Dead();
+	}
+}
+
+void CUI_WireMgr::SetClear_SmallWireObj()
+{
+	for (auto iter : m_vecSmallWire)
+	{
+		for (auto iter2 : iter)
+		{
+			if (iter2 != nullptr)
+				iter2->Set_Dead();
+		}
 	}
 }

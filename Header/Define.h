@@ -55,16 +55,6 @@ enum DYNAMIC_OBJID
 	DYNAMIC_OBJ_TANK,
 	DYNAMIC_OBJ_END
 };
-//
-//
-//enum UI_OBJID
-//{
-//	UI_OBJ_MOUSE,
-//	UI_OBJ_ICON,
-//	UI_OBJ_MAINUI,
-//	UI_OBJ_BUILDING,
-//	UI_OBJ_END
-//};
 
 enum RENDERID
 {

@@ -44,6 +44,7 @@ CUIMgr::CUIMgr() :m_UI_IconMgr(nullptr), m_UI_WireMgr(nullptr), m_UI_TextMgr(nul
 
 CUIMgr::~CUIMgr()
 {
+	Release();
 }
 
 void CUIMgr::Initialize()
@@ -74,7 +75,9 @@ void CUIMgr::Render(HDC hDC)
 
 void CUIMgr::Release()
 {
-
+	Safe_Delete<CUI_IconMgr*>(m_UI_IconMgr);
+	Safe_Delete<CUI_WireMgr*>(m_UI_WireMgr);
+	Safe_Delete<CUI_Text_Mgr*>(m_UI_TextMgr);
 }
 
 void CUIMgr::OnClickObj(CObj* _unit)
@@ -89,10 +92,16 @@ void CUIMgr::OnClickIcon(CObj* _unit)
 	m_UI_IconMgr->OnClickIcon(_unit);
 }
 
+void CUIMgr::OnDragObj()
+{
+	m_UI_WireMgr->OnDragObj();
+}
+
 void CUIMgr::SetClear_Dynamic_Obj()
 {
 	m_UI_IconMgr->SetClear_IconObj();
 	m_UI_WireMgr->SetClear_BigWireObj();
+	m_UI_WireMgr->SetClear_SmallWireObj();
 	m_UI_TextMgr->SetClear_Text();
 }
 

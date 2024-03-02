@@ -124,6 +124,8 @@ void CStage::Static_Obj_Spawn()
 
 void CStage::Ally_Obj_Spawn()
 {
+	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
+
 	CObj_Dynamic* tank1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 200.f, 500.f);
 	for (size_t i = 0; i < 20; i++)
 	{

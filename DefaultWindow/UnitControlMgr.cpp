@@ -28,12 +28,19 @@ void CUnitControlMgr::Set_Add_Unit(CObj* _unit)
 
 void CUnitControlMgr::Set_Add_Unit(vector<CObj*> _vec)
 {
+	int ivecNumber = 0;
 	for (auto& iter : _vec)
 	{
 		CObj_Dynamic* pDynamicObj = dynamic_cast<CObj_Dynamic*>(iter);
 
 		if (pDynamicObj != nullptr)
+		{
+			if (ivecNumber >= 12)
+				return;
+
 			m_vecUnitOrBuilding.push_back(pDynamicObj);
+			ivecNumber++;
+		}
 	}
 }
 
