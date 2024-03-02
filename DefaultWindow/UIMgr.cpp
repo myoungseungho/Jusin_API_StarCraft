@@ -101,6 +101,7 @@ void CUIMgr::OnClickIcon(CObj* _unit)
 void CUIMgr::OnDragObj()
 {
 	m_UI_WireMgr->OnDragObj();
+	m_UI_TextMgr->SetClear_Text();
 }
 
 void CUIMgr::SetClear_Dynamic_Obj()
