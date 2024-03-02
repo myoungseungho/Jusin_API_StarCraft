@@ -111,7 +111,7 @@ void CMarine::InsertBmpFile()
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN] = (L"Marine_Walk_Down_Right_150");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN],{0,17,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN] = (L"MARINE_WALK_Down_180");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN],{0,17,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN],{0,8,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN] = (L"Marine_Walk_Down_Left");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN],{0,17,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT] = (L"Marine_Walk_Left");
