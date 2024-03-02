@@ -41,7 +41,6 @@ void CUI_Medic_Wire_Small::Late_Update()
 
 void CUI_Medic_Wire_Small::Render(HDC hDC)
 {
-	//CObj_UI::Render(hDC);
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
 		m_tRect.left,	// 복사 받을 이미지의 가로, 세로

@@ -74,10 +74,16 @@ void CUI_WireMgr::OnClickObj(CObj* _unit)
 	CObj_Static* staticObj = dynamic_cast<CObj_Static*>(_unit);
 
 	if (dynamic_unit != nullptr)
-		DynamicSetUI(dynamic_unit->GetType());
+	{
+		DynamicSetUI(dynamic_unit);
+		return;
+	}
 
 	if (staticObj != nullptr)
+	{
 		StaticSetUI(staticObj->GetType());
+		return;
+	}
 }
 
 void CUI_WireMgr::OnDragObj()
@@ -133,24 +139,34 @@ void CUI_WireMgr::OnDragObj()
 	}
 }
 
-void CUI_WireMgr::DynamicSetUI(DYNAMIC_OBJID objId)
+void CUI_WireMgr::DynamicSetUI(CObj_Dynamic* obj)
 {
-	switch (objId)
+	int grade = obj->Get_Stat().m_MaxHp / 6;
+	int currentGrade = obj->Get_Stat().m_Hp / grade;
+	int frame = currentGrade == 0 ? 5 : currentGrade == 1 ? 5 : currentGrade == 2 ? 4 : currentGrade == 3 ? 3
+		: currentGrade == 4 ? 2 : currentGrade == 5 ? 1 : currentGrade == 6 ? 0 : 0;
+
+	switch (obj->GetType())
 	{
 	case DYANMIC_OBJ_SCV:
 		m_vecBigWire[WIRE_SCV_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
+		m_vecBigWire[WIRE_SCV_BIG]->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_MARINE:
 		m_vecBigWire[WIRE_MARINE_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
+		m_vecBigWire[WIRE_MARINE_BIG]->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_FIREBAT:
 		m_vecBigWire[WIRE_FIREBAT_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
+		m_vecBigWire[WIRE_FIREBAT_BIG]->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_MEDIC:
 		m_vecBigWire[WIRE_MEDIC_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
+		m_vecBigWire[WIRE_MEDIC_BIG]->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_TANK:
 		m_vecBigWire[WIRE_TANK_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
+		m_vecBigWire[WIRE_TANK_BIG]->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_END:
 		break;

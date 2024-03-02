@@ -1,6 +1,7 @@
 #pragma once
 #include "Obj.h"
 #include "Obj_UI.h"
+#include "Obj_Dynamic.h"
 class CUI_WireMgr
 {
 public:
@@ -12,7 +13,7 @@ public:
 	void OnClickObj(CObj*);
 	void OnDragObj();
 public:
-	void DynamicSetUI(DYNAMIC_OBJID);
+	void DynamicSetUI(CObj_Dynamic*);
 	void StaticSetUI(BUILDINGSTATE);
 	void SetClear_BigWireObj();
 	void SetClear_SmallWireObj();
