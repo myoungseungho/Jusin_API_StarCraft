@@ -48,7 +48,7 @@ enum OBJID
 
 enum DYNAMIC_OBJID
 {
-	DYANMIC_OBJ_SCV,
+	DYNAMIC_OBJ_SCV,
 	DYNAMIC_OBJ_MARINE,
 	DYNAMIC_OBJ_FIREBAT,
 	DYNAMIC_OBJ_MEDIC,
@@ -180,6 +180,14 @@ enum COLLISIONSTATE
 	COLLISION_END
 };
 
+enum SOUNDSTATE
+{
+	SOUND_BASIC,
+	SOUND_ATTACK,
+	SOUND_DIE,
+	SOUND_END
+};
+
 typedef struct tagStat
 {
 	int m_Hp;
@@ -193,7 +201,24 @@ typedef struct tagStat
 	TCHAR m_Name[256]; // 유닛의 이름을 위한 필드 추가
 }STAT;
 
-enum CHANNELID { SOUND_EFFECT, SOUND_BGM, MAXCHANNEL };
+enum CHANNELID
+{
+	SOUND_BGM,
+	SOUND_SCV_WALK,
+	SOUND_SCV_DIE,
+	SOUND_MARINE_WALK,
+	SOUND_MARINE_ATTACK,
+	SOUND_MARINE_DIE,
+	SOUND_FIREBAT_WALK,
+	SOUND_FIREBAT_ATTACK,
+	SOUND_FIREBAT_DIE,
+	SOUND_MEDIC_WALK,
+	SOUND_MEDIC_DIE,
+	SOUND_TANK_WALK,
+	SOUND_TANK_ATTACK,
+	SOUND_TANK_DIE,
+	MAXCHANNEL
+};
 
 typedef struct tagInfo
 {
@@ -237,11 +262,11 @@ typedef struct tagFrame
 
 typedef struct tagKeyFrame
 {
-	wchar_t*   m_FrameArrayWalkKey[DIR_END];
-	wchar_t*   m_FrameArrayAttackKey[DIR_END];
-	wchar_t*   m_FrameBulletAttackKey[DIR_END];
-	wchar_t*   m_FrameTankPosinKey[DIR_END];
-	wchar_t*   m_FrameTankPosinLaunchKey[DIR_END];
+	wchar_t* m_FrameArrayWalkKey[DIR_END];
+	wchar_t* m_FrameArrayAttackKey[DIR_END];
+	wchar_t* m_FrameBulletAttackKey[DIR_END];
+	wchar_t* m_FrameTankPosinKey[DIR_END];
+	wchar_t* m_FrameTankPosinLaunchKey[DIR_END];
 
 	map<wchar_t*, FRAME> _mapKeyFrame;
 }KEYANDFRAME;

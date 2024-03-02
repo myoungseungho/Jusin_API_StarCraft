@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Tank_Die_State.h"
-
+#include "SoundMgr.h"
 CTank_Die_State::CTank_Die_State()
 {
 }
@@ -11,6 +11,9 @@ CTank_Die_State::~CTank_Die_State()
 
 void CTank_Die_State::Initialize(CObj_Dynamic* _tank)
 {
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_DIE);
+	CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_DIE, 1);
+
 	m_pFrameCopy = _tank->Get_Frame();
 	m_pFrameKeyCopy = _tank->Get_FrameKey();
 

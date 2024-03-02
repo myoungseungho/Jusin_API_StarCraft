@@ -118,7 +118,7 @@ void CUI_WireMgr::OnDragObj()
 
 			switch (dynamic_cast<CObj_Dynamic*>(m_vecUnitCopy[i])->GetType())
 			{
-			case DYANMIC_OBJ_SCV:
+			case DYNAMIC_OBJ_SCV:
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				break;
 			case DYNAMIC_OBJ_MARINE:
@@ -149,7 +149,7 @@ void CUI_WireMgr::DynamicSetUI(CObj_Dynamic* obj)
 
 	switch (obj->GetType())
 	{
-	case DYANMIC_OBJ_SCV:
+	case DYNAMIC_OBJ_SCV:
 		m_vecBigWire[WIRE_SCV_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
 		m_vecBigWire[WIRE_SCV_BIG]->Get_Frame()->iFrameStart = frame;
 		break;

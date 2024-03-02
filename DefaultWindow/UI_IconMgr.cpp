@@ -159,7 +159,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 	else if (ICONId == ICON_SCV)
 	{
 		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
-		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYANMIC_OBJ_SCV);
+		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_SCV);
 	}
 	else if (ICONId == ICON_MARINE)
 	{
@@ -217,7 +217,7 @@ void CUI_IconMgr::SetClear_StaticObj()
 
 void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 {
-	if (objId == DYANMIC_OBJ_SCV)
+	if (objId == DYNAMIC_OBJ_SCV)
 	{
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJECT_ICON, 713.f, 468.f));

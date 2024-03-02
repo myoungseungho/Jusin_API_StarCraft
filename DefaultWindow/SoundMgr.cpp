@@ -25,7 +25,58 @@ void CSoundMgr::Initialize()
 
 	LoadSoundFile();
 
-	PlaySound(L"MainBgm.wav", SOUND_EFFECT, g_fVolume);
+	//PlayBGM(L"MainBgm.wav", SOUND_BGM);
+	PlaySound(L"MainBgm.wav", SOUND_BGM, g_fVolume);
+
+	m_UnitSound.resize(DYNAMIC_OBJ_END);
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; ++i) {
+		m_UnitSound[i].resize(SOUND_END);
+	}
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_ATTACK].push_back(L"EDrRep00.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht00.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht01.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht02.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht03.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCYes00.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCYes01.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCYes02.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCYes03.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_DIE].push_back(L"TSCDth00.wav");
+
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_ATTACK].push_back(L"TMaFir00.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaWht00.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaWht01.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaWht02.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaWht03.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaYes00.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaYes01.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaYes02.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaYes03.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_DIE].push_back(L"TMaDth00.wav");
+
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_ATTACK].push_back(L"tfbFir01.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbWht00.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbWht01.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbWht02.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbWht03.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbYes00.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbYes01.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbYes02.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbYes03.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_DIE].push_back(L"TFbDth00.wav");
+
+	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes00.wav");
+	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes01.wav");
+	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes02.wav");
+	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes03.wav");
+	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_DIE].push_back(L"TMdDth00.wav");
+
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_ATTACK].push_back(L"TTaFir00.wav");
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht00.wav");
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht01.wav");
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht02.wav");
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht03.wav");
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_DIE].push_back(L"TTaDth00.wav");
 }
 void CSoundMgr::Release()
 {
@@ -47,7 +98,6 @@ void CSoundMgr::PlaySound(TCHAR* pSoundKey, CHANNELID eID, float fVolume)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter;
 
-	// iter = find_if(m_mapSound.begin(), m_mapSound.end(), CTag_Finder(pSoundKey));
 	iter = find_if(m_mapSound.begin(), m_mapSound.end(),
 		[&](auto& iter)->bool
 		{
@@ -73,7 +123,6 @@ void CSoundMgr::PlayBGM(TCHAR* pSoundKey, float fVolume)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter;
 
-	// iter = find_if(m_mapSound.begin(), m_mapSound.end(), CTag_Finder(pSoundKey));
 	iter = find_if(m_mapSound.begin(), m_mapSound.end(), [&](auto& iter)->bool
 		{
 			return !lstrcmp(pSoundKey, iter.first);

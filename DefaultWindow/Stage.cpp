@@ -39,6 +39,9 @@ CStage::~CStage()
 
 void CStage::Initialize()
 {
+	// 난수 발생기의 초기 시드 값을 현재 시간으로 설정
+	srand(static_cast<unsigned int>(time(nullptr)));
+	CSoundMgr::Get_Instance()->Initialize();
 	CTileMgr::Get_Instance()->Load_Tile();
 	CKeyMgr::Get_Instance()->Initialize();
 	CTechTreeMgr::Get_Instance()->Initialize();
@@ -48,7 +51,6 @@ void CStage::Initialize()
 	Init_Obj_Spawn();
 
 	CUIMgr::Get_Instance()->Initialize();
-	//CSoundMgr::Get_Instance()->Initialize();
 	CAStarMgr::Get_Instance()->Initialize();
 }
 
@@ -91,7 +93,7 @@ void CStage::Render(HDC hDC)
 
 void CStage::Release()
 {
-	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYANMIC_OBJ_SCV);
+	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_SCV);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_MARINE);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_FIREBAT);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_MEDIC);
@@ -127,7 +129,7 @@ void CStage::Static_Obj_Spawn()
 
 void CStage::Ally_Obj_Spawn()
 {
-	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
+	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
 
 	CObj_Dynamic* tank1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 200.f, 500.f);
 

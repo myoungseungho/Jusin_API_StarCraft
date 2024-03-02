@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "AttackState.h"
-
+#include "SoundMgr.h"
 IAttackState::IAttackState() : m_currentTime(GetTickCount())
 {
 }
@@ -62,6 +62,9 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
 				if (dynamicObj != nullptr)
 				{
+					vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_ATTACK);
+					CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_ATTACK, 1);
+
 					DetermineKey(_unit, degree);
 					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
 				}
@@ -78,6 +81,8 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
 				if (dynamicObj != nullptr)
 				{
+					vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_ATTACK);
+					CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_ATTACK, 1);
 					DetermineKey(_unit, degree);
 					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
 				}
@@ -93,6 +98,12 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
 				if (dynamicObj != nullptr)
 				{
+					if (dynamicObj->GetType() == DYNAMIC_OBJ_MARINE)
+					{
+						vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MARINE, SOUND_ATTACK);
+						CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MARINE_ATTACK, 1);
+					}
+
 					DetermineKey(_unit, degree);
 					dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_unit->Get_Stat().m_Attack);
 				}

@@ -2,6 +2,7 @@
 #include "Marine_Attack_State.h"
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
+#include "SoundMgr.h"
 CMarine_Attack_State::CMarine_Attack_State() : m_AttackFileSize(0), m_Offset_Attack(0)
 {
 }

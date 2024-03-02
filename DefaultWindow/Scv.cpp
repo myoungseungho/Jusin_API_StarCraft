@@ -159,5 +159,5 @@ void CScv::InsertBmpFile()
 
 DYNAMIC_OBJID CScv::GetType() const
 {
-	return DYANMIC_OBJ_SCV;
+	return DYNAMIC_OBJ_SCV;
 }

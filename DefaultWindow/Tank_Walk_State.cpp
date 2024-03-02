@@ -3,6 +3,7 @@
 #include "TileMgr.h"
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
+#include "SoundMgr.h"
 CTank_Walk_State::CTank_Walk_State()
 {
 }
@@ -13,6 +14,14 @@ CTank_Walk_State::~CTank_Walk_State()
 
 void CTank_Walk_State::Initialize(CObj_Dynamic* _tank)
 {
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_BASIC);
+	// 벡터가 비어있지 않은 경우에만 랜덤 인덱스 생성
+	if (!m_UnitSound.empty()) {
+		int random = rand() % m_UnitSound.size();
+
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_TANK_WALK, 1);
+	}
+
 	m_pFrameCopy = _tank->Get_Frame();
 	m_pFrameKeyCopy = _tank->Get_FrameKey();
 

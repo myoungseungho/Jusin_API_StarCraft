@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Medic_Die_State.h"
-
+#include "SoundMgr.h"
 CMedic_Die_State::CMedic_Die_State()
 {
 }
@@ -11,6 +11,9 @@ CMedic_Die_State::~CMedic_Die_State()
 
 void CMedic_Die_State::Initialize(CObj_Dynamic* _medic)
 {
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MEDIC, SOUND_DIE);
+	CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MEDIC_DIE, 1);
+
 	m_pFrameCopy = _medic->Get_Frame();
 	m_pFrameKeyCopy = _medic->Get_FrameKey();
 

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Scv_Die_State.h"
-
+#include "SoundMgr.h"
 CScv_Die_State::CScv_Die_State()
 {
 }
@@ -11,6 +11,9 @@ CScv_Die_State::~CScv_Die_State()
 
 void CScv_Die_State::Initialize(CObj_Dynamic* _scv)
 {
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_DIE);
+	CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_DIE, 1);
+
 	m_pFrameCopy = _scv->Get_Frame();
 	m_pFrameKeyCopy = _scv->Get_FrameKey();
 
@@ -27,7 +30,7 @@ int CScv_Die_State::Update(CObj_Dynamic* _scv)
 	m_pFrameCopy = _scv->Get_Frame();
 	if (m_pFrameCopy->iFrameStart == m_pFrameCopy->iFrameEnd)
 		_scv->Set_Dead();
-    return 0;
+	return 0;
 }
 
 void CScv_Die_State::Late_Update(CObj_Dynamic*)

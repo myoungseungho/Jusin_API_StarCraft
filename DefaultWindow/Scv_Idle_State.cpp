@@ -2,6 +2,7 @@
 #include "Scv_Idle_State.h"
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
+#include "SoundMgr.h"
 CScv_Idle_State::CScv_Idle_State()
 {
 }
@@ -34,7 +35,7 @@ void CScv_Idle_State::Late_Update(CObj_Dynamic* _scv)
 
 void CScv_Idle_State::Render(CObj_Dynamic* _scv, HDC hDC)
 {
-	
+
 }
 
 void CScv_Idle_State::Release(CObj_Dynamic*)

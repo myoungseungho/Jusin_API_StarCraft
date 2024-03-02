@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "FireBat_Die_State.h"
-
+#include "SoundMgr.h"
 CFireBat_Die_State::CFireBat_Die_State()
 {
 }
@@ -11,6 +11,9 @@ CFireBat_Die_State::~CFireBat_Die_State()
 
 void CFireBat_Die_State::Initialize(CObj_Dynamic* _fireBat)
 {
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_DIE);
+	CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_DIE, 1);
+
 	m_pFrameCopy = _fireBat->Get_Frame();
 	m_pFrameKeyCopy = _fireBat->Get_FrameKey();
 

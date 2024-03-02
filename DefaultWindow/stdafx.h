@@ -27,7 +27,8 @@
 
 #include <io.h>
 #include <iostream>
-
+#include <cstdlib> // rand(), srand() 함수를 사용하기 위한 헤더
+#include <ctime>   // time() 함수를 사용하기 위한 헤더
 #include "fmod.h"
 #include "fmod.hpp"
 #pragma comment(lib, "fmodex_vc.lib")
