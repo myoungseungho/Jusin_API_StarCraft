@@ -8,6 +8,7 @@
 #include "UIMgr.h"
 #include "Obj_Static.h"
 #include "TileMgr.h"
+#include "SoundMgr.h"
 CLClick_Mouse::CLClick_Mouse()
 {
 }
@@ -77,6 +78,9 @@ void CLClick_Mouse::HandleNoTargetClick()
 
 			if (dynamic_cast<CObj_Dynamic*>(vecUnit.back()))
 			{
+				vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BUILD);
+				CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_BUILD, 1);
+
 				CObj_Dynamic* target = dynamic_cast<CObj_Dynamic*>(vecUnit.back());
 				target->ChangeStateWithMouse(Pt, BUILD_STATE);
 				CUIMgr::Get_Instance()->SetClear_StaticObj();
