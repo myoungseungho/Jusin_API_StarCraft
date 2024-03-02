@@ -68,7 +68,7 @@ int IState::Move(CObj_Dynamic* _unit)
 
 void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 {
-	if (_unit->GetStateID() == WALK_STATE)
+	if (_unit->GetStateID() == WALK_STATE || _unit->GetStateID() == BUILD_STATE)
 	{
 		if (degree > -22.5f && degree <= 22.5f) {
 			//동쪽
@@ -86,7 +86,7 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 			// 남서쪽
 			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_LDOWN];
 		}
-		else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
+		else if ((degree > 157.5f && degree <= 181.f) || (degree <= -157.5f && degree >= -180.f)) {
 			// 서쪽
 			*m_pFrameKeyCopy = _unit->GetKeyAndFrame()->m_FrameArrayWalkKey[DIR_LEFT];
 		}
