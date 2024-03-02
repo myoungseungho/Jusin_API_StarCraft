@@ -26,6 +26,7 @@
 #include "UIMgr.h"
 #include "BackGround.h"
 #include "SoundMgr.h"
+#include "UnitControlMgr.h"
 CStage::CStage()
 {
 }
@@ -64,6 +65,7 @@ void CStage::Late_Update()
 	CKeyMgr::Get_Instance()->Late_Update();
 	CTileMgr::Get_Instance()->Late_Update();
 	CObjMgr::Get_Instance()->Late_Update();
+	CUnitControlMgr::Get_Instance()->Late_Update();
 }
 
 void CStage::Render(HDC hDC)

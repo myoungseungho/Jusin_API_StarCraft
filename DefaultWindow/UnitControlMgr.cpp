@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "UnitControlMgr.h"
-
+#include "UIMgr.h"
 CUnitControlMgr* CUnitControlMgr::m_pInstance = nullptr;
 
 CUnitControlMgr::CUnitControlMgr() : m_Building(nullptr)
@@ -10,6 +10,29 @@ CUnitControlMgr::CUnitControlMgr() : m_Building(nullptr)
 CUnitControlMgr::~CUnitControlMgr()
 {
 }
+
+void CUnitControlMgr::Late_Update()
+{
+	bool isChange = false;
+	for (auto iter = m_vecUnitOrBuilding.begin(); iter != m_vecUnitOrBuilding.end();)
+	{
+		if (*iter == nullptr || (*iter)->Get_Dead())
+		{
+			iter=m_vecUnitOrBuilding.erase(iter);
+			isChange = true;
+		}
+		else
+		{
+			iter++;
+		}
+	}
+
+	if (isChange)
+	{
+		CUIMgr::Get_Instance()->OnDragObj();
+	}
+}
+
 
 void CUnitControlMgr::Set_Add_Building(CObj* _building)
 {

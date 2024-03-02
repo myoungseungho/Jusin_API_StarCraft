@@ -23,6 +23,7 @@ public:
 		}
 	}
 
+	void Late_Update();
 	void Set_Add_Building(CObj*);
 	void Set_Add_Unit(CObj*);
 	void Set_Add_Unit(vector<CObj*>);

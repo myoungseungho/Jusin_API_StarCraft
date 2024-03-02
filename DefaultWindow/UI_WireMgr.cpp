@@ -32,12 +32,6 @@ CUI_WireMgr::~CUI_WireMgr()
 
 void CUI_WireMgr::Initialize()
 {
-	//m_vecSmallWire.push_back(m_Scv_Small_Wire);
-	//m_vecSmallWire.push_back(m_Marine_Small_Wire);
-	//m_vecSmallWire.push_back(m_FireBat_Small_Wire);
-	//m_vecSmallWire.push_back(m_Medic_Small_Wire);
-	//m_vecSmallWire.push_back(m_Tank_Small_Wire);
-
 	m_vecBigWire.push_back(m_Scv_Big_Wire);
 	m_vecBigWire.push_back(m_Marine_Big_Wire);
 	m_vecBigWire.push_back(m_FireBat_Big_Wire);
@@ -66,6 +60,8 @@ void CUI_WireMgr::OnClickObj(CObj* _unit)
 
 void CUI_WireMgr::OnDragObj()
 {
+	SetClear_SmallWireObj();
+
 	vector<CObj*> vecObj = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
 
 	if (vecObj.size() > 1)
