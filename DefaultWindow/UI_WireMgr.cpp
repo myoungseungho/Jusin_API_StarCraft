@@ -104,6 +104,11 @@ void CUI_WireMgr::OnDragObj()
 				fY = 555.f;
 			}
 
+			int grade = m_vecUnitCopy[i]->Get_Stat().m_MaxHp / 6;
+			int currentGrade = m_vecUnitCopy[i]->Get_Stat().m_Hp / grade;
+			int frame = currentGrade == 0 ? 5 : currentGrade == 1 ? 5 : currentGrade == 2 ? 4 : currentGrade == 3 ? 3
+				: currentGrade == 4 ? 2 : currentGrade == 5 ? 1 : currentGrade == 6 ? 0 : 0;
+
 			switch (dynamic_cast<CObj_Dynamic*>(m_vecUnitCopy[i])->GetType())
 			{
 			case DYANMIC_OBJ_SCV:
@@ -122,6 +127,8 @@ void CUI_WireMgr::OnDragObj()
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				break;
 			}
+
+			m_vecSmallWire.back()->Get_Frame()->iFrameStart = frame;
 		}
 	}
 }

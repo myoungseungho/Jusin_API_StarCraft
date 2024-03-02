@@ -130,21 +130,21 @@ void CMarine::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Attack/Mairen_Attack_Up_Left_120.bmp", L"Mairen_Attack_Up_Left_120");
 
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP] = (L"Mairen_Attack_Up");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP],{0,5,0,100,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP] = (L"Mairen_Attack_Up_Right_45");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP],{0,5,0,100,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT] = (L"Mairen_Attack_Right_90");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT],{0,5,0,100,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN] = (L"Mairen_Attack_Down_Right_150");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN],{0,5,0,100,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN] = (L"Mairen_Attack_Down_180");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN],{0,2,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN],{0,2,0,100,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN] = (L"Mairen_Attack_Down_Left");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN],{0,5,0,100,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT] = (L"Mairen_Attack_Left");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT],{0,5,0,100,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP] = (L"Mairen_Attack_Up_Left_120");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP],{0,5,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP],{0,5,0,100,GetTickCount()} });
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Die/Marine_Dead.bmp", L"Marine_Dead");
 

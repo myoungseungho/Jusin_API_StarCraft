@@ -19,7 +19,7 @@ void CMarine_Attack_State::Initialize(CObj_Dynamic* _marine)
 	m_pFrameCopy->iFrameStart = 0;
 	m_pFrameCopy->iFrameEnd = 5;
 	m_pFrameCopy->iMotion = 0;
-	m_pFrameCopy->dwSpeed = 50;
+	m_pFrameCopy->dwSpeed = 100;
 	m_pFrameCopy->dwTime = GetTickCount();
 
 	m_pFrameKey_Attack = L"Tspark";
