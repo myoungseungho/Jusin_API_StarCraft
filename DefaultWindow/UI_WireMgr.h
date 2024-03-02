@@ -35,7 +35,7 @@ private:
 	CObj_UI* m_Factory_Big_Wire;
 	CObj_UI* m_StarPort_Big_Wire;
 
-	vector<CObj_UI*> m_vecSmallWire[DYNAMIC_OBJ_END];
+	vector<CObj_UI*> m_vecSmallWire;
 	vector<CObj_UI*> m_vecBigWire;
 
 	vector<CObj*> m_vecUnitCopy;

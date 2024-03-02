@@ -20,10 +20,14 @@ void CFireBat_Idle_State::Initialize(CObj_Dynamic* _fireBat)
 	m_pFrameCopy->iMotion = 0;
 	m_pFrameCopy->dwSpeed = 100;
 	m_pFrameCopy->dwTime = GetTickCount();
+
+	if (_fireBat->Get_Stat().m_Hp < 0)
+		_fireBat->ChangeState(DIE_STATE);
 }
 
 int CFireBat_Idle_State::Update(CObj_Dynamic* _fireBat)
 {
+
 	_fireBat->CheckEnemy();
 	return 0;
 }

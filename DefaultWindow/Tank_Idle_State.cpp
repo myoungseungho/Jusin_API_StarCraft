@@ -30,6 +30,9 @@ void CTank_Idle_State::Initialize(CObj_Dynamic* _tank)
 	m_tFrame_TankPosin.dwTime = GetTickCount();
 
 	m_TankPosinSize = 128;
+
+	if (_tank->Get_Stat().m_Hp < 0)
+		_tank->ChangeState(DIE_STATE);
 }
 
 int CTank_Idle_State::Update(CObj_Dynamic* _tank)

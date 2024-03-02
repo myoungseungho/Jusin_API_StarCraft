@@ -51,16 +51,18 @@ void CUI_WireMgr::Late_Update()
 
 	for (auto iter : m_vecUnitCopy)
 	{
-		if (dynamic_cast<CObj_Static*>(iter) != nullptr)
+		if (iter == nullptr || iter->Get_Dead() || dynamic_cast<CObj_Static*>(iter) != nullptr)
 			return;
 	}
 
-	for (int i = 0; m_vecUnitCopy.size(); i++)
+	for (int i = 0; i < m_vecUnitCopy.size(); i++)
 	{
 		int grade = m_vecUnitCopy[i]->Get_Stat().m_MaxHp / 6;
 		int currentGrade = m_vecUnitCopy[i]->Get_Stat().m_Hp / grade;
 		int frame = currentGrade == 0 ? 5 : currentGrade == 1 ? 5 : currentGrade == 2 ? 4 : currentGrade == 3 ? 3
 			: currentGrade == 4 ? 2 : currentGrade == 5 ? 1 : currentGrade == 6 ? 0 : 0;
+
+		m_vecSmallWire[i]->Get_Frame()->iFrameStart = frame;
 	}
 }
 
@@ -80,7 +82,9 @@ void CUI_WireMgr::OnClickObj(CObj* _unit)
 
 void CUI_WireMgr::OnDragObj()
 {
+	//유닛이 하나라도 죽으면 모든 아이콘을 삭제하고
 	SetClear_SmallWireObj();
+	//다시 가져옴.
 	m_vecUnitCopy = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
 
 	if (m_vecUnitCopy.size() > 1)
@@ -103,19 +107,19 @@ void CUI_WireMgr::OnDragObj()
 			switch (dynamic_cast<CObj_Dynamic*>(m_vecUnitCopy[i])->GetType())
 			{
 			case DYANMIC_OBJ_SCV:
-				m_vecSmallWire[DYANMIC_OBJ_SCV].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				break;
 			case DYNAMIC_OBJ_MARINE:
-				m_vecSmallWire[DYNAMIC_OBJ_MARINE].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				break;
 			case DYNAMIC_OBJ_FIREBAT:
-				m_vecSmallWire[DYNAMIC_OBJ_FIREBAT].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				break;
 			case DYNAMIC_OBJ_MEDIC:
-				m_vecSmallWire[DYNAMIC_OBJ_MEDIC].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				break;
 			case DYNAMIC_OBJ_TANK:
-				m_vecSmallWire[DYNAMIC_OBJ_TANK].push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				break;
 			}
 		}
@@ -183,10 +187,7 @@ void CUI_WireMgr::SetClear_SmallWireObj()
 {
 	for (auto iter : m_vecSmallWire)
 	{
-		for (auto iter2 : iter)
-		{
-			if (iter2 != nullptr)
-				iter2->Set_Dead();
-		}
+		if (iter != nullptr)
+			iter->Set_Dead();
 	}
 }

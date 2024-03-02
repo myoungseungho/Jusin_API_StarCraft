@@ -42,7 +42,8 @@ void CMedic::Initialize()
 int CMedic::Update()
 {
 	if (m_bDead)
-		OBJ_DEAD;
+		return OBJ_DEAD;
+
 
 	__super::Update_Rect();
 

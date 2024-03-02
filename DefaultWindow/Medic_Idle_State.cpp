@@ -20,6 +20,9 @@ void CMedic_Idle_State::Initialize(CObj_Dynamic* _medic)
 	m_pFrameCopy->iMotion = 0;
 	m_pFrameCopy->dwSpeed = 100;
 	m_pFrameCopy->dwTime = GetTickCount();
+
+	if (_medic->Get_Stat().m_Hp < 0)
+		_medic->ChangeState(DIE_STATE);
 }
 
 int CMedic_Idle_State::Update(CObj_Dynamic*)

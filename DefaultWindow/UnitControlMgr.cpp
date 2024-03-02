@@ -13,10 +13,12 @@ CUnitControlMgr::~CUnitControlMgr()
 
 void CUnitControlMgr::Late_Update()
 {
+	bool m_bDead = false;
 	for (auto iter = m_vecUnitOrBuilding.begin(); iter != m_vecUnitOrBuilding.end();)
 	{
 		if (*iter == nullptr || (*iter)->Get_Dead())
 		{
+			m_bDead = true;
 			iter = m_vecUnitOrBuilding.erase(iter);
 		}
 		else
@@ -24,6 +26,9 @@ void CUnitControlMgr::Late_Update()
 			iter++;
 		}
 	}
+
+	if (m_bDead)
+		CUIMgr::Get_Instance()->OnDragObj();
 }
 
 
