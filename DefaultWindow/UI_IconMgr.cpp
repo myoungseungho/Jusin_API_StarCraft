@@ -107,7 +107,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 			for (auto iter : m_vecUnitIcon)
 			{
 				if (iter->GetDetailType() == ICON_FACTORY)
-					iter->SetDrawID(1);
+					iter->Get_Frame()->iFrameStart = 1;
 			}
 
 			if (bCanBuildStarPort)
@@ -115,7 +115,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 				for (auto iter : m_vecUnitIcon)
 				{
 					if (iter->GetDetailType() == ICON_STARPORT)
-						iter->SetDrawID(1);
+						iter->Get_Frame()->iFrameStart = 1;
 				}
 			}
 		}
@@ -231,13 +231,13 @@ void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 				continue;
 
 			if (iter->GetDetailType() == ICON_MOVE)
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 
 			if (iter->GetDetailType() == ICON_STOP)
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 
 			if (iter->GetDetailType() == ICON_ATTACK)
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 		}
 	}
 	else if (objId == DYNAMIC_OBJ_MARINE || objId == DYNAMIC_OBJ_FIREBAT || objId == DYNAMIC_OBJ_MEDIC || objId == DYNAMIC_OBJ_TANK)
@@ -252,13 +252,13 @@ void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 				continue;
 
 			if (iter->GetDetailType() == ICON_MOVE)
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 
 			if (iter->GetDetailType() == ICON_STOP)
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 
 			if (iter->GetDetailType() == ICON_ATTACK)
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 		}
 	}
 }
@@ -282,7 +282,7 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 
 			if (iter->GetDetailType() == ICON_FIREBAT || iter->GetDetailType() == ICON_MEDIC)
 			{
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 			}
 		}
 	}
@@ -296,7 +296,7 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 
 			if (iter->GetDetailType() == ICON_TANK)
 			{
-				iter->SetDrawID(1);
+				iter->Get_Frame()->iFrameStart = 1;
 				return;
 			}
 		}
