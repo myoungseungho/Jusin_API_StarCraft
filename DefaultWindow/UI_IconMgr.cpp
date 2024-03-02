@@ -82,10 +82,16 @@ void CUI_IconMgr::OnClickObj(CObj* _unit)
 	CObj_Static* staticObj = dynamic_cast<CObj_Static*>(_unit);
 
 	if (dynamic_unit != nullptr)
+	{
 		DynamicSetUI(dynamic_unit->GetType());
+		return;
+	}
 
 	if (staticObj != nullptr)
+	{
 		StaticSetUI(staticObj->GetType());
+		return;
+	}
 }
 
 void CUI_IconMgr::OnClickIcon(CObj* _unit)
