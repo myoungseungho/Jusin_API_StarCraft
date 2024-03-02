@@ -36,7 +36,7 @@
 #include "FireBat.h"
 #include "Medic.h"
 #include "Tank.h"
-
+#include "SoundMgr.h"
 CUI_IconMgr::CUI_IconMgr() : m_MoveIcon(nullptr), m_StopIcon(nullptr), m_AttackIcon(nullptr), m_BuildIcon(nullptr)
 , m_AdvancedbuildIcon(nullptr), m_CenterIcon(nullptr), m_BarrackIcon(nullptr), m_DepotIcon(nullptr), m_FactoryIcon(nullptr), m_StarPortIcon(nullptr),
 m_center(nullptr), m_depot(nullptr), m_barrack(nullptr), m_factory(nullptr), m_starport(nullptr), m_CurrentBuilding(UI_STATIC_OBJ_END),
@@ -160,26 +160,42 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 	{
 		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
 		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_SCV);
+
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BASIC);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_WALK, 1);
+
 	}
 	else if (ICONId == ICON_MARINE)
 	{
 		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
 		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_MARINE);
+
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MARINE, SOUND_BASIC);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MARINE_WALK, 1);
 	}
 	else if (ICONId == ICON_FIREBAT)
 	{
 		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
 		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_FIREBAT);
+
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_BASIC);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_WALK, 1);
 	}
 	else if (ICONId == ICON_MEDIC)
 	{
 		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
 		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_MEDIC);
+
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MEDIC, SOUND_BASIC);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MEDIC_WALK, 1);
 	}
 	else if (ICONId == ICON_TANK)
 	{
 		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
 		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_TANK);
+
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_BASIC);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_WALK, 1);
 	}
 }
 
