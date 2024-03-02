@@ -124,9 +124,12 @@ void CStage::Static_Obj_Spawn()
 
 void CStage::Ally_Obj_Spawn()
 {
-	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
+	/*CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYANMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
 
-	CObj_Dynamic* tank1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 200.f, 500.f);
+	CObj_Dynamic* tank1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 200.f, 500.f);*/
+
+	CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, 200.f, 300.f);
+
 	for (size_t i = 0; i < 20; i++)
 	{
 
@@ -153,7 +156,9 @@ void CStage::Ally_Obj_Spawn()
 
 void CStage::Enemy_Obj_Spawn()
 {
-	CObj_Dynamic* tank2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ENEMY, 700.f, 1000.f);
+	CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 650.f, 600.f);
+
+	//CObj_Dynamic* tank2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ENEMY, 700.f, 1000.f);
 
 	for (size_t i = 0; i < 20; i++)
 	{

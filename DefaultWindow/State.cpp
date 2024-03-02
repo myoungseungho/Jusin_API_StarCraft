@@ -36,7 +36,6 @@ int IState::Move(CObj_Dynamic* _unit)
 	float targetX = currentTargetTile->Get_Info().fX;
 	float targetY = currentTargetTile->Get_Info().fY;
 
-	// SCV의 현재 위치
 	float unitX = _unit->Get_Info().fX;
 	float unitY = _unit->Get_Info().fY;
 
@@ -175,11 +174,14 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 				m_pFrameKey_Attack = _unit->GetKeyAndFrame()->m_FrameBulletAttackKey[DIR_RUP];
 			}
 
-			m_tFrame_Attack.iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].iFrameStart;
-			m_tFrame_Attack.iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].iFrameEnd;
-			m_tFrame_Attack.iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].iMotion;
-			m_tFrame_Attack.dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwSpeed;
-			m_tFrame_Attack.dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwTime;
+			if (m_pFrameKey_Attack != m_pFrameKey_Attack)
+			{
+				m_tFrame_Attack.iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].iFrameStart;
+				m_tFrame_Attack.dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwTime;
+				m_tFrame_Attack.iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].iFrameEnd;
+				m_tFrame_Attack.iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].iMotion;
+				m_tFrame_Attack.dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack].dwSpeed;
+			}
 		}
 		else if (_unit->GetType() == DYNAMIC_OBJ_TANK)
 		{
@@ -216,11 +218,14 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 				m_pFrameKey_Attack_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinLaunchKey[DIR_RUP];
 			}
 
-			m_tFrame_Attack_TankPosin.iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iFrameStart;
-			m_tFrame_Attack_TankPosin.iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iFrameEnd;
-			m_tFrame_Attack_TankPosin.iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iMotion;
-			m_tFrame_Attack_TankPosin.dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].dwSpeed;
-			m_tFrame_Attack_TankPosin.dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].dwTime;
+			if (m_pFrameKey_Attack_TankPosin != m_pFrameKey_Attack_TankPosin)
+			{
+				m_tFrame_Attack_TankPosin.iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iFrameStart;
+				m_tFrame_Attack_TankPosin.iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iFrameEnd;
+				m_tFrame_Attack_TankPosin.iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].iMotion;
+				m_tFrame_Attack_TankPosin.dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].dwSpeed;
+				m_tFrame_Attack_TankPosin.dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[m_pFrameKey_Attack_TankPosin].dwTime;
+			}
 		}
 	}
 
@@ -260,9 +265,13 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 		}
 	}
 
-	m_pFrameCopy->iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iFrameStart;
+	if (*m_pFrameKeyCopy != *m_pFrameKeyCopy)
+	{
+		m_pFrameCopy->iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iFrameStart;
+		m_pFrameCopy->dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].dwTime;
+	}
+
 	m_pFrameCopy->iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iFrameEnd;
 	m_pFrameCopy->iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iMotion;
 	m_pFrameCopy->dwSpeed = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].dwSpeed;
-	m_pFrameCopy->dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].dwTime;
 }
