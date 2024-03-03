@@ -20,7 +20,6 @@ protected:
 
 private:
 	DYNAMIC_OBJID GetType() const override;
-private:
-	CObj_UI* m_DisPlayCopy;
+
 };
 

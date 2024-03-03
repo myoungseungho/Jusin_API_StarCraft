@@ -6,6 +6,8 @@
 #include "Tank_Walk_State.h"
 #include "Tank_Attack_State.h"
 #include "Tank_Die_State.h"
+#include "SpawnMgr.h"
+#include "UI_Tank_Display.h"
 CTank::CTank()
 {
 	InsertBmpFile();
@@ -51,6 +53,16 @@ int CTank::Update()
 	__super::Update_Rect();
 
 	m_vecState[m_CurrentState]->Update(this);
+
+	if (m_bCliecked && m_DisPlayCopy == nullptr)
+	{
+		m_DisPlayCopy = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Display>(UI_OBJECT_DISPLAY);
+	}
+	else if (!m_bCliecked && m_DisPlayCopy != nullptr)
+	{
+		CObjMgr::Get_Instance()->Delete_ID_UIObj(UI_OBJECT_DISPLAY);
+		m_DisPlayCopy = nullptr;
+	}
 	return OBJ_NOEVENT;
 }
 

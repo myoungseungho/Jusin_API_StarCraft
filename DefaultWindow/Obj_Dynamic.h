@@ -2,8 +2,9 @@
 #include "Obj.h"
 #include "State.h"
 #include "Define.h"
-
+#include "Obj_UI.h"
 class IState;
+class Obj_UI;
 class CObj_Dynamic : public CObj
 {
 public:
@@ -64,7 +65,7 @@ protected:
 	bool		m_OnceDead;
 	POINT		m_MousePT;
 	bool		m_AttackRun;
-
+	CObj_UI* m_DisPlayCopy;
 	KEYANDFRAME m_KeyAndFrame;
 };
 

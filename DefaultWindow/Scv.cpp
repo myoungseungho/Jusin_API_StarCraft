@@ -12,7 +12,7 @@
 #include "TileMgr.h"
 #include "SpawnMgr.h"
 #include "UI_SCV_Display.h"
-CScv::CScv() : m_DisPlayCopy(nullptr)
+CScv::CScv()
 {
 	InsertBmpFile();
 }

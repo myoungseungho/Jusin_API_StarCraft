@@ -56,7 +56,7 @@ void CUI_SCV_Display::Release()
 
 UIOBJECTTYPE CUI_SCV_Display::GetType() const
 {
-    return UIOBJECTTYPE();
+    return UI_OBJECT_DISPLAY;
 }
 
 int CUI_SCV_Display::GetDetailType() const
