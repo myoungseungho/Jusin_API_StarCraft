@@ -2,6 +2,7 @@
 #include "ObjMgr.h"
 #include "CollisionMgr.h"
 #include "BmpMgr.h"
+#include "Obj_UI.h"
 CObjMgr* CObjMgr::m_pInstance = nullptr;
 
 CObjMgr::CObjMgr()

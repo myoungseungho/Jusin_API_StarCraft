@@ -32,7 +32,7 @@ CUI_WireMgr::~CUI_WireMgr()
 
 void CUI_WireMgr::Initialize()
 {
-	m_vecBigWire.push_back(m_Scv_Big_Wire);
+	/*m_vecBigWire.push_back(m_Scv_Big_Wire);
 	m_vecBigWire.push_back(m_Marine_Big_Wire);
 	m_vecBigWire.push_back(m_FireBat_Big_Wire);
 	m_vecBigWire.push_back(m_Medic_Big_Wire);
@@ -41,7 +41,7 @@ void CUI_WireMgr::Initialize()
 	m_vecBigWire.push_back(m_Depot_Big_Wire);
 	m_vecBigWire.push_back(m_Barrack_Big_Wire);
 	m_vecBigWire.push_back(m_Factory_Big_Wire);
-	m_vecBigWire.push_back(m_StarPort_Big_Wire);
+	m_vecBigWire.push_back(m_StarPort_Big_Wire);*/
 }
 
 void CUI_WireMgr::Late_Update()
@@ -202,8 +202,10 @@ void CUI_WireMgr::SetClear_BigWireObj()
 {
 	for (auto iter : m_vecBigWire)
 	{
-		if (iter != nullptr)
-			iter->Set_Dead();
+		if (iter == nullptr || iter->Get_Dead())
+			continue;
+
+		iter->Set_Dead();
 	}
 }
 

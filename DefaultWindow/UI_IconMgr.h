@@ -9,6 +9,7 @@ public:
 	~CUI_IconMgr();
 public:
 	void Initialize();
+	void Late_Update();
 public:
 	void OnClickObj(CObj* _unit);
 	void OnClickIcon(CObj* _unit);

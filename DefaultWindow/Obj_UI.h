@@ -20,6 +20,15 @@ public:
 	void		Move_Frame();
 	HDC			Get_HDC();
 
+	virtual void		Set_Dead()
+	{
+		if (this->GetType() == UI_OBJECT_ICON)
+		{
+			int i = 3;
+		}
+		m_bDead = true;
+	}
+
 protected:
 	int			m_iDrawID;
 	int			m_iOption;

@@ -17,7 +17,7 @@ public:
 	void		Set_PosY(float _fY) { m_tInfo.fY += _fY; }
 
 	void		Set_Dir(DIRECTION eDir) { m_eDir = eDir; }
-	void		Set_Dead()
+	virtual void		Set_Dead()
 	{
 		m_bDead = true;
 	}

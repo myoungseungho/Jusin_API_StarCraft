@@ -71,6 +71,7 @@ void CUIMgr::Initialize()
 void CUIMgr::Late_Update()
 {
 	m_UI_WireMgr->Late_Update();
+	m_UI_IconMgr->Late_Update();
 }
 
 

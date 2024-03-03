@@ -37,10 +37,10 @@
 #include "Medic.h"
 #include "Tank.h"
 #include "SoundMgr.h"
-CUI_IconMgr::CUI_IconMgr() : m_MoveIcon(nullptr), m_StopIcon(nullptr), m_AttackIcon(nullptr), m_BuildIcon(nullptr)
+CUI_IconMgr::CUI_IconMgr() :/* m_MoveIcon(nullptr), m_StopIcon(nullptr), m_AttackIcon(nullptr), m_BuildIcon(nullptr)
 , m_AdvancedbuildIcon(nullptr), m_CenterIcon(nullptr), m_BarrackIcon(nullptr), m_DepotIcon(nullptr), m_FactoryIcon(nullptr), m_StarPortIcon(nullptr),
-m_center(nullptr), m_depot(nullptr), m_barrack(nullptr), m_factory(nullptr), m_starport(nullptr), m_CurrentBuilding(UI_STATIC_OBJ_END),
-m_ScvIcon(nullptr), m_MarineIcon(nullptr), m_FireBatIcon(nullptr), m_MedicIcon(nullptr), m_TankIcon(nullptr)
+m_center(nullptr), m_depot(nullptr), m_barrack(nullptr), m_factory(nullptr), m_starport(nullptr), */m_CurrentBuilding(UI_STATIC_OBJ_END)
+//m_ScvIcon(nullptr), m_MarineIcon(nullptr), m_FireBatIcon(nullptr), m_MedicIcon(nullptr), m_TankIcon(nullptr)
 {
 }
 
@@ -50,11 +50,16 @@ CUI_IconMgr::~CUI_IconMgr()
 
 void CUI_IconMgr::Initialize()
 {
-	m_vecBuildingIcon.push_back(m_ScvIcon);
-	m_vecBuildingIcon.push_back(m_MarineIcon);
-	m_vecBuildingIcon.push_back(m_FireBatIcon);
-	m_vecBuildingIcon.push_back(m_MedicIcon);
-	m_vecBuildingIcon.push_back(m_TankIcon);
+
+}
+
+void CUI_IconMgr::Late_Update()
+{
+	if (GetAsyncKeyState('A'))
+	{
+		int i = 3;
+		m_vecUnitIcon;
+	}
 }
 
 void CUI_IconMgr::OnClickObj(CObj* _unit)
@@ -203,14 +208,18 @@ void CUI_IconMgr::SetClear_IconObj()
 {
 	for (auto iter : m_vecUnitIcon)
 	{
-		if (iter != nullptr)
-			iter->Set_Dead();
+		if (iter == nullptr || iter->Get_Dead())
+			continue;
+
+		iter->Set_Dead();
 	}
 
 	for (auto iter : m_vecBuildingIcon)
 	{
-		if (iter != nullptr)
-			iter->Set_Dead();
+		if (iter == nullptr || iter->Get_Dead())
+			continue;
+
+		iter->Set_Dead();
 	}
 
 	m_vecUnitIcon.clear();
@@ -223,7 +232,7 @@ void CUI_IconMgr::SetClear_StaticObj()
 {
 	for (auto iter : m_vecBuilding)
 	{
-		if (iter != nullptr)
+		if (iter != nullptr || !iter->Get_Dead())
 			iter->Set_Dead();
 	}
 
