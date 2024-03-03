@@ -37,10 +37,7 @@
 #include "Medic.h"
 #include "Tank.h"
 #include "SoundMgr.h"
-CUI_IconMgr::CUI_IconMgr() :/* m_MoveIcon(nullptr), m_StopIcon(nullptr), m_AttackIcon(nullptr), m_BuildIcon(nullptr)
-, m_AdvancedbuildIcon(nullptr), m_CenterIcon(nullptr), m_BarrackIcon(nullptr), m_DepotIcon(nullptr), m_FactoryIcon(nullptr), m_StarPortIcon(nullptr),
-m_center(nullptr), m_depot(nullptr), m_barrack(nullptr), m_factory(nullptr), m_starport(nullptr), */m_CurrentBuilding(UI_STATIC_OBJ_END)
-//m_ScvIcon(nullptr), m_MarineIcon(nullptr), m_FireBatIcon(nullptr), m_MedicIcon(nullptr), m_TankIcon(nullptr)
+CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END)
 {
 }
 

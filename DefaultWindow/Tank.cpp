@@ -82,6 +82,28 @@ void CTank::Render(HDC hDC)
 		RGB(0, 0, 0));	// 제거할 색상 값
 
 	m_vecState[m_CurrentState]->Render(this, hDC);
+
+	if (!m_bCliecked)
+		return;
+
+	HDC	hSelectDC = nullptr;
+	if (this->Get_FactionState() == FACTION_ALLY)
+		hSelectDC = CBmpMgr::Get_Instance()->Find_Image(L"PSelect5");
+	else if (this->Get_FactionState() == FACTION_ENEMY)
+		hSelectDC = CBmpMgr::Get_Instance()->Find_Image(L"ESelect5");
+
+	GdiTransparentBlt(
+		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+		this->m_tRect.left + iScrollX + 15.f, // 복사 받을 위치 좌표
+		this->m_tRect.top + iScrollY + 20.f,
+		96,	// 복사 받을 이미지의 가로, 세로
+		96,
+		hSelectDC,		// 비트맵을 가지고 있는 DC
+		0,			// 비트맵 출력 시작 좌표 LEFT, TOP
+		0,
+		96,	// 출력할 비트맵 가로
+		96,	// 출력할 비트맵 세로
+		RGB(0, 0, 0));	// 제거할 색상 값
 }
 
 void CTank::Release()

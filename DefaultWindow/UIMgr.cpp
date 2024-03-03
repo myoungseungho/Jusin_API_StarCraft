@@ -36,6 +36,7 @@
 #include "FireBat.h"
 #include "Medic.h"
 #include "Tank.h"
+#include "UnitControlMgr.h"
 CUIMgr* CUIMgr::m_pInstance = nullptr;
 
 CUIMgr::CUIMgr() :m_UI_IconMgr(nullptr), m_UI_WireMgr(nullptr), m_UI_TextMgr(nullptr)
@@ -88,6 +89,7 @@ void CUIMgr::Release()
 
 void CUIMgr::OnClickObj(CObj* _unit)
 {
+	_unit->Set_Cliecked(true);
 	m_UI_IconMgr->OnClickObj(_unit);
 	m_UI_WireMgr->OnClickObj(_unit);
 	m_UI_TextMgr->OnClickObj(_unit);
@@ -100,12 +102,22 @@ void CUIMgr::OnClickIcon(CObj* _unit)
 
 void CUIMgr::OnDragObj()
 {
+	for (auto iter : CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding())
+	{
+		iter->Set_Cliecked(true);
+	}
+
 	m_UI_WireMgr->OnDragObj();
 	m_UI_TextMgr->SetClear_Text();
 }
 
 void CUIMgr::SetClear_Dynamic_Obj()
 {
+	for (auto iter : CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding())
+	{
+		iter->Set_Cliecked(false);
+	}
+
 	m_UI_IconMgr->SetClear_IconObj();
 	m_UI_WireMgr->SetClear_BigWireObj();
 	m_UI_WireMgr->SetClear_SmallWireObj();

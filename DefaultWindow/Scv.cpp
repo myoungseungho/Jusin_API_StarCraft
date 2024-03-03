@@ -90,13 +90,13 @@ void CScv::Render(HDC hDC)
 
 	m_vecState[m_CurrentState]->Render(this, hDC);
 
-	if (!m_Cliecked)
+	if (!m_bCliecked)
 		return;
 
 	HDC	hSelectDC = nullptr;
 	if (this->Get_FactionState() == FACTION_ALLY)
 		hSelectDC = CBmpMgr::Get_Instance()->Find_Image(L"PSelect3");
-	else if (this->Get_FactionState() == FACTION_ALLY)
+	else if (this->Get_FactionState() == FACTION_ENEMY)
 		hSelectDC = CBmpMgr::Get_Instance()->Find_Image(L"ESelect3");
 
 	GdiTransparentBlt(
