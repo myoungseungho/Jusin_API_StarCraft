@@ -29,12 +29,15 @@ CUI_WireMgr::~CUI_WireMgr()
 
 void CUI_WireMgr::Initialize()
 {
-	
+
 }
 
 void CUI_WireMgr::Late_Update()
 {
-	if (m_vecUnitCopy.size() == 0)
+	//´Ù½Ã °¡Á®¿È.
+	m_vecUnitCopy = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
+
+	if (m_vecUnitCopy.size() <= 1)
 		return;
 
 	for (auto iter : m_vecUnitCopy)
