@@ -18,6 +18,8 @@ public:
 	void SetClear_BigWireObj();
 	void SetClear_SmallWireObj();
 private:
+	void SmallWire_Late_Update();
+private:
 	vector<CObj_UI*> m_vecSmallWire;
 	vector<CObj_UI*> m_vecBigWire;
 

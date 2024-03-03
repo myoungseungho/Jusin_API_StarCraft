@@ -34,27 +34,7 @@ void CUI_WireMgr::Initialize()
 
 void CUI_WireMgr::Late_Update()
 {
-	//´Ù½Ã °¡Á®¿È.
-	m_vecUnitCopy = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
-
-	if (m_vecUnitCopy.size() <= 1)
-		return;
-
-	for (auto iter : m_vecUnitCopy)
-	{
-		if (iter == nullptr || iter->Get_Dead() || dynamic_cast<CObj_Static*>(iter) != nullptr)
-			return;
-	}
-
-	for (int i = 0; i < m_vecUnitCopy.size(); i++)
-	{
-		int grade = m_vecUnitCopy[i]->Get_Stat().m_MaxHp / 6;
-		int currentGrade = m_vecUnitCopy[i]->Get_Stat().m_Hp / grade;
-		int frame = currentGrade == 0 ? 5 : currentGrade == 1 ? 5 : currentGrade == 2 ? 4 : currentGrade == 3 ? 3
-			: currentGrade == 4 ? 2 : currentGrade == 5 ? 1 : currentGrade == 6 ? 0 : 0;
-
-		m_vecSmallWire[i]->Get_Frame()->iFrameStart = frame;
-	}
+	SmallWire_Late_Update();
 }
 
 void CUI_WireMgr::OnClickObj(CObj* _unit)
@@ -215,4 +195,29 @@ void CUI_WireMgr::SetClear_SmallWireObj()
 
 	m_vecSmallWire.clear();
 	m_vecSmallWire.shrink_to_fit();
+}
+
+void CUI_WireMgr::SmallWire_Late_Update()
+{
+	//´Ù½Ã °¡Á®¿È.
+	m_vecUnitCopy = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
+
+	if (m_vecUnitCopy.size() <= 1)
+		return;
+
+	for (auto iter : m_vecUnitCopy)
+	{
+		if (iter == nullptr || iter->Get_Dead() || dynamic_cast<CObj_Static*>(iter) != nullptr)
+			return;
+	}
+
+	for (int i = 0; i < m_vecUnitCopy.size(); i++)
+	{
+		int grade = m_vecUnitCopy[i]->Get_Stat().m_MaxHp / 6;
+		int currentGrade = m_vecUnitCopy[i]->Get_Stat().m_Hp / grade;
+		int frame = currentGrade == 0 ? 5 : currentGrade == 1 ? 5 : currentGrade == 2 ? 4 : currentGrade == 3 ? 3
+			: currentGrade == 4 ? 2 : currentGrade == 5 ? 1 : currentGrade == 6 ? 0 : 0;
+
+		m_vecSmallWire[i]->Get_Frame()->iFrameStart = frame;
+	}
 }
