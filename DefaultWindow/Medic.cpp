@@ -123,7 +123,7 @@ bool CMedic::CheckEnemy()
 	{
 		for (auto iter : pList[i])
 		{
-			if (iter == this || iter->Get_FactionState() != this->Get_FactionState() || iter->Get_Stat().m_Hp == iter->Get_Stat().m_MaxHp)
+			if (iter == this || iter->Get_FactionState() != this->Get_FactionState() || iter->Get_Stat().m_Hp == iter->Get_Stat().m_MaxHp || dynamic_cast<CObj_Dynamic*>(iter)->GetType() == DYNAMIC_OBJ_TANK)
 				continue;
 
 			float distance = sqrt((iter->Get_Info().fX - m_tInfo.fX) * (iter->Get_Info().fX - m_tInfo.fX) + (iter->Get_Info().fY - m_tInfo.fY) * (iter->Get_Info().fY - m_tInfo.fY));

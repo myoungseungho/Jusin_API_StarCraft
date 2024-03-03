@@ -27,6 +27,7 @@
 #include "BackGround.h"
 #include "SoundMgr.h"
 #include "UnitControlMgr.h"
+#include "UI_Menu.h"
 CStage::CStage()
 {
 }
@@ -85,6 +86,7 @@ void CStage::Render(HDC hDC)
 		0,
 		SRCCOPY);
 
+	
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
 	CKeyMgr::Get_Instance()->Render(hDC);
@@ -145,6 +147,7 @@ void CStage::Init_Obj_Spawn()
 	Enemy_Obj_Spawn();
 
 	CObj_UI* mainUI = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBackGround>(UI_OBJECT_MAIN);
+	CObj_UI* menu = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Menu>(UI_OBJECT_MAIN);
 	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJECT_MOUSE);
 }
 

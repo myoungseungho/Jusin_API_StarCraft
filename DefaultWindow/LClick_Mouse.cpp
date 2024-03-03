@@ -120,6 +120,8 @@ void CLClick_Mouse::HandleNoTargetClick()
 			Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 			Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
+
+
 			if (dynamic_cast<CObj_Dynamic*>(vecUnit.back()))
 			{
 				vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BUILD);

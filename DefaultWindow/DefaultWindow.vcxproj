@@ -249,6 +249,7 @@
     <ClInclude Include="UI_Medic_Icon.h" />
     <ClInclude Include="UI_Medic_Wire_Big.h" />
     <ClInclude Include="UI_Medic_Wire_Small.h" />
+    <ClInclude Include="UI_Menu.h" />
     <ClInclude Include="UI_Move.h" />
     <ClInclude Include="UI_SCV_Icon.h" />
     <ClInclude Include="UI_SCV_Wire_Big.h" />
@@ -368,6 +369,7 @@
     <ClCompile Include="UI_Medic_Icon.cpp" />
     <ClCompile Include="UI_Medic_Wire_Big.cpp" />
     <ClCompile Include="UI_Medic_Wire_Small.cpp" />
+    <ClCompile Include="UI_Menu.cpp" />
     <ClCompile Include="UI_Move.cpp" />
     <ClCompile Include="UI_SCV_Icon.cpp" />
     <ClCompile Include="UI_SCV_Wire_Big.cpp" />

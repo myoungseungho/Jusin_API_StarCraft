@@ -98,7 +98,7 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 				CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
 				if (dynamicObj != nullptr)
 				{
-					if (target->Get_Stat().m_Hp == target->Get_Stat().m_MaxHp)
+					if (target->Get_Stat().m_Hp == target->Get_Stat().m_MaxHp )
 						_unit->ChangeState(IDLE_STATE);
 
 					DetermineKey(_unit, degree);
