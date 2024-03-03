@@ -37,9 +37,9 @@ void CMedic::Initialize()
 		m_Stat.m_Hp = 60.f;
 		m_Stat.m_MaxHp = 60.f;
 		m_Stat.m_Attack = -1.f;
-		m_Stat.m_fSpeed = 5.f;
+		m_Stat.m_fSpeed = 3.f;
 		m_Stat.m_AttackRange = 50.f;
-		m_Stat.m_DetectionRange = 200.f;
+		m_Stat.m_DetectionRange = 300.f;
 		lstrcpyW(m_Stat.m_Name, L"Medic");
 	}
 }

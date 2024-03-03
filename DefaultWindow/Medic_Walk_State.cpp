@@ -37,7 +37,10 @@ int CMedic_Walk_State::Update(CObj_Dynamic* _medic)
 {
 	if (Move(_medic) == MOVE_OK)
 		_medic->ChangeState(IDLE_STATE);
-	
+	else
+	{
+		_medic->CheckEnemy();
+	}
 	return 0;
 }
 
