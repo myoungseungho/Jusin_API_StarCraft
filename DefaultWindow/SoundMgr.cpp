@@ -43,6 +43,7 @@ void CSoundMgr::Initialize()
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCYes02.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCYes03.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BUILD].push_back(L"TBldgPlc.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BUILD_COMPLETE].push_back(L"TSCUpd00.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_DIE].push_back(L"TSCDth00.wav");
 
 	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_ATTACK].push_back(L"TMaFir00.wav");

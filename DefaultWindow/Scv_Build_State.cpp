@@ -106,7 +106,9 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 			break;
 		}
 
-		
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BUILD_COMPLETE);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_BUILD_COMPLETE, 1);
+
 		_scv->Set_CollisionState(COLLISION_OK);
 		_scv->ChangeStateWithMouse(mousePT, IDLE_STATE);
 		CUIMgr::Get_Instance()->SetClear_CurrentBuilding();
