@@ -67,5 +67,9 @@ void CUnitControlMgr::Set_Add_Unit(vector<CObj*> _vec)
 
 void CUnitControlMgr::Set_Clear_Unit()
 {
+	for (auto iter : m_vecUnitOrBuilding)
+	{
+		iter->Set_Cliecked(false);
+	}
 	m_vecUnitOrBuilding.clear();
 }

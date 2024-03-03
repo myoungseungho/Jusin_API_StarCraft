@@ -6,6 +6,7 @@
 #include "UnitControlMgr.h"
 #include "KeyMgr.h"
 #include "UIMgr.h"
+#include "BmpMgr.h"
 Drag_LMouse_Long::Drag_LMouse_Long()
 {
 }
@@ -23,8 +24,8 @@ void Drag_LMouse_Long::Initialize(POINT _pt)
 {
 	CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 	m_InitPoint = _pt;
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/Centerui/tcmdbtns/Drag.bmp", L"Drag");
 }
-
 void Drag_LMouse_Long::Render(HDC _hdc)
 {
 	int iScrollX = CScrollMgr::Get_Instance()->Get_ScrollX();

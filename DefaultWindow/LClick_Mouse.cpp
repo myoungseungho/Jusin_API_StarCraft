@@ -38,7 +38,10 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 {
 	//오브젝트가 이미 선택되었다면
 	if (CKeyMgr::Get_Instance()->Get_bSelectUnit())
+	{
 		CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+		CUIMgr::Get_Instance()->GetUIWireMgr()->SetClear_SmallWireObj();
+	}
 
 	CUIMgr::Get_Instance()->OnClickObj(target);
 	CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
@@ -55,7 +58,7 @@ void CLClick_Mouse::HandleStaticObjectClick(CObj* target)
 	}
 
 	CUnitControlMgr::Get_Instance()->Set_Add_Building(target);
-	CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
+	CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 	CUIMgr::Get_Instance()->OnClickObj(target);
 }
 
@@ -83,8 +86,8 @@ void CLClick_Mouse::HandleNoTargetClick()
 				CObj_Dynamic* target = dynamic_cast<CObj_Dynamic*>(vecUnit.back());
 				target->ChangeStateWithMouse(Pt, BUILD_STATE);
 				CUIMgr::Get_Instance()->SetClear_StaticObj();
-				CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
-				CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
+				//CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
+				//CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 			}
 		}
 	}
