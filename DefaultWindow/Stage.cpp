@@ -28,6 +28,7 @@
 #include "SoundMgr.h"
 #include "UnitControlMgr.h"
 #include "UI_Menu.h"
+#include "UI_MiniMap.h"
 CStage::CStage()
 {
 }
@@ -148,6 +149,7 @@ void CStage::Init_Obj_Spawn()
 
 	CObj_UI* mainUI = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBackGround>(UI_OBJECT_MAIN);
 	CObj_UI* menu = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Menu>(UI_OBJECT_MAIN);
+	CObj_UI* mini = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_MiniMap>(UI_OBJECT_MAIN);
 	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJECT_MOUSE);
 }
 
@@ -170,6 +172,7 @@ void CStage::Static_Obj_Spawn()
 
 void CStage::Ally_Obj_Spawn()
 {
+
 	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
 
 	CObj_Dynamic* tank1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 200.f, 500.f);

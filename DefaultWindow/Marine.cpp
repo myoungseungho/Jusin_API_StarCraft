@@ -36,7 +36,7 @@ void CMarine::Initialize()
 		ChangeState(IDLE_STATE);
 
 		m_Stat.m_Hp = 40;
-		m_Stat.m_Attack = 3;
+		m_Stat.m_Attack = 1;
 		m_Stat.m_AttackRange = 130.f;
 		m_Stat.m_DetectionRange = 200.f;
 		m_Stat.m_fSpeed = 5.f;

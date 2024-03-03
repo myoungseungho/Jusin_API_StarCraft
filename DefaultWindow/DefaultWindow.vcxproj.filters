@@ -262,6 +262,9 @@
     <Filter Include="01. Obj\03. UI\08. UnitDisPlay">
       <UniqueIdentifier>{13ffd7e8-f89b-4c1e-ab84-a774b6589ce9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\09. MiniMap">
+      <UniqueIdentifier>{9e6fe1a4-9f31-43ad-8c22-2b23fc1008f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -630,6 +633,9 @@
     <ClInclude Include="UI_Tank_Display.h">
       <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
     </ClInclude>
+    <ClInclude Include="UI_MiniMap.h">
+      <Filter>01. Obj\03. UI\09. MiniMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -985,6 +991,9 @@
     </ClCompile>
     <ClCompile Include="UI_Tank_Display.cpp">
       <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MiniMap.cpp">
+      <Filter>01. Obj\03. UI\09. MiniMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
