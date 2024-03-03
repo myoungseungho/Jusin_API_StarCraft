@@ -1,6 +1,7 @@
 #pragma once
 #include "Obj_Dynamic.h"
 #include "State.h"
+#include "Obj_UI.h"
 class CScv : public CObj_Dynamic
 {
 public:
@@ -19,5 +20,7 @@ protected:
 
 private:
 	DYNAMIC_OBJID GetType() const override;
+private:
+	CObj_UI* m_DisPlayCopy;
 };
 

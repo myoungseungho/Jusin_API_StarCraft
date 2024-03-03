@@ -10,7 +10,9 @@
 #include "Tile.h"
 #include "AStarMgr.h"
 #include "TileMgr.h"
-CScv::CScv()
+#include "SpawnMgr.h"
+#include "UI_SCV_Display.h"
+CScv::CScv() : m_DisPlayCopy(nullptr)
 {
 	InsertBmpFile();
 }
@@ -43,6 +45,12 @@ void CScv::Initialize()
 		m_Stat.m_fSpeed = 5.f;
 		m_Stat.m_MaxHp = 60;
 		lstrcpyW(m_Stat.m_Name, L"SCV");
+
+		m_tFrameDisplay.iFrameStart = 0;
+		m_tFrameDisplay.iFrameEnd = 44;
+		m_tFrameDisplay.iMotion = 0;
+		m_tFrameDisplay.dwSpeed = 100;
+		m_tFrameDisplay.dwTime = GetTickCount();
 	}
 }
 
@@ -57,6 +65,16 @@ int CScv::Update()
 	m_vecState[m_CurrentState]->Update(this);
 
 	__super::Update_Rect();
+
+	if (m_bCliecked && m_DisPlayCopy == nullptr)
+	{
+		m_DisPlayCopy = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Display>(UI_OBJECT_DISPLAY);
+	}
+	else if (!m_bCliecked && m_DisPlayCopy != nullptr)
+	{
+		CObjMgr::Get_Instance()->Delete_ID_UIObj(UI_OBJECT_DISPLAY);
+		m_DisPlayCopy = nullptr;
+	}
 
 	return OBJ_NOEVENT;
 }
@@ -111,7 +129,6 @@ void CScv::Render(HDC hDC)
 		64,	// 출력할 비트맵 가로
 		64,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
-
 }
 
 void CScv::Release()

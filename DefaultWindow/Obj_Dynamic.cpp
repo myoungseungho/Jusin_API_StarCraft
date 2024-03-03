@@ -30,6 +30,18 @@ void CObj_Dynamic::Move_Frame()
 
 		m_tFrame.dwTime = GetTickCount();
 	}
+
+	if (m_tFrameDisplay.dwTime + m_tFrameDisplay.dwSpeed < GetTickCount())
+	{
+		++m_tFrameDisplay.iFrameStart;
+
+		if (m_tFrameDisplay.iFrameStart > m_tFrameDisplay.iFrameEnd)
+		{
+			m_tFrameDisplay.iFrameStart = 0;
+		}
+
+		m_tFrameDisplay.dwTime = GetTickCount();
+	}
 }
 
 void CObj_Dynamic::ChangeState(STATEID _sId)

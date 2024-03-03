@@ -259,6 +259,9 @@
     <Filter Include="01. Obj\03. UI\07. Building_Wire\00. Big_Wire">
       <UniqueIdentifier>{9e7bb4ab-d8b5-4385-afa9-1ebdc179c97d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\08. UnitDisPlay">
+      <UniqueIdentifier>{13ffd7e8-f89b-4c1e-ab84-a774b6589ce9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -612,6 +615,21 @@
     <ClInclude Include="UI_Menu.h">
       <Filter>01. Obj\03. UI\03. BackGround</Filter>
     </ClInclude>
+    <ClInclude Include="UI_FireBat_Display.h">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Marine_Display.h">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Medic_Display.h">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_SCV_Display.h">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Tank_Display.h">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -952,6 +970,21 @@
     </ClCompile>
     <ClCompile Include="UI_Menu.cpp">
       <Filter>01. Obj\03. UI\03. BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_FireBat_Display.cpp">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Marine_Display.cpp">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Medic_Display.cpp">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_SCV_Display.cpp">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Tank_Display.cpp">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
