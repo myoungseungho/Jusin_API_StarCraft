@@ -46,7 +46,49 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 	CUIMgr::Get_Instance()->OnClickObj(target);
 	CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 	CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
-	dynamic_cast<CObj_Dynamic*>(target)->ChangeState(IDLE_STATE);
+	CObj_Dynamic* dynamicTarget = dynamic_cast<CObj_Dynamic*>(target);
+	dynamicTarget->ChangeState(IDLE_STATE);
+
+	vector<wchar_t*> m_UnitSound;
+
+	switch (dynamicTarget->GetType())
+	{
+	case DYNAMIC_OBJ_SCV:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BASIC);
+		if (!m_UnitSound.empty()) {
+			int random = rand() % m_UnitSound.size();
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_SCV_WALK, 1);
+		}
+		break;
+	case DYNAMIC_OBJ_MARINE:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MARINE, SOUND_BASIC);
+		if (!m_UnitSound.empty()) {
+			int random = rand() % m_UnitSound.size();
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_MARINE_WALK, 1);
+		}
+		break;
+	case DYNAMIC_OBJ_FIREBAT:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_BASIC);
+		if (!m_UnitSound.empty()) {
+			int random = rand() % m_UnitSound.size();
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_FIREBAT_WALK, 1);
+		}
+		break;
+	case DYNAMIC_OBJ_MEDIC:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MEDIC, SOUND_BASIC);
+		if (!m_UnitSound.empty()) {
+			int random = rand() % m_UnitSound.size();
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_MEDIC_WALK, 1);
+		}
+		break;
+	case DYNAMIC_OBJ_TANK:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_BASIC);
+		if (!m_UnitSound.empty()) {
+			int random = rand() % m_UnitSound.size();
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_TANK_WALK, 1);
+		}
+		break;
+	}
 }
 
 void CLClick_Mouse::HandleStaticObjectClick(CObj* target)
