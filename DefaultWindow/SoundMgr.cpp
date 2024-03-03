@@ -33,6 +33,7 @@ void CSoundMgr::Initialize()
 		m_UnitSound[i].resize(SOUND_END);
 	}
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_ATTACK].push_back(L"EDrRep00.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_READY].push_back(L"TSCRdy00.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht00.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht01.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht02.wav");
@@ -45,6 +46,7 @@ void CSoundMgr::Initialize()
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_DIE].push_back(L"TSCDth00.wav");
 
 	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_ATTACK].push_back(L"TMaFir00.wav");
+	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_READY].push_back(L"TMaRdy00.wav");
 	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaWht00.wav");
 	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaWht01.wav");
 	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_BASIC].push_back(L"TMaWht02.wav");
@@ -56,6 +58,7 @@ void CSoundMgr::Initialize()
 	m_UnitSound[DYNAMIC_OBJ_MARINE][SOUND_DIE].push_back(L"TMaDth00.wav");
 
 	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_ATTACK].push_back(L"tfbFir01.wav");
+	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_READY].push_back(L"tfbRdy00.wav");
 	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbWht00.wav");
 	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbWht01.wav");
 	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbWht02.wav");
@@ -66,12 +69,14 @@ void CSoundMgr::Initialize()
 	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_BASIC].push_back(L"tfbYes03.wav");
 	m_UnitSound[DYNAMIC_OBJ_FIREBAT][SOUND_DIE].push_back(L"TFbDth00.wav");
 
+	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_READY].push_back(L"TMdRdy00.wav");
 	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes00.wav");
 	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes01.wav");
 	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes02.wav");
 	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_BASIC].push_back(L"TMdYes03.wav");
 	m_UnitSound[DYNAMIC_OBJ_MEDIC][SOUND_DIE].push_back(L"TMdDth00.wav");
 
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_READY].push_back(L"ttardy00.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_ATTACK].push_back(L"TTaFir00.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht00.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht01.wav");
