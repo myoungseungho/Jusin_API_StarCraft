@@ -53,14 +53,6 @@ void CUI_IconMgr::Initialize()
 
 }
 
-void CUI_IconMgr::Late_Update()
-{
-	if (GetAsyncKeyState('A'))
-	{
-		int i = 3;
-		m_vecUnitIcon;
-	}
-}
 
 void CUI_IconMgr::OnClickObj(CObj* _unit)
 {

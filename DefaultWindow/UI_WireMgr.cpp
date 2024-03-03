@@ -19,10 +19,7 @@
 #include "UI_Factory_Wire.h"
 #include "UI_StarPort_Wire.h"
 #include "UnitControlMgr.h"
-CUI_WireMgr::CUI_WireMgr() :m_Scv_Small_Wire(nullptr), m_Marine_Small_Wire(nullptr), m_FireBat_Small_Wire(nullptr),
-m_Medic_Small_Wire(nullptr), m_Tank_Small_Wire(nullptr),
-m_Scv_Big_Wire(nullptr), m_Marine_Big_Wire(nullptr), m_FireBat_Big_Wire(nullptr), m_Medic_Big_Wire(nullptr), m_Tank_Big_Wire(nullptr),
-m_Center_Big_Wire(nullptr), m_Depot_Big_Wire(nullptr), m_Barrack_Big_Wire(nullptr), m_Factory_Big_Wire(nullptr), m_StarPort_Big_Wire(nullptr)
+CUI_WireMgr::CUI_WireMgr()
 {
 }
 
@@ -32,16 +29,7 @@ CUI_WireMgr::~CUI_WireMgr()
 
 void CUI_WireMgr::Initialize()
 {
-	/*m_vecBigWire.push_back(m_Scv_Big_Wire);
-	m_vecBigWire.push_back(m_Marine_Big_Wire);
-	m_vecBigWire.push_back(m_FireBat_Big_Wire);
-	m_vecBigWire.push_back(m_Medic_Big_Wire);
-	m_vecBigWire.push_back(m_Tank_Big_Wire);
-	m_vecBigWire.push_back(m_Center_Big_Wire);
-	m_vecBigWire.push_back(m_Depot_Big_Wire);
-	m_vecBigWire.push_back(m_Barrack_Big_Wire);
-	m_vecBigWire.push_back(m_Factory_Big_Wire);
-	m_vecBigWire.push_back(m_StarPort_Big_Wire);*/
+	
 }
 
 void CUI_WireMgr::Late_Update()
@@ -150,24 +138,24 @@ void CUI_WireMgr::DynamicSetUI(CObj_Dynamic* obj)
 	switch (obj->GetType())
 	{
 	case DYNAMIC_OBJ_SCV:
-		m_vecBigWire[WIRE_SCV_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
-		m_vecBigWire[WIRE_SCV_BIG]->Get_Frame()->iFrameStart = frame;
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f));
+		m_vecBigWire.back()->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_MARINE:
-		m_vecBigWire[WIRE_MARINE_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
-		m_vecBigWire[WIRE_MARINE_BIG]->Get_Frame()->iFrameStart = frame;
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f));
+		m_vecBigWire.back()->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_FIREBAT:
-		m_vecBigWire[WIRE_FIREBAT_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
-		m_vecBigWire[WIRE_FIREBAT_BIG]->Get_Frame()->iFrameStart = frame;
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f));
+		m_vecBigWire.back()->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_MEDIC:
-		m_vecBigWire[WIRE_MEDIC_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
-		m_vecBigWire[WIRE_MEDIC_BIG]->Get_Frame()->iFrameStart = frame;
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f));
+		m_vecBigWire.back()->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_TANK:
-		m_vecBigWire[WIRE_TANK_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f);
-		m_vecBigWire[WIRE_TANK_BIG]->Get_Frame()->iFrameStart = frame;
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f));
+		m_vecBigWire.back()->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_END:
 		break;
@@ -181,19 +169,19 @@ void CUI_WireMgr::StaticSetUI(BUILDINGSTATE objId)
 	switch (objId)
 	{
 	case STATIC_OBJ_CENTER:
-		m_vecBigWire[WIRE_CENTER_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Center_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Center_Wire>(UI_OBJECT_WIRE, 260.f, 530.f));
 		break;
 	case STATIC_OBJ_DEPOT:
-		m_vecBigWire[WIRE_DEPOT_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Depot_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Depot_Wire>(UI_OBJECT_WIRE, 260.f, 530.f));
 		break;
 	case STATIC_OBJ_BARRACK:
-		m_vecBigWire[WIRE_BARRACK_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Barrack_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Barrack_Wire>(UI_OBJECT_WIRE, 260.f, 530.f));
 		break;
 	case STATIC_OBJ_FACTORY:
-		m_vecBigWire[WIRE_FACTORY_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Wire>(UI_OBJECT_WIRE, 260.f, 530.f));
 		break;
 	case STATIC_OBJ_STARPORT:
-		m_vecBigWire[WIRE_STARPORT_BIG] = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Wire>(UI_OBJECT_WIRE, 260.f, 530.f);
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Wire>(UI_OBJECT_WIRE, 260.f, 530.f));
 		break;
 	}
 }
@@ -207,13 +195,21 @@ void CUI_WireMgr::SetClear_BigWireObj()
 
 		iter->Set_Dead();
 	}
+
+	m_vecBigWire.clear();
+	m_vecBigWire.shrink_to_fit();
 }
 
 void CUI_WireMgr::SetClear_SmallWireObj()
 {
 	for (auto iter : m_vecSmallWire)
 	{
-		if (iter != nullptr)
-			iter->Set_Dead();
+		if (iter == nullptr || iter->Get_Dead())
+			continue;
+
+		iter->Set_Dead();
 	}
+
+	m_vecSmallWire.clear();
+	m_vecSmallWire.shrink_to_fit();
 }
