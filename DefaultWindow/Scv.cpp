@@ -88,8 +88,30 @@ void CScv::Render(HDC hDC)
 		(int)m_tInfo.fCY,	// 출력할 비트맵 세로
 		RGB(0, 0, 0));	// 제거할 색상 값
 
-
 	m_vecState[m_CurrentState]->Render(this, hDC);
+
+	if (!m_Cliecked)
+		return;
+
+	HDC	hSelectDC = nullptr;
+	if (this->Get_FactionState() == FACTION_ALLY)
+		hSelectDC = CBmpMgr::Get_Instance()->Find_Image(L"PSelect3");
+	else if (this->Get_FactionState() == FACTION_ALLY)
+		hSelectDC = CBmpMgr::Get_Instance()->Find_Image(L"ESelect3");
+
+	GdiTransparentBlt(
+		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+		this->m_tRect.left + iScrollX, // 복사 받을 위치 좌표
+		this->m_tRect.top + iScrollY,
+		64,	// 복사 받을 이미지의 가로, 세로
+		64,
+		hSelectDC,		// 비트맵을 가지고 있는 DC
+		0,			// 비트맵 출력 시작 좌표 LEFT, TOP
+		0,
+		64,	// 출력할 비트맵 가로
+		64,	// 출력할 비트맵 세로
+		RGB(0, 0, 0));	// 제거할 색상 값
+
 }
 
 void CScv::Release()
@@ -109,7 +131,7 @@ void CScv::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_DOWNLEFT.bmp", L"SCV_DOWNLEFT");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_LEFT.bmp", L"SCV_LEFT");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Scv/Idle/SCV_UPLEFT.bmp", L"SCV_UPLEFT");
-	
+
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP] = (L"SCV_UP");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP],{0,0,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP] = (L"SCV_UPRIGHT");

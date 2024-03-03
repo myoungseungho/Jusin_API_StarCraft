@@ -58,6 +58,7 @@ protected:
 	bool		m_OnceDead;
 	POINT		m_MousePT;
 	bool		m_AttackRun;
+	bool		m_Cliecked;
 
 	KEYANDFRAME m_KeyAndFrame;
 };

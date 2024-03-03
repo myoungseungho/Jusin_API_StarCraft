@@ -39,14 +39,14 @@ CStage::~CStage()
 
 void CStage::Initialize()
 {
+	Init_Bmp();
 	// 난수 발생기의 초기 시드 값을 현재 시간으로 설정
 	srand(static_cast<unsigned int>(time(nullptr)));
 	CSoundMgr::Get_Instance()->Initialize();
 	CTileMgr::Get_Instance()->Load_Tile();
 	CKeyMgr::Get_Instance()->Initialize();
 	CTechTreeMgr::Get_Instance()->Initialize();
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
+
 
 	Init_Obj_Spawn();
 
@@ -98,6 +98,44 @@ void CStage::Release()
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_FIREBAT);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_MEDIC);
 	CObjMgr::Get_Instance()->Delete_ID_DynamicObj(DYNAMIC_OBJ_TANK);
+}
+
+void CStage::Init_Bmp()
+{
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Edit/Grid.bmp", L"Grid");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Single/MainMap.bmp", L"MainMap");
+
+	//32
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect0.bmp", L"PSelect0");
+	//40
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect1.bmp", L"PSelect1");
+	//64
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect2.bmp", L"PSelect2");
+	//64, big
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect3.bmp", L"PSelect3");
+	//80
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect4.bmp", L"PSelect4");
+	//96
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect5.bmp", L"PSelect5");
+	//128
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect6.bmp", L"PSelect6");
+	//128, big
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect7.bmp", L"PSelect7");
+	//148
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect8.bmp", L"PSelect8");
+	//224
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/PSelect/PSelect9.bmp", L"PSelect9");
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect0.bmp", L"ESelect0");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect1.bmp", L"ESelect1");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect2.bmp", L"ESelect2");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect3.bmp", L"ESelect3");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect4.bmp", L"ESelect4");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect5.bmp", L"ESelect5");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect6.bmp", L"ESelect6");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect7.bmp", L"ESelect7");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect8.bmp", L"ESelect8");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/UI/ESelect/ESelect9.bmp", L"ESelect9");
 }
 
 void CStage::Init_Obj_Spawn()

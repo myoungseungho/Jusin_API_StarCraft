@@ -41,7 +41,6 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 		CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 
 	CUIMgr::Get_Instance()->OnClickObj(target);
-
 	CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 	CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 	dynamic_cast<CObj_Dynamic*>(target)->ChangeState(IDLE_STATE);
