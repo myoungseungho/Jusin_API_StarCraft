@@ -23,16 +23,22 @@ public:
 	void		Set_Damage(float m_attack)
 	{
 		m_Stat.m_Hp -= m_attack;
-		if (m_Stat.m_Hp <= 0 && !m_OnceDead)
+		if (!m_OnceDead)
 		{
-			m_Stat.m_Hp = 0;
-			m_OnceDead = true;
-			CObj_Dynamic* dynamic_obj = dynamic_cast<CObj_Dynamic*>(this);
-			if (dynamic_cast<CObj_Dynamic*>(this))
+			if (m_Stat.m_Hp <= 0)
 			{
-				dynamic_obj->ChangeState(DIE_STATE);
+				m_Stat.m_Hp = 0;
+				m_OnceDead = true;
+				CObj_Dynamic* dynamic_obj = dynamic_cast<CObj_Dynamic*>(this);
+				if (dynamic_cast<CObj_Dynamic*>(this))
+				{
+					dynamic_obj->ChangeState(DIE_STATE);
+				}
 			}
+			else if (m_Stat.m_Hp > m_Stat.m_MaxHp)
+				m_Stat.m_Hp = m_Stat.m_MaxHp;
 		}
+
 	};
 	void		Move_Frame();
 
@@ -41,10 +47,10 @@ public:
 	void ChangeStateWithMouse(POINT _pt, STATEID _sId);
 	void SetAttackRun(bool _bAttackRun) { m_AttackRun = _bAttackRun; }
 	bool GetAttackRun() { return m_AttackRun; }
-	
+
 	KEYANDFRAME* GetKeyAndFrame() { return &m_KeyAndFrame; }
 
-	bool CheckEnemy();
+	virtual bool CheckEnemy();
 	POINT GetMousePT() { return m_MousePT; };
 	STATEID GetStateID() { return m_CurrentState; }
 

@@ -16,7 +16,7 @@ void CMedic_Idle_State::Initialize(CObj_Dynamic* _medic)
 
 	*m_pFrameKeyCopy = L"Medic_Idle";
 	m_pFrameCopy->iFrameStart = 0;
-	m_pFrameCopy->iFrameEnd = 16;
+	m_pFrameCopy->iFrameEnd = 0;
 	m_pFrameCopy->iMotion = 0;
 	m_pFrameCopy->dwSpeed = 100;
 	m_pFrameCopy->dwTime = GetTickCount();
@@ -25,8 +25,9 @@ void CMedic_Idle_State::Initialize(CObj_Dynamic* _medic)
 		_medic->ChangeState(DIE_STATE);
 }
 
-int CMedic_Idle_State::Update(CObj_Dynamic*)
+int CMedic_Idle_State::Update(CObj_Dynamic* _medic)
 {
+	_medic->CheckEnemy();
 	return 0;
 }
 

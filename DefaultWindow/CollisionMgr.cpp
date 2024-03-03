@@ -91,7 +91,6 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 			if (Dst == Src || DstDynamicObj->GetStateID() == WALK_STATE || SrcDynamicObj->GetStateID() == WALK_STATE || DstDynamicObj->GetAttackRun() || SrcDynamicObj->GetAttackRun())
 				continue;
 
-			/*&& Dst->Get_CollisionState() == COLLISION_NOT && Src->Get_CollisionState() == COLLISION_NOT*/
 			if (Check_Rect(&fX, &fY, Dst, Src))
 			{
 				Dst->Set_CollisionState(COLLISION_OK);

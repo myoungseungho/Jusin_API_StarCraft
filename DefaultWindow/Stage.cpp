@@ -172,6 +172,8 @@ void CStage::Ally_Obj_Spawn()
 	CObj_Dynamic* tank1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 200.f, 500.f);
 
 	CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, 200.f, 300.f);
+	CObj_Dynamic* medic1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ALLY, 200.f, 300.f);
+	CObj_Dynamic* medic2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ALLY, 200.f, 300.f);
 
 	for (size_t i = 0; i < 20; i++)
 	{

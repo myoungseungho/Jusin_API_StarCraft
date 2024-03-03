@@ -19,6 +19,7 @@ void CMedic_Walk_State::Initialize(CObj_Dynamic* _medic)
 
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_MEDIC_WALK, 1);
 	}
+
 	m_pFrameCopy = _medic->Get_Frame();
 	m_pFrameKeyCopy = _medic->Get_FrameKey();
 
@@ -36,7 +37,7 @@ int CMedic_Walk_State::Update(CObj_Dynamic* _medic)
 {
 	if (Move(_medic) == MOVE_OK)
 		_medic->ChangeState(IDLE_STATE);
-
+	
 	return 0;
 }
 

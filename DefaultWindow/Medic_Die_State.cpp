@@ -25,8 +25,13 @@ void CMedic_Die_State::Initialize(CObj_Dynamic* _medic)
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 
-int CMedic_Die_State::Update(CObj_Dynamic*)
+int CMedic_Die_State::Update(CObj_Dynamic* _medic)
 {
+	m_pFrameCopy = _medic->Get_Frame();
+
+	if (m_pFrameCopy->iFrameStart == m_pFrameCopy->iFrameEnd)
+		_medic->Set_Dead();
+
 	return 0;
 }
 

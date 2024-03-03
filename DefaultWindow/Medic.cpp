@@ -6,6 +6,7 @@
 #include "Medic_Walk_State.h"
 #include "Medic_Attack_State.h"
 #include "Medic_Die_State.h"
+#include "ObjMgr.h"
 CMedic::CMedic()
 {
 	InsertBmpFile();
@@ -35,6 +36,10 @@ void CMedic::Initialize()
 
 		m_Stat.m_Hp = 60.f;
 		m_Stat.m_MaxHp = 60.f;
+		m_Stat.m_Attack = -1.f;
+		m_Stat.m_fSpeed = 5.f;
+		m_Stat.m_AttackRange = 50.f;
+		m_Stat.m_DetectionRange = 200.f;
 		lstrcpyW(m_Stat.m_Name, L"Medic");
 	}
 }
@@ -108,29 +113,99 @@ void CMedic::Release()
 	m_vecState[m_CurrentState]->Release(this);
 }
 
+bool CMedic::CheckEnemy()
+{
+	list<CObj*>* pList = CObjMgr::Get_Instance()->GetDynamic_Obj_List();
+	float nearDistnace = (numeric_limits<float>::max)();
+	CObj* target = nullptr;
+
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	{
+		for (auto iter : pList[i])
+		{
+			if (iter == this || iter->Get_FactionState() != this->Get_FactionState() || iter->Get_Stat().m_Hp == iter->Get_Stat().m_MaxHp)
+				continue;
+
+			float distance = sqrt((iter->Get_Info().fX - m_tInfo.fX) * (iter->Get_Info().fX - m_tInfo.fX) + (iter->Get_Info().fY - m_tInfo.fY) * (iter->Get_Info().fY - m_tInfo.fY));
+
+			if (distance < nearDistnace)
+			{
+				nearDistnace = distance;
+				target = iter;
+			}
+		}
+	}
+
+	if (m_Stat.m_DetectionRange > nearDistnace)
+	{
+		if (m_CurrentState != ATTACK_STATE)
+		{
+			ChangeState(ATTACK_STATE);
+			m_pTarget = target;
+			return true;
+		}
+	}
+
+	m_pTarget = nullptr;
+	return false;
+}
+
 void CMedic::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Idle/Medic_Idle.bmp", L"Medic_Idle");
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Up.bmp", L"Medic_Walk_Up");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Up_Right_30.bmp", L"Medic_Walk_Up_Right_30");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Up_Right_60.bmp", L"Medic_Walk_Up_Right_60");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Right_90.bmp", L"Medic_Walk_Right_90");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Down_Right_120.bmp", L"Medic_Walk_Down_Right_120");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Down_Right_150.bmp", L"Medic_Walk_Down_Right_150");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Down_Right_160.bmp", L"Medic_Walk_Down_Right_160");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Down_Right_170.bmp", L"Medic_Walk_Down_Right_170");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Down.bmp", L"Medic_Walk_Down");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Down_Left.bmp", L"Medic_Walk_Down_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Left.bmp", L"Medic_Walk_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Work/Medic_Walk_Up_Left.bmp", L"Medic_Walk_Up_Left");
+
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP] = (L"Medic_Walk_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP],{0,13,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP] = (L"Medic_Walk_Up_Right_60");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP],{0,13,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT] = (L"Medic_Walk_Right_90");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT],{0,13,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN] = (L"Medic_Walk_Down_Right_150");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN],{0,13,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN] = (L"Medic_Walk_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN],{0,6,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN] = (L"Medic_Walk_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LDOWN],{0,2,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT] = (L"Medic_Walk_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT],{0,6,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP] = (L"Medic_Walk_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT],{0,6,0,50,GetTickCount()} });
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up.bmp", L"Medic_Attack_Up");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up_Right_30.bmp", L"Medic_Attack_Up_Right_30");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up_Right_45.bmp", L"Medic_Attack_Up_Right_45");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up_Right_60.bmp", L"Medic_Attack_Up_Right_60");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up_Right_60.bmp", L"Medic_Attack_Up_Right_60");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Right.bmp", L"Medic_Attack_Right");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Down_Right_150.bmp", L"Medic_Attack_Down_Right_150");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Down_Right_170.bmp", L"Medic_Attack_Down_Right_170");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Down_Right_170.bmp", L"Medic_Attack_Down_Right_170");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Down.bmp", L"Medic_Attack_Down");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Down_Left.bmp", L"Medic_Attack_Down_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Left.bmp", L"Medic_Attack_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up_Left.bmp", L"Medic_Attack_Up_Left");
+
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP] = (L"Medic_Attack_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_UP],{0,3,0,100,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP] = (L"Medic_Attack_Up_Right_45");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RUP],{0,3,0,100,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT] = (L"Medic_Attack_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RIGHT],{0,3,0,100,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN] = (L"Medic_Attack_Down_Right_150");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_RDOWN],{0,3,0,100,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN] = (L"Medic_Attack_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_DOWN],{0,1,0,100,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN] = (L"Medic_Attack_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LDOWN],{0,3,0,100,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT] = (L"Medic_Attack_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LEFT],{0,3,0,100,GetTickCount()} });
+	m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP] = (L"Medic_Attack_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayAttackKey[DIR_LUP],{0,3,0,100,GetTickCount()} });
+
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Die/Medic_Die.bmp", L"Medic_Die");
 }

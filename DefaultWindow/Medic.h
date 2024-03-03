@@ -13,6 +13,7 @@ public:
 	void Late_Update() override;
 	void Render(HDC hDC) override;
 	void Release() override;
+	virtual bool CheckEnemy() override;
 
 protected:
 	virtual void InsertBmpFile() override;

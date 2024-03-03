@@ -27,7 +27,6 @@ void CFireBat_Idle_State::Initialize(CObj_Dynamic* _fireBat)
 
 int CFireBat_Idle_State::Update(CObj_Dynamic* _fireBat)
 {
-
 	_fireBat->CheckEnemy();
 	return 0;
 }
