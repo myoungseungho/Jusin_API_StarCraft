@@ -44,7 +44,7 @@ void CScv::Initialize()
 
 		m_Stat.m_Hp = 60;
 		m_Stat.m_Attack = 5;
-		m_Stat.m_fSpeed = 3.f;
+		m_Stat.m_fSpeed = 2.f;
 		m_Stat.m_MaxHp = 60;
 		lstrcpyW(m_Stat.m_Name, L"SCV");
 
@@ -196,6 +196,7 @@ void CScv::InsertBmpFile()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/ScvAtt/SCV_Bullet.bmp", L"SCV_Bullet");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Bang1/SCV_Die.bmp", L"SCV_Die");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/SCV_Mineral.bmp", L"SCV_Mineral");
 }
 
 DYNAMIC_OBJID CScv::GetType() const

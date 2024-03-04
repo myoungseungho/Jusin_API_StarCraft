@@ -65,6 +65,7 @@ int CScv_Collection_State::Update(CObj_Dynamic* _scv)
 
 	if (m_bGetMineral)
 	{
+		m_bCollisionMineral = false;
 		CenterMove(_scv);
 	}
 
@@ -78,26 +79,44 @@ void CScv_Collection_State::Late_Update(CObj_Dynamic* _scv)
 
 void CScv_Collection_State::Render(CObj_Dynamic* _scv, HDC hDC)
 {
-	if (!m_bCollisionMineral)
-		return;
-
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+	if (m_bCollisionMineral)
+	{
+		HDC	hBulletDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey_Attack);
 
-	HDC	hBulletDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey_Attack);
+		GdiTransparentBlt(
+			hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+			(_scv->Get_Rect().left + iScrollX), // 복사 받을 위치 좌표
+			(_scv->Get_Rect().top + iScrollY),
+			m_AttackFileSize,	// 복사 받을 이미지의 가로, 세로
+			m_AttackFileSize,
+			hBulletDC,		// 비트맵을 가지고 있는 DC
+			m_AttackFileSize * m_tFrame_Attack.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
+			m_AttackFileSize * m_tFrame_Attack.iMotion,
+			m_AttackFileSize,	// 출력할 비트맵 가로
+			m_AttackFileSize,	// 출력할 비트맵 세로
+			RGB(0, 0, 0));	// 제거할 색상 값
+	}
 
-	GdiTransparentBlt(
-		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		(_scv->Get_Rect().left + iScrollX), // 복사 받을 위치 좌표
-		(_scv->Get_Rect().top + iScrollY),
-		m_AttackFileSize,	// 복사 받을 이미지의 가로, 세로
-		m_AttackFileSize,
-		hBulletDC,		// 비트맵을 가지고 있는 DC
-		m_AttackFileSize * m_tFrame_Attack.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
-		m_AttackFileSize * m_tFrame_Attack.iMotion,
-		m_AttackFileSize,	// 출력할 비트맵 가로
-		m_AttackFileSize,	// 출력할 비트맵 세로
-		RGB(0, 0, 0));	// 제거할 색상 값
+
+	if (m_bGetMineral)
+	{
+		HDC	hMinrealDC = CBmpMgr::Get_Instance()->Find_Image(L"SCV_Mineral");
+
+		GdiTransparentBlt(
+			hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+			(_scv->Get_Rect().left + iScrollX) + 30.f, // 복사 받을 위치 좌표
+			(_scv->Get_Rect().top + iScrollY) + 20.f,
+			32,	// 복사 받을 이미지의 가로, 세로
+			32,
+			hMinrealDC,		// 비트맵을 가지고 있는 DC
+			0,			// 비트맵 출력 시작 좌표 LEFT, TOP
+			0,
+			32,	// 출력할 비트맵 가로
+			32,	// 출력할 비트맵 세로
+			RGB(0, 0, 0));	// 제거할 색상 값
+	}
 }
 
 void CScv_Collection_State::Release(CObj_Dynamic*)

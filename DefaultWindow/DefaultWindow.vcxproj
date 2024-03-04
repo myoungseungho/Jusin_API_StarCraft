@@ -164,6 +164,7 @@
     <ClInclude Include="DefaultWindow.h" />
     <ClInclude Include="Depot_UI.h" />
     <ClInclude Include="DieState.h" />
+    <ClInclude Include="EconomyMgr.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="Factory_UI.h" />
     <ClInclude Include="FireBat.h" />
@@ -289,6 +290,7 @@
     <ClCompile Include="DefaultWindow.cpp" />
     <ClCompile Include="Depot_UI.cpp" />
     <ClCompile Include="DieState.cpp" />
+    <ClCompile Include="EconomyMgr.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Factory_UI.cpp" />
     <ClCompile Include="FireBat.cpp" />
