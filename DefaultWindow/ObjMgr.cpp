@@ -153,6 +153,9 @@ void CObjMgr::Late_Update()
 	{
 		for (size_t j = 0; j < DYNAMIC_OBJ_END; j++)
 		{
+			if (i == 0 && j == 0)
+				continue;
+
 			if (i <= j) {
 				CCollisionMgr::Collision_RectEx(m_Dynamic_Obj_List[i], m_Dynamic_Obj_List[j]);
 			}

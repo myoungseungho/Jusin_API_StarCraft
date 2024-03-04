@@ -68,7 +68,7 @@ int IState::Move(CObj_Dynamic* _unit)
 
 void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 {
-	if (_unit->GetStateID() == WALK_STATE || _unit->GetStateID() == BUILD_STATE || _unit->GetStateID()==COLLECTION_STATE)
+	if (_unit->GetStateID() == WALK_STATE || _unit->GetStateID() == BUILD_STATE || _unit->GetStateID() == COLLECTION_STATE)
 	{
 		if (degree > -22.5f && degree <= 22.5f) {
 			//µ¿ÂÊ

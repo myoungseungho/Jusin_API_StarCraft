@@ -28,6 +28,7 @@ public:
 	CObj* Get_Target_UI(float _fX, float _fY);
 	vector<CObj*> Get_Targets(POINT _initPoint, POINT _goalPoint);
 	list<CObj*>* GetDynamic_Obj_List() { return m_Dynamic_Obj_List; };
+	list<CObj*>* GetStatic_Obj_List() { return m_Static_Obj_List; };
 public:
 	static		CObjMgr* Get_Instance()
 	{
@@ -50,7 +51,6 @@ private:
 	list<CObj*>				m_Dynamic_Obj_List[DYNAMIC_OBJ_END];
 	list<CObj*>				m_Static_Obj_List[STATIC_OBJ_END];
 	list<CObj*>				m_UI_Obj_List[UI_OBJECT_END];
-
 	list<CObj*>				m_RenderList[RENDER_END];
 
 	static CObjMgr* m_pInstance;

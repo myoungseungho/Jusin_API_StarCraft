@@ -30,8 +30,17 @@ void ICollectionState::Release(CObj_Dynamic*)
 {
 }
 
-void ICollectionState::Move_Frame(CObj_Dynamic*)
+void ICollectionState::Move_Frame(CObj_Dynamic* _scv)
 {
+	if (m_tFrame_Attack.dwTime + m_tFrame_Attack.dwSpeed < GetTickCount())
+	{
+		++m_tFrame_Attack.iFrameStart;
+
+		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
+			m_tFrame_Attack.iFrameStart = 0;
+
+		m_tFrame_Attack.dwTime = GetTickCount();
+	}
 }
 
 void ICollectionState::Set_Astar(float _fX, float _fY, float _goalX, float _goalY)

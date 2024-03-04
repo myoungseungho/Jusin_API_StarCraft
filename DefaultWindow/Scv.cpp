@@ -44,7 +44,7 @@ void CScv::Initialize()
 
 		m_Stat.m_Hp = 60;
 		m_Stat.m_Attack = 5;
-		m_Stat.m_fSpeed = 5.f;
+		m_Stat.m_fSpeed = 3.f;
 		m_Stat.m_MaxHp = 60;
 		lstrcpyW(m_Stat.m_Name, L"SCV");
 
