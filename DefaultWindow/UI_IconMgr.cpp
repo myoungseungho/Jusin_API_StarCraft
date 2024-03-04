@@ -64,7 +64,7 @@ void CUI_IconMgr::OnClickObj(CObj* _unit)
 
 	if (dynamic_unit != nullptr)
 	{
-		DynamicSetUI(dynamic_unit->GetType());
+		DynamicSetUI(_unit);
 		return;
 	}
 
@@ -233,6 +233,29 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 	}
 }
 
+void CUI_IconMgr::OnDragObj()
+{
+	bool bOnlyTank = true;
+	vector<CObj*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
+	for (auto iter : vecUnit)
+	{
+		CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(iter);
+		if (dynamicObj->GetType() != DYNAMIC_OBJ_TANK)
+		{
+			bOnlyTank = false;
+			break;
+		}
+	}
+
+	if (bOnlyTank)
+	{
+		for (auto iter : vecUnit)
+		{
+			m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
+		}
+	}
+}
+
 void CUI_IconMgr::SetClear_IconObj()
 {
 	for (auto iter : m_vecUnitIcon)
@@ -269,8 +292,10 @@ void CUI_IconMgr::SetClear_StaticObj()
 	m_vecBuilding.shrink_to_fit();
 }
 
-void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
+void CUI_IconMgr::DynamicSetUI(CObj* _unit)
 {
+	DYNAMIC_OBJID objId = dynamic_cast<CObj_Dynamic*>(_unit)->GetType();
+
 	if (objId == DYNAMIC_OBJ_SCV)
 	{
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
@@ -317,20 +342,16 @@ void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 
 		if (objId == DYNAMIC_OBJ_TANK)
 		{
-			list<CObj*> vecUnit = CObjMgr::Get_Instance()->GetDynamic_Obj_List()[DYNAMIC_OBJ_TANK];
-			for (auto iter : vecUnit)
-			{
-				CTank* dynamicObj = dynamic_cast<CTank*>(iter);
-				if (dynamicObj != nullptr)
-					if (dynamicObj->GetStateID() == SIEGEMODE_STATE)
-					{
-						m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_DefaultMode>(UI_OBJECT_ICON, 655.f, 570.f));
-					}
-					else
-					{
-						m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
-					}
-			}
+			CTank* dynamicObj = dynamic_cast<CTank*>(_unit);
+			if (dynamicObj != nullptr)
+				if (dynamicObj->GetStateID() == SIEGEMODE_STATE)
+				{
+					m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_DefaultMode>(UI_OBJECT_ICON, 655.f, 570.f));
+				}
+				else
+				{
+					m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
+				}
 		}
 	}
 }

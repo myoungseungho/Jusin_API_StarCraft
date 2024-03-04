@@ -12,10 +12,11 @@ public:
 public:
 	void OnClickObj(CObj* _unit);
 	void OnClickIcon(CObj* _unit);
+	void OnDragObj();
 	void SetClear_IconObj();
 	void SetClear_StaticObj();
 	void SetClear_CurrentBuilding() { m_CurrentBuilding = UI_STATIC_OBJ_END; };
-	void DynamicSetUI(DYNAMIC_OBJID);
+	void DynamicSetUI(CObj*);
 	void StaticSetUI(BUILDINGSTATE);
 
 	UI_BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }

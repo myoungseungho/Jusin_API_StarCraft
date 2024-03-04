@@ -108,6 +108,7 @@ void CUIMgr::OnDragObj()
 	}
 
 	m_UI_WireMgr->OnDragObj();
+	m_UI_IconMgr->OnDragObj();
 	m_UI_TextMgr->SetClear_Text();
 }
 
@@ -129,10 +130,10 @@ void CUIMgr::SetClear_StaticObj()
 	m_UI_IconMgr->SetClear_StaticObj();
 }
 
-void CUIMgr::DynamicSetUI(DYNAMIC_OBJID objId)
-{
-	m_UI_IconMgr->DynamicSetUI(objId);
-}
+//void CUIMgr::DynamicSetUI(DYNAMIC_OBJID objId)
+//{
+//	m_UI_IconMgr->DynamicSetUI(objId);
+//}
 
 void CUIMgr::StaticSetUI(BUILDINGSTATE objId)
 {

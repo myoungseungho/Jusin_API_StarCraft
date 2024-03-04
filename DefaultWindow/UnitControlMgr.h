@@ -31,9 +31,11 @@ public:
 	void Set_Clear_Building() { m_Building = nullptr; };
 	vector<CObj*>& GetVecUnitOrBuilding() { return m_vecUnitOrBuilding; };
 	CObj* GetBuilding() { return m_Building; };
-
+	void Set_EnemyList(list<CObj_Dynamic*> _list) { m_listEnemy = _list; };
+	list<CObj_Dynamic*>* Get_EnemyList() { return &m_listEnemy; };
 private:
 	static CUnitControlMgr* m_pInstance;
+	list<CObj_Dynamic*> m_listEnemy;
 	vector<CObj*> m_vecUnitOrBuilding;
 	vector<HDC> m_vecHDC[DYNAMIC_OBJ_END];
 	CObj* m_Building;

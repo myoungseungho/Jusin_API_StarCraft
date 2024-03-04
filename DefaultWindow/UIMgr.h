@@ -41,7 +41,7 @@ public:
 	void SetClear_Dynamic_Obj();
 	void SetClear_StaticObj();
 	void SetClear_CurrentBuilding() { m_UI_IconMgr->SetClear_CurrentBuilding(); };
-	void DynamicSetUI(DYNAMIC_OBJID);
+	//void DynamicSetUI(DYNAMIC_OBJID);
 	void StaticSetUI(BUILDINGSTATE);
 	CUI_IconMgr* GetUIIconMgr() { return m_UI_IconMgr; }
 	CUI_WireMgr* GetUIWireMgr() { return m_UI_WireMgr; }

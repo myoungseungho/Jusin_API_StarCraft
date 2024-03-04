@@ -200,28 +200,19 @@ void CStage::Ally_Dynamic_Obj_Spawn()
 
 void CStage::Enemy_Dynamic_Obj_Spawn()
 {
-	//CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 650.f, 600.f);
-
-	CObj_Dynamic* tank2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ENEMY, 700.f, 1000.f);
-
+	list<CObj_Dynamic*> enemyList;
 	for (size_t i = 0; i < 20; i++)
 	{
 		if (i > 10)
 		{
-
 			CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 650.f, 800.f + i * 10.f);
+			enemyList.push_back(marine);
 		}
 		else
 		{
-			//CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 650.f + i * 10.f, 800.f);
 			CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ENEMY, 650.f + i * 10.f, 800.f);
-
+			enemyList.push_back(fireBat);
 		}
-		//	/*CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 700.f + i * 10.f, 300.f);
-		//	CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ENEMY, 700.f + i * 10.f, 400.f);*/
-		//}
-	//	//CObj_Dynamic* marine2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 700.f, 300.f);
-	//	//CObj_Dynamic* fireBat2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ENEMY, 700.f, 400.f);
-	//	CObj_Dynamic* tank2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ENEMY, 700.f, 500.f);
+		CUnitControlMgr::Get_Instance()->Set_EnemyList(enemyList);
 	}
 }

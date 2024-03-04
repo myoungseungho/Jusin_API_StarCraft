@@ -67,6 +67,8 @@ void CUI_WireMgr::OnDragObj()
 	//´Ù½Ã °¡Á®¿È.
 	m_vecUnitCopy = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
 
+	bool bOnlyTank = true;
+
 	if (m_vecUnitCopy.size() > 1)
 	{
 		for (size_t i = 0; i < m_vecUnitCopy.size(); i++)
@@ -93,15 +95,19 @@ void CUI_WireMgr::OnDragObj()
 			{
 			case DYNAMIC_OBJ_SCV:
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				bOnlyTank = false;
 				break;
 			case DYNAMIC_OBJ_MARINE:
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				bOnlyTank = false;
 				break;
 			case DYNAMIC_OBJ_FIREBAT:
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				bOnlyTank = false;
 				break;
 			case DYNAMIC_OBJ_MEDIC:
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				bOnlyTank = false;
 				break;
 			case DYNAMIC_OBJ_TANK:
 				if (dynamic_cast<CObj_Dynamic*>(m_vecUnitCopy[i])->GetStateID() == SIEGEMODE_STATE)

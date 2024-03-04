@@ -5,6 +5,7 @@
 #include "Drag_LMouse_Long.h"
 #include "ScrollMgr.h"
 #include "SoundMgr.h"
+#include "UnitControlMgr.h"
 
 CKeyMgr* CKeyMgr::m_pInstance = nullptr;
 
@@ -198,8 +199,41 @@ void CKeyMgr::KeyBoard_HandleInput()
 	{
 		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
 	}
-}
 
+	else if (GetAsyncKeyState(VK_F3))
+	{
+		list<CObj_Dynamic*> enemyList = *(CUnitControlMgr::Get_Instance()->Get_EnemyList());
+
+		for (auto iter = enemyList.begin(); iter != enemyList.end(); ) {
+			if (*iter == nullptr || (*iter)->Get_Dead()) {
+				iter = enemyList.erase(iter); // erase가 다음 유효한 반복자를 반환
+			}
+			else {
+				++iter; // 요소가 삭제되지 않으면 반복자를 증가
+			}
+		}
+
+		POINT pt;
+		pt.x = 10.f;
+		pt.y = 10.f;
+
+		for (auto iter = enemyList.begin(); iter != enemyList.end(); ) {
+			if (*iter == nullptr || (*iter)->Get_Dead()) {
+				iter = enemyList.erase(iter); // erase가 다음 유효한 반복자를 반환
+			}
+			else {
+
+				if (*iter == nullptr || (*iter)->Get_Dead()) {
+					iter = enemyList.erase(iter); // erase가 다음 유효한 반복자를 반환
+					continue;
+				}
+
+				(*iter)->ChangeStateWithMouse(pt, WALK_STATE);
+				++iter; // 요소가 삭제되지 않으면 반복자를 증가
+			}
+		}
+	}
+}
 void CKeyMgr::OffSet()
 {
 	int	iOffSetMinX = 0;
