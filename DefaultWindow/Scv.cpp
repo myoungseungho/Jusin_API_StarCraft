@@ -12,6 +12,7 @@
 #include "TileMgr.h"
 #include "SpawnMgr.h"
 #include "UI_SCV_Display.h"
+#include "Scv_Collection_State.h"
 CScv::CScv()
 {
 	InsertBmpFile();
@@ -37,6 +38,7 @@ void CScv::Initialize()
 		m_vecState.push_back(new CScv_Attack_State);
 		m_vecState.push_back(new CScv_Die_State);
 		m_vecState.push_back(new CScv_Build_State);
+		m_vecState.push_back(new CScv_Collection_State);
 
 		ChangeState(IDLE_STATE);
 

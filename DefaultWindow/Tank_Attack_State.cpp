@@ -45,7 +45,6 @@ void CTank_Attack_State::Initialize(CObj_Dynamic* _tank)
 	m_tFrame_Attack.dwSpeed = 150;
 	m_tFrame_Attack.dwTime = GetTickCount();
 
-
 	m_TankPosinSize = 128;
 	m_TankPosinLaunchSize = 128;
 	m_BulletSize = 44;

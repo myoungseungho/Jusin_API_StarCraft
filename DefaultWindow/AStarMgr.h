@@ -29,6 +29,8 @@ public:
 
 public:
 	list<pair<int, int>> AStarSearch(const pair<int, int>& start, const pair<int, int>& goal);
+	list<pair<int, int>> SCV_AStarSearch(const pair<int, int>& start, const pair<int, int>& goal);
+
 	bool CanMoveDiagonally(const vector<vector<bool>>& obstacles, int currentX, int currentY, int nextX, int nextY);
 	double OctileDistance(int x1, int y1, int x2, int y2);
 public:

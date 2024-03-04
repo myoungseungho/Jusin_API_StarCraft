@@ -19,7 +19,7 @@ public:
 protected:
 	virtual void Move_Frame(CObj_Dynamic*) PURE;
 public:
-	void Set_Astar(float, float, float, float);
+	virtual void Set_Astar(float, float, float, float);
 	int Move(CObj_Dynamic* _unit);
 protected:
 	list<CObj*> m_listPathTile;

@@ -265,6 +265,9 @@
     <Filter Include="01. Obj\03. UI\09. MiniMap">
       <UniqueIdentifier>{9e6fe1a4-9f31-43ad-8c22-2b23fc1008f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\99. State\05. CollectionState">
+      <UniqueIdentifier>{131c8cf6-881b-4b44-8bb2-887833d71514}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -636,6 +639,12 @@
     <ClInclude Include="UI_MiniMap.h">
       <Filter>01. Obj\03. UI\09. MiniMap</Filter>
     </ClInclude>
+    <ClInclude Include="CollectionState.h">
+      <Filter>01. Obj\99. State\05. CollectionState</Filter>
+    </ClInclude>
+    <ClInclude Include="Scv_Collection_State.h">
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -994,6 +1003,12 @@
     </ClCompile>
     <ClCompile Include="UI_MiniMap.cpp">
       <Filter>01. Obj\03. UI\09. MiniMap</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectionState.cpp">
+      <Filter>01. Obj\99. State\05. CollectionState</Filter>
+    </ClCompile>
+    <ClCompile Include="Scv_Collection_State.cpp">
+      <Filter>01. Obj\00. Unit\00. SCV</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

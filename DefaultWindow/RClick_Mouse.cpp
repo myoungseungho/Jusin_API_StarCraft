@@ -6,6 +6,7 @@
 #include "UnitControlMgr.h"
 #include "KeyMgr.h"
 #include "Scv.h"
+#include "Obj_Static.h"
 CRClick_Mouse::CRClick_Mouse()
 {
 }
@@ -45,11 +46,16 @@ void CRClick_Mouse::Initialize()
 	//좌표에 해당하는 유닛을 반환한다.
 	CObj* target = CObjMgr::Get_Instance()->Get_Target(Pt.x, Pt.y);
 
+
 	vector<CObj*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
 
 	//선택된 유닛중에서 타겟이 있고, 타겟이 적이라면 공격, 아니면 이동
 	for (auto iter : vecUnit)
 	{
+		//건물이면 Return
+		if (dynamic_cast<CObj_Static*>(iter) != nullptr)
+			return;
+
 		CObj_Dynamic* dynamicIter = dynamic_cast<CObj_Dynamic*>(iter);
 		if (target != nullptr && dynamicIter)
 		{
@@ -69,7 +75,7 @@ void CRClick_Mouse::Initialize()
 				break;
 			case FACTION_RESOURCE:
 				if (scv != nullptr)
-					dynamicIter->ChangeStateWithMouse(Pt, ATTACK_STATE);
+					dynamicIter->ChangeStateWithMouse(Pt, COLLECTION_STATE);
 				else
 					dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
 				break;
