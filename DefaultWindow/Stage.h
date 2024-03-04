@@ -18,8 +18,9 @@ private:
 	void Init_Bmp();
 private:
 	void Init_Obj_Spawn();
-	void Static_Obj_Spawn();
-	void Ally_Obj_Spawn();
-	void Enemy_Obj_Spawn();
+	void Ally_Static_Obj_Spawn();
+	void Enemy_Static_Obj_Spawn();
+	void Ally_Dynamic_Obj_Spawn();
+	void Enemy_Dynamic_Obj_Spawn();
 };
 
