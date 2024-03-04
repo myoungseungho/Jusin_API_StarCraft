@@ -76,6 +76,7 @@ enum STATEID
 	DIE_STATE,
 	BUILD_STATE,
 	COLLECTION_STATE,
+	SIEGEMODE_STATE,
 	END_STATE
 };
 
@@ -136,6 +137,8 @@ enum ICONSTATE
 	ICON_ATTACK,
 	ICON_BUILD,
 	ICON_ADVANCED_BUILD,
+	ICON_SIEGE_MODE,
+	ICON_DEFAULT_MODE,
 	ICON_CENTER,
 	ICON_BARRACK,
 	ICON_DEPOT,
@@ -288,6 +291,7 @@ typedef struct tagKeyFrame
 	wchar_t* m_FrameBulletAttackKey[DIR_END];
 	wchar_t* m_FrameTankPosinKey[DIR_END];
 	wchar_t* m_FrameTankPosinLaunchKey[DIR_END];
+	wchar_t* m_FrameSiegeTankKey[DIR_END];
 
 	map<wchar_t*, FRAME> _mapKeyFrame;
 }KEYANDFRAME;

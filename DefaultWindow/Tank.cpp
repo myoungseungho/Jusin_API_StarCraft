@@ -8,6 +8,8 @@
 #include "Tank_Die_State.h"
 #include "SpawnMgr.h"
 #include "UI_Tank_Display.h"
+#include "Tank_Siege_Mode.h"
+
 CTank::CTank()
 {
 	InsertBmpFile();
@@ -32,6 +34,9 @@ void CTank::Initialize()
 		m_vecState.push_back(new CTank_Walk_State);
 		m_vecState.push_back(new CTank_Attack_State);
 		m_vecState.push_back(new CTank_Die_State);
+		m_vecState.push_back(nullptr);
+		m_vecState.push_back(nullptr);
+		m_vecState.push_back(new CTank_Siege_Mode);
 
 		ChangeState(IDLE_STATE);
 
@@ -70,7 +75,7 @@ void CTank::Late_Update()
 {
 	m_vecState[m_CurrentState]->Late_Update(this);
 
-	__super::Move_Frame();
+	Move_Frame();
 }
 
 void CTank::Render(HDC hDC)
@@ -223,8 +228,96 @@ void CTank::InsertBmpFile()
 	m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LUP] = (L"TankLaunch_Up_Left");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameTankPosinLaunchKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
 
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Lower/Lower_STank_On.bmp", L"Lower_STank_On");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Lower/Lower_STank_Off.bmp", L"Lower_STank_Off");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Idle/Upper_STank_On.bmp", L"Upper_STank_On");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Idle/Upper_STank_Off.bmp", L"Upper_STank_Off");
+
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Up.bmp", L"Upper_STank_Attack_Up");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Up_Right.bmp", L"Upper_STank_Attack_Up_Right");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Right.bmp", L"Upper_STank_Attack_Right");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Down_Right.bmp", L"Upper_STank_Attack_Down_Right");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Down.bmp", L"Upper_STank_Attack_Down");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Down_Left.bmp", L"Upper_STank_Attack_Down_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Left.bmp", L"Upper_STank_Attack_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/STank/Upper/Attack/Upper_STank_Attack_Up_Left.bmp", L"Upper_STank_Attack_Up_Left");
+
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_UP] = (L"Upper_STank_Attack_Up");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_UP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_RUP] = (L"Upper_STank_Attack_Up_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_RUP],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_RIGHT] = (L"Upper_STank_Attack_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_RIGHT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_RDOWN] = (L"Upper_STank_Attack_Down_Right");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_RDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_DOWN] = (L"Upper_STank_Attack_Down");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_DOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_LDOWN] = (L"Upper_STank_Attack_Down_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_LDOWN],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_LEFT] = (L"Upper_STank_Attack_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_LEFT],{0,0,0,50,GetTickCount()} });
+	m_KeyAndFrame.m_FrameSiegeTankKey[DIR_LUP] = (L"Upper_STank_Attack_Up_Left");
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameSiegeTankKey[DIR_LUP],{0,0,0,50,GetTickCount()} });
+
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/TankHit/TankHit.bmp", L"TankHit");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Effect/Bang2/Tank_BANG.bmp", L"Tank_BANG");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Bullet/TankAtt/SiegeTank_Attack.bmp", L"SiegeTank_Attack");
+}
+
+void CTank::Move_Frame()
+{
+	if (m_CurrentState == SIEGEMODE_STATE)
+	{
+		if (!m_bSiegeModeComplete)
+		{
+			if (m_tFrame.dwTime + m_tFrame.dwSpeed < GetTickCount())
+			{
+				++m_tFrame.iFrameStart;
+
+				if (m_tFrame.iFrameStart > m_tFrame.iFrameEnd)
+				{
+					if (m_pFrameKey == L"Lower_STank_On")
+					{
+						m_tFrame.iFrameStart = m_tFrame.iFrameEnd;
+						m_bSiegeModeComplete = true;
+					}
+					else
+					{
+						ChangeState(IDLE_STATE);
+					}
+				}
+
+				m_tFrame.dwTime = GetTickCount();
+			}
+		}
+	}
+	else
+	{
+		if (m_tFrame.dwTime + m_tFrame.dwSpeed < GetTickCount())
+		{
+			++m_tFrame.iFrameStart;
+
+			if (m_tFrame.iFrameStart > m_tFrame.iFrameEnd)
+			{
+				m_tFrame.iFrameStart = 0;
+			}
+
+			m_tFrame.dwTime = GetTickCount();
+		}
+	}
+
+
+	if (m_tFrameDisplay.dwTime + m_tFrameDisplay.dwSpeed < GetTickCount())
+	{
+		++m_tFrameDisplay.iFrameStart;
+
+		if (m_tFrameDisplay.iFrameStart > m_tFrameDisplay.iFrameEnd)
+		{
+			m_tFrameDisplay.iFrameStart = 0;
+		}
+
+		m_tFrameDisplay.dwTime = GetTickCount();
+	}
 }
 
 DYNAMIC_OBJID CTank::GetType() const

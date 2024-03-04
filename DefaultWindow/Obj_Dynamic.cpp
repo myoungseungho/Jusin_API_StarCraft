@@ -2,7 +2,7 @@
 #include "Obj_Dynamic.h"
 #include "CollisionMgr.h"
 #include "ObjMgr.h"
-CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false), m_OnceDead(false), m_AttackRun(false), m_DisPlayCopy(nullptr)
+CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false), m_OnceDead(false), m_AttackRun(false), m_DisPlayCopy(nullptr), m_bSiegeModeComplete(false)
 {
 }
 
@@ -49,6 +49,7 @@ void CObj_Dynamic::ChangeState(STATEID _sId)
 	m_CurrentState = _sId;
 	m_vecState[_sId]->Initialize(this);
 }
+
 
 void CObj_Dynamic::ChangeStateWithMouse(POINT _pt, STATEID _sId)
 {

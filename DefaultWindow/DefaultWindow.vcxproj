@@ -238,6 +238,7 @@
     <ClInclude Include="UI_Build.h" />
     <ClInclude Include="UI_Center.h" />
     <ClInclude Include="UI_Center_Wire.h" />
+    <ClInclude Include="UI_DefaultMode.h" />
     <ClInclude Include="UI_Depot.h" />
     <ClInclude Include="UI_Depot_Wire.h" />
     <ClInclude Include="UI_Factory.h" />
@@ -263,6 +264,7 @@
     <ClInclude Include="UI_SCV_Icon.h" />
     <ClInclude Include="UI_SCV_Wire_Big.h" />
     <ClInclude Include="UI_SCV_Wire_Small.h" />
+    <ClInclude Include="UI_SiegeMode_Icon.h" />
     <ClInclude Include="UI_StarPort.h" />
     <ClInclude Include="UI_StarPort_Wire.h" />
     <ClInclude Include="UI_Stop_Icon.h" />
@@ -368,6 +370,7 @@
     <ClCompile Include="UI_Build.cpp" />
     <ClCompile Include="UI_Center.cpp" />
     <ClCompile Include="UI_Center_Wire.cpp" />
+    <ClCompile Include="UI_DefaultMode.cpp" />
     <ClCompile Include="UI_Depot.cpp" />
     <ClCompile Include="UI_Depot_Wire.cpp" />
     <ClCompile Include="UI_Factory.cpp" />
@@ -393,6 +396,7 @@
     <ClCompile Include="UI_SCV_Icon.cpp" />
     <ClCompile Include="UI_SCV_Wire_Big.cpp" />
     <ClCompile Include="UI_SCV_Wire_Small.cpp" />
+    <ClCompile Include="UI_SiegeMode_Icon.cpp" />
     <ClCompile Include="UI_StarPort.cpp" />
     <ClCompile Include="UI_StarPort_Wire.cpp" />
     <ClCompile Include="UI_Stop_Icon.cpp" />

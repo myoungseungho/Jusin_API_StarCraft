@@ -41,6 +41,18 @@ protected:
 	//≈ ≈© ∆˜Ω≈¿Ã∆Â∆Æ
 	FRAME  m_tFrame_Attack_TankPosin;
 	TCHAR* m_pFrameKey_Attack_TankPosin;
+
+	//Ω√¡Ó≈ ≈© On
+	FRAME  m_tFrame_SiegeOn;
+	TCHAR* m_pFrameKey_SiegeOn;
+
+	//Ω√¡Ó≈ ≈© off
+	FRAME  m_tFrame_SiegeOff;
+	TCHAR* m_pFrameKey_SiegeOff;
+
+	//Ω√¡Ó≈ ≈©
+	FRAME  m_tFrame_Attack_Siege;
+	TCHAR* m_pFrameKey_Attack_Siege;
 protected:
 	void DetermineKey(CObj_Dynamic*, float);
 };

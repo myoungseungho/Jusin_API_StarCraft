@@ -9,6 +9,7 @@
 #include "Obj_Static.h"
 #include "TileMgr.h"
 #include "SoundMgr.h"
+#include "Tank.h"
 CLClick_Mouse::CLClick_Mouse()
 {
 }
@@ -46,8 +47,8 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 	CUIMgr::Get_Instance()->OnClickObj(target);
 	CUnitControlMgr::Get_Instance()->Set_Add_Unit(target);
 	CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
+	CTank* tank = dynamic_cast<CTank*>(target);
 	CObj_Dynamic* dynamicTarget = dynamic_cast<CObj_Dynamic*>(target);
-	dynamicTarget->ChangeState(IDLE_STATE);
 
 	vector<wchar_t*> m_UnitSound;
 
@@ -89,6 +90,14 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 		}
 		break;
 	}
+
+	if (tank)
+	{
+		if (tank->GetStateID() == SIEGEMODE_STATE)
+			return;
+	}
+	else
+		dynamicTarget->ChangeState(IDLE_STATE);
 }
 
 void CLClick_Mouse::HandleStaticObjectClick(CObj* target)

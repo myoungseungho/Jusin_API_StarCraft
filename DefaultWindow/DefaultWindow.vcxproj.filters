@@ -274,6 +274,12 @@
     <Filter Include="01. Obj\03. UI\10. Resource">
       <UniqueIdentifier>{b0c78dd3-a2be-4065-a282-c6583d7b8610}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\01. Unit_Icon\05. SiegeMode_Icon">
+      <UniqueIdentifier>{58d2b251-884c-451e-90c2-84c941aa6926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Unit_Icon\06. DefalutMode_Icon">
+      <UniqueIdentifier>{635e1585-32ff-45e8-a1a0-dea9fc2dc282}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -657,6 +663,12 @@
     <ClInclude Include="UI_Resource.h">
       <Filter>01. Obj\03. UI\10. Resource</Filter>
     </ClInclude>
+    <ClInclude Include="UI_SiegeMode_Icon.h">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\05. SiegeMode_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_DefaultMode.h">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\06. DefalutMode_Icon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1027,6 +1039,12 @@
     </ClCompile>
     <ClCompile Include="UI_Resource.cpp">
       <Filter>01. Obj\03. UI\10. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_SiegeMode_Icon.cpp">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\05. SiegeMode_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_DefaultMode.cpp">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\06. DefalutMode_Icon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

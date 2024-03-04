@@ -41,7 +41,7 @@ public:
 		}
 
 	};
-	void		Move_Frame();
+	virtual void		Move_Frame();
 
 	void		ChangeState(STATEID);
 
@@ -54,8 +54,12 @@ public:
 	virtual bool CheckEnemy();
 	POINT GetMousePT() { return m_MousePT; };
 	STATEID GetStateID() { return m_CurrentState; }
-
+	IState* GetCurrentState(STATEID _sId) { return m_vecState[_sId]; }
 	virtual DYNAMIC_OBJID GetType() const PURE;
+
+public:
+	void SetBoolSiegeMode(bool _mSiegeMode) { m_bSiegeModeComplete = _mSiegeMode; };
+	bool GetBoolSiegeMode() { return m_bSiegeModeComplete; }
 
 protected:
 	float		m_fDistance;
@@ -67,5 +71,6 @@ protected:
 	bool		m_AttackRun;
 	CObj_UI* m_DisPlayCopy;
 	KEYANDFRAME m_KeyAndFrame;
+	bool m_bSiegeModeComplete;
 };
 

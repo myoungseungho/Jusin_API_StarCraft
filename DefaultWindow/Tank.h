@@ -13,11 +13,10 @@ public:
 	void Late_Update() override;
 	void Render(HDC hDC) override;
 	void Release() override;
-
+public:
+	DYNAMIC_OBJID GetType() const override;
 protected:
 	virtual void InsertBmpFile() override;
-
-	// CObj_Dynamic을(를) 통해 상속됨
-	DYNAMIC_OBJID GetType() const override;
+	virtual void Move_Frame() override;
 };
 

@@ -7,6 +7,7 @@
 #include "KeyMgr.h"
 #include "Scv.h"
 #include "Obj_Static.h"
+#include "Tank.h"
 CRClick_Mouse::CRClick_Mouse()
 {
 }
@@ -57,6 +58,13 @@ void CRClick_Mouse::Initialize()
 			return;
 
 		CObj_Dynamic* dynamicIter = dynamic_cast<CObj_Dynamic*>(iter);
+		CTank* tank = dynamic_cast<CTank*>(iter);
+		if (tank)
+		{
+			if (tank->GetStateID() == SIEGEMODE_STATE)
+				return;
+		}
+
 		if (target != nullptr && dynamicIter)
 		{
 			FACTIONSTATE factionId = target->Get_FactionState();

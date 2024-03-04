@@ -38,6 +38,9 @@
 #include "Tank.h"
 #include "SoundMgr.h"
 #include "EconomyMgr.h"
+#include "UI_SiegeMode_Icon.h"
+#include "UI_DefaultMode.h"
+#include "Tank_Siege_Mode.h"
 CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END)
 {
 }
@@ -113,6 +116,30 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 						iter->Get_Frame()->iFrameStart = 1;
 				}
 			}
+		}
+	}
+	else if (ICONId == ICON_SIEGE_MODE)
+	{
+		vector<CObj*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
+		for (auto iter : vecUnit)
+		{
+			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(iter);
+			if (dynamicObj != nullptr)
+				if (dynamicObj->GetType() == DYNAMIC_OBJ_TANK)
+				{
+					dynamicObj->ChangeState(SIEGEMODE_STATE);
+				}
+		}
+
+	}
+	else if (ICONId == ICON_DEFAULT_MODE)
+	{
+		vector<CObj*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
+		for (auto iter : vecUnit)
+		{
+			CTank* tankObj = dynamic_cast<CTank*>(iter);
+
+			dynamic_cast<CTank_Siege_Mode*>(tankObj->GetCurrentState(SIEGEMODE_STATE))->SetDefaultMode();
 		}
 	}
 	else if (ICONId == ICON_CENTER)
@@ -286,6 +313,24 @@ void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 
 			if (iter->GetDetailType() == ICON_ATTACK)
 				iter->Get_Frame()->iFrameStart = 1;
+		}
+
+		if (objId == DYNAMIC_OBJ_TANK)
+		{
+			list<CObj*> vecUnit = CObjMgr::Get_Instance()->GetDynamic_Obj_List()[DYNAMIC_OBJ_TANK];
+			for (auto iter : vecUnit)
+			{
+				CTank* dynamicObj = dynamic_cast<CTank*>(iter);
+				if (dynamicObj != nullptr)
+					if (dynamicObj->GetStateID() == SIEGEMODE_STATE)
+					{
+						m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_DefaultMode>(UI_OBJECT_ICON, 655.f, 570.f));
+						return;
+					}
+			}
+
+
+			m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
 		}
 	}
 }
