@@ -265,6 +265,8 @@
     <ClInclude Include="UI_SCV_Wire_Big.h" />
     <ClInclude Include="UI_SCV_Wire_Small.h" />
     <ClInclude Include="UI_SiegeMode_Icon.h" />
+    <ClInclude Include="UI_SiegeTank_Wire_Big.h" />
+    <ClInclude Include="UI_STank_Wire_Small.h" />
     <ClInclude Include="UI_StarPort.h" />
     <ClInclude Include="UI_StarPort_Wire.h" />
     <ClInclude Include="UI_Stop_Icon.h" />
@@ -397,6 +399,8 @@
     <ClCompile Include="UI_SCV_Wire_Big.cpp" />
     <ClCompile Include="UI_SCV_Wire_Small.cpp" />
     <ClCompile Include="UI_SiegeMode_Icon.cpp" />
+    <ClCompile Include="UI_SiegeTank_Wire_Big.cpp" />
+    <ClCompile Include="UI_STank_Wire_Small.cpp" />
     <ClCompile Include="UI_StarPort.cpp" />
     <ClCompile Include="UI_StarPort_Wire.cpp" />
     <ClCompile Include="UI_Stop_Icon.cpp" />

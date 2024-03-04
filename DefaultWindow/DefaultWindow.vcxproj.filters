@@ -669,6 +669,12 @@
     <ClInclude Include="UI_DefaultMode.h">
       <Filter>01. Obj\03. UI\01. Unit_Icon\06. DefalutMode_Icon</Filter>
     </ClInclude>
+    <ClInclude Include="UI_SiegeTank_Wire_Big.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_STank_Wire_Small.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1045,6 +1051,12 @@
     </ClCompile>
     <ClCompile Include="UI_DefaultMode.cpp">
       <Filter>01. Obj\03. UI\01. Unit_Icon\06. DefalutMode_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_SiegeTank_Wire_Big.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_STank_Wire_Small.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
