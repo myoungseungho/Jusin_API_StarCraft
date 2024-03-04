@@ -49,7 +49,7 @@ void CTank_Attack_State::Initialize(CObj_Dynamic* _tank)
 	m_TankPosinSize = 128;
 	m_TankPosinLaunchSize = 128;
 	m_BulletSize = 44;
-	m_Offset_Attack = 30.f;
+	m_Offset_Attack = 0.f;
 
 	_tank->SetAttackRun(false);
 }
