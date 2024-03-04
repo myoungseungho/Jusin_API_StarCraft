@@ -3,6 +3,7 @@
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
 #include "SoundMgr.h"
+#include "ObjMgr.h"
 CTank_Siege_Mode::CTank_Siege_Mode() : m_bIdleReady(false), m_BulletSizeX(0), m_BulletSizeY(0), m_Offset_Attack(0), m_AttackLastTime(0), m_bSiegeOn(false), m_AttackCoolTime(false)
 {
 }
@@ -288,7 +289,13 @@ void CTank_Siege_Mode::Attack(CObj_Dynamic* _tank)
 				CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_SIEGE_ATTACK, 1);
 
 				DetermineKey(_tank, degree);
-				dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_tank->Get_Stat().m_Attack);
+
+				list<CObj*> nearObjList = CObjMgr::Get_Instance()->GetNearUnit(dynamicObj, 50.f);
+				for (auto iter : nearObjList)
+				{
+					dynamic_cast<CObj_Dynamic*>(iter)->Set_Damage(_tank->Get_Stat().m_Attack);
+				}
+
 				m_AttackLastTime = currentTime;
 				m_AttackCoolTime = true;
 			}

@@ -29,6 +29,7 @@ public:
 	vector<CObj*> Get_Targets(POINT _initPoint, POINT _goalPoint);
 	list<CObj*>* GetDynamic_Obj_List() { return m_Dynamic_Obj_List; };
 	list<CObj*>* GetStatic_Obj_List() { return m_Static_Obj_List; };
+	list<CObj*> GetNearUnit(CObj_Dynamic*, float);
 public:
 	static		CObjMgr* Get_Instance()
 	{

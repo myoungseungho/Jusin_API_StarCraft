@@ -294,3 +294,23 @@ vector<CObj*> CObjMgr::Get_Targets(POINT _initPoint, POINT _goalPoint)
 
 	return vecDragObj;
 }
+
+list<CObj*> CObjMgr::GetNearUnit(CObj_Dynamic* _unit, float _distance)
+{
+	list<CObj*> nearDynamicObjList;
+	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	{
+		for (auto iter : m_Dynamic_Obj_List[i])
+		{
+			// 이동해야 할 방향 벡터 계산
+			float dirX = iter->Get_Info().fX - _unit->Get_Info().fX;
+			float dirY = iter->Get_Info().fY - _unit->Get_Info().fY;
+			float distance = sqrt(dirX * dirX + dirY * dirY);
+
+			if (distance < _distance)
+				nearDynamicObjList.push_back(iter);
+		}
+	}
+
+	return nearDynamicObjList;
+}

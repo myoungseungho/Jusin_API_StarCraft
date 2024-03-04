@@ -106,6 +106,7 @@ void CLClick_Mouse::HandleStaticObjectClick(CObj* target)
 	{
 		CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 		CUnitControlMgr::Get_Instance()->Set_Clear_Building();
+		CUIMgr::Get_Instance()->SetClear_Dynamic_Obj();
 	}
 
 	CUnitControlMgr::Get_Instance()->Set_Add_Building(target);
