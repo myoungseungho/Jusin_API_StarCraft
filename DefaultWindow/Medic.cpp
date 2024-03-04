@@ -190,7 +190,7 @@ void CMedic::InsertBmpFile()
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT] = (L"Medic_Walk_Left");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT],{0,6,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP] = (L"Medic_Walk_Up_Left");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LEFT],{0,6,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_LUP],{0,6,0,50,GetTickCount()} });
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up.bmp", L"Medic_Attack_Up");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Medic/Attack/Medic_Attack_Up_Right_45.bmp", L"Medic_Attack_Up_Right_45");

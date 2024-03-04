@@ -5,7 +5,7 @@
 #include "BmpMgr.h"
 #include "ObjMgr.h"
 #include "EconomyMgr.h"
-CScv_Collection_State::CScv_Collection_State() : m_bCollisionCenter(false), m_AttackFileSize(0), m_Offset_Attack(0), m_CurrentTime(GetTickCount()), m_bGetMineral(false), m_targetMineral(nullptr)
+CScv_Collection_State::CScv_Collection_State() : m_bCollisionCenter(false), m_AttackFileSize(0), m_Offset_Attack(0), m_CurrentTime(GetTickCount()), m_bGetMineral(false), m_targetMineral(nullptr), m_bCollisionMineral(false)
 {
 }
 
@@ -37,7 +37,6 @@ void CScv_Collection_State::Initialize(CObj_Dynamic* _scv)
 	m_AttackFileSize = 48;
 	m_Offset_Attack = 0;
 
-	//POINT scvPoint = _scv->GetMousePT();
 	INFO info = _scv->Get_Info();
 
 	int ScvX = info.fX / TILECX;
