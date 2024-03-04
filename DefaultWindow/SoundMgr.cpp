@@ -79,6 +79,9 @@ void CSoundMgr::Initialize()
 
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_READY].push_back(L"ttardy00.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_ATTACK].push_back(L"TTaFir00.wav");
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_SIEGE_ATTACK].push_back(L"TTaFi200.wav");
+	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_SIEGE_READY].push_back(L"Tank_Ready.wav");
+
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht00.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht01.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht02.wav");

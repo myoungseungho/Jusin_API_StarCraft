@@ -325,12 +325,12 @@ void CUI_IconMgr::DynamicSetUI(DYNAMIC_OBJID objId)
 					if (dynamicObj->GetStateID() == SIEGEMODE_STATE)
 					{
 						m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_DefaultMode>(UI_OBJECT_ICON, 655.f, 570.f));
-						return;
+					}
+					else
+					{
+						m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
 					}
 			}
-
-
-			m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
 		}
 	}
 }

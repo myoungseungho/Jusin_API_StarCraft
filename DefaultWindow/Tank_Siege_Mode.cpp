@@ -3,7 +3,7 @@
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
 #include "SoundMgr.h"
-CTank_Siege_Mode::CTank_Siege_Mode() : m_bIdleReady(false), m_BulletSizeX(0), m_BulletSizeY(0), m_Offset_Attack(0), m_currentTime(GetTickCount()), m_AttackLastTime(0), m_bSiegeOn(false), m_AttackCoolTime(false)
+CTank_Siege_Mode::CTank_Siege_Mode() : m_bIdleReady(false), m_BulletSizeX(0), m_BulletSizeY(0), m_Offset_Attack(0), m_AttackLastTime(0), m_bSiegeOn(false), m_AttackCoolTime(false)
 {
 }
 
@@ -56,10 +56,12 @@ void CTank_Siege_Mode::Initialize(CObj_Dynamic* _tank)
 	m_BulletSizeY = 108;
 	m_Offset_Attack = 0.f;
 
-	_tank->Get_Stat().m_Attack = 10.f;
+	_tank->Get_Stat().m_Attack = 70.f;
 	_tank->Get_Stat().m_AttackRange = 400.f;
 	_tank->Get_Stat().m_DetectionRange = 400.f;
-	//_tank->Get_Stat().m_fSpeed = 0;
+
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_SIEGE_READY);
+	CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_SIEGE_REDAY, 1);
 }
 
 int CTank_Siege_Mode::Update(CObj_Dynamic* _tank)
@@ -275,16 +277,16 @@ void CTank_Siege_Mode::Attack(CObj_Dynamic* _tank)
 
 	if (target != nullptr && !target->Get_Dead())
 	{
-
 		// 현재 시간을 측정합니다.
-		DWORD currentTime = GetTickCount();
-		if (currentTime - m_AttackLastTime >= 3000)
+		DWORD currentTime = GetTickCount64();
+		if (currentTime - m_AttackLastTime >= 5000)
 		{
 			CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(target);
 			if (dynamicObj != nullptr)
 			{
-				/*		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_ATTACK);
-						CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_ATTACK, 1);*/
+				vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_SIEGE_ATTACK);
+				CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_SIEGE_ATTACK, 1);
+
 				DetermineKey(_tank, degree);
 				dynamic_cast<CObj_Dynamic*>(target)->Set_Damage(_tank->Get_Stat().m_Attack);
 				m_AttackLastTime = currentTime;
@@ -296,6 +298,9 @@ void CTank_Siege_Mode::Attack(CObj_Dynamic* _tank)
 
 void CTank_Siege_Mode::SetDefaultMode()
 {
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_SIEGE_READY);
+	CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_SIEGE_REDAY, 1);
+
 	m_bIdleReady = true;
 	m_bSiegeOn = false;
 	*m_pFrameKeyCopy = L"Lower_STank_Off";

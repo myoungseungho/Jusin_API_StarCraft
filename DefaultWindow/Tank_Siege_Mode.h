@@ -24,8 +24,7 @@ private:
 	int         m_BulletSizeY;
 	int         m_Offset_Attack;
 	bool		m_AttackCoolTime;
-	DWORD		m_currentTime;
-	DWORD		m_AttackLastTime;
+	DWORD64		m_AttackLastTime;
 
 };
 

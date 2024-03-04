@@ -31,6 +31,11 @@ void CTank_Idle_State::Initialize(CObj_Dynamic* _tank)
 
 	m_TankPosinSize = 128;
 
+	_tank->Get_Stat().m_Attack = 30;
+	_tank->Get_Stat().m_AttackRange = 200.f;
+	_tank->Get_Stat().m_DetectionRange = 250.f;
+	_tank->Get_Stat().m_fSpeed = 5.f;
+
 	if (_tank->Get_Stat().m_Hp < 0)
 		_tank->ChangeState(DIE_STATE);
 }
