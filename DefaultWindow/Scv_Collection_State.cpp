@@ -4,6 +4,7 @@
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
 #include "ObjMgr.h"
+#include "EconomyMgr.h"
 CScv_Collection_State::CScv_Collection_State() : m_bCollisionCenter(false), m_AttackFileSize(0), m_Offset_Attack(0), m_CurrentTime(GetTickCount()), m_bGetMineral(false), m_targetMineral(nullptr)
 {
 }
@@ -147,6 +148,8 @@ void CScv_Collection_State::Collection(CObj_Dynamic* _scv)
 		m_bGetMineral = true;
 		m_bCollisionMineral = false;
 		m_CurrentTime = GetTickCount();
+
+		CEconomyMgr::Get_Instance()->SetMineral();
 	}
 }
 

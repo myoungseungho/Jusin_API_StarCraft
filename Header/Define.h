@@ -205,6 +205,16 @@ typedef struct tagStat
 	TCHAR m_Name[256]; // 유닛의 이름을 위한 필드 추가
 }STAT;
 
+typedef struct tagResource
+{
+	int m_Mineral;
+	int m_Gas;
+	int m_People;
+	int m_MaxPeople;
+}MINERALGASPEOPLE;
+
+
+
 enum CHANNELID
 {
 	SOUND_BGM,

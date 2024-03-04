@@ -24,7 +24,13 @@ public:
 	}
 public:
 	void Initialize();
+
+public:
+	void SetMineral() { m_Resource.m_Mineral += 7; };
+	MINERALGASPEOPLE GetResource() { return m_Resource; }
+
 private:
 	static CEconomyMgr* m_pInstance;
+	MINERALGASPEOPLE m_Resource;
 };
 

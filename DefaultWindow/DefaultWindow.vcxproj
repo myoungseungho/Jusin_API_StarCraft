@@ -258,6 +258,7 @@
     <ClInclude Include="UI_Menu.h" />
     <ClInclude Include="UI_MiniMap.h" />
     <ClInclude Include="UI_Move.h" />
+    <ClInclude Include="UI_Resource.h" />
     <ClInclude Include="UI_SCV_Display.h" />
     <ClInclude Include="UI_SCV_Icon.h" />
     <ClInclude Include="UI_SCV_Wire_Big.h" />
@@ -387,6 +388,7 @@
     <ClCompile Include="UI_Menu.cpp" />
     <ClCompile Include="UI_MiniMap.cpp" />
     <ClCompile Include="UI_Move.cpp" />
+    <ClCompile Include="UI_Resource.cpp" />
     <ClCompile Include="UI_SCV_Display.cpp" />
     <ClCompile Include="UI_SCV_Icon.cpp" />
     <ClCompile Include="UI_SCV_Wire_Big.cpp" />

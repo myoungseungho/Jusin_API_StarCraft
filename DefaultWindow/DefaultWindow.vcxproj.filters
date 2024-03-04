@@ -271,6 +271,9 @@
     <Filter Include="02. Design\15. Economy">
       <UniqueIdentifier>{5c29e323-cbe1-46a9-b688-5ff045633b8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\10. Resource">
+      <UniqueIdentifier>{b0c78dd3-a2be-4065-a282-c6583d7b8610}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -651,6 +654,9 @@
     <ClInclude Include="EconomyMgr.h">
       <Filter>02. Design\15. Economy</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Resource.h">
+      <Filter>01. Obj\03. UI\10. Resource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1018,6 +1024,9 @@
     </ClCompile>
     <ClCompile Include="EconomyMgr.cpp">
       <Filter>02. Design\15. Economy</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Resource.cpp">
+      <Filter>01. Obj\03. UI\10. Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

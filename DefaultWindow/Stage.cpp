@@ -29,6 +29,7 @@
 #include "UnitControlMgr.h"
 #include "UI_Menu.h"
 #include "UI_MiniMap.h"
+#include "UI_Resource.h"
 CStage::CStage()
 {
 }
@@ -150,6 +151,7 @@ void CStage::Init_Obj_Spawn()
 	CObj_UI* mainUI = CSpawnMgr::Get_Instance()->Spawn_UIObj<CBackGround>(UI_OBJECT_MAIN);
 	CObj_UI* menu = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Menu>(UI_OBJECT_MAIN);
 	CObj_UI* mini = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_MiniMap>(UI_OBJECT_MAIN);
+	CObj_UI* resource = CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Resource>(UI_OBJECT_MAIN);
 	CObj_UI* mouse = CSpawnMgr::Get_Instance()->Spawn_UIObj<CMouse>(UI_OBJECT_MOUSE);
 }
 
