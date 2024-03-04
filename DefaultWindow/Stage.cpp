@@ -201,9 +201,9 @@ void CStage::Ally_Dynamic_Obj_Spawn()
 void CStage::Enemy_Dynamic_Obj_Spawn()
 {
 	list<CObj_Dynamic*> enemyList;
-	for (size_t i = 0; i < 60; i++)
+	for (size_t i = 0; i < 20; i++)
 	{
-		if (i > 30)
+		if (i > 10)
 		{
 			CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 1500.f, 2000.f + i * 10.f);
 			CObj_Dynamic* medic = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ENEMY, 1500.f, 2000.f + i * 10.f);

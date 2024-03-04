@@ -214,8 +214,8 @@ void CKeyMgr::KeyBoard_HandleInput()
 		}
 
 		POINT pt;
-		pt.x = 10.f;
-		pt.y = 10.f;
+		pt.x = 200.f;
+		pt.y = 200.f;
 
 		for (auto iter = enemyList.begin(); iter != enemyList.end(); ) {
 			if (*iter == nullptr || (*iter)->Get_Dead()) {
