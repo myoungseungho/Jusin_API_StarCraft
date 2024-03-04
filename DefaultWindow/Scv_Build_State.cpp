@@ -89,6 +89,7 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 		case STATIC_OBJ_DEPOT:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CSupplyDepot>(STATIC_OBJ_DEPOT, FACTION_ALLY, mousePT.x, mousePT.y);
 			CEconomyMgr::Get_Instance()->SetMineral(-100);
+			CEconomyMgr::Get_Instance()->SetMaxPeople();
 			break;
 		case STATIC_OBJ_BARRACK:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CBarrack>(STATIC_OBJ_BARRACK, FACTION_ALLY, mousePT.x, mousePT.y);

@@ -4,10 +4,10 @@ CEconomyMgr* CEconomyMgr::m_pInstance = nullptr;
 
 CEconomyMgr::CEconomyMgr()
 {
-	m_Resource.m_Mineral = 10000;
+	m_Resource.m_Mineral = 200;
 	m_Resource.m_Gas = 10000;
-	m_Resource.m_People = 136;
-	m_Resource.m_MaxPeople = 200;
+	m_Resource.m_People = 1;
+	m_Resource.m_MaxPeople = 10;
 }
 
 CEconomyMgr::~CEconomyMgr()

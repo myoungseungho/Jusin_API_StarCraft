@@ -159,7 +159,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_READY);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_READY, 1);
 		CEconomyMgr::Get_Instance()->SetMineral(-50);
-
+		CEconomyMgr::Get_Instance()->SetPeople(1);
 	}
 	else if (ICONId == ICON_MARINE)
 	{
@@ -169,6 +169,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MARINE, SOUND_READY);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MARINE_READY, 1);
 		CEconomyMgr::Get_Instance()->SetMineral(-50);
+		CEconomyMgr::Get_Instance()->SetPeople(1);
 	}
 	else if (ICONId == ICON_FIREBAT)
 	{
@@ -179,6 +180,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_READY, 1);
 		CEconomyMgr::Get_Instance()->SetMineral(-50);
 		CEconomyMgr::Get_Instance()->SetGas(-25);
+		CEconomyMgr::Get_Instance()->SetPeople(1);
 	}
 	else if (ICONId == ICON_MEDIC)
 	{
@@ -189,6 +191,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MEDIC_READY, 1);
 		CEconomyMgr::Get_Instance()->SetMineral(-50);
 		CEconomyMgr::Get_Instance()->SetGas(-25);
+		CEconomyMgr::Get_Instance()->SetPeople(1);
 	}
 	else if (ICONId == ICON_TANK)
 	{
@@ -199,6 +202,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_READY, 1);
 		CEconomyMgr::Get_Instance()->SetMineral(-150);
 		CEconomyMgr::Get_Instance()->SetGas(-100);
+		CEconomyMgr::Get_Instance()->SetPeople(2);
 	}
 }
 
