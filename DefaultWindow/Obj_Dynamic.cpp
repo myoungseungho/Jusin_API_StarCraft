@@ -85,9 +85,17 @@ bool CObj_Dynamic::CheckEnemy()
 	{
 		if (m_CurrentState != ATTACK_STATE)
 		{
-			ChangeState(ATTACK_STATE);
-			m_pTarget = target;
-			return true;
+			if (m_CurrentState == SIEGEMODE_STATE)
+			{
+				m_pTarget = target;
+				return true;
+			}
+			else
+			{
+				ChangeState(ATTACK_STATE);
+				m_pTarget = target;
+				return true;
+			}
 		}
 	}
 

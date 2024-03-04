@@ -49,7 +49,7 @@ public:
 	FACTIONSTATE Get_FactionState() { return m_Faction; }
 	void		Set_FactionState(FACTIONSTATE m_Id) { m_Faction = m_Id; };
 	void		Set_FrameKey(TCHAR* pFrameKey) { m_pFrameKey = pFrameKey; }
-	STAT		Get_Stat() { return m_Stat; };
+	STAT&		Get_Stat() { return m_Stat; };
 	void		Set_Cliecked(bool _bClick) { m_bCliecked = _bClick; };
 protected:
 	virtual void InsertBmpFile();

@@ -14,8 +14,18 @@ public:
 	void Release(CObj_Dynamic*) override;
 	void Move_Frame(CObj_Dynamic*) override;
 public:
+	virtual void Attack(CObj_Dynamic*) override;
+public:
 	void SetDefaultMode();
 private:
-	bool m_bIdleReady;
+	bool		m_bIdleReady;
+	bool		m_bSiegeOn;
+	int         m_BulletSizeX;
+	int         m_BulletSizeY;
+	int         m_Offset_Attack;
+	bool		m_AttackCoolTime;
+	DWORD		m_currentTime;
+	DWORD		m_AttackLastTime;
+
 };
 

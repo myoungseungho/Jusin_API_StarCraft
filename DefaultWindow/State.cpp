@@ -2,7 +2,7 @@
 #include "State.h"
 #include "AStarMgr.h"
 #include "Tile.h"
-IState::IState() : m_dwTime(GetTickCount())
+IState::IState() : m_dwTime(GetTickCount()), m_bSiegeAttack(false)
 {
 }
 
@@ -231,45 +231,92 @@ void IState::DetermineKey(CObj_Dynamic* _unit, float degree)
 
 	if (_unit->GetType() == DYNAMIC_OBJ_TANK)
 	{
-		if (degree > -22.5f && degree <= 22.5f) {
-			//悼率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RIGHT];
+
+		if (_unit->GetStateID() == SIEGEMODE_STATE)
+		{
+			if (degree > -22.5f && degree <= 22.5f) {
+				//悼率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_RIGHT];
+			}
+			else if (degree > 22.5f && degree <= 67.5f) {
+				// 巢悼率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_RDOWN];
+			}
+			else if (degree > 67.5f && degree <= 112.5f) {
+				// 巢率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_DOWN];
+			}
+			else if (degree > 112.5f && degree <= 157.5f) {
+				// 巢辑率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_LDOWN];
+			}
+			else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
+				// 辑率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_LEFT];
+			}
+			else if (degree > -157.5f && degree <= -112.5f) {
+				// 合辑率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_LUP];
+			}
+			else if (degree > -112.5f && degree <= -67.5f) {
+				// 合率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_UP];
+			}
+			else if (degree > -67.5f && degree <= -22.5f) {
+				// 合悼率
+				m_pFrameKey_Attack_Siege = _unit->GetKeyAndFrame()->m_FrameSiegeTankKey[DIR_RUP];
+			}
+
+			m_tFrame_Attack_Siege.iFrameStart = 0;
+			m_tFrame_Attack_Siege.dwTime = GetTickCount();
+			m_tFrame_Attack_Siege.iFrameEnd = 0;
+			m_tFrame_Attack_Siege.iMotion = 0;
+			m_tFrame_Attack_Siege.dwSpeed = 200;
 		}
-		else if (degree > 22.5f && degree <= 67.5f) {
-			// 巢悼率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RDOWN];
-		}
-		else if (degree > 67.5f && degree <= 112.5f) {
-			// 巢率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_DOWN];
-		}
-		else if (degree > 112.5f && degree <= 157.5f) {
-			// 巢辑率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LDOWN];
-		}
-		else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
-			// 辑率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LEFT];
-		}
-		else if (degree > -157.5f && degree <= -112.5f) {
-			// 合辑率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LUP];
-		}
-		else if (degree > -112.5f && degree <= -67.5f) {
-			// 合率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_UP];
-		}
-		else if (degree > -67.5f && degree <= -22.5f) {
-			// 合悼率
-			m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RUP];
+		else
+		{
+			if (degree > -22.5f && degree <= 22.5f) {
+				//悼率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RIGHT];
+			}
+			else if (degree > 22.5f && degree <= 67.5f) {
+				// 巢悼率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RDOWN];
+			}
+			else if (degree > 67.5f && degree <= 112.5f) {
+				// 巢率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_DOWN];
+			}
+			else if (degree > 112.5f && degree <= 157.5f) {
+				// 巢辑率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LDOWN];
+			}
+			else if ((degree > 157.5f && degree <= 180.f) || (degree <= -157.5f && degree >= -180.f)) {
+				// 辑率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LEFT];
+			}
+			else if (degree > -157.5f && degree <= -112.5f) {
+				// 合辑率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_LUP];
+			}
+			else if (degree > -112.5f && degree <= -67.5f) {
+				// 合率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_UP];
+			}
+			else if (degree > -67.5f && degree <= -22.5f) {
+				// 合悼率
+				m_pFrameKey_TankPosin = _unit->GetKeyAndFrame()->m_FrameTankPosinKey[DIR_RUP];
+			}
 		}
 	}
+
 
 	if (*m_pFrameKeyCopy != *m_pFrameKeyCopy)
 	{
 		m_pFrameCopy->iFrameStart = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iFrameStart;
 		m_pFrameCopy->dwTime = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].dwTime;
 	}
+
 
 	m_pFrameCopy->iFrameEnd = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iFrameEnd;
 	m_pFrameCopy->iMotion = _unit->GetKeyAndFrame()->_mapKeyFrame[*m_pFrameKeyCopy].iMotion;

@@ -199,7 +199,7 @@ void CStage::Enemy_Dynamic_Obj_Spawn()
 {
 	//CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 650.f, 600.f);
 
-	//CObj_Dynamic* tank2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ENEMY, 700.f, 1000.f);
+	CObj_Dynamic* tank2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ENEMY, 700.f, 1000.f);
 
 	//for (size_t i = 0; i < 20; i++)
 	//{

@@ -55,5 +55,7 @@ protected:
 	TCHAR* m_pFrameKey_Attack_Siege;
 protected:
 	void DetermineKey(CObj_Dynamic*, float);
+private:
+	bool m_bSiegeAttack;
 };
 
