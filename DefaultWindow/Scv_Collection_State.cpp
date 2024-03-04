@@ -149,7 +149,6 @@ void CScv_Collection_State::Collection(CObj_Dynamic* _scv)
 		m_bCollisionMineral = false;
 		m_CurrentTime = GetTickCount();
 
-		CEconomyMgr::Get_Instance()->SetMineral();
 	}
 }
 
@@ -164,6 +163,7 @@ void CScv_Collection_State::CenterMove(CObj_Dynamic* _scv)
 	if (m_listPathTile.empty()) {
 		m_bGetMineral = false;
 		m_bCollisionCenter = true;
+		CEconomyMgr::Get_Instance()->SetMineral();
 
 		//POINT scvPoint = _scv->GetMousePT();
 		INFO info = _scv->Get_Info();

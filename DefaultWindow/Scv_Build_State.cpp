@@ -13,6 +13,7 @@
 #include "CollisionMgr.h"
 #include "TechTreeMgr.h"
 #include "SoundMgr.h"
+#include "EconomyMgr.h"
 CScv_Build_State::CScv_Build_State() : m_build_Start(false)
 {
 }
@@ -83,20 +84,27 @@ void CScv_Build_State::Build(CObj_Dynamic* _scv)
 		{
 		case STATIC_OBJ_CENTER:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, mousePT.x, mousePT.y);
+			CEconomyMgr::Get_Instance()->SetMineral(-400);
 			break;
 		case STATIC_OBJ_DEPOT:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CSupplyDepot>(STATIC_OBJ_DEPOT, FACTION_ALLY, mousePT.x, mousePT.y);
+			CEconomyMgr::Get_Instance()->SetMineral(-100);
 			break;
 		case STATIC_OBJ_BARRACK:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CBarrack>(STATIC_OBJ_BARRACK, FACTION_ALLY, mousePT.x, mousePT.y);
 			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_BARRACK);
+			CEconomyMgr::Get_Instance()->SetMineral(-150);
 			break;
 		case STATIC_OBJ_FACTORY:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory>(STATIC_OBJ_FACTORY, FACTION_ALLY, mousePT.x, mousePT.y);
 			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_FACTORY);
+			CEconomyMgr::Get_Instance()->SetMineral(-200);
+			CEconomyMgr::Get_Instance()->SetGas(-100);
 			break;
 		case STATIC_OBJ_STARPORT:
 			build = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, mousePT.x, mousePT.y);
+			CEconomyMgr::Get_Instance()->SetMineral(-150);
+			CEconomyMgr::Get_Instance()->SetGas(-100);
 			break;
 		case STATIC_OBJ_MINERAL:
 			break;

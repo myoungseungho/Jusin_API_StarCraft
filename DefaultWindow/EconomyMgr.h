@@ -26,7 +26,8 @@ public:
 	void Initialize();
 
 public:
-	void SetMineral() { m_Resource.m_Mineral += 7; };
+	void SetMineral(int _mineral = 7) { m_Resource.m_Mineral += _mineral; };
+	void SetGas(int _gas) { m_Resource.m_Gas += _gas; }
 	MINERALGASPEOPLE GetResource() { return m_Resource; }
 
 private:

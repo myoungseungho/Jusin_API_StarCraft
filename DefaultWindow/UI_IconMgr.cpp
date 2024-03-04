@@ -37,6 +37,7 @@
 #include "Medic.h"
 #include "Tank.h"
 #include "SoundMgr.h"
+#include "EconomyMgr.h"
 CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END)
 {
 }
@@ -157,6 +158,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_READY);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_READY, 1);
+		CEconomyMgr::Get_Instance()->SetMineral(-50);
 
 	}
 	else if (ICONId == ICON_MARINE)
@@ -166,6 +168,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MARINE, SOUND_READY);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MARINE_READY, 1);
+		CEconomyMgr::Get_Instance()->SetMineral(-50);
 	}
 	else if (ICONId == ICON_FIREBAT)
 	{
@@ -174,6 +177,8 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_READY);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_READY, 1);
+		CEconomyMgr::Get_Instance()->SetMineral(-50);
+		CEconomyMgr::Get_Instance()->SetGas(-25);
 	}
 	else if (ICONId == ICON_MEDIC)
 	{
@@ -182,6 +187,8 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MEDIC, SOUND_READY);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MEDIC_READY, 1);
+		CEconomyMgr::Get_Instance()->SetMineral(-50);
+		CEconomyMgr::Get_Instance()->SetGas(-25);
 	}
 	else if (ICONId == ICON_TANK)
 	{
@@ -190,6 +197,8 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_READY);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_READY, 1);
+		CEconomyMgr::Get_Instance()->SetMineral(-150);
+		CEconomyMgr::Get_Instance()->SetGas(-100);
 	}
 }
 
