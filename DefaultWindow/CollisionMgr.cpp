@@ -95,8 +95,6 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 
 			if (Check_Rect(&fX, &fY, Dst, Src, 0.2f))
 			{
-				Dst->Set_CollisionState(COLLISION_OK);
-				Src->Set_CollisionState(COLLISION_OK);
 				// 상하 충돌
 				if (fX > fY)
 				{
@@ -153,11 +151,6 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 					}
 				}
 			}
-			else
-			{
-				Dst->Set_CollisionState(COLLISION_NOT);
-				Src->Set_CollisionState(COLLISION_NOT);
-			}
 		}
 	}
 }
@@ -169,7 +162,10 @@ void CCollisionMgr::Collision_RectEx(CObj* _Dst, list<CObj*> _Src)
 
 	for (auto& Src : _Src)
 	{
-		if (Check_Rect(&fX, &fY, _Dst, Src, 0.5f))
+		if (_Dst->Get_CollisionState() == COLLISION_NOT)
+			continue;
+
+		if (Check_Rect(&fX, &fY, _Dst, Src, 0.3f))
 		{
 			// 상하 충돌
 			if (fX > fY)

@@ -16,12 +16,15 @@ public:
 public:
 	virtual BUILDINGSTATE GetType() const PURE;
 	virtual void Spawn_Unit(DYNAMIC_OBJID);
+	virtual void Move_Frame();
 public:
 	void SetObstcale();
 	void UIBuilding();
+	bool GetIsCompleteBuilding() { return m_CompleteBuilding; }
 public:
 	bool m_UIBuilding;
 protected:
 	vector<CObj*> m_vecWaitUnit;
+	bool m_CompleteBuilding;
 };
 

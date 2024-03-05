@@ -14,9 +14,11 @@ public:
     void Render(CObj_Dynamic*, HDC hDC) override;
     void Release(CObj_Dynamic*) override;
 private:
-    void Build(CObj_Dynamic* _scv);
+    void BuildStart(CObj_Dynamic* _scv);
+    void SCV_Build_Move(CObj_Dynamic* _scv);
 private:
     bool m_build_Start;
     vector<CObj_Static*> m_vecTest;
+    CObj_Static* m_Building;
 };
 

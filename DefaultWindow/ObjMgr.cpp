@@ -96,19 +96,18 @@ int CObjMgr::Update()
 
 void CObjMgr::Late_Update()
 {
+
+
 	for (size_t i = 0; i < DYNAMIC_OBJ_END; ++i)
 	{
 		for (auto& iter : m_Dynamic_Obj_List[i])
 		{
-			//SCV 건물 건설 후 밀어내기 코드
-		/*	if (iter->Get_CollisionState() == COLLISION_OK)
-			{*/
-				for (size_t j = 0; j < STATIC_OBJ_END; j++)
-				{
-					CCollisionMgr::Collision_RectEx(iter, m_Static_Obj_List[j]);
-				}
-			//}
-
+			for (size_t j = 0; j < STATIC_OBJ_END; j++)
+			{
+				if (j == STATIC_OBJ_MINERAL)
+					continue;
+				CCollisionMgr::Collision_RectEx(iter, m_Static_Obj_List[j]);
+			}
 
 			iter->Late_Update();
 
@@ -133,7 +132,6 @@ void CObjMgr::Late_Update()
 			m_RenderList[eID].push_back(iter);
 		}
 	}
-
 	for (size_t i = 0; i < UI_OBJECT_END; ++i)
 	{
 		for (auto& iter : m_UI_Obj_List[i])
@@ -153,9 +151,6 @@ void CObjMgr::Late_Update()
 	{
 		for (size_t j = 0; j < DYNAMIC_OBJ_END; j++)
 		{
-			/*if (i == 0 && j == 0)
-				continue;*/
-
 			if (i <= j) {
 				CCollisionMgr::Collision_RectEx(m_Dynamic_Obj_List[i], m_Dynamic_Obj_List[j]);
 			}

@@ -22,7 +22,7 @@ void CDepot_UI::Initialize()
 	__super::Update_Rect();
 
 	//건물은 애니메이션이 없잖아?
-	m_pFrameKey = L"Depot";
+	m_pFrameKey = L"Depot_UI";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -76,7 +76,7 @@ void CDepot_UI::Release()
 
 void CDepot_UI::InsertBmpFile()
 {
-    CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Depot/Depot.bmp", L"Depot");
+    CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Depot/Depot_UI.bmp", L"Depot_UI");
 }
 
 UIOBJECTTYPE CDepot_UI::GetType() const

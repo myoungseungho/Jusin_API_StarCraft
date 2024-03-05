@@ -24,9 +24,9 @@ void CStarport::Initialize()
 	//건물은 애니메이션이 없잖아?
 	m_pFrameKey = L"StarPort";
 	m_tFrame.iFrameStart = 0;
-	m_tFrame.iFrameEnd = 0;
+	m_tFrame.iFrameEnd = 4;
 	m_tFrame.iMotion = 0;
-	m_tFrame.dwSpeed = 200;
+	m_tFrame.dwSpeed = 1000;
 	m_tFrame.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
@@ -56,6 +56,7 @@ int CStarport::Update()
 
 void CStarport::Late_Update()
 {
+	CObj_Static::Move_Frame();
 }
 
 void CStarport::Render(HDC hDC)

@@ -21,7 +21,7 @@ void CStarPort_UI::Initialize()
 	__super::Update_Rect();
 
 	//건물은 애니메이션이 없잖아?
-	m_pFrameKey = L"StarPort";
+	m_pFrameKey = L"StarPort_UI";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -74,7 +74,7 @@ void CStarPort_UI::Release()
 
 void CStarPort_UI::InsertBmpFile()
 {
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Starport/StarPort.bmp", L"StarPort");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Starport/StarPort_UI.bmp", L"StarPort_UI");
 }
 
 UIOBJECTTYPE CStarPort_UI::GetType() const

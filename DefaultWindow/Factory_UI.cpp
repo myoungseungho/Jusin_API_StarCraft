@@ -21,7 +21,7 @@ void CFactory_UI::Initialize()
 	__super::Update_Rect();
 
 	//건물은 애니메이션이 없잖아?
-	m_pFrameKey = L"Factory";
+	m_pFrameKey = L"Factory_UI";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -75,7 +75,7 @@ void CFactory_UI::Release()
 
 void CFactory_UI::InsertBmpFile()
 {
-    CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Factory/Factory.bmp", L"Factory");
+    CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Factory/Factory_UI.bmp", L"Factory_UI");
 }
 
 UIOBJECTTYPE CFactory_UI::GetType() const

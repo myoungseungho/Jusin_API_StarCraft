@@ -97,7 +97,10 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 			return;
 	}
 	else
-		dynamicTarget->ChangeState(IDLE_STATE);
+	{
+		if (dynamicTarget->GetStateID() != BUILD_STATE)
+			dynamicTarget->ChangeState(IDLE_STATE);
+	}
 }
 
 void CLClick_Mouse::HandleStaticObjectClick(CObj* target)

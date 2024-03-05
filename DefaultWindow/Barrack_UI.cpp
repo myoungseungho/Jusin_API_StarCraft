@@ -21,7 +21,7 @@ void CBarrack_UI::Initialize()
 	__super::Update_Rect();
 
 	//건물은 애니메이션이 없잖아?
-	m_pFrameKey = L"Barrack";
+	m_pFrameKey = L"Barrack_UI";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 0;
 	m_tFrame.iMotion = 0;
@@ -73,7 +73,7 @@ void CBarrack_UI::Release()
 
 void CBarrack_UI::InsertBmpFile()
 {
-    CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Barrack/Barrack.bmp", L"Barrack");
+    CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Barrack/Barrack_UI.bmp", L"Barrack_UI");
 }
 
 UIOBJECTTYPE CBarrack_UI::GetType() const

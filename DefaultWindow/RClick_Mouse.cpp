@@ -58,44 +58,52 @@ void CRClick_Mouse::Initialize()
 			return;
 
 		CObj_Dynamic* dynamicIter = dynamic_cast<CObj_Dynamic*>(iter);
-		CTank* tank = dynamic_cast<CTank*>(iter);
-		if (tank)
-		{
-			if (tank->GetStateID() == SIEGEMODE_STATE)
-				return;
-		}
 
-		if (target != nullptr && dynamicIter)
+		if (dynamicIter)
 		{
-			FACTIONSTATE factionId = target->Get_FactionState();
-			CScv* scv = dynamic_cast<CScv*>(iter);
-
-			switch (factionId)
+			CTank* tank = dynamic_cast<CTank*>(iter);
+			if (tank)
 			{
-			case FACTION_NON:
-				dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
-				break;
-			case FACTION_ALLY:
-				dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
-				break;
-			case FACTION_ENEMY:
-				dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
-				break;
-			case FACTION_RESOURCE:
-				if (scv != nullptr)
-					dynamicIter->ChangeStateWithMouse(Pt, COLLECTION_STATE);
-				else
-					dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
-				break;
-			case FACTION_END:
-				break;
-			default:
-				break;
+				if (tank->GetStateID() == SIEGEMODE_STATE)
+					return;
 			}
-		}
-		else if (target == nullptr && dynamicIter)
-		{
-			dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
+
+			CScv* scv = dynamic_cast<CScv*>(iter);
+			if (scv != nullptr && scv->GetStateID() == BUILD_STATE)
+				return;
+
+			if (target != nullptr)
+			{
+				FACTIONSTATE factionId = target->Get_FactionState();
+
+				switch (factionId)
+				{
+				case FACTION_NON:
+					dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
+					break;
+				case FACTION_ALLY:
+					dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
+					break;
+				case FACTION_ENEMY:
+					dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
+					break;
+				case FACTION_RESOURCE:
+					if (scv != nullptr)
+						dynamicIter->ChangeStateWithMouse(Pt, COLLECTION_STATE);
+					else
+						dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
+					break;
+				case FACTION_END:
+					break;
+				default:
+					break;
+				}
+			}
+			else
+			{
+				dynamicIter->ChangeStateWithMouse(Pt, WALK_STATE);
+
+			}
 		}
 	}
 }

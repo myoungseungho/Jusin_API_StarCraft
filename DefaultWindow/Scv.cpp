@@ -61,9 +61,6 @@ int CScv::Update()
 	if (m_bDead)
 		return OBJ_DEAD;
 
-	if (m_Collision == COLLISION_OK)
-		m_Collision = COLLISION_NOT;
-
 	m_vecState[m_CurrentState]->Update(this);
 
 	__super::Update_Rect();
