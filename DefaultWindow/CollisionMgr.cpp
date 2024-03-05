@@ -56,13 +56,13 @@ void CCollisionMgr::Collision_Sphere(list<CObj_Dynamic*> _Dst, list<CObj_Dynamic
 	}
 }
 
-bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc)
+bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc, float _fThreshold)
 {
 	float		fDistance_W = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
 	float		fDistance_H = abs(pDst->Get_Info().fY - pSrc->Get_Info().fY);
 
-	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.2f;
-	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * 0.2f;
+	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * _fThreshold;
+	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * _fThreshold;
 
 	if ((fRadiusX >= fDistance_W) && (fRadiusY >= fDistance_H))
 	{
@@ -75,10 +75,12 @@ bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc)
 	return false;
 }
 
+
+
 void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 {
 	float	fX(0.f), fY(0.f);
-	float fInterpolation = 0.1f;
+	float fInterpolation = 0.05f;
 	for (auto& Dst : _Dst)
 	{
 		for (auto& Src : _Src)
@@ -91,7 +93,7 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 			if (Dst == Src || DstDynamicObj->GetStateID() == WALK_STATE || SrcDynamicObj->GetStateID() == WALK_STATE || DstDynamicObj->GetAttackRun() || SrcDynamicObj->GetAttackRun())
 				continue;
 
-			if (Check_Rect(&fX, &fY, Dst, Src))
+			if (Check_Rect(&fX, &fY, Dst, Src, 0.2f))
 			{
 				Dst->Set_CollisionState(COLLISION_OK);
 				Src->Set_CollisionState(COLLISION_OK);
@@ -163,10 +165,11 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 void CCollisionMgr::Collision_RectEx(CObj* _Dst, list<CObj*> _Src)
 {
 	float	fX(0.f), fY(0.f);
+	float fInterpolation = 0.05f;
 
 	for (auto& Src : _Src)
 	{
-		if (Check_Rect(&fX, &fY, _Dst, Src))
+		if (Check_Rect(&fX, &fY, _Dst, Src, 0.5f))
 		{
 			// 상하 충돌
 			if (fX > fY)
@@ -174,13 +177,25 @@ void CCollisionMgr::Collision_RectEx(CObj* _Dst, list<CObj*> _Src)
 				// 상 충돌
 				if (_Dst->Get_Info().fY < Src->Get_Info().fY)
 				{
-					_Dst->Set_PosY(-fY);
+					//시작점
+					float start = _Dst->Get_Info().fY;
+					//종착지
+					float Destination = _Dst->Get_Info().fY - fY;
+
+					float newY = start + (Destination - start) * fInterpolation;
+					_Dst->Set_PosY(newY - start);
 				}
 
 				// 하 충돌
 				else
 				{
-					_Dst->Set_PosY(fY);
+					//시작점
+					float start = _Dst->Get_Info().fY;
+					//종착지
+					float Destination = _Dst->Get_Info().fY + fY;
+
+					float newY = start + (Destination - start) * fInterpolation;
+					_Dst->Set_PosY(newY - start);
 				}
 			}
 
@@ -190,13 +205,25 @@ void CCollisionMgr::Collision_RectEx(CObj* _Dst, list<CObj*> _Src)
 				// 좌 충돌
 				if (_Dst->Get_Info().fX < Src->Get_Info().fX)
 				{
-					_Dst->Set_PosX(-fX);
+					//시작점
+					float start = _Dst->Get_Info().fX;
+					//종착지
+					float Destination = _Dst->Get_Info().fX - fX;
+
+					float newX = start + (Destination - start) * fInterpolation;
+					_Dst->Set_PosX(newX - start);
 				}
 
 				// 우 충돌
 				else
 				{
-					_Dst->Set_PosX(fX);
+					//시작점
+					float start = _Dst->Get_Info().fX;
+					//종착지
+					float Destination = _Dst->Get_Info().fX + fX;
+
+					float newX = start + (Destination - start) * fInterpolation;
+					_Dst->Set_PosX(newX - start);
 				}
 			}
 		}
