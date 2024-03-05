@@ -41,6 +41,8 @@
 #include "UI_SiegeMode_Icon.h"
 #include "UI_DefaultMode.h"
 #include "Tank_Siege_Mode.h"
+#include "Ghost.h"
+#include "UI_Nuclear_Icon.h"
 CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END)
 {
 }
@@ -246,7 +248,7 @@ void CUI_IconMgr::OnDragObj()
 
 		if (dynamicObj->GetType() != DYNAMIC_OBJ_TANK)
 		{
-			bOnlyTank = false;	
+			bOnlyTank = false;
 			bOnlySTank = false;
 			break;
 		}
@@ -343,7 +345,7 @@ void CUI_IconMgr::DynamicSetUI(CObj* _unit)
 				iter->Get_Frame()->iFrameStart = 1;
 		}
 	}
-	else if (objId == DYNAMIC_OBJ_MARINE || objId == DYNAMIC_OBJ_FIREBAT || objId == DYNAMIC_OBJ_MEDIC || objId == DYNAMIC_OBJ_TANK)
+	else if (objId == DYNAMIC_OBJ_MARINE || objId == DYNAMIC_OBJ_FIREBAT || objId == DYNAMIC_OBJ_MEDIC || objId == DYNAMIC_OBJ_TANK || objId == DYNAMIC_OBJ_GHOST)
 	{
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Move_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Stop_Icon>(UI_OBJECT_ICON, 713.f, 468.f));
@@ -376,6 +378,13 @@ void CUI_IconMgr::DynamicSetUI(CObj* _unit)
 				{
 					m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
 				}
+		}
+
+		if (objId == DYNAMIC_OBJ_GHOST)
+		{
+			CGhost* dynamicObj = dynamic_cast<CGhost*>(_unit);
+			if (dynamicObj != nullptr)
+				m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Nuclear_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
 		}
 	}
 }

@@ -90,7 +90,7 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 			CObj_Dynamic* SrcDynamicObj = dynamic_cast<CObj_Dynamic*>(Src);
 
 			//Attack_State에서 Move하는 도중에는 충돌 처리 안되다가 Move 안할때는 어떤 State에서라도 충돌처리 되게 끔 바꾸자.
-			if (Dst == Src || DstDynamicObj->GetStateID() == WALK_STATE || SrcDynamicObj->GetStateID() == WALK_STATE || DstDynamicObj->GetAttackRun() || SrcDynamicObj->GetAttackRun())
+			if (Dst == Src || DstDynamicObj->GetStateID() == WALK_STATE || SrcDynamicObj->GetStateID() == WALK_STATE || DstDynamicObj->GetAttackRun() || SrcDynamicObj->GetAttackRun() || DstDynamicObj->GetStateID() == COLLECTION_STATE || SrcDynamicObj->GetStateID() == COLLECTION_STATE)
 				continue;
 
 			if (Check_Rect(&fX, &fY, Dst, Src, 0.2f))

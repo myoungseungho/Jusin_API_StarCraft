@@ -30,6 +30,7 @@
 #include "UI_Menu.h"
 #include "UI_MiniMap.h"
 #include "UI_Resource.h"
+#include "Ghost.h"
 CStage::CStage()
 {
 }
@@ -158,11 +159,11 @@ void CStage::Init_Obj_Spawn()
 
 void CStage::Ally_Static_Obj_Spawn()
 {
-	CObj_Static* center = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, 400.f, 200.f);
-	CObj_Static* depot = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CSupplyDepot>(STATIC_OBJ_DEPOT, FACTION_ALLY, 500.f, 300.f);
+	CObj_Static* center = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CCenter>(STATIC_OBJ_CENTER, FACTION_ALLY, 350.f, 200.f);
+	/*CObj_Static* depot = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CSupplyDepot>(STATIC_OBJ_DEPOT, FACTION_ALLY, 500.f, 300.f);
 	CObj_Static* barrack = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CBarrack>(STATIC_OBJ_BARRACK, FACTION_ALLY, 500.f, 500.f);
 	CObj_Static* cfactory = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory>(STATIC_OBJ_FACTORY, FACTION_ALLY, 500.f, 700.f);
-	CObj_Static* starport = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, 700.f, 300.f);
+	CObj_Static* starport = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, 700.f, 300.f);*/
 
 	CObj_Static* mineral1 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 130.f, 100.f);
 	CObj_Static* mineral2 = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CMineral>(STATIC_OBJ_MINERAL, FACTION_RESOURCE, 100.f, 150.f);
@@ -190,11 +191,23 @@ void CStage::Enemy_Static_Obj_Spawn()
 
 void CStage::Ally_Dynamic_Obj_Spawn()
 {
-	CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY,  300.f, 300.f);
-	CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, 300.f, 300.f);
+	for (size_t i = 0; i < 4; i++)
+	{
+		CObj_Dynamic* scv = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 340.f + i * 10.f, 270.f);
+
+	}
+	CObj_Dynamic* ghost = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CGhost>(DYNAMIC_OBJ_GHOST, FACTION_ALLY,  300.f, 400.f);
+
+	//CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY,  300.f, 300.f);
+	//CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 310.f, 300.f);
+	//CObj_Dynamic* scv3 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 320.f, 300.f);
+	//CObj_Dynamic* scv4 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 330.f, 300.f);
+
+
+	/*CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ALLY, 300.f, 300.f);
 	CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ALLY, 300.f, 300.f);
 	CObj_Dynamic* medic = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ALLY, 300.f, 300.f);
-	CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 300.f, 300.f);
+	CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 300.f, 300.f);*/
 
 
 	//for (size_t i = 0; i < 10; i++)

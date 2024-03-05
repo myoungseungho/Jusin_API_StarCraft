@@ -280,6 +280,12 @@
     <Filter Include="02. Design\15. EconomyMgr">
       <UniqueIdentifier>{5c29e323-cbe1-46a9-b688-5ff045633b8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\00. Unit\05. Ghost">
+      <UniqueIdentifier>{2fe8216b-f4f0-4a24-9fca-9c7ffaafdbf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Unit_Icon\07. Nuclear_Icon">
+      <UniqueIdentifier>{fae8642d-f9b0-4f2b-8751-356fa33a1d4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -675,6 +681,33 @@
     <ClInclude Include="UI_STank_Wire_Small.h">
       <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
     </ClInclude>
+    <ClInclude Include="Ghost.h">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost_Idle_State.h">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost_Walk_State.h">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost_Die_State.h">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost_Attack_State.h">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Ghost_Display.h">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Nuclear_Icon.h">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\07. Nuclear_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Ghost_Wire_Big.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Ghost_Wire_Small.h">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1056,6 +1089,33 @@
       <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
     </ClCompile>
     <ClCompile Include="UI_STank_Wire_Small.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost_Idle_State.cpp">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost_Walk_State.cpp">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost_Die_State.cpp">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost_Attack_State.cpp">
+      <Filter>01. Obj\00. Unit\05. Ghost</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Ghost_Display.cpp">
+      <Filter>01. Obj\03. UI\08. UnitDisPlay</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Nuclear_Icon.cpp">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\07. Nuclear_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Ghost_Wire_Big.cpp">
+      <Filter>01. Obj\03. UI\06. Unit_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Ghost_Wire_Small.cpp">
       <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
     </ClCompile>
   </ItemGroup>

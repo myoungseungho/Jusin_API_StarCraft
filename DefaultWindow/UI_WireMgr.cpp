@@ -21,6 +21,8 @@
 #include "UnitControlMgr.h"
 #include "UI_SiegeTank_Wire_Big.h"
 #include "UI_STank_Wire_Small.h"
+#include "UI_Ghost_Wire_Big.h"
+#include "UI_Ghost_Wire_Small.h"
 CUI_WireMgr::CUI_WireMgr()
 {
 }
@@ -110,6 +112,8 @@ void CUI_WireMgr::OnDragObj()
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 				bOnlyTank = false;
 				break;
+			case DYNAMIC_OBJ_GHOST:
+				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Ghost_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
 			case DYNAMIC_OBJ_TANK:
 				if (dynamic_cast<CObj_Dynamic*>(m_vecUnitCopy[i])->GetStateID() == SIEGEMODE_STATE)
 				{
@@ -150,6 +154,10 @@ void CUI_WireMgr::DynamicSetUI(CObj_Dynamic* obj)
 		break;
 	case DYNAMIC_OBJ_MEDIC:
 		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f));
+		m_vecBigWire.back()->Get_Frame()->iFrameStart = frame;
+		break;
+	case DYNAMIC_OBJ_GHOST:
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Ghost_Wire_Big>(UI_OBJECT_WIRE, 250.f, 530.f));
 		m_vecBigWire.back()->Get_Frame()->iFrameStart = frame;
 		break;
 	case DYNAMIC_OBJ_TANK:

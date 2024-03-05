@@ -172,6 +172,11 @@
     <ClInclude Include="FireBat_Die_State.h" />
     <ClInclude Include="FireBat_Idle_State.h" />
     <ClInclude Include="FireBat_Walk_State.h" />
+    <ClInclude Include="Ghost.h" />
+    <ClInclude Include="Ghost_Attack_State.h" />
+    <ClInclude Include="Ghost_Die_State.h" />
+    <ClInclude Include="Ghost_Idle_State.h" />
+    <ClInclude Include="Ghost_Walk_State.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="LClick_Mouse.h" />
@@ -247,6 +252,9 @@
     <ClInclude Include="UI_FireBat_Icon.h" />
     <ClInclude Include="UI_FireBat_Wire_Big.h" />
     <ClInclude Include="UI_FireBat_Wire_Small.h" />
+    <ClInclude Include="UI_Ghost_Display.h" />
+    <ClInclude Include="UI_Ghost_Wire_Big.h" />
+    <ClInclude Include="UI_Ghost_Wire_Small.h" />
     <ClInclude Include="UI_IconMgr.h" />
     <ClInclude Include="UI_Marine_Display.h" />
     <ClInclude Include="UI_Marine_Icon.h" />
@@ -259,6 +267,7 @@
     <ClInclude Include="UI_Menu.h" />
     <ClInclude Include="UI_MiniMap.h" />
     <ClInclude Include="UI_Move.h" />
+    <ClInclude Include="UI_Nuclear_Icon.h" />
     <ClInclude Include="UI_Resource.h" />
     <ClInclude Include="UI_SCV_Display.h" />
     <ClInclude Include="UI_SCV_Icon.h" />
@@ -303,6 +312,11 @@
     <ClCompile Include="FireBat_Die_State.cpp" />
     <ClCompile Include="FireBat_Idle_State.cpp" />
     <ClCompile Include="FireBat_Walk_State.cpp" />
+    <ClCompile Include="Ghost.cpp" />
+    <ClCompile Include="Ghost_Attack_State.cpp" />
+    <ClCompile Include="Ghost_Die_State.cpp" />
+    <ClCompile Include="Ghost_Idle_State.cpp" />
+    <ClCompile Include="Ghost_Walk_State.cpp" />
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="LClick_Mouse.cpp" />
@@ -381,6 +395,9 @@
     <ClCompile Include="UI_FireBat_Icon.cpp" />
     <ClCompile Include="UI_FireBat_Wire_Big.cpp" />
     <ClCompile Include="UI_FireBat_Wire_Small.cpp" />
+    <ClCompile Include="UI_Ghost_Display.cpp" />
+    <ClCompile Include="UI_Ghost_Wire_Big.cpp" />
+    <ClCompile Include="UI_Ghost_Wire_Small.cpp" />
     <ClCompile Include="UI_IconMgr.cpp" />
     <ClCompile Include="UI_Marine_Display.cpp" />
     <ClCompile Include="UI_Marine_Icon.cpp" />
@@ -393,6 +410,7 @@
     <ClCompile Include="UI_Menu.cpp" />
     <ClCompile Include="UI_MiniMap.cpp" />
     <ClCompile Include="UI_Move.cpp" />
+    <ClCompile Include="UI_Nuclear_Icon.cpp" />
     <ClCompile Include="UI_Resource.cpp" />
     <ClCompile Include="UI_SCV_Display.cpp" />
     <ClCompile Include="UI_SCV_Icon.cpp" />
