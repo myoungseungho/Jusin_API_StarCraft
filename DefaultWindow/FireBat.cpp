@@ -79,6 +79,26 @@ void CFireBat::Render(HDC hDC)
 	int iScrollX = (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 	int iScrollY = (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
+	int grade = m_Stat.m_MaxHp / 6;
+	int currentGrade = m_Stat.m_Hp / grade;
+	int frame = currentGrade == 0 ? 5 : currentGrade == 1 ? 5 : currentGrade == 2 ? 4 : currentGrade == 3 ? 3
+		: currentGrade == 4 ? 2 : currentGrade == 5 ? 1 : currentGrade == 6 ? 0 : 0;
+
+	HDC	hhpDC = CBmpMgr::Get_Instance()->Find_Image(L"Small_Hp");
+
+	GdiTransparentBlt(
+		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+		m_tRect.left + iScrollX, // 복사 받을 위치 좌표
+		m_tRect.top + iScrollY + (int)m_tInfo.fCY + 5.f,
+		32,	// 복사 받을 이미지의 가로, 세로
+		5,
+		hhpDC,		// 비트맵을 가지고 있는 DC
+		32 * frame,			// 비트맵 출력 시작 좌표 LEFT, TOP
+		5 * m_tFrame.iMotion,
+		32,	// 출력할 비트맵 가로
+		5,	// 출력할 비트맵 세로
+		RGB(0, 0, 0));	// 제거할 색상 값
+
 	HDC	hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
 	GdiTransparentBlt(

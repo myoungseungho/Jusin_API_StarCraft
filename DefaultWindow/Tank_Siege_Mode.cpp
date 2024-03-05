@@ -57,7 +57,7 @@ void CTank_Siege_Mode::Initialize(CObj_Dynamic* _tank)
 	m_BulletSizeY = 108;
 	m_Offset_Attack = 0.f;
 
-	_tank->Get_Stat().m_Attack = 70.f;
+	_tank->Get_Stat().m_Attack = 30.f;
 	_tank->Get_Stat().m_AttackRange = 400.f;
 	_tank->Get_Stat().m_DetectionRange = 400.f;
 
