@@ -64,6 +64,7 @@ void CUI_WireMgr::OnDragObj()
 	//유닛이 하나라도 죽으면 모든 아이콘을 삭제하고
 	SetClear_SmallWireObj();
 	SetClear_BigWireObj();
+
 	//다시 가져옴.
 	m_vecUnitCopy = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
 

@@ -236,14 +236,31 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 void CUI_IconMgr::OnDragObj()
 {
 	bool bOnlyTank = true;
+	bool bOnlySTank = true;
+
 	vector<CObj*> vecUnit = CUnitControlMgr::Get_Instance()->GetVecUnitOrBuilding();
+
 	for (auto iter : vecUnit)
 	{
 		CObj_Dynamic* dynamicObj = dynamic_cast<CObj_Dynamic*>(iter);
+
 		if (dynamicObj->GetType() != DYNAMIC_OBJ_TANK)
 		{
-			bOnlyTank = false;
+			bOnlyTank = false;	
+			bOnlySTank = false;
 			break;
+		}
+		else
+		{
+			if (dynamicObj->GetStateID() != SIEGEMODE_STATE)
+			{
+				bOnlySTank = false;
+				break;
+			}
+			else
+			{
+				bOnlyTank = false;
+			}
 		}
 	}
 
@@ -252,6 +269,13 @@ void CUI_IconMgr::OnDragObj()
 		for (auto iter : vecUnit)
 		{
 			m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SiegeMode_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
+		}
+	}
+	else if (bOnlySTank)
+	{
+		for (auto iter : vecUnit)
+		{
+			m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_DefaultMode>(UI_OBJECT_ICON, 655.f, 570.f));
 		}
 	}
 }
