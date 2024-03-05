@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CollisionMgr.h"
-
+#include "ScrollMgr.h"
 
 CCollisionMgr::CCollisionMgr()
 {
@@ -61,8 +61,8 @@ bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc)
 	float		fDistance_W = abs(pDst->Get_Info().fX - pSrc->Get_Info().fX);
 	float		fDistance_H = abs(pDst->Get_Info().fY - pSrc->Get_Info().fY);
 
-	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.3f;
-	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * 0.3f;
+	float		fRadiusX = (pDst->Get_Info().fCX + pSrc->Get_Info().fCX) * 0.2f;
+	float		fRadiusY = (pDst->Get_Info().fCY + pSrc->Get_Info().fCY) * 0.2f;
 
 	if ((fRadiusX >= fDistance_W) && (fRadiusY >= fDistance_H))
 	{
@@ -78,7 +78,7 @@ bool CCollisionMgr::Check_Rect(float* pX, float* pY, CObj* pDst, CObj* pSrc)
 void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 {
 	float	fX(0.f), fY(0.f);
-
+	float fInterpolation = 0.1f;
 	for (auto& Dst : _Dst)
 	{
 		for (auto& Src : _Src)
@@ -101,13 +101,25 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 					// 상 충돌
 					if (Dst->Get_Info().fY < Src->Get_Info().fY)
 					{
-						Dst->Set_PosY(-fY);
+						//시작점
+						float start = Dst->Get_Info().fY;
+						//종착지
+						float Destination = Dst->Get_Info().fY - fY;
+
+						float newY = start + (Destination - start) * fInterpolation;
+						Dst->Set_PosY(newY - start);
 					}
 
 					// 하 충돌
 					else
 					{
-						Dst->Set_PosY(fY);
+						//시작점
+						float start = Dst->Get_Info().fY;
+						//종착지
+						float Destination = Dst->Get_Info().fY + fY;
+
+						float newY = start + (Destination - start) * fInterpolation;
+						Dst->Set_PosY(newY - start);
 					}
 				}
 
@@ -117,13 +129,25 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 					// 좌 충돌
 					if (Dst->Get_Info().fX < Src->Get_Info().fX)
 					{
-						Dst->Set_PosX(-fX);
+						//시작점
+						float start = Dst->Get_Info().fX;
+						//종착지
+						float Destination = Dst->Get_Info().fX - fX;
+
+						float newX = start + (Destination - start) * fInterpolation;
+						Dst->Set_PosX(newX - start);
 					}
 
 					// 우 충돌
 					else
 					{
-						Dst->Set_PosX(fX);
+						//시작점
+						float start = Dst->Get_Info().fX;
+						//종착지
+						float Destination = Dst->Get_Info().fX + fX;
+
+						float newX = start + (Destination - start) * fInterpolation;
+						Dst->Set_PosX(newX - start);
 					}
 				}
 			}

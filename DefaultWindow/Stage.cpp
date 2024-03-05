@@ -190,10 +190,10 @@ void CStage::Enemy_Static_Obj_Spawn()
 
 void CStage::Ally_Dynamic_Obj_Spawn()
 {
-	//CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 200.f, 200.f);
 	for (size_t i = 0; i < 5; i++)
 	{
-		CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 300.f, 300.f + i*30.f);
+		//CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY,  300.f, 300.f + i * 30.f);
+		CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ALLY, 300.f, 300.f + i * 30.f);
 	}
 }
 
@@ -207,7 +207,7 @@ void CStage::Enemy_Dynamic_Obj_Spawn()
 			CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 1500.f, 2000.f + i * 10.f);
 			CObj_Dynamic* medic = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ENEMY, 1500.f, 2000.f + i * 10.f);
 			enemyList.push_back(marine);
-			enemyList.push_back(medic); 
+			enemyList.push_back(medic);
 		}
 		else
 		{
