@@ -22,7 +22,7 @@ void CUI_Medic_Icon::Initialize()
 
 	m_pFrameKey = L"MEDIC_ICON";
 	m_tFrame.iFrameStart = 0;
-	m_tFrame.iFrameEnd = 0;
+	m_tFrame.iFrameEnd = 1;
 	m_tFrame.iMotion = 0;
 	m_tFrame.dwSpeed = 200;
 	m_tFrame.dwTime = GetTickCount();

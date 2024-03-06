@@ -268,6 +268,7 @@
     <ClInclude Include="UI_FireBat_Wire_Big.h" />
     <ClInclude Include="UI_FireBat_Wire_Small.h" />
     <ClInclude Include="UI_Ghost_Display.h" />
+    <ClInclude Include="UI_Ghost_Icon.h" />
     <ClInclude Include="UI_Ghost_Wire_Big.h" />
     <ClInclude Include="UI_Ghost_Wire_Small.h" />
     <ClInclude Include="UI_IconMgr.h" />
@@ -284,7 +285,7 @@
     <ClInclude Include="UI_Move.h" />
     <ClInclude Include="UI_Nuclear_Icon.h" />
     <ClInclude Include="UI_Resource.h" />
-    <ClInclude Include="UI_Science_Facility_Addon.h" />
+    <ClInclude Include="UI_Science_Facility_Addon_Wire.h" />
     <ClInclude Include="UI_Science_Facility_Addon_Icon.h" />
     <ClInclude Include="UI_Science_Facility_Icon.h" />
     <ClInclude Include="UI_Science_Facility_Wire.h" />
@@ -430,6 +431,7 @@
     <ClCompile Include="UI_FireBat_Wire_Big.cpp" />
     <ClCompile Include="UI_FireBat_Wire_Small.cpp" />
     <ClCompile Include="UI_Ghost_Display.cpp" />
+    <ClCompile Include="UI_Ghost_Icon.cpp" />
     <ClCompile Include="UI_Ghost_Wire_Big.cpp" />
     <ClCompile Include="UI_Ghost_Wire_Small.cpp" />
     <ClCompile Include="UI_IconMgr.cpp" />
@@ -446,7 +448,7 @@
     <ClCompile Include="UI_Move.cpp" />
     <ClCompile Include="UI_Nuclear_Icon.cpp" />
     <ClCompile Include="UI_Resource.cpp" />
-    <ClCompile Include="UI_Science_Facility_Addon.cpp" />
+    <ClCompile Include="UI_Science_Facility_Addon_Wire.cpp" />
     <ClCompile Include="UI_Science_Facility_Addon_Icon.cpp" />
     <ClCompile Include="UI_Science_Facility_Icon.cpp" />
     <ClCompile Include="UI_Science_Facility_Wire.cpp" />

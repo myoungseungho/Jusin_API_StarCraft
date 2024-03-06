@@ -1,11 +1,11 @@
 #pragma once
 #include "Obj_UI.h"
-class CUI_Science_Facility_Addon :
+class CUI_Science_Facility_Addon_Wire :
     public CObj_UI
 {
 public:
-	CUI_Science_Facility_Addon();
-	virtual ~CUI_Science_Facility_Addon();
+	CUI_Science_Facility_Addon_Wire();
+	virtual ~CUI_Science_Facility_Addon_Wire();
 public:
 	void Initialize() override;
 	int Update() override;

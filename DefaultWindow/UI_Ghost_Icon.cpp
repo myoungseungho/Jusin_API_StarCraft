@@ -1,17 +1,17 @@
 #include "stdafx.h"
-#include "UI_FireBat_Icon.h"
+#include "UI_Ghost_Icon.h"
 #include "BmpMgr.h"
-CUI_FireBat_Icon::CUI_FireBat_Icon()
+CUI_Ghost_Icon::CUI_Ghost_Icon()
 {
     InsertBmpFile();
 }
 
-CUI_FireBat_Icon::~CUI_FireBat_Icon()
+CUI_Ghost_Icon::~CUI_Ghost_Icon()
 {
     Release();
 }
 
-void CUI_FireBat_Icon::Initialize()
+void CUI_Ghost_Icon::Initialize()
 {
 	//처음 크기 고정
 	m_tInfo.fCX = 40.f;
@@ -19,7 +19,7 @@ void CUI_FireBat_Icon::Initialize()
 	__super::Update_Rect();
 
 
-	m_pFrameKey = L"FIREBAT_ICON";
+	m_pFrameKey = L"Ghost_ICON";
 	m_tFrame.iFrameStart = 0;
 	m_tFrame.iFrameEnd = 1;
 	m_tFrame.iMotion = 0;
@@ -29,18 +29,18 @@ void CUI_FireBat_Icon::Initialize()
 	m_eRender = RENDER_UI;
 }
 
-int CUI_FireBat_Icon::Update()
+int CUI_Ghost_Icon::Update()
 {
 	if (m_bDead)
 		return OBJ_DEAD;
 	return 0;
 }
 
-void CUI_FireBat_Icon::Late_Update()
+void CUI_Ghost_Icon::Late_Update()
 {
 }
 
-void CUI_FireBat_Icon::Render(HDC hDC)
+void CUI_Ghost_Icon::Render(HDC hDC)
 {
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
@@ -56,21 +56,21 @@ void CUI_FireBat_Icon::Render(HDC hDC)
 		RGB(0, 0, 0));	// 제거할 색상 값
 }
 
-void CUI_FireBat_Icon::Release()
+void CUI_Ghost_Icon::Release()
 {
 }
 
-void CUI_FireBat_Icon::InsertBmpFile()
+void CUI_Ghost_Icon::InsertBmpFile()
 {
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/FIREBAT_ICON.bmp", L"FIREBAT_ICON");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/CmdIcon/Builduse/Ghost_ICON.bmp", L"Ghost_ICON");
 }
 
-UIOBJECTTYPE CUI_FireBat_Icon::GetType() const
+UIOBJECTTYPE CUI_Ghost_Icon::GetType() const
 {
 	return UI_OBJECT_ICON;
 }
 
-int CUI_FireBat_Icon::GetDetailType() const
+int CUI_Ghost_Icon::GetDetailType() const
 {
-	return ICON_FIREBAT;
+	return ICON_GHOST;
 }

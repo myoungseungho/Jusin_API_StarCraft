@@ -53,6 +53,7 @@
 #include "Science_Facility_UI.h"
 #include "Factory_Addon.h"
 #include "Science_Facility_Addon.h"
+#include "UI_Ghost_Icon.h"
 CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END), m_GhostNuclear(false)
 {
 }
@@ -242,7 +243,14 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 	}
 	else if (ICONId == ICON_SCIENCE_FACILITY_ADDON)
 	{
+		CObj* science = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_SCIENCE_FACILITY].front();
+		if (science != nullptr)
+		{
+			float top = science->Get_Rect().bottom - 60.f;
+			float right = science->Get_Rect().right + 30.f;
 
+			CSpawnMgr::Get_Instance()->Spawn_StaticObj<CScience_Facility_Addon>(STATIC_OBJ_SCIENCE_FACILITY_ADDON, FACTION_ALLY, right, top);
+		}
 	}
 	else if (ICONId == ICON_SCV)
 	{
@@ -468,16 +476,17 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Marine_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
 		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_FireBat_Icon>(UI_OBJECT_ICON, 713.f, 468.f));
 		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Medic_Icon>(UI_OBJECT_ICON, 768.f, 468.f));
+		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Ghost_Icon>(UI_OBJECT_ICON, 655.f, 518.f));
 
 		for (auto iter : m_vecBuildingIcon)
 		{
 			if (iter == nullptr || iter->Get_Dead())
 				continue;
 
-			if (iter->GetDetailType() == ICON_FIREBAT || iter->GetDetailType() == ICON_MEDIC)
-			{
-				iter->Get_Frame()->iFrameStart = 1;
-			}
+			//if (iter->GetDetailType() == ICON_FIREBAT || iter->GetDetailType() == ICON_MEDIC)
+			//{
+			//	iter->Get_Frame()->iFrameStart = 1;
+			//}
 		}
 	}
 	else if (objId == STATIC_OBJ_FACTORY)
@@ -496,6 +505,21 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 			}
 
 			if (iter->GetDetailType() == ICON_FACTORY_ADDON)
+			{
+				iter->Get_Frame()->iFrameStart = 1;
+			}
+		}
+	}
+	else if (objId == STATIC_OBJ_SCIENCE_FACILITY)
+	{
+		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Science_Facility_Addon_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
+
+		for (auto iter : m_vecBuildingIcon)
+		{
+			if (iter == nullptr || iter->Get_Dead())
+				continue;
+
+			if (iter->GetDetailType() == ICON_SCIENCE_FACILITY_ADDON)
 			{
 				iter->Get_Frame()->iFrameStart = 1;
 			}
