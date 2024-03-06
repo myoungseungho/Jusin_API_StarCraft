@@ -8,6 +8,7 @@
 #include "FireBat_Die_State.h"
 #include "SpawnMgr.h"
 #include "UI_FireBat_Display.h"
+#include "EconomyMgr.h"
 CFireBat::CFireBat()
 {
 	InsertBmpFile();
@@ -48,7 +49,11 @@ void CFireBat::Initialize()
 int CFireBat::Update()
 {
 	if (m_bDead)
+	{
+		if (m_Faction == FACTION_ALLY)
+			CEconomyMgr::Get_Instance()->SetPeople(-1);
 		return OBJ_DEAD;
+	}
 
 	__super::Update_Rect();
 

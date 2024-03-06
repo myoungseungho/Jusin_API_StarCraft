@@ -9,6 +9,7 @@
 #include "SpawnMgr.h"
 #include "UI_Tank_Display.h"
 #include "Tank_Siege_Mode.h"
+#include "EconomyMgr.h"
 
 CTank::CTank()
 {
@@ -53,7 +54,11 @@ void CTank::Initialize()
 int CTank::Update()
 {
 	if (m_bDead)
+	{
+		if (m_Faction == FACTION_ALLY)
+			CEconomyMgr::Get_Instance()->SetPeople(-2);
 		return OBJ_DEAD;
+	}
 
 	__super::Update_Rect();
 

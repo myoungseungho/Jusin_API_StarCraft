@@ -41,7 +41,7 @@ void CTank_Siege_Mode::Initialize(CObj_Dynamic* _tank)
 
 	m_pFrameKey_Attack = L"SiegeTank_Attack";
 	m_tFrame_Attack.iFrameStart = 0;
-	m_tFrame_Attack.iFrameEnd = 13;
+	m_tFrame_Attack.iFrameEnd = 14;
 	m_tFrame_Attack.iMotion = 0;
 	m_tFrame_Attack.dwSpeed = 50;
 	m_tFrame_Attack.dwTime = GetTickCount();
@@ -137,8 +137,8 @@ void CTank_Siege_Mode::Render(CObj_Dynamic* _tank, HDC hDC)
 
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		(_tank->Get_Target()->Get_Rect().left + iScrollX) + m_Offset_Attack, // 복사 받을 위치 좌표
-		(_tank->Get_Target()->Get_Rect().top + iScrollY) + m_Offset_Attack,
+		(_tank->Get_Target()->Get_Info().fX + iScrollX) + m_Offset_Attack, // 복사 받을 위치 좌표
+		(_tank->Get_Target()->Get_Info().fY + iScrollY) + m_Offset_Attack,
 		m_BulletSizeX,	// 복사 받을 이미지의 가로, 세로
 		m_BulletSizeY,
 		hMemBulletDC,		// 비트맵을 가지고 있는 DC

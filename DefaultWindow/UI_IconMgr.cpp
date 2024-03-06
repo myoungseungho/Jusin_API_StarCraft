@@ -282,36 +282,45 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 	}
 	else if (ICONId == ICON_FIREBAT)
 	{
-		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
-		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_FIREBAT);
+		if (CTechTreeMgr::Get_Instance()->GetIsAcademy())
+		{
+			CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+			dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_FIREBAT);
 
-		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_READY);
-		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_READY, 1);
-		CEconomyMgr::Get_Instance()->SetMineral(-50);
-		CEconomyMgr::Get_Instance()->SetGas(-25);
-		CEconomyMgr::Get_Instance()->SetPeople(1);
+			vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_FIREBAT, SOUND_READY);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FIREBAT_READY, 1);
+			CEconomyMgr::Get_Instance()->SetMineral(-50);
+			CEconomyMgr::Get_Instance()->SetGas(-25);
+			CEconomyMgr::Get_Instance()->SetPeople(1);
+		}
 	}
 	else if (ICONId == ICON_MEDIC)
 	{
-		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
-		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_MEDIC);
+		if (CTechTreeMgr::Get_Instance()->GetIsAcademy())
+		{
+			CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+			dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_MEDIC);
 
-		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MEDIC, SOUND_READY);
-		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MEDIC_READY, 1);
-		CEconomyMgr::Get_Instance()->SetMineral(-50);
-		CEconomyMgr::Get_Instance()->SetGas(-25);
-		CEconomyMgr::Get_Instance()->SetPeople(1);
+			vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MEDIC, SOUND_READY);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MEDIC_READY, 1);
+			CEconomyMgr::Get_Instance()->SetMineral(-50);
+			CEconomyMgr::Get_Instance()->SetGas(-25);
+			CEconomyMgr::Get_Instance()->SetPeople(1);
+		}
 	}
 	else if (ICONId == ICON_TANK)
 	{
-		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
-		dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_TANK);
+		if (CTechTreeMgr::Get_Instance()->GetIsFactory_Addon())
+		{
+			CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+			dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_TANK);
 
-		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_READY);
-		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_READY, 1);
-		CEconomyMgr::Get_Instance()->SetMineral(-150);
-		CEconomyMgr::Get_Instance()->SetGas(-100);
-		CEconomyMgr::Get_Instance()->SetPeople(2);
+			vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_READY);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_READY, 1);
+			CEconomyMgr::Get_Instance()->SetMineral(-150);
+			CEconomyMgr::Get_Instance()->SetGas(-100);
+			CEconomyMgr::Get_Instance()->SetPeople(2);
+		}
 	}
 	else if (ICONId == ICON_NUCLEAR)
 	{

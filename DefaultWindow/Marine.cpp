@@ -8,6 +8,7 @@
 #include "Marine_Die_State.h"
 #include "SpawnMgr.h"
 #include "UI_Marine_Display.h"
+#include "EconomyMgr.h"
 CMarine::CMarine()
 {
 	InsertBmpFile();
@@ -48,7 +49,11 @@ void CMarine::Initialize()
 int CMarine::Update()
 {
 	if (m_bDead)
+	{
+		if (m_Faction == FACTION_ALLY)
+			CEconomyMgr::Get_Instance()->SetPeople(-1);
 		return OBJ_DEAD;
+	}
 
 	__super::Update_Rect();
 

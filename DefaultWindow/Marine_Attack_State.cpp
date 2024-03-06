@@ -78,8 +78,8 @@ void CMarine_Attack_State::Render(CObj_Dynamic* _marine, HDC hDC)
 
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		_marine->Get_Target()->Get_Rect().left + iScrollX + m_Offset_Attack, // 복사 받을 위치 좌표
-		_marine->Get_Target()->Get_Rect().top + iScrollY + m_Offset_Attack,
+		_marine->Get_Target()->Get_Info().fX + iScrollX + m_Offset_Attack, // 복사 받을 위치 좌표
+		_marine->Get_Target()->Get_Info().fY + iScrollY + m_Offset_Attack,
 		m_AttackFileSize,	// 복사 받을 이미지의 가로, 세로
 		m_AttackFileSize,
 		hMemDC,		// 비트맵을 가지고 있는 DC

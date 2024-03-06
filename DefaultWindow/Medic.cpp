@@ -8,6 +8,7 @@
 #include "Medic_Die_State.h"
 #include "ObjMgr.h"
 #include "SpawnMgr.h"
+#include "EconomyMgr.h"
 #include "UI_Medic_Display.h"
 CMedic::CMedic()
 {
@@ -49,7 +50,11 @@ void CMedic::Initialize()
 int CMedic::Update()
 {
 	if (m_bDead)
+	{
+		if (m_Faction == FACTION_ALLY)
+			CEconomyMgr::Get_Instance()->SetPeople(-1);
 		return OBJ_DEAD;
+	}
 
 
 	__super::Update_Rect();
