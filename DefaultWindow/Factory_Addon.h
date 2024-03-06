@@ -19,5 +19,7 @@ protected:
 
     // CObj_Static을(를) 통해 상속됨
     BUILDINGSTATE GetType() const override;
+private:
+    bool m_CompleteAddon;
 };
 

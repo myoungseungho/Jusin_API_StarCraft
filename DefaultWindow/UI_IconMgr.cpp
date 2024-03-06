@@ -51,6 +51,8 @@
 #include "UI_Nuclear_Icon.h"
 #include "UI_Factory_Addon_Icon.h"
 #include "Science_Facility_UI.h"
+#include "Factory_Addon.h"
+#include "Science_Facility_Addon.h"
 CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END), m_GhostNuclear(false)
 {
 }
@@ -226,6 +228,21 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		m_vecBuilding.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CScience_Facility_UI>(UI_OBJECT_BUILD, 0.f, 0.f));
 		m_CurrentBuilding = UI_STATIC_OBJ_SCIENCE_FACILITY;
+	}
+	else if (ICONId == ICON_FACTORY_ADDON)
+	{
+		CObj* factory = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_FACTORY].front();
+		if (factory != nullptr)
+		{
+			float top = factory->Get_Rect().bottom - 60.f;
+			float right = factory->Get_Rect().right + 30.f;
+
+			CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory_Addon>(STATIC_OBJ_FACTORY_ADDON, FACTION_ALLY, right, top);
+		}
+	}
+	else if (ICONId == ICON_SCIENCE_FACILITY_ADDON)
+	{
+
 	}
 	else if (ICONId == ICON_SCV)
 	{

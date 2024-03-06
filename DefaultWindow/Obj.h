@@ -66,6 +66,9 @@ protected:
 	TCHAR* m_pFrameKey;
 	FRAME		m_tFrame;
 
+	TCHAR* m_pFrameConnectKey;
+	FRAME		m_tFrameConnect;
+
 	TCHAR*		m_pFrameDisplayKey;
 	FRAME		m_tFrameDisplay;
 

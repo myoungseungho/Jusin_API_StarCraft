@@ -3,7 +3,7 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "TileMgr.h"
-CFactory_Addon::CFactory_Addon()
+CFactory_Addon::CFactory_Addon() :m_CompleteAddon(false)
 {
     InsertBmpFile();
 }
@@ -28,6 +28,13 @@ void CFactory_Addon::Initialize()
 	m_tFrame.iMotion = 0;
 	m_tFrame.dwSpeed = 1000;
 	m_tFrame.dwTime = GetTickCount();
+
+	m_pFrameConnectKey = L"Machines_Connect";
+	m_tFrameConnect.iFrameStart = 0;
+	m_tFrameConnect.iFrameEnd = 3;
+	m_tFrameConnect.iMotion = 0;
+	m_tFrameConnect.dwSpeed = 50;
+	m_tFrameConnect.dwTime = GetTickCount();
 
 	m_eRender = RENDER_BUILDING;
 
@@ -57,6 +64,25 @@ int CFactory_Addon::Update()
 void CFactory_Addon::Late_Update()
 {
 	CObj_Static::Move_Frame();
+
+	if (m_CompleteBuilding)
+	{
+		if (m_CompleteAddon)
+			return;
+
+		if (m_tFrameConnect.dwTime + m_tFrameConnect.dwSpeed < GetTickCount())
+		{
+			++m_tFrameConnect.iFrameStart;
+
+			if (m_tFrameConnect.iFrameStart > m_tFrameConnect.iFrameEnd)
+			{
+				m_tFrameConnect.iFrameStart = m_tFrameConnect.iFrameEnd;
+				m_CompleteAddon = true;
+			}
+
+			m_tFrameConnect.dwTime = GetTickCount();
+		}
+	}
 }
 
 void CFactory_Addon::Render(HDC hDC)
@@ -84,6 +110,21 @@ void CFactory_Addon::Render(HDC hDC)
 			5 * m_tFrame.iMotion,
 			128,	// 출력할 비트맵 가로
 			5,	// 출력할 비트맵 세로
+			RGB(0, 0, 0));	// 제거할 색상 값
+
+		HDC	hConnect = CBmpMgr::Get_Instance()->Find_Image(m_pFrameConnectKey);
+
+		GdiTransparentBlt(
+			hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
+			m_tRect.left + iScrollX, // 복사 받을 위치 좌표
+			m_tRect.top + iScrollY,
+			(int)m_tInfo.fCX,	// 복사 받을 이미지의 가로, 세로
+			(int)m_tInfo.fCY,
+			hConnect,		// 비트맵을 가지고 있는 DC
+			(int)m_tInfo.fCX * m_tFrameConnect.iFrameStart,			// 비트맵 출력 시작 좌표 LEFT, TOP
+			(int)m_tInfo.fCY * m_tFrameConnect.iMotion,
+			(int)m_tInfo.fCX,	// 출력할 비트맵 가로
+			(int)m_tInfo.fCY,	// 출력할 비트맵 세로
 			RGB(0, 0, 0));	// 제거할 색상 값
 	}
 
@@ -113,7 +154,7 @@ void CFactory_Addon::Render(HDC hDC)
 
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		this->m_tRect.left + iScrollX - 15.f, // 복사 받을 위치 좌표
+		this->m_tRect.left + iScrollX, // 복사 받을 위치 좌표
 		this->m_tRect.top + iScrollY + 10.f,
 		128,	// 복사 받을 이미지의 가로, 세로
 		128,
@@ -136,6 +177,7 @@ void CFactory_Addon::Spawn_Unit()
 void CFactory_Addon::InsertBmpFile()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Machines/Machines.bmp", L"Machines");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Building/Machines/Machines_Connect.bmp", L"Machines_Connect");
 }
 
 BUILDINGSTATE CFactory_Addon::GetType() const
