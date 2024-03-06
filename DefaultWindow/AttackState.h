@@ -17,7 +17,7 @@ public:
 	virtual void Attack(CObj_Dynamic*);
 
 protected:
-	void MoveUntilAttackDistance(CObj_Dynamic*);
+	virtual void MoveUntilAttackDistance(CObj_Dynamic*);
 
 private:
 	float m_currentTime;

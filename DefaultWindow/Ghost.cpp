@@ -37,8 +37,8 @@ void CGhost::Initialize()
 
 		m_Stat.m_Hp = 45;
 		m_Stat.m_Attack = 1;
-		m_Stat.m_AttackRange = 130.f;
-		m_Stat.m_DetectionRange = 200.f;
+		m_Stat.m_AttackRange = 400.f;
+		m_Stat.m_DetectionRange = 400.f;
 		m_Stat.m_fSpeed = 3.f;
 		m_Stat.m_MaxHp = 45;
 		lstrcpyW(m_Stat.m_Name, L"Ghost");
@@ -165,7 +165,7 @@ void CGhost::InsertBmpFile()
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP] = (L"Ghost_Walk_Up_Right");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RUP],{0,17,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT] = (L"Ghost_Walk_Right");
-	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT],{0,17,0,50,GetTickCount()} });
+	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RIGHT],{0,9,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN] = (L"Ghost_Walk_Down_Right");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_RDOWN],{0,17,0,50,GetTickCount()} });
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_DOWN] = (L"Ghost_Walk_Down");

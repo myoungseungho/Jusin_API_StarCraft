@@ -20,6 +20,7 @@ public:
 	void StaticSetUI(BUILDINGSTATE);
 
 	UI_BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }
+	bool GetNuclear() { return m_GhostNuclear; }
 private:
 	CObj_UI* m_MoveIcon;
 	CObj_UI* m_StopIcon;
@@ -52,5 +53,7 @@ private:
 	CObj_UI* m_TankIcon;
 
 	vector<CObj_UI*> m_vecBuildingIcon;
+
+	bool m_GhostNuclear;
 };
 

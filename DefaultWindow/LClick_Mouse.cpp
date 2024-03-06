@@ -120,6 +120,7 @@ void CLClick_Mouse::HandleStaticObjectClick(CObj* target)
 void CLClick_Mouse::HandleNoTargetClick()
 {
 	UI_BUILDINGSTATE BuildingState = CUIMgr::Get_Instance()->GetBuilding();
+
 	if (BuildingState != UI_STATIC_OBJ_END)
 	{
 		//SCV가 이제 해당 위치까지 가야함
@@ -133,8 +134,6 @@ void CLClick_Mouse::HandleNoTargetClick()
 			Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
 			Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
-
-
 			if (dynamic_cast<CObj_Dynamic*>(vecUnit.back()))
 			{
 				vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BUILD);
@@ -143,8 +142,6 @@ void CLClick_Mouse::HandleNoTargetClick()
 				CObj_Dynamic* target = dynamic_cast<CObj_Dynamic*>(vecUnit.back());
 				target->ChangeStateWithMouse(Pt, BUILD_STATE);
 				CUIMgr::Get_Instance()->SetClear_StaticObj();
-				//CKeyMgr::Get_Instance()->Set_bSelectUnit(false);
-				//CUnitControlMgr::Get_Instance()->Set_Clear_Unit();
 			}
 		}
 	}
@@ -178,7 +175,9 @@ void CLClick_Mouse::Initialize()
 
 		//좌표에 해당하는 유닛을 반환한다.
 		CObj* target = CObjMgr::Get_Instance()->Get_Target(Pt.x, Pt.y);
+		bool hasNuclear = CUIMgr::Get_Instance()->GetNuclear();
 
+		//왼쪽 클릭을 했는데 타겟이 있다면
 		if (target != nullptr)
 		{
 			if (dynamic_cast<CObj_Dynamic*>(target))
@@ -189,6 +188,24 @@ void CLClick_Mouse::Initialize()
 		else
 		{
 			HandleNoTargetClick();
+		}
+
+		if (hasNuclear)
+		{
+			//고스트는 한마리만 뽑자.
+			CObj* ghost = CObjMgr::Get_Instance()->GetDynamic_Obj_List()[DYNAMIC_OBJ_GHOST].back();
+			CObj_Dynamic* dynamicGhost = dynamic_cast<CObj_Dynamic*>(ghost);
+			if (dynamicGhost == nullptr)
+				return;
+
+			POINT	Pt;
+			GetCursorPos(&Pt);
+			ScreenToClient(g_hWnd, &Pt);
+
+			Pt.x -= (int)CScrollMgr::Get_Instance()->Get_ScrollX();
+			Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
+
+			dynamicGhost->ChangeStateWithMouse(Pt, ATTACK_STATE);
 		}
 	}
 }

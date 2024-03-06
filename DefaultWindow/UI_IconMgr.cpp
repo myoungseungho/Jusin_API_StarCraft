@@ -43,7 +43,7 @@
 #include "Tank_Siege_Mode.h"
 #include "Ghost.h"
 #include "UI_Nuclear_Icon.h"
-CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END)
+CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END), m_GhostNuclear(false)
 {
 }
 
@@ -232,6 +232,10 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		CEconomyMgr::Get_Instance()->SetMineral(-150);
 		CEconomyMgr::Get_Instance()->SetGas(-100);
 		CEconomyMgr::Get_Instance()->SetPeople(2);
+	}
+	else if (ICONId == ICON_NUCLEAR)
+	{
+		m_GhostNuclear = true;
 	}
 }
 
