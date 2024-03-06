@@ -93,7 +93,8 @@ void CCollisionMgr::Collision_RectEx(list<CObj*> _Dst, list<CObj*> _Src)
 			if (Dst == Src || DstDynamicObj->GetStateID() == WALK_STATE || SrcDynamicObj->GetStateID() == WALK_STATE || DstDynamicObj->GetAttackRun()
 				|| SrcDynamicObj->GetAttackRun() || DstDynamicObj->GetStateID() == COLLECTION_STATE || SrcDynamicObj->GetStateID() == COLLECTION_STATE
 				|| DstDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR || DstDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR_EFFECT || DstDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR_TARGET
-				|| SrcDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR || SrcDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR_EFFECT || SrcDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR_TARGET)
+				|| SrcDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR || SrcDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR_EFFECT || SrcDynamicObj->GetType() == DYNAMIC_OBJ_NUCLEAR_TARGET
+				|| DstDynamicObj->GetStateID() == SIEGEMODE_STATE || SrcDynamicObj->GetStateID() == SIEGEMODE_STATE)
 				continue;
 
 			if (Check_Rect(&fX, &fY, Dst, Src, 0.2f))

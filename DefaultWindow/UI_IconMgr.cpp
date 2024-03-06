@@ -533,12 +533,19 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 				{
 					iter->Get_Frame()->iFrameStart = 1;
 				}
+
+				if (iter->GetDetailType() == ICON_FACTORY_ADDON)
+					iter->Set_Dead();
+			}
+			else
+			{
+				if (iter->GetDetailType() == ICON_FACTORY_ADDON)
+				{
+					iter->Get_Frame()->iFrameStart = 1;
+				}
 			}
 
-			if (iter->GetDetailType() == ICON_FACTORY_ADDON)
-			{
-				iter->Get_Frame()->iFrameStart = 1;
-			}
+
 		}
 	}
 	else if (objId == STATIC_OBJ_SCIENCE_FACILITY)
@@ -550,10 +557,21 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 			if (iter == nullptr || iter->Get_Dead())
 				continue;
 
-			if (iter->GetDetailType() == ICON_SCIENCE_FACILITY_ADDON)
+			if (CTechTreeMgr::Get_Instance()->GetIsScience_Addon())
 			{
-				iter->Get_Frame()->iFrameStart = 1;
+				if (iter->GetDetailType() == ICON_SCIENCE_FACILITY_ADDON)
+				{
+					iter->Set_Dead();
+				}
 			}
+			else
+			{
+				if (iter->GetDetailType() == ICON_SCIENCE_FACILITY_ADDON)
+				{
+					iter->Get_Frame()->iFrameStart = 1;
+				}
+			}
+
 		}
 	}
 }
