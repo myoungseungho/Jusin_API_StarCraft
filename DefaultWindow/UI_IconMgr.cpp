@@ -239,6 +239,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 			float right = factory->Get_Rect().right + 30.f;
 
 			CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory_Addon>(STATIC_OBJ_FACTORY_ADDON, FACTION_ALLY, right, top);
+			_unit->Set_Dead();
 		}
 	}
 	else if (ICONId == ICON_SCIENCE_FACILITY_ADDON)
@@ -250,6 +251,7 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 			float right = science->Get_Rect().right + 30.f;
 
 			CSpawnMgr::Get_Instance()->Spawn_StaticObj<CScience_Facility_Addon>(STATIC_OBJ_SCIENCE_FACILITY_ADDON, FACTION_ALLY, right, top);
+			_unit->Set_Dead();
 		}
 	}
 	else if (ICONId == ICON_SCV)
@@ -499,10 +501,10 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 			if (iter == nullptr || iter->Get_Dead())
 				continue;
 
-			if (iter->GetDetailType() == ICON_TANK)
+		/*	if (iter->GetDetailType() == ICON_TANK)
 			{
 				iter->Get_Frame()->iFrameStart = 1;
-			}
+			}*/
 
 			if (iter->GetDetailType() == ICON_FACTORY_ADDON)
 			{
