@@ -21,6 +21,7 @@ public:
 
 	UI_BUILDINGSTATE GetBuilding() { return m_CurrentBuilding; }
 	bool GetNuclear() { return m_GhostNuclear; }
+	void SetNuclear(bool _isNuclear) { m_GhostNuclear = _isNuclear; }
 private:
 	CObj_UI* m_MoveIcon;
 	CObj_UI* m_StopIcon;

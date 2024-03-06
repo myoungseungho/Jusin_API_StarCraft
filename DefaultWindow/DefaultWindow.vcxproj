@@ -200,6 +200,9 @@
     <ClInclude Include="MyBmp.h" />
     <ClInclude Include="MyEdit.h" />
     <ClInclude Include="MyMenu.h" />
+    <ClInclude Include="Nuclear.h" />
+    <ClInclude Include="Nuclear_Effect.h" />
+    <ClInclude Include="Nuclear_Target.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="ObjMgr.h" />
     <ClInclude Include="Obj_Dynamic.h" />
@@ -340,6 +343,9 @@
     <ClCompile Include="MyBmp.cpp" />
     <ClCompile Include="MyEdit.cpp" />
     <ClCompile Include="MyMenu.cpp" />
+    <ClCompile Include="Nuclear.cpp" />
+    <ClCompile Include="Nuclear_Effect.cpp" />
+    <ClCompile Include="Nuclear_Target.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjMgr.cpp" />
     <ClCompile Include="Obj_Dynamic.cpp" />

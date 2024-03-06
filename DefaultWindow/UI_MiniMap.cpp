@@ -80,6 +80,8 @@ void CUI_MiniMap::Render(HDC hDC)
 				// 빨간색 브러시 생성
 				color = RGB(255, 0, 0); // 빨간색
 			}
+			else
+				return;
 
 			// 사각형 그리기
 			HBRUSH hBrush = CreateSolidBrush(color); // 색상으로 브러시 생성

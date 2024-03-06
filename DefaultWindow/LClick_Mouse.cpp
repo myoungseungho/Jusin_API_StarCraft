@@ -180,14 +180,23 @@ void CLClick_Mouse::Initialize()
 		//왼쪽 클릭을 했는데 타겟이 있다면
 		if (target != nullptr)
 		{
-			if (dynamic_cast<CObj_Dynamic*>(target))
+			if (hasNuclear)
+			{
+
+			}
+			else if (dynamic_cast<CObj_Dynamic*>(target))
 				HandleDynamicObjectClick(target);
 			else if (dynamic_cast<CObj_Static*>(target))
 				HandleStaticObjectClick(target);
 		}
 		else
 		{
-			HandleNoTargetClick();
+			if (hasNuclear)
+			{
+
+			}
+			else
+				HandleNoTargetClick();
 		}
 
 		if (hasNuclear)
@@ -206,6 +215,7 @@ void CLClick_Mouse::Initialize()
 			Pt.y -= (int)CScrollMgr::Get_Instance()->Get_ScrollY();
 
 			dynamicGhost->ChangeStateWithMouse(Pt, ATTACK_STATE);
+			CUIMgr::Get_Instance()->SetNuclear(false);
 		}
 	}
 }

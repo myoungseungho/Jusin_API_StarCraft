@@ -64,7 +64,7 @@ bool CObj_Dynamic::CheckEnemy()
 	float nearDistnace = (numeric_limits<float>::max)();
 	CObj* target = nullptr;
 
-	for (size_t i = 0; i < DYNAMIC_OBJ_END; i++)
+	for (size_t i = 0; i < DYNAMIC_OBJ_GHOST; i++)
 	{
 		for (auto iter : pList[i])
 		{

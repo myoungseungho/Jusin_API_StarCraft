@@ -37,6 +37,8 @@ void CScv_Collection_State::Initialize(CObj_Dynamic* _scv)
 	m_AttackFileSize = 48;
 	m_Offset_Attack = 0;
 
+	m_CurrentTime = GetTickCount();
+
 	INFO info = _scv->Get_Info();
 
 	int ScvX = info.fX / TILECX;

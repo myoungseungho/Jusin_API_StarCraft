@@ -297,6 +297,8 @@ list<CObj*> CObjMgr::GetNearUnit(CObj_Dynamic* _unit, float _distance)
 	{
 		for (auto iter : m_Dynamic_Obj_List[i])
 		{
+			if (iter == _unit)
+				continue;
 			// 이동해야 할 방향 벡터 계산
 			float dirX = iter->Get_Info().fX - _unit->Get_Info().fX;
 			float dirY = iter->Get_Info().fY - _unit->Get_Info().fY;

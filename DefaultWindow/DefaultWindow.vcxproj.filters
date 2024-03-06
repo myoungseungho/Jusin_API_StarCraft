@@ -286,6 +286,9 @@
     <Filter Include="01. Obj\03. UI\01. Unit_Icon\07. Nuclear_Icon">
       <UniqueIdentifier>{fae8642d-f9b0-4f2b-8751-356fa33a1d4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\00. Unit\06. Nuclear">
+      <UniqueIdentifier>{b9be8663-0059-4374-b627-b87f2af97cc5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -708,6 +711,15 @@
     <ClInclude Include="UI_Ghost_Wire_Small.h">
       <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
     </ClInclude>
+    <ClInclude Include="Nuclear.h">
+      <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
+    </ClInclude>
+    <ClInclude Include="Nuclear_Target.h">
+      <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
+    </ClInclude>
+    <ClInclude Include="Nuclear_Effect.h">
+      <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1117,6 +1129,15 @@
     </ClCompile>
     <ClCompile Include="UI_Ghost_Wire_Small.cpp">
       <Filter>01. Obj\03. UI\06. Unit_Wire\01. Small_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="Nuclear.cpp">
+      <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
+    </ClCompile>
+    <ClCompile Include="Nuclear_Target.cpp">
+      <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
+    </ClCompile>
+    <ClCompile Include="Nuclear_Effect.cpp">
+      <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

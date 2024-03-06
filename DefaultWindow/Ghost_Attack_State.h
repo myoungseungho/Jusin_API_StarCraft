@@ -16,5 +16,8 @@ public:
 protected:
 	virtual void Attack(CObj_Dynamic*) override;
 	virtual void MoveUntilAttackDistance(CObj_Dynamic*) override;
+	virtual void Move_Frame(CObj_Dynamic*) override;
+private:
+	DWORD m_CurrentTime;
 };
 

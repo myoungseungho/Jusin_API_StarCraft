@@ -48,6 +48,7 @@ public:
 
 	UI_BUILDINGSTATE GetBuilding() { return m_UI_IconMgr->GetBuilding(); }
 	bool GetNuclear() { return m_UI_IconMgr->GetNuclear(); }
+	void SetNuclear(bool _isNuclear) { m_UI_IconMgr->SetNuclear(_isNuclear); }
 private:
 	static CUIMgr* m_pInstance;
 

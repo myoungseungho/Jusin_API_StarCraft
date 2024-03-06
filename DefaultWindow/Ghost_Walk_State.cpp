@@ -22,7 +22,7 @@ void CGhost_Walk_State::Initialize(CObj_Dynamic* _ghost)
 	m_pFrameCopy = _ghost->Get_Frame();
 	m_pFrameKeyCopy = _ghost->Get_FrameKey();
 
-	*m_pFrameKeyCopy = L"Marine_Walk_Right_90";
+	*m_pFrameKeyCopy = L"Ghost_Walk_Down_Right";
 	m_pFrameCopy->iFrameStart = 0;
 	m_pFrameCopy->iFrameEnd = 17;
 	m_pFrameCopy->iMotion = 0;
