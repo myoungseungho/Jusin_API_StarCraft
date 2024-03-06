@@ -4,7 +4,7 @@
 
 CTechTreeMgr* CTechTreeMgr::m_pInstance = nullptr;
 
-CTechTreeMgr::CTechTreeMgr()
+CTechTreeMgr::CTechTreeMgr() : m_bIsAcademy(false), m_bIsFactory_Addon(false), m_bIsScience_Addon(false)
 {
 }
 
@@ -43,6 +43,7 @@ void CTechTreeMgr::SetBuiding(BUILDINGSTATE _build)
 				return;
 		}
 		m_vecPossibleBuilding.push_back(STATIC_OBJ_STARPORT);
+		m_vecPossibleBuilding.push_back(STATIC_OBJ_FACTORY_ADDON);
 		break;
 
 	case STATIC_OBJ_STARPORT:
@@ -52,6 +53,10 @@ void CTechTreeMgr::SetBuiding(BUILDINGSTATE _build)
 				return;
 		}
 		m_vecPossibleBuilding.push_back(STATIC_OBJ_SCIENCE_FACILITY);
+		break;
+
+	case STATIC_OBJ_SCIENCE_FACILITY:
+		//m_vecPossibleBuilding.push_back(STATIC_OBJ_SCIENCE_FACILITY_ADDON);
 		break;
 	}
 }

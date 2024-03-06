@@ -145,6 +145,7 @@ void CScv_Build_State::BuildStart(CObj_Dynamic* _scv)
 		case STATIC_OBJ_ACADENY:
 			m_Building = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CAcademy>(STATIC_OBJ_ACADENY, FACTION_ALLY, mousePT.x, mousePT.y);
 			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_ACADENY);
+			CTechTreeMgr::Get_Instance()->SetIsAcademy();
 			CEconomyMgr::Get_Instance()->SetMineral(-150);
 			break;
 		case STATIC_OBJ_FACTORY:

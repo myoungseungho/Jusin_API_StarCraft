@@ -232,24 +232,30 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 	}
 	else if (ICONId == ICON_FACTORY_ADDON)
 	{
-		CObj* factory = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_FACTORY].front();
+		CObj* factory = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_FACTORY].back();
 		if (factory != nullptr)
 		{
 			float top = factory->Get_Rect().bottom - 60.f;
 			float right = factory->Get_Rect().right + 30.f;
-
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_FACTORY_ADDON);
+			CTechTreeMgr::Get_Instance()->SetIsFactory_Addon();
+			CEconomyMgr::Get_Instance()->SetMineral(-50);
+			CEconomyMgr::Get_Instance()->SetGas(-50);
 			CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory_Addon>(STATIC_OBJ_FACTORY_ADDON, FACTION_ALLY, right, top);
 			_unit->Set_Dead();
 		}
 	}
 	else if (ICONId == ICON_SCIENCE_FACILITY_ADDON)
 	{
-		CObj* science = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_SCIENCE_FACILITY].front();
+		CObj* science = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_SCIENCE_FACILITY].back();
 		if (science != nullptr)
 		{
 			float top = science->Get_Rect().bottom - 60.f;
 			float right = science->Get_Rect().right + 30.f;
-
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_SCIENCE_FACILITY_ADDON);
+			CTechTreeMgr::Get_Instance()->SetIsScience_Addon();
+			CEconomyMgr::Get_Instance()->SetMineral(-50);
+			CEconomyMgr::Get_Instance()->SetGas(-50);
 			CSpawnMgr::Get_Instance()->Spawn_StaticObj<CScience_Facility_Addon>(STATIC_OBJ_SCIENCE_FACILITY_ADDON, FACTION_ALLY, right, top);
 			_unit->Set_Dead();
 		}
@@ -485,10 +491,21 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 			if (iter == nullptr || iter->Get_Dead())
 				continue;
 
-			//if (iter->GetDetailType() == ICON_FIREBAT || iter->GetDetailType() == ICON_MEDIC)
-			//{
-			//	iter->Get_Frame()->iFrameStart = 1;
-			//}
+			if (CTechTreeMgr::Get_Instance()->GetIsAcademy())
+			{
+				if (iter->GetDetailType() == ICON_FIREBAT || iter->GetDetailType() == ICON_MEDIC)
+				{
+					iter->Get_Frame()->iFrameStart = 1;
+				}
+			}
+
+			if (CTechTreeMgr::Get_Instance()->GetIsScience_Addon())
+			{
+				if (iter->GetDetailType() == ICON_GHOST)
+				{
+					iter->Get_Frame()->iFrameStart = 1;
+				}
+			}
 		}
 	}
 	else if (objId == STATIC_OBJ_FACTORY)
@@ -501,10 +518,13 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 			if (iter == nullptr || iter->Get_Dead())
 				continue;
 
-		/*	if (iter->GetDetailType() == ICON_TANK)
+			if (CTechTreeMgr::Get_Instance()->GetIsFactory_Addon())
 			{
-				iter->Get_Frame()->iFrameStart = 1;
-			}*/
+				if (iter->GetDetailType() == ICON_TANK)
+				{
+					iter->Get_Frame()->iFrameStart = 1;
+				}
+			}
 
 			if (iter->GetDetailType() == ICON_FACTORY_ADDON)
 			{
