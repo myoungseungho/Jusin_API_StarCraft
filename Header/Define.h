@@ -311,18 +311,18 @@ typedef struct tagFrame
 	DWORD	dwTime;			// 갱신 주기
 
 }FRAME;
-
-typedef struct tagKeyFrame
-{
-	wchar_t* m_FrameArrayWalkKey[DIR_END];
-	wchar_t* m_FrameArrayAttackKey[DIR_END];
-	wchar_t* m_FrameBulletAttackKey[DIR_END];
-	wchar_t* m_FrameTankPosinKey[DIR_END];
-	wchar_t* m_FrameTankPosinLaunchKey[DIR_END];
-	wchar_t* m_FrameSiegeTankKey[DIR_END];
-
-	map<wchar_t*, FRAME> _mapKeyFrame;
-}KEYANDFRAME;
+//
+//typedef struct tagKeyFrame
+//{
+//	wchar_t* m_FrameArrayWalkKey[DIR_END];
+//	wchar_t* m_FrameArrayAttackKey[DIR_END];
+//	wchar_t* m_FrameBulletAttackKey[DIR_END];
+//	wchar_t* m_FrameTankPosinKey[DIR_END];
+//	wchar_t* m_FrameTankPosinLaunchKey[DIR_END];
+//	wchar_t* m_FrameSiegeTankKey[DIR_END];
+//
+//	map<wchar_t*, FRAME> _mapKeyFrame;
+//}KEYANDFRAME;
 
 
 template<typename T>
@@ -336,3 +336,8 @@ void Safe_Delete(T& Temp)
 }
 
 extern HWND		g_hWnd;
+
+enum DIRECTION2
+{
+	LEFT, RIGHT, END
+};
