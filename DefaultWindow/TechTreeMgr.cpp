@@ -29,11 +29,13 @@ void CTechTreeMgr::SetBuiding(BUILDINGSTATE _build)
 	case STATIC_OBJ_BARRACK:
 		for (auto iter : m_vecPossibleBuilding)
 		{
-			if (iter == STATIC_OBJ_FACTORY)
+			if (iter == STATIC_OBJ_FACTORY || iter == STATIC_OBJ_ACADENY)
 				return;
 		}
+		m_vecPossibleBuilding.push_back(STATIC_OBJ_ACADENY);
 		m_vecPossibleBuilding.push_back(STATIC_OBJ_FACTORY);
 		break;
+
 	case STATIC_OBJ_FACTORY:
 		for (auto iter : m_vecPossibleBuilding)
 		{
@@ -41,6 +43,15 @@ void CTechTreeMgr::SetBuiding(BUILDINGSTATE _build)
 				return;
 		}
 		m_vecPossibleBuilding.push_back(STATIC_OBJ_STARPORT);
+		break;
+
+	case STATIC_OBJ_STARPORT:
+		for (auto iter : m_vecPossibleBuilding)
+		{
+			if (iter == STATIC_OBJ_SCIENCE_FACILITY)
+				return;
+		}
+		m_vecPossibleBuilding.push_back(STATIC_OBJ_SCIENCE_FACILITY);
 		break;
 	}
 }

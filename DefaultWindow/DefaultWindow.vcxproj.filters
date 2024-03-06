@@ -289,6 +289,45 @@
     <Filter Include="01. Obj\00. Unit\06. Nuclear">
       <UniqueIdentifier>{b9be8663-0059-4374-b627-b87f2af97cc5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. UI\02. Build_Icon\05. Academy_Icon">
+      <UniqueIdentifier>{e2747f63-813f-43bf-aeed-20fe9806361e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\02. Build_Icon\06. Science_Facility_Icon">
+      <UniqueIdentifier>{447962bd-53c1-4163-8e88-b778fecc4811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\05. Academy_UI">
+      <UniqueIdentifier>{b4f26c57-0237-4d2c-aae5-f4a7db2a421c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\06. Science_Facility_UI">
+      <UniqueIdentifier>{2743a1a2-23f9-46b2-92bf-d510b0bb634c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\05. Spawn_Icon\05. Ghost_Icon">
+      <UniqueIdentifier>{4ce75364-1853-4fa6-bea7-ccb376db3b09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\05. Academy">
+      <UniqueIdentifier>{bec07228-a4a3-44ba-af43-73cfd131e76f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\06. Science_Facility">
+      <UniqueIdentifier>{ca44192c-4d71-4dad-b147-c8de74ffe3a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\07. Factory_Addon">
+      <UniqueIdentifier>{cf0f7fcc-3529-4687-ad40-c9f17fb5f0f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Buliding\08. Science_Facility_Addon">
+      <UniqueIdentifier>{5cefe7cb-e17d-4f79-9306-045287fd40cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\02. Build_Icon\07. Factory_Addon_Icon">
+      <UniqueIdentifier>{6b7f2170-987f-4732-b2b3-1d96b95696ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\02. Build_Icon\08. Science_Facility_Addon_Icon">
+      <UniqueIdentifier>{9831ea92-0ff3-47fb-9e41-7e7fce04d007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\08. Science_Facility_Addon_UI">
+      <UniqueIdentifier>{7941134c-ad04-448b-a98e-edb502958d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\07. Factory_Addon_UI">
+      <UniqueIdentifier>{e11b1355-e96c-4e35-8588-7e51a019fb1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -720,6 +759,54 @@
     <ClInclude Include="Nuclear_Effect.h">
       <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Academy_Icon.h">
+      <Filter>01. Obj\03. UI\02. Build_Icon\05. Academy_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Science_Facility_Icon.h">
+      <Filter>01. Obj\03. UI\02. Build_Icon\06. Science_Facility_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Academy_Wire.h">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Science_Facility_Wire.h">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="Academy.h">
+      <Filter>01. Obj\01. Buliding\05. Academy</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory_Addon.h">
+      <Filter>01. Obj\01. Buliding\07. Factory_Addon</Filter>
+    </ClInclude>
+    <ClInclude Include="Science_Facility.h">
+      <Filter>01. Obj\01. Buliding\06. Science_Facility</Filter>
+    </ClInclude>
+    <ClInclude Include="Science_Facility_Addon.h">
+      <Filter>01. Obj\01. Buliding\08. Science_Facility_Addon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Science_Facility_Addon_Icon.h">
+      <Filter>01. Obj\03. UI\02. Build_Icon\08. Science_Facility_Addon_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Factory_Addon_Icon.h">
+      <Filter>01. Obj\03. UI\02. Build_Icon\07. Factory_Addon_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="Science_Facility_Addon_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\08. Science_Facility_Addon_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory_Addon_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\07. Factory_Addon_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Science_Facility_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\06. Science_Facility_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Academy_UI.h">
+      <Filter>01. Obj\03. UI\04. BuildingUI\05. Academy_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Factyory_Addon_Wire.h">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Science_Facility_Addon.h">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1138,6 +1225,54 @@
     </ClCompile>
     <ClCompile Include="Nuclear_Effect.cpp">
       <Filter>01. Obj\00. Unit\06. Nuclear</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Academy_Icon.cpp">
+      <Filter>01. Obj\03. UI\02. Build_Icon\05. Academy_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Science_Facility_Icon.cpp">
+      <Filter>01. Obj\03. UI\02. Build_Icon\06. Science_Facility_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Academy_Wire.cpp">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Science_Facility_Wire.cpp">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="Academy.cpp">
+      <Filter>01. Obj\01. Buliding\05. Academy</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory_Addon.cpp">
+      <Filter>01. Obj\01. Buliding\07. Factory_Addon</Filter>
+    </ClCompile>
+    <ClCompile Include="Science_Facility.cpp">
+      <Filter>01. Obj\01. Buliding\06. Science_Facility</Filter>
+    </ClCompile>
+    <ClCompile Include="Science_Facility_Addon.cpp">
+      <Filter>01. Obj\01. Buliding\08. Science_Facility_Addon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Science_Facility_Addon_Icon.cpp">
+      <Filter>01. Obj\03. UI\02. Build_Icon\08. Science_Facility_Addon_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Factory_Addon_Icon.cpp">
+      <Filter>01. Obj\03. UI\02. Build_Icon\07. Factory_Addon_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="Science_Facility_Addon_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\08. Science_Facility_Addon_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory_Addon_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\07. Factory_Addon_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Science_Facility_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\06. Science_Facility_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Academy_UI.cpp">
+      <Filter>01. Obj\03. UI\04. BuildingUI\05. Academy_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Factyory_Addon_Wire.cpp">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Science_Facility_Addon.cpp">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

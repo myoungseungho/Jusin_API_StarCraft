@@ -44,7 +44,7 @@ void CUI_Text_Mgr::Render(HDC _hdc)
 		return;
 
 	RECT rect = { 230,520,330,620 };
-	RECT rect2 = { 380,450,480,550 };
+	RECT rect2 = { 350,450,470,550 };
 	STAT stat = m_ClieckObj->Get_Stat();
 
 	TCHAR buffer4[100]; // 버퍼를 준비합니다.

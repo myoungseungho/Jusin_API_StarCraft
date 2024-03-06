@@ -149,6 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="Academy.h" />
+    <ClInclude Include="Academy_UI.h" />
     <ClInclude Include="AStarMgr.h" />
     <ClInclude Include="AttackState.h" />
     <ClInclude Include="BackGround.h" />
@@ -166,6 +168,8 @@
     <ClInclude Include="DieState.h" />
     <ClInclude Include="EconomyMgr.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="Factory_Addon.h" />
+    <ClInclude Include="Factory_Addon_UI.h" />
     <ClInclude Include="Factory_UI.h" />
     <ClInclude Include="FireBat.h" />
     <ClInclude Include="FireBat_Attack_State.h" />
@@ -212,6 +216,10 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
+    <ClInclude Include="Science_Facility.h" />
+    <ClInclude Include="Science_Facility_Addon.h" />
+    <ClInclude Include="Science_Facility_Addon_UI.h" />
+    <ClInclude Include="Science_Facility_UI.h" />
     <ClInclude Include="ScrollMgr.h" />
     <ClInclude Include="Scv.h" />
     <ClInclude Include="Scv_Attack_State.h" />
@@ -239,6 +247,8 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMgr.h" />
     <ClInclude Include="UIMgr.h" />
+    <ClInclude Include="UI_Academy_Icon.h" />
+    <ClInclude Include="UI_Academy_Wire.h" />
     <ClInclude Include="UI_Advanced_Build.h" />
     <ClInclude Include="UI_Attack.h" />
     <ClInclude Include="UI_Barrack.h" />
@@ -250,7 +260,9 @@
     <ClInclude Include="UI_Depot.h" />
     <ClInclude Include="UI_Depot_Wire.h" />
     <ClInclude Include="UI_Factory.h" />
+    <ClInclude Include="UI_Factory_Addon_Icon.h" />
     <ClInclude Include="UI_Factory_Wire.h" />
+    <ClInclude Include="UI_Factyory_Addon_Wire.h" />
     <ClInclude Include="UI_FireBat_Display.h" />
     <ClInclude Include="UI_FireBat_Icon.h" />
     <ClInclude Include="UI_FireBat_Wire_Big.h" />
@@ -272,6 +284,10 @@
     <ClInclude Include="UI_Move.h" />
     <ClInclude Include="UI_Nuclear_Icon.h" />
     <ClInclude Include="UI_Resource.h" />
+    <ClInclude Include="UI_Science_Facility_Addon.h" />
+    <ClInclude Include="UI_Science_Facility_Addon_Icon.h" />
+    <ClInclude Include="UI_Science_Facility_Icon.h" />
+    <ClInclude Include="UI_Science_Facility_Wire.h" />
     <ClInclude Include="UI_SCV_Display.h" />
     <ClInclude Include="UI_SCV_Icon.h" />
     <ClInclude Include="UI_SCV_Wire_Big.h" />
@@ -292,6 +308,8 @@
     <ClInclude Include="WalkState.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Academy.cpp" />
+    <ClCompile Include="Academy_UI.cpp" />
     <ClCompile Include="AStarMgr.cpp" />
     <ClCompile Include="AttackState.cpp" />
     <ClCompile Include="BackGround.cpp" />
@@ -309,6 +327,8 @@
     <ClCompile Include="DieState.cpp" />
     <ClCompile Include="EconomyMgr.cpp" />
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="Factory_Addon.cpp" />
+    <ClCompile Include="Factory_Addon_UI.cpp" />
     <ClCompile Include="Factory_UI.cpp" />
     <ClCompile Include="FireBat.cpp" />
     <ClCompile Include="FireBat_Attack_State.cpp" />
@@ -354,6 +374,10 @@
     <ClCompile Include="RClick_Mouse.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
+    <ClCompile Include="Science_Facility.cpp" />
+    <ClCompile Include="Science_Facility_Addon.cpp" />
+    <ClCompile Include="Science_Facility_Addon_UI.cpp" />
+    <ClCompile Include="Science_Facility_UI.cpp" />
     <ClCompile Include="ScrollMgr.cpp" />
     <ClCompile Include="Scv.cpp" />
     <ClCompile Include="Scv_Attack_State.cpp" />
@@ -385,6 +409,8 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileMgr.cpp" />
     <ClCompile Include="UIMgr.cpp" />
+    <ClCompile Include="UI_Academy_Icon.cpp" />
+    <ClCompile Include="UI_Academy_Wire.cpp" />
     <ClCompile Include="UI_Advanced_Build.cpp" />
     <ClCompile Include="UI_Attack.cpp" />
     <ClCompile Include="UI_Barrack.cpp" />
@@ -396,7 +422,9 @@
     <ClCompile Include="UI_Depot.cpp" />
     <ClCompile Include="UI_Depot_Wire.cpp" />
     <ClCompile Include="UI_Factory.cpp" />
+    <ClCompile Include="UI_Factory_Addon_Icon.cpp" />
     <ClCompile Include="UI_Factory_Wire.cpp" />
+    <ClCompile Include="UI_Factyory_Addon_Wire.cpp" />
     <ClCompile Include="UI_FireBat_Display.cpp" />
     <ClCompile Include="UI_FireBat_Icon.cpp" />
     <ClCompile Include="UI_FireBat_Wire_Big.cpp" />
@@ -418,6 +446,10 @@
     <ClCompile Include="UI_Move.cpp" />
     <ClCompile Include="UI_Nuclear_Icon.cpp" />
     <ClCompile Include="UI_Resource.cpp" />
+    <ClCompile Include="UI_Science_Facility_Addon.cpp" />
+    <ClCompile Include="UI_Science_Facility_Addon_Icon.cpp" />
+    <ClCompile Include="UI_Science_Facility_Icon.cpp" />
+    <ClCompile Include="UI_Science_Facility_Wire.cpp" />
     <ClCompile Include="UI_SCV_Display.cpp" />
     <ClCompile Include="UI_SCV_Icon.cpp" />
     <ClCompile Include="UI_SCV_Wire_Big.cpp" />

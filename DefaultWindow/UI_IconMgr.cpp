@@ -14,6 +14,11 @@
 #include "UI_Depot.h"
 #include "UI_Factory.h"
 #include "UI_StarPort.h"
+#include "UI_Attack.h"
+#include "UI_Factory_Addon_Icon.h"
+#include "UI_Academy_Icon.h"
+#include "UI_Science_Facility_Icon.h"
+#include "UI_Science_Facility_Addon_Icon.h"
 #include "ScrollMgr.h"
 #include "Center.h"
 #include "SupplyDepot.h"
@@ -25,6 +30,7 @@
 #include "Barrack_UI.h"
 #include "Factory_UI.h"
 #include "StarPort_UI.h"
+#include "Academy_UI.h"
 #include "TechTreeMgr.h"
 #include "UI_SCV_Icon.h"
 #include "UI_Marine_Icon.h"
@@ -43,6 +49,8 @@
 #include "Tank_Siege_Mode.h"
 #include "Ghost.h"
 #include "UI_Nuclear_Icon.h"
+#include "UI_Factory_Addon_Icon.h"
+#include "Science_Facility_UI.h"
 CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END), m_GhostNuclear(false)
 {
 }
@@ -94,14 +102,25 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Center_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Depot_Icon>(UI_OBJECT_ICON, 713.f, 468.f));
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Barrack_Icon>(UI_OBJECT_ICON, 655.f, 518.f));
+		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Academy_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
+		bool bCanBuildAcademy = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_ACADENY);
+		if (bCanBuildAcademy)
+		{
+			for (auto iter : m_vecUnitIcon)
+			{
+				if (iter->GetDetailType() == ICON_ACADEMY)
+					iter->Get_Frame()->iFrameStart = 1;
+			}
+		}
 	}
 	else if (ICONId == ICON_ADVANCED_BUILD)
 	{
 		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
-		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Icon>(UI_OBJECT_ICON, 655.f, 518.f));
+		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_StarPort_Icon>(UI_OBJECT_ICON, 713.f, 468.f));
+		m_vecUnitIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Science_Facility_Icon>(UI_OBJECT_ICON, 768.f, 468.f));
 		bool bCanBuildFactory = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_FACTORY);
 		bool bCanBuildStarPort = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_STARPORT);
-
+		bool bCanBuildScienceFacility = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_SCIENCE_FACILITY);
 		if (bCanBuildFactory)
 		{
 			for (auto iter : m_vecUnitIcon)
@@ -116,6 +135,15 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 				{
 					if (iter->GetDetailType() == ICON_STARPORT)
 						iter->Get_Frame()->iFrameStart = 1;
+				}
+
+				if (bCanBuildScienceFacility)
+				{
+					for (auto iter : m_vecUnitIcon)
+					{
+						if (iter->GetDetailType() == ICON_SCIENCE_FACILITY)
+							iter->Get_Frame()->iFrameStart = 1;
+					}
 				}
 			}
 		}
@@ -159,6 +187,16 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		m_vecBuilding.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CBarrack_UI>(UI_OBJECT_BUILD, 0.f, 0.f));
 		m_CurrentBuilding = UI_STATIC_OBJ_BARRACK;
 	}
+	else if (ICONId == ICON_ACADEMY)
+	{
+		bool bCanBuildAcademy = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_ACADENY);
+
+		if (!bCanBuildAcademy)
+			return;
+
+		m_vecBuilding.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CAcademy_UI>(UI_OBJECT_BUILD, 0.f, 0.f));
+		m_CurrentBuilding = UI_STATIC_OBJ_ACADEMY;
+	}
 	else if (ICONId == ICON_FACTORY)
 	{
 		bool bCanBuildFactory = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_FACTORY);
@@ -168,7 +206,6 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		m_vecBuilding.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CFactory_UI>(UI_OBJECT_BUILD, 0.f, 0.f));
 		m_CurrentBuilding = UI_STATIC_OBJ_FACTORY;
-
 	}
 	else if (ICONId == ICON_STARPORT)
 	{
@@ -179,6 +216,16 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 
 		m_vecBuilding.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CStarPort_UI>(UI_OBJECT_BUILD, 0.f, 0.f));
 		m_CurrentBuilding = UI_STATIC_OBJ_STARPORT;
+	}
+	else if (ICONId == ICON_SCIENCE_FACILITY)
+	{
+		bool bCanBuildScienceFacility = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_SCIENCE_FACILITY);
+
+		if (!bCanBuildScienceFacility)
+			return;
+
+		m_vecBuilding.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CScience_Facility_UI>(UI_OBJECT_BUILD, 0.f, 0.f));
+		m_CurrentBuilding = UI_STATIC_OBJ_SCIENCE_FACILITY;
 	}
 	else if (ICONId == ICON_SCV)
 	{
@@ -419,6 +466,8 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 	else if (objId == STATIC_OBJ_FACTORY)
 	{
 		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Tank_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
+		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Factory_Addon_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
+
 		for (auto iter : m_vecBuildingIcon)
 		{
 			if (iter == nullptr || iter->Get_Dead())
@@ -427,7 +476,11 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 			if (iter->GetDetailType() == ICON_TANK)
 			{
 				iter->Get_Frame()->iFrameStart = 1;
-				return;
+			}
+
+			if (iter->GetDetailType() == ICON_FACTORY_ADDON)
+			{
+				iter->Get_Frame()->iFrameStart = 1;
 			}
 		}
 	}

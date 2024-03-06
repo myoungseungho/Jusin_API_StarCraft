@@ -5,12 +5,12 @@
 #include "TileMgr.h"
 CScience_Facility::CScience_Facility()
 {
-    InsertBmpFile();
+	InsertBmpFile();
 }
 
 CScience_Facility::~CScience_Facility()
 {
-    Release();
+	Release();
 }
 
 void CScience_Facility::Initialize()
@@ -50,7 +50,7 @@ int CScience_Facility::Update()
 	else if (m_UIBuilding)
 		UIBuilding();
 
-    return 0;
+	return 0;
 }
 
 void CScience_Facility::Late_Update()
@@ -75,7 +75,7 @@ void CScience_Facility::Render(HDC hDC)
 		GdiTransparentBlt(
 			hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
 			m_tRect.left + iScrollX, // 복사 받을 위치 좌표
-			m_tRect.top + iScrollY + (int)m_tInfo.fCY - 25.f,
+			m_tRect.top + iScrollY + (int)m_tInfo.fCY+10.f,
 			128,	// 복사 받을 이미지의 가로, 세로
 			5,
 			hhpDC,		// 비트맵을 가지고 있는 DC
@@ -113,7 +113,7 @@ void CScience_Facility::Render(HDC hDC)
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
 		this->m_tRect.left + iScrollX - 10.f, // 복사 받을 위치 좌표
-		this->m_tRect.top + iScrollY + 10.f,
+		this->m_tRect.top + iScrollY - 20.f,
 		148,	// 복사 받을 이미지의 가로, 세로
 		148,
 		hSelectDC,		// 비트맵을 가지고 있는 DC

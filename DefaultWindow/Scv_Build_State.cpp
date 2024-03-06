@@ -14,7 +14,9 @@
 #include "TechTreeMgr.h"
 #include "SoundMgr.h"
 #include "EconomyMgr.h"
+#include "Academy.h"
 #include "BmpMgr.h"
+#include "Science_Facility.h"
 CScv_Build_State::CScv_Build_State() : m_build_Start(false), m_Building(nullptr)
 {
 }
@@ -140,6 +142,11 @@ void CScv_Build_State::BuildStart(CObj_Dynamic* _scv)
 			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_BARRACK);
 			CEconomyMgr::Get_Instance()->SetMineral(-150);
 			break;
+		case STATIC_OBJ_ACADENY:
+			m_Building = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CAcademy>(STATIC_OBJ_ACADENY, FACTION_ALLY, mousePT.x, mousePT.y);
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_ACADENY);
+			CEconomyMgr::Get_Instance()->SetMineral(-150);
+			break;
 		case STATIC_OBJ_FACTORY:
 			m_Building = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CFactory>(STATIC_OBJ_FACTORY, FACTION_ALLY, mousePT.x, mousePT.y);
 			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_FACTORY);
@@ -148,8 +155,15 @@ void CScv_Build_State::BuildStart(CObj_Dynamic* _scv)
 			break;
 		case STATIC_OBJ_STARPORT:
 			m_Building = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CStarport>(STATIC_OBJ_STARPORT, FACTION_ALLY, mousePT.x, mousePT.y);
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_STARPORT);
 			CEconomyMgr::Get_Instance()->SetMineral(-150);
 			CEconomyMgr::Get_Instance()->SetGas(-100);
+			break;
+		case STATIC_OBJ_SCIENCE_FACILITY:
+			m_Building = CSpawnMgr::Get_Instance()->Spawn_StaticObj<CScience_Facility>(STATIC_OBJ_SCIENCE_FACILITY, FACTION_ALLY, mousePT.x, mousePT.y);
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_SCIENCE_FACILITY);
+			CEconomyMgr::Get_Instance()->SetMineral(-100);
+			CEconomyMgr::Get_Instance()->SetGas(-150);
 			break;
 		case STATIC_OBJ_MINERAL:
 			break;
