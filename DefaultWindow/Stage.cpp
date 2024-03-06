@@ -225,14 +225,14 @@ void CStage::Enemy_Dynamic_Obj_Spawn()
 	{
 		if (i > 10)
 		{
-			CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 1500.f, 2000.f + i * 10.f);
-			CObj_Dynamic* medic = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ENEMY, 1500.f, 2000.f + i * 10.f);
+			CObj_Dynamic* marine = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMarine>(DYNAMIC_OBJ_MARINE, FACTION_ENEMY, 3500.f, 3000.f + i * 10.f);
+			CObj_Dynamic* medic = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ENEMY, 3500.f, 3000.f + i * 10.f);
 			enemyList.push_back(marine);
 			enemyList.push_back(medic);
 		}
 		else
 		{
-			CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ENEMY, 1500.f + i * 10.f, 2000.f);
+			CObj_Dynamic* fireBat = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CFireBat>(DYNAMIC_OBJ_FIREBAT, FACTION_ENEMY, 3500.f + i * 10.f, 3000.f);
 			//CObj_Dynamic* tank = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CTank>(DYNAMIC_OBJ_TANK, FACTION_ENEMY, 1500.f + i * 10.f, 2000.f);
 
 			enemyList.push_back(fireBat);
