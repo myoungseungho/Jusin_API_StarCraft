@@ -14,6 +14,7 @@
 #include "TechTreeMgr.h"
 #include "UIMgr.h"
 #include "SoundMgr.h"
+#include "EconomyMgr.h"
 CMainGame::CMainGame() : m_iFPS(0), m_dwTime(GetTickCount())
 {
 	ZeroMemory(m_szFPS, sizeof(m_szFPS));
@@ -31,7 +32,7 @@ void CMainGame::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
 
-	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
 
 //#ifdef _DEBUG
 //
@@ -99,6 +100,7 @@ void CMainGame::Release()
 	CTechTreeMgr::Get_Instance()->Destroy_Instance();
 	CUIMgr::Get_Instance()->Destroy_Instance();
 	CSoundMgr::Get_Instance()->Destroy_Instance();
+	CEconomyMgr::Get_Instance()->Destroy_Instance();
 	ReleaseDC(g_hWnd, m_hDC);	
 }
 

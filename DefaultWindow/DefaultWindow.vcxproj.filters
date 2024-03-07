@@ -328,6 +328,18 @@
     <Filter Include="01. Obj\03. UI\04. BuildingUI\07. Factory_Addon_UI">
       <UniqueIdentifier>{e11b1355-e96c-4e35-8588-7e51a019fb1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\01. Buliding\09. Nukelsilo">
+      <UniqueIdentifier>{c2306db7-c07f-47f6-98d5-e38c7674f9ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\02. Build_Icon\09. Nukesilo_Icon">
+      <UniqueIdentifier>{f3ac1ae6-1846-4f9b-9310-72e4d1152518}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\04. BuildingUI\09. Nukesilo_UI">
+      <UniqueIdentifier>{ffbf0e70-2985-4770-a8bd-2fa38d03e365}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. UI\01. Unit_Icon\08. Nuclear_Ready_Icon">
+      <UniqueIdentifier>{65ea37aa-81f3-47bf-9f06-8f019b1b0345}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -810,6 +822,18 @@
     <ClInclude Include="UI_Ghost_Icon.h">
       <Filter>01. Obj\03. UI\05. Spawn_Icon\05. Ghost_Icon</Filter>
     </ClInclude>
+    <ClInclude Include="NukeSilo.h">
+      <Filter>01. Obj\01. Buliding\09. Nukelsilo</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_NukeSilo_Icon.h">
+      <Filter>01. Obj\03. UI\02. Build_Icon\09. Nukesilo_Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_NuclearSilo_Wire.h">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Nuclear_Ready_Icon.h">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\08. Nuclear_Ready_Icon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1279,6 +1303,18 @@
     </ClCompile>
     <ClCompile Include="UI_Ghost_Icon.cpp">
       <Filter>01. Obj\03. UI\05. Spawn_Icon\05. Ghost_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="NukeSilo.cpp">
+      <Filter>01. Obj\01. Buliding\09. Nukelsilo</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_NukeSilo_Icon.cpp">
+      <Filter>01. Obj\03. UI\02. Build_Icon\09. Nukesilo_Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_NuclearSilo_Wire.cpp">
+      <Filter>01. Obj\03. UI\07. Building_Wire\00. Big_Wire</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Nuclear_Ready_Icon.cpp">
+      <Filter>01. Obj\03. UI\01. Unit_Icon\08. Nuclear_Ready_Icon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

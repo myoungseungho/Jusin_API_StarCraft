@@ -89,13 +89,22 @@ void CSoundMgr::Initialize()
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht03.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_DIE].push_back(L"TTaDth00.wav");
 
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_READY].push_back(L"tghrdy00.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes00.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes01.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes02.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes03.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghwht02.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghwht03.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_ATTACK].push_back(L"Nuclear.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_DIE].push_back(L"TGhDth00.wav");
+
 	m_UnitSound[SOUND_STATIC_OBJ_DEPOT][SOUND_BUILDING].push_back(L"SupplyDepot_Sound.wav");
 	m_UnitSound[SOUND_STATIC_OBJ_ACADENY][SOUND_BUILDING].push_back(L"Academy_Sound.wav");
 	m_UnitSound[SOUND_STATIC_OBJ_FACTORY_ADDON][SOUND_BUILDING].push_back(L"Machine_Sound.wav");
 	m_UnitSound[SOUND_STATIC_OBJ_SCIENCE_FACILITY][SOUND_BUILDING].push_back(L"Science_Sound.wav");
 	m_UnitSound[SOUND_STATIC_OBJ_SCIENCE_FACILITY_ADDON][SOUND_BUILDING].push_back(L"Science_Addon_Sound.wav");
-
-
+	m_UnitSound[SOUND_STATIC_OBJ_NUCLEARSILO][SOUND_BUILDING].push_back(L"Nuclear_Sound.wav");
 }
 void CSoundMgr::InitializeLogo()
 {

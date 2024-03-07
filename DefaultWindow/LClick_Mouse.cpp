@@ -143,6 +143,9 @@ void CLClick_Mouse::HandleStaticObjectClick(CObj* target)
 	case STATIC_OBJ_SCIENCE_FACILITY_ADDON:
 		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound((DYNAMIC_OBJID)SOUND_STATIC_OBJ_SCIENCE_FACILITY_ADDON, SOUND_BUILDING);
 		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCIENCE_ADDON, 1);
+	case STATIC_OBJ_NUCLEARSILO:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound((DYNAMIC_OBJID)SOUND_STATIC_OBJ_NUCLEARSILO, SOUND_BUILDING);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_NUCLEARSILO, 1);
 		break;
 	}
 	

@@ -207,6 +207,7 @@
     <ClInclude Include="Nuclear.h" />
     <ClInclude Include="Nuclear_Effect.h" />
     <ClInclude Include="Nuclear_Target.h" />
+    <ClInclude Include="NukeSilo.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="ObjMgr.h" />
     <ClInclude Include="Obj_Dynamic.h" />
@@ -283,7 +284,10 @@
     <ClInclude Include="UI_Menu.h" />
     <ClInclude Include="UI_MiniMap.h" />
     <ClInclude Include="UI_Move.h" />
+    <ClInclude Include="UI_NuclearSilo_Wire.h" />
     <ClInclude Include="UI_Nuclear_Icon.h" />
+    <ClInclude Include="UI_Nuclear_Ready_Icon.h" />
+    <ClInclude Include="UI_NukeSilo_Icon.h" />
     <ClInclude Include="UI_Resource.h" />
     <ClInclude Include="UI_Science_Facility_Addon_Wire.h" />
     <ClInclude Include="UI_Science_Facility_Addon_Icon.h" />
@@ -367,6 +371,7 @@
     <ClCompile Include="Nuclear.cpp" />
     <ClCompile Include="Nuclear_Effect.cpp" />
     <ClCompile Include="Nuclear_Target.cpp" />
+    <ClCompile Include="NukeSilo.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjMgr.cpp" />
     <ClCompile Include="Obj_Dynamic.cpp" />
@@ -446,7 +451,10 @@
     <ClCompile Include="UI_Menu.cpp" />
     <ClCompile Include="UI_MiniMap.cpp" />
     <ClCompile Include="UI_Move.cpp" />
+    <ClCompile Include="UI_NuclearSilo_Wire.cpp" />
     <ClCompile Include="UI_Nuclear_Icon.cpp" />
+    <ClCompile Include="UI_Nuclear_Ready_Icon.cpp" />
+    <ClCompile Include="UI_NukeSilo_Icon.cpp" />
     <ClCompile Include="UI_Resource.cpp" />
     <ClCompile Include="UI_Science_Facility_Addon_Wire.cpp" />
     <ClCompile Include="UI_Science_Facility_Addon_Icon.cpp" />

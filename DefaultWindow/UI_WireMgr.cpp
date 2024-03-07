@@ -27,6 +27,7 @@
 #include "UI_Factyory_Addon_Wire.h"
 #include "UI_Science_Facility_Addon_Wire.h"
 #include "UI_Science_Facility_Wire.h"
+#include "UI_NuclearSilo_Wire.h"
 CUI_WireMgr::CUI_WireMgr()
 {
 }
@@ -213,6 +214,9 @@ void CUI_WireMgr::StaticSetUI(BUILDINGSTATE objId)
 		break;
 	case STATIC_OBJ_SCIENCE_FACILITY_ADDON:
 		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Science_Facility_Addon_Wire>(UI_OBJECT_WIRE, 260.f, 530.f));
+		break;
+	case STATIC_OBJ_NUCLEARSILO:
+		m_vecBigWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_NuclearSilo_Wire>(UI_OBJECT_WIRE, 260.f, 530.f));
 		break;
 	}
 }

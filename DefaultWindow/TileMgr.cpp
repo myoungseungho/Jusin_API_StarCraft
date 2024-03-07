@@ -44,7 +44,7 @@ void CTileMgr::Late_Update()
 
 void CTileMgr::Render(HDC hDC)
 {
-	int		iScrollX = abs((int)CScrollMgr::Get_Instance()->Get_ScrollX() / TILECX);
+	/*int		iScrollX = abs((int)CScrollMgr::Get_Instance()->Get_ScrollX() / TILECX);
 	int		iScrollY = abs((int)CScrollMgr::Get_Instance()->Get_ScrollY() / TILECY);
 
 	int		iMaxX = iScrollX + WINCX / TILECX + 2;
@@ -61,7 +61,7 @@ void CTileMgr::Render(HDC hDC)
 
 			m_vecTile[iIndex]->Render(hDC);
 		}
-	}
+	}*/
 
 }
 

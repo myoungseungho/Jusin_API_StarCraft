@@ -55,8 +55,13 @@ void CTechTreeMgr::SetBuiding(BUILDINGSTATE _build)
 		m_vecPossibleBuilding.push_back(STATIC_OBJ_SCIENCE_FACILITY);
 		break;
 
-	case STATIC_OBJ_SCIENCE_FACILITY:
-		//m_vecPossibleBuilding.push_back(STATIC_OBJ_SCIENCE_FACILITY_ADDON);
+	case STATIC_OBJ_SCIENCE_FACILITY_ADDON:
+		for (auto iter : m_vecPossibleBuilding)
+		{
+			if (iter == STATIC_OBJ_NUCLEARSILO)
+				return;
+		}
+		m_vecPossibleBuilding.push_back(STATIC_OBJ_NUCLEARSILO);
 		break;
 	}
 }

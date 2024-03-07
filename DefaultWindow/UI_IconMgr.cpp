@@ -54,6 +54,9 @@
 #include "Factory_Addon.h"
 #include "Science_Facility_Addon.h"
 #include "UI_Ghost_Icon.h"
+#include "UI_NukeSilo_Icon.h"
+#include "NukeSilo.h"
+#include "UI_Nuclear_Ready_Icon.h"
 CUI_IconMgr::CUI_IconMgr() :m_CurrentBuilding(UI_STATIC_OBJ_END), m_GhostNuclear(false)
 {
 }
@@ -175,6 +178,10 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 			dynamic_cast<CTank_Siege_Mode*>(tankObj->GetCurrentState(SIEGEMODE_STATE))->SetDefaultMode();
 		}
 	}
+	else if (ICONId == ICON_NUCLEAR_READY)
+	{
+		_unit->Set_Dead();
+	}
 	else if (ICONId == ICON_CENTER)
 	{
 		m_vecBuilding.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CCenter_UI>(UI_OBJECT_BUILD, 0.f, 0.f));
@@ -264,6 +271,29 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 			_unit->Set_Dead();
 		}
 	}
+	else if (ICONId == ICON_NUKESILO)
+	{
+		bool bCanBuildNukeSilo = CTechTreeMgr::Get_Instance()->GetCanBuild(STATIC_OBJ_NUCLEARSILO);
+
+		if (!bCanBuildNukeSilo)
+			return;
+
+		CObj* center = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_CENTER].front();
+		if (center != nullptr)
+		{
+			vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BUILD);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_BUILD, 1);
+
+			float top = center->Get_Rect().bottom - 60.f;
+			float right = center->Get_Rect().right + 30.f;
+			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_NUCLEARSILO);
+			CTechTreeMgr::Get_Instance()->SetIsScience_Addon();
+			CEconomyMgr::Get_Instance()->SetMineral(-100);
+			CEconomyMgr::Get_Instance()->SetGas(-100);
+			CSpawnMgr::Get_Instance()->Spawn_StaticObj<CNukeSilo>(STATIC_OBJ_NUCLEARSILO, FACTION_ALLY, right, top);
+			_unit->Set_Dead();
+		}
+	}
 	else if (ICONId == ICON_SCV)
 	{
 		CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
@@ -333,8 +363,8 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 			CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
 			dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_GHOST);
 
-		/*	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_READY);
-			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_READY, 1);*/
+			/*	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_READY);
+				CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_READY, 1);*/
 			CEconomyMgr::Get_Instance()->SetMineral(-25);
 			CEconomyMgr::Get_Instance()->SetGas(-75);
 			CEconomyMgr::Get_Instance()->SetPeople(1);
@@ -506,6 +536,21 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 	if (objId == STATIC_OBJ_CENTER)
 	{
 		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_SCV_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
+		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_NukeSilo_Icon>(UI_OBJECT_ICON, 655.f, 570.f));
+
+		for (auto iter : m_vecBuildingIcon)
+		{
+			if (iter == nullptr || iter->Get_Dead())
+				continue;
+
+			if (CTechTreeMgr::Get_Instance()->GetIsScience_Addon())
+			{
+				if (iter->GetDetailType() == ICON_NUKESILO)
+				{
+					iter->Get_Frame()->iFrameStart = 1;
+				}
+			}
+		}
 	}
 	else if (objId == STATIC_OBJ_BARRACK)
 	{
@@ -592,5 +637,9 @@ void CUI_IconMgr::StaticSetUI(BUILDINGSTATE objId)
 			}
 
 		}
+	}
+	else if (objId == STATIC_OBJ_NUCLEARSILO)
+	{
+		m_vecBuildingIcon.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Nuclear_Ready_Icon>(UI_OBJECT_ICON, 655.f, 468.f));
 	}
 }
