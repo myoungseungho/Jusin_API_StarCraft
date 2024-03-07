@@ -28,12 +28,13 @@ void CSoundMgr::Initialize()
 	//PlayBGM(L"MainBgm.wav", SOUND_BGM);
 	PlaySound(L"MainBgm.wav", SOUND_BGM, g_fVolume);
 
-	m_UnitSound.resize(DYNAMIC_OBJ_END);
-	for (size_t i = 0; i < DYNAMIC_OBJ_END; ++i) {
+	m_UnitSound.resize(SOUND_STATIC_OBJ_END);
+	for (size_t i = 0; i < SOUND_STATIC_OBJ_END; ++i) {
 		m_UnitSound[i].resize(SOUND_END);
 	}
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_ATTACK].push_back(L"EDrRep00.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_READY].push_back(L"TSCRdy00.wav");
+	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_COLLECTION].push_back(L"EDrRep00.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht00.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht01.wav");
 	m_UnitSound[DYNAMIC_OBJ_SCV][SOUND_BASIC].push_back(L"TSCWht02.wav");
@@ -88,15 +89,13 @@ void CSoundMgr::Initialize()
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht03.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_DIE].push_back(L"TTaDth00.wav");
 
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_READY].push_back(L"tghrdy00.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes00.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes01.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes02.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes03.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghwht02.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghwht03.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_ATTACK].push_back(L"Nuclear.wav");
-	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_DIE].push_back(L"TGhDth00.wav");
+	m_UnitSound[SOUND_STATIC_OBJ_DEPOT][SOUND_BUILDING].push_back(L"SupplyDepot_Sound.wav");
+	m_UnitSound[SOUND_STATIC_OBJ_ACADENY][SOUND_BUILDING].push_back(L"Academy_Sound.wav");
+	m_UnitSound[SOUND_STATIC_OBJ_FACTORY_ADDON][SOUND_BUILDING].push_back(L"Machine_Sound.wav");
+	m_UnitSound[SOUND_STATIC_OBJ_SCIENCE_FACILITY][SOUND_BUILDING].push_back(L"Science_Sound.wav");
+	m_UnitSound[SOUND_STATIC_OBJ_SCIENCE_FACILITY_ADDON][SOUND_BUILDING].push_back(L"Science_Addon_Sound.wav");
+
+
 }
 void CSoundMgr::Release()
 {

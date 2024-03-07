@@ -235,6 +235,8 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		CObj* factory = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_FACTORY].back();
 		if (factory != nullptr)
 		{
+			vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BUILD);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_BUILD, 1);
 			float top = factory->Get_Rect().bottom - 60.f;
 			float right = factory->Get_Rect().right + 30.f;
 			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_FACTORY_ADDON);
@@ -250,6 +252,8 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 		CObj* science = CObjMgr::Get_Instance()->GetStatic_Obj_List()[STATIC_OBJ_SCIENCE_FACILITY].back();
 		if (science != nullptr)
 		{
+			vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_BUILD);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_BUILD, 1);
 			float top = science->Get_Rect().bottom - 60.f;
 			float right = science->Get_Rect().right + 30.f;
 			CTechTreeMgr::Get_Instance()->SetBuiding(STATIC_OBJ_SCIENCE_FACILITY_ADDON);

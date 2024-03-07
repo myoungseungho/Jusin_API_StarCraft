@@ -5,6 +5,7 @@
 #include "BmpMgr.h"
 #include "ObjMgr.h"
 #include "EconomyMgr.h"
+#include "SoundMgr.h"
 CScv_Collection_State::CScv_Collection_State() : m_bCollisionCenter(false), m_AttackFileSize(0), m_Offset_Attack(0), m_CurrentTime(GetTickCount()), m_bGetMineral(false), m_targetMineral(nullptr), m_bCollisionMineral(false)
 {
 }
@@ -58,6 +59,9 @@ int CScv_Collection_State::Update(CObj_Dynamic* _scv)
 	if (Move(_scv) == MOVE_OK && !m_bCollisionMineral)
 	{
 		m_bCollisionMineral = true;
+
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_SCV, SOUND_COLLECTION);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCV_COLLECTION, 1);
 	}
 
 	if (m_bCollisionMineral)

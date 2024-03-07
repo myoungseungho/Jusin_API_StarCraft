@@ -89,6 +89,13 @@ void CLClick_Mouse::HandleDynamicObjectClick(CObj* target)
 			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_TANK_WALK, 1);
 		}
 		break;
+	case DYNAMIC_OBJ_GHOST:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_GHOST, SOUND_BASIC);
+		if (!m_UnitSound.empty()) {
+			int random = rand() % m_UnitSound.size();
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound[random], SOUND_GHOST_WALK, 1);
+		}
+		break;
 	}
 
 	if (tank)
@@ -112,9 +119,39 @@ void CLClick_Mouse::HandleStaticObjectClick(CObj* target)
 		CUIMgr::Get_Instance()->SetClear_Dynamic_Obj();
 	}
 
+	CObj_Static* staticObj= dynamic_cast<CObj_Static*>(target);
+
+	vector<wchar_t*> m_UnitSound;
+	switch (staticObj->GetType())
+	{
+	case STATIC_OBJ_DEPOT:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound((DYNAMIC_OBJID)SOUND_STATIC_OBJ_DEPOT, SOUND_BUILDING);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_DEPOT, 1);
+		break;
+	case STATIC_OBJ_ACADENY:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound((DYNAMIC_OBJID)SOUND_STATIC_OBJ_ACADENY, SOUND_BUILDING);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_ACADEMY, 1);
+		break;
+	case STATIC_OBJ_FACTORY_ADDON:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound((DYNAMIC_OBJID)SOUND_STATIC_OBJ_FACTORY_ADDON, SOUND_BUILDING);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_FACTORY_ADDON, 1);
+		break;
+	case STATIC_OBJ_SCIENCE_FACILITY:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound((DYNAMIC_OBJID)SOUND_STATIC_OBJ_SCIENCE_FACILITY, SOUND_BUILDING);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCIENCE, 1);
+		break;
+	case STATIC_OBJ_SCIENCE_FACILITY_ADDON:
+		m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound((DYNAMIC_OBJID)SOUND_STATIC_OBJ_SCIENCE_FACILITY_ADDON, SOUND_BUILDING);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_SCIENCE_ADDON, 1);
+		break;
+	}
+	
+
 	CUnitControlMgr::Get_Instance()->Set_Add_Building(target);
 	CKeyMgr::Get_Instance()->Set_bSelectUnit(true);
 	CUIMgr::Get_Instance()->OnClickObj(target);
+
+
 }
 
 void CLClick_Mouse::HandleNoTargetClick()
