@@ -77,7 +77,7 @@ void CUI_WireMgr::OnDragObj()
 
 	bool bOnlyTank = true;
 
-	if (m_vecUnitCopy.size() > 1)
+	if (m_vecUnitCopy.size() > 0)
 	{
 		for (size_t i = 0; i < m_vecUnitCopy.size(); i++)
 		{
@@ -119,6 +119,8 @@ void CUI_WireMgr::OnDragObj()
 				break;
 			case DYNAMIC_OBJ_GHOST:
 				m_vecSmallWire.push_back(CSpawnMgr::Get_Instance()->Spawn_UIObj<CUI_Ghost_Wire_Small>(UI_OBJECT_WIRE, fX, fY));
+				bOnlyTank = false;
+				break;
 			case DYNAMIC_OBJ_TANK:
 				if (dynamic_cast<CObj_Dynamic*>(m_vecUnitCopy[i])->GetStateID() == SIEGEMODE_STATE)
 				{

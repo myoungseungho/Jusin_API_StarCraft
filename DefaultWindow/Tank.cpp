@@ -45,7 +45,7 @@ void CTank::Initialize()
 		m_Stat.m_Attack = 30;
 		m_Stat.m_AttackRange = 200.f;
 		m_Stat.m_DetectionRange = 250.f;
-		m_Stat.m_fSpeed = 4.f;
+		m_Stat.m_fSpeed = 2.5f;
 		m_Stat.m_MaxHp = 150;
 		lstrcpyW(m_Stat.m_Name, L"Tank");
 	}
