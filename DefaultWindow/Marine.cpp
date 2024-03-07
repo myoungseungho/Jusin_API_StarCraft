@@ -157,9 +157,9 @@ void CMarine::InsertBmpFile()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Right_90.bmp", L"Marine_Walk_Right_90");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Down_Right_150.bmp", L"Marine_Walk_Down_Right_150");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Down_180.bmp", L"MARINE_WALK_Down_180");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Up_Left_120.bmp", L"Marine_Walk_Up_Left_120");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Left.bmp", L"Marine_Walk_Left");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Down_Left.bmp", L"Marine_Walk_Down_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Left.bmp", L"Marine_Walk_Left");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/Unit/Marine/Work/Marine_Walk_Up_Left_120.bmp", L"Marine_Walk_Up_Left_120");
 
 	m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP] = (L"Marine_Walk_Up");
 	m_KeyAndFrame._mapKeyFrame.insert({ m_KeyAndFrame.m_FrameArrayWalkKey[DIR_UP],{0,17,0,50,GetTickCount()} });

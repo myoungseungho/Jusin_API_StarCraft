@@ -22,7 +22,7 @@ void CGhost_Die_State::Initialize(CObj_Dynamic* _ghost)
 	m_pFrameCopy->iFrameStart = 0;
 	m_pFrameCopy->iFrameEnd = 8;
 	m_pFrameCopy->iMotion = 0;
-	m_pFrameCopy->dwSpeed = 100;
+	m_pFrameCopy->dwSpeed = 150;
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 

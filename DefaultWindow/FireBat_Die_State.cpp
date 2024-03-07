@@ -21,7 +21,7 @@ void CFireBat_Die_State::Initialize(CObj_Dynamic* _fireBat)
 	m_pFrameCopy->iFrameStart = 0;
 	m_pFrameCopy->iFrameEnd = 9;
 	m_pFrameCopy->iMotion = 0;
-	m_pFrameCopy->dwSpeed = 30;
+	m_pFrameCopy->dwSpeed = 130;
 	m_pFrameCopy->dwTime = GetTickCount();
 }
 

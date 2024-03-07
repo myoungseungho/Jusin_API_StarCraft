@@ -2,7 +2,7 @@
 #include "Obj_Dynamic.h"
 #include "CollisionMgr.h"
 #include "ObjMgr.h"
-CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false), m_OnceDead(false), m_AttackRun(false), m_DisPlayCopy(nullptr), m_bSiegeModeComplete(false)
+CObj_Dynamic::CObj_Dynamic() : m_CurrentState(NON_STATE), m_bDead(false), m_OnceDead(false), m_AttackRun(false), m_DisPlayCopy(nullptr), m_bSiegeModeComplete(false), m_bWalkComplete(false)
 {
 }
 
@@ -10,7 +10,6 @@ CObj_Dynamic::~CObj_Dynamic()
 {
 	Release();
 }
-
 
 void CObj_Dynamic::Release()
 {

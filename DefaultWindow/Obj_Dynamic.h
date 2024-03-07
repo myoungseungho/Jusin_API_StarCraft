@@ -55,6 +55,8 @@ public:
 	POINT GetMousePT() { return m_MousePT; };
 	STATEID GetStateID() { return m_CurrentState; }
 	IState* GetCurrentState(STATEID _sId) { return m_vecState[_sId]; }
+	bool GetWalkComplete() { return m_bWalkComplete; }
+	void SetWalkComplete(bool _walk) { m_bWalkComplete = _walk; }
 	virtual DYNAMIC_OBJID GetType() const PURE;
 
 public:
@@ -72,5 +74,6 @@ protected:
 	CObj_UI* m_DisPlayCopy;
 	KEYANDFRAME m_KeyAndFrame;
 	bool m_bSiegeModeComplete;
+	bool m_bWalkComplete;
 };
 

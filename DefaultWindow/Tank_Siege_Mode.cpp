@@ -137,8 +137,8 @@ void CTank_Siege_Mode::Render(CObj_Dynamic* _tank, HDC hDC)
 
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		(_tank->Get_Target()->Get_Info().fX + iScrollX) + m_Offset_Attack, // 복사 받을 위치 좌표
-		(_tank->Get_Target()->Get_Info().fY + iScrollY) + m_Offset_Attack,
+		(_tank->Get_Target()->Get_Info().fX + iScrollX) -35.f, // 복사 받을 위치 좌표
+		(_tank->Get_Target()->Get_Info().fY + iScrollY) -45.f,
 		m_BulletSizeX,	// 복사 받을 이미지의 가로, 세로
 		m_BulletSizeY,
 		hMemBulletDC,		// 비트맵을 가지고 있는 DC
@@ -288,9 +288,10 @@ void CTank_Siege_Mode::Attack(CObj_Dynamic* _tank)
 				vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_SIEGE_ATTACK);
 				CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_SIEGE_ATTACK, 1);
 
+				dynamic_cast<CObj_Dynamic*>(dynamicObj)->Set_Damage(_tank->Get_Stat().m_Attack);
 				DetermineKey(_tank, degree);
 
-				list<CObj*> nearObjList = CObjMgr::Get_Instance()->GetNearUnit(dynamicObj, 50.f);
+				list<CObj*> nearObjList = CObjMgr::Get_Instance()->GetNearUnit(dynamicObj, 100.f);
 				for (auto iter : nearObjList)
 				{
 					dynamic_cast<CObj_Dynamic*>(iter)->Set_Damage(_tank->Get_Stat().m_Attack);
