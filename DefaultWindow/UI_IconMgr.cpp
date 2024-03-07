@@ -322,6 +322,21 @@ void CUI_IconMgr::OnClickIcon(CObj* _unit)
 			CEconomyMgr::Get_Instance()->SetPeople(2);
 		}
 	}
+	else if (ICONId == ICON_GHOST)
+	{
+		if (CTechTreeMgr::Get_Instance()->GetIsScience_Addon())
+		{
+			CObj* obj = CUnitControlMgr::Get_Instance()->GetBuilding();
+			dynamic_cast<CObj_Static*>(obj)->Spawn_Unit(DYNAMIC_OBJ_GHOST);
+
+		/*	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_TANK, SOUND_READY);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_TANK_READY, 1);*/
+			CEconomyMgr::Get_Instance()->SetMineral(-25);
+			CEconomyMgr::Get_Instance()->SetGas(-75);
+			CEconomyMgr::Get_Instance()->SetPeople(1);
+		}
+	}
+
 	else if (ICONId == ICON_NUCLEAR)
 	{
 		m_GhostNuclear = true;

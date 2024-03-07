@@ -8,6 +8,7 @@
 #include "Marine.h"
 #include "FireBat.h"
 #include "Medic.h"
+#include "Ghost.h"
 CBarrack::CBarrack()
 {
 	InsertBmpFile();
@@ -146,6 +147,10 @@ void CBarrack::Spawn_Unit(DYNAMIC_OBJID _objId)
 	else if (_objId == DYNAMIC_OBJ_MEDIC)
 	{
 		obj = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CMedic>(DYNAMIC_OBJ_MEDIC, FACTION_ALLY, m_tInfo.fX, m_tInfo.fY + m_tInfo.fCY * 0.5f + 10.f);
+	}
+	else if (_objId == DYNAMIC_OBJ_GHOST)
+	{
+		obj = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CGhost>(DYNAMIC_OBJ_GHOST, FACTION_ALLY, m_tInfo.fX, m_tInfo.fY + m_tInfo.fCY * 0.5f + 10.f);
 	}
 
 	m_vecWaitUnit.push_back(obj);

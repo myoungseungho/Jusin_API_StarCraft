@@ -14,6 +14,8 @@ public:
 	virtual void Late_Update() override;
 	virtual void Render(HDC hDC) override;
 	virtual void Release() override;
+
+	void Enemy_Dynamic_Obj_Spawn();
 private:
 	void Init_Bmp();
 private:
@@ -21,6 +23,5 @@ private:
 	void Ally_Static_Obj_Spawn();
 	void Enemy_Static_Obj_Spawn();
 	void Ally_Dynamic_Obj_Spawn();
-	void Enemy_Dynamic_Obj_Spawn();
 };
 

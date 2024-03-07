@@ -6,7 +6,8 @@
 #include "ScrollMgr.h"
 #include "SoundMgr.h"
 #include "UnitControlMgr.h"
-
+#include "SceneMgr.h"
+#include "Stage.h"
 CKeyMgr* CKeyMgr::m_pInstance = nullptr;
 
 CKeyMgr::CKeyMgr() : m_Current_Mouse_Click(MOUSE_IDLE_STATE), m_Cursor_Speed(0.f), m_bHasSelectUnit(false), m_dwTime(0), m_deltaTime(0), m_IsLClick(false), m_Threshold_Drag(0.f), m_IsDragClick(false)
@@ -200,7 +201,7 @@ void CKeyMgr::KeyBoard_HandleInput()
 		CScrollMgr::Get_Instance()->Set_ScrollY(-10.f);
 	}
 
-	else if (GetAsyncKeyState(VK_F3))
+	else if (Key_Up(VK_F3))
 	{
 		list<CObj_Dynamic*> enemyList = *(CUnitControlMgr::Get_Instance()->Get_EnemyList());
 
@@ -233,6 +234,11 @@ void CKeyMgr::KeyBoard_HandleInput()
 			}
 		}
 	}
+	else if (Key_Up(VK_F4))
+	{
+		dynamic_cast<CStage*>(CSceneMgr::Get_Instance()->GetCurrentScene())->Enemy_Dynamic_Obj_Spawn();
+	}
+
 }
 void CKeyMgr::OffSet()
 {

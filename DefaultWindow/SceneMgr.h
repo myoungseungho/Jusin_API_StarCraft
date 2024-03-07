@@ -38,6 +38,7 @@ public:
 		}
 	}
 
+	CScene* GetCurrentScene() { return m_pScene; }
 private:
 	static CSceneMgr*	m_pInstance;
 	CScene*				m_pScene;
