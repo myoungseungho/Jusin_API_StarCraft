@@ -27,6 +27,7 @@ private:
 
 public:
 	void Initialize();
+	void InitializeLogo();
 	void Release();
 
 public:

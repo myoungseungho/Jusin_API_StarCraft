@@ -97,6 +97,18 @@ void CSoundMgr::Initialize()
 
 
 }
+void CSoundMgr::InitializeLogo()
+{
+	// 사운드를 담당하는 대표객체를 생성하는 함수
+	FMOD_System_Create(&m_pSystem);
+
+	// 1. 시스템 포인터, 2. 사용할 가상채널 수 , 초기화 방식) 
+	FMOD_System_Init(m_pSystem, 32, FMOD_INIT_NORMAL, NULL);
+
+	LoadSoundFile();
+
+	PlaySound(L"LogoBGM.wav", SOUND_BGM, g_fVolume);
+}
 void CSoundMgr::Release()
 {
 	for (auto& Mypair : m_mapSound)

@@ -31,7 +31,7 @@ void CMainGame::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Image/back.bmp", L"Back");
 
-	CSceneMgr::Get_Instance()->Scene_Change(SC_STAGE);
+	CSceneMgr::Get_Instance()->Scene_Change(SC_MENU);
 
 //#ifdef _DEBUG
 //

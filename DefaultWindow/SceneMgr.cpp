@@ -32,14 +32,9 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 			m_pScene = new CMyMenu;
 			break;
 
-		case SC_EDIT:
-			m_pScene = new CMyEdit;
-			break;
-
 		case SC_STAGE:
 			m_pScene = new CStage;
 			break;
-
 		}
 		m_pScene->Initialize();
 
