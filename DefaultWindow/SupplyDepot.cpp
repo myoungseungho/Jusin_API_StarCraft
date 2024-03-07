@@ -3,6 +3,7 @@
 #include "ScrollMgr.h"
 #include "BmpMgr.h"
 #include "TileMgr.h"
+#include "SoundMgr.h"
 CSupplyDepot::CSupplyDepot()
 {
 	InsertBmpFile();
@@ -40,7 +41,6 @@ void CSupplyDepot::Initialize()
 
 int CSupplyDepot::Update()
 {
-
 	__super::Update_Rect();
 
 	if (!m_UIBuilding)
@@ -49,6 +49,7 @@ int CSupplyDepot::Update()
 	}
 	else if (m_UIBuilding)
 		UIBuilding();
+
 
 	return 0;
 }

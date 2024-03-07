@@ -195,9 +195,9 @@ void CStage::Ally_Dynamic_Obj_Spawn()
 	for (size_t i = 0; i < 4; i++)
 	{
 		CObj_Dynamic* scv = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 340.f + i * 10.f, 270.f);
-
 	}
-	//CObj_Dynamic* ghost = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CGhost>(DYNAMIC_OBJ_GHOST, FACTION_ALLY,  300.f, 400.f);
+
+	CObj_Dynamic* ghost = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CGhost>(DYNAMIC_OBJ_GHOST, FACTION_ALLY,  300.f, 400.f);
 
 	//CObj_Dynamic* scv1 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY,  300.f, 300.f);
 	//CObj_Dynamic* scv2 = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CScv>(DYNAMIC_OBJ_SCV, FACTION_ALLY, 310.f, 300.f);

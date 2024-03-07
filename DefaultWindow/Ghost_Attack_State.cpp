@@ -3,6 +3,7 @@
 #include "Nuclear.h"
 #include "SpawnMgr.h"
 #include "Nuclear_Target.h"
+#include "SoundMgr.h"
 CGhost_Attack_State::CGhost_Attack_State() :m_CurrentTime(GetTickCount())
 {
 }
@@ -80,6 +81,8 @@ void CGhost_Attack_State::MoveUntilAttackDistance(CObj_Dynamic* _ghost)
 
 	if (length < _ghost->Get_Stat().m_AttackRange) { // 목표까지의 거리가 속도보다 클 경우, 이동 실행
 
+		vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_GHOST, SOUND_ATTACK);
+		CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_GHOST_ATTACK, 1);
 		_ghost->SetAttackRun(true);
 		DetermineKey(_ghost, degree);
 		CObj_Dynamic* nuclear_Target = CSpawnMgr::Get_Instance()->Spawn_DynamicObj<CNuclear_Target>(DYNAMIC_OBJ_NUCLEAR_TARGET, FACTION_END, pt.x, pt.y);

@@ -87,6 +87,16 @@ void CSoundMgr::Initialize()
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht02.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_BASIC].push_back(L"ttawht03.wav");
 	m_UnitSound[DYNAMIC_OBJ_TANK][SOUND_DIE].push_back(L"TTaDth00.wav");
+
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_READY].push_back(L"tghrdy00.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes00.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes01.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes02.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghyes03.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghwht02.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_BASIC].push_back(L"tghwht03.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_ATTACK].push_back(L"Nuclear.wav");
+	m_UnitSound[DYNAMIC_OBJ_GHOST][SOUND_DIE].push_back(L"TGhDth00.wav");
 }
 void CSoundMgr::Release()
 {

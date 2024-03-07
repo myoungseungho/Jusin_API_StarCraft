@@ -9,6 +9,7 @@
 #include "FireBat.h"
 #include "Medic.h"
 #include "Ghost.h"
+#include "SoundMgr.h"
 CBarrack::CBarrack()
 {
 	InsertBmpFile();

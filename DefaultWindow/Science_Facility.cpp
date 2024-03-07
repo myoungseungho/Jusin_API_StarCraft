@@ -3,6 +3,7 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "TileMgr.h"
+#include "SoundMgr.h"
 CScience_Facility::CScience_Facility()
 {
 	InsertBmpFile();

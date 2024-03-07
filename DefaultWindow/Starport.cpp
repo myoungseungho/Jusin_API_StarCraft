@@ -3,6 +3,7 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "TileMgr.h"
+#include "SoundMgr.h"
 CStarport::CStarport()
 {
 	InsertBmpFile();
@@ -49,7 +50,6 @@ int CStarport::Update()
 	}
 	else if (m_UIBuilding)
 		UIBuilding();
-
 
 	return 0;
 }

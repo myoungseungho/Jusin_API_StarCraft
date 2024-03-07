@@ -6,6 +6,7 @@
 #include "Obj_Dynamic.h"
 #include "SpawnMgr.h"
 #include "Tank.h"
+#include "SoundMgr.h"
 CFactory::CFactory()
 {
 	InsertBmpFile();
@@ -52,6 +53,8 @@ int CFactory::Update()
 	}
 	else if (m_UIBuilding)
 		UIBuilding();
+
+	
 	return 0;
 }
 

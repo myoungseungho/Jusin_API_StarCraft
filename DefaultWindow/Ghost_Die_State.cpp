@@ -12,7 +12,7 @@ CGhost_Die_State::~CGhost_Die_State()
 
 void CGhost_Die_State::Initialize(CObj_Dynamic* _ghost)
 {
-	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MEDIC, SOUND_DIE);
+	vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_GHOST, SOUND_DIE);
 	CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MEDIC_DIE, 1);
 
 	m_pFrameCopy = _ghost->Get_Frame();

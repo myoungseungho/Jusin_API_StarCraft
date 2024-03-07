@@ -3,6 +3,7 @@
 #include "BmpMgr.h"
 #include "ScrollMgr.h"
 #include "TileMgr.h"
+#include "SoundMgr.h"
 CAcademy::CAcademy()
 {
     InsertBmpFile();
@@ -49,7 +50,6 @@ int CAcademy::Update()
 	}
 	else if (m_UIBuilding)
 		UIBuilding();
-
 
 	return 0;
 }
