@@ -16,6 +16,7 @@ public:
 	virtual void Release() override;
 
 	void Enemy_Dynamic_Obj_Spawn();
+	void Enemy_Dynamic_Obj_Spawn2();
 private:
 	void Init_Bmp();
 private:

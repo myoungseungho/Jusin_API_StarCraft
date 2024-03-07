@@ -50,14 +50,14 @@ void CTank_Siege_Mode::Initialize(CObj_Dynamic* _tank)
 	m_tFrame_Attack_Siege.iFrameStart = 0;
 	m_tFrame_Attack_Siege.iFrameEnd = 0;
 	m_tFrame_Attack_Siege.iMotion = 0;
-	m_tFrame_Attack_Siege.dwSpeed = 200;
+	m_tFrame_Attack_Siege.dwSpeed = 150;
 	m_tFrame_Attack_Siege.dwTime = GetTickCount();
 
 	m_BulletSizeX = 100;
 	m_BulletSizeY = 108;
 	m_Offset_Attack = 0.f;
 
-	_tank->Get_Stat().m_Attack = 30.f;
+	_tank->Get_Stat().m_Attack = 20.f;
 	_tank->Get_Stat().m_AttackRange = 400.f;
 	_tank->Get_Stat().m_DetectionRange = 400.f;
 

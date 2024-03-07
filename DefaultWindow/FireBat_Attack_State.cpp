@@ -55,7 +55,9 @@ int CFireBat_Attack_State::Update(CObj_Dynamic* _fireBat)
 	{
 
 		if (!_fireBat->CheckEnemy())
-			_fireBat->ChangeState(IDLE_STATE);
+			_fireBat->ChangeStateWithMouse(_fireBat->GetMousePT(), WALK_STATE);
+
+			//_fireBat->ChangeState(IDLE_STATE);
 	}
 
 	return 0;

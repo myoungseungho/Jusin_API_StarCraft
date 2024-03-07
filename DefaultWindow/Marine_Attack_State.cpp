@@ -54,7 +54,7 @@ int CMarine_Attack_State::Update(CObj_Dynamic* _marine)
 	{
 		_marine->Set_Clear_Target();
 		if (!_marine->CheckEnemy())
-			_marine->ChangeState(IDLE_STATE);
+			_marine->ChangeStateWithMouse(_marine->GetMousePT(), WALK_STATE);
 	}
 
 	return 0;
@@ -102,6 +102,8 @@ void CMarine_Attack_State::Move_Frame(CObj_Dynamic* _marine)
 
 		if (m_tFrame_Attack.iFrameStart > m_tFrame_Attack.iFrameEnd)
 		{
+			vector<wchar_t*> m_UnitSound = CSoundMgr::Get_Instance()->GetUnitSound(DYNAMIC_OBJ_MARINE, SOUND_ATTACK);
+			CSoundMgr::Get_Instance()->PlaySound(m_UnitSound.back(), SOUND_MARINE_ATTACK, 1);
 			m_tFrame_Attack.iFrameStart = 0;
 		}
 

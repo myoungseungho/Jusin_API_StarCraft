@@ -42,7 +42,9 @@ int CMedic_Attack_State::Update(CObj_Dynamic* _medic)
 	{
 		_medic->Set_Clear_Target();
 		if (!_medic->CheckEnemy())
-			_medic->ChangeState(IDLE_STATE);
+			_medic->ChangeStateWithMouse(_medic->GetMousePT(), WALK_STATE);
+
+			//_medic->ChangeState(IDLE_STATE);
 	}
 	return 0;
 }

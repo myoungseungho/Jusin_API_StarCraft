@@ -70,9 +70,8 @@ int CTank_Attack_State::Update(CObj_Dynamic* _tank)
 	//타겟이 없다면
 	else
 	{
-
 		if (!_tank->CheckEnemy())
-			_tank->ChangeState(IDLE_STATE);
+			_tank->ChangeStateWithMouse(_tank->GetMousePT(), WALK_STATE);
 	}
 
 	return 0;
@@ -129,8 +128,8 @@ void CTank_Attack_State::Render(CObj_Dynamic* _tank, HDC hDC)
 
 	GdiTransparentBlt(
 		hDC,		// (복사 받을)최종적으로 그림을 그릴 DC 전달
-		(_tank->Get_Target()->Get_Info().fX + iScrollX)-20.f, // 복사 받을 위치 좌표
-		(_tank->Get_Target()->Get_Info().fY + iScrollY)-20.f,
+		(_tank->Get_Target()->Get_Info().fX + iScrollX) - 20.f, // 복사 받을 위치 좌표
+		(_tank->Get_Target()->Get_Info().fY + iScrollY) - 20.f,
 		m_BulletSize,	// 복사 받을 이미지의 가로, 세로
 		m_BulletSize,
 		hMemBulletDC,		// 비트맵을 가지고 있는 DC

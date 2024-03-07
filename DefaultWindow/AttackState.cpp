@@ -41,7 +41,8 @@ void IAttackState::Attack(CObj_Dynamic* _unit)
 	if (target == nullptr || target->Get_Dead())
 	{
 		_unit->SetAttackRun(false);
-		_unit->ChangeState(IDLE_STATE);
+		_unit->ChangeStateWithMouse(_unit->GetMousePT(), WALK_STATE);
+		//_unit->ChangeState(IDLE_STATE);
 		_unit->Set_Clear_Target();
 		return;
 	}

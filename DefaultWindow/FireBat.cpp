@@ -40,7 +40,7 @@ void CFireBat::Initialize()
 		m_Stat.m_Attack = 16.f;
 		m_Stat.m_AttackRange = 50.f;
 		m_Stat.m_DetectionRange = 200.f;
-		m_Stat.m_fSpeed = 3.f;
+		m_Stat.m_fSpeed = 2.f;
 		m_Stat.m_MaxHp = 50.f;
 		lstrcpyW(m_Stat.m_Name, L"FireBat");
 	}

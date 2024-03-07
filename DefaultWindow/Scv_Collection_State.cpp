@@ -205,7 +205,7 @@ void CScv_Collection_State::CenterMove(CObj_Dynamic* _scv)
 	float length = sqrt(dirX * dirX + dirY * dirY);
 
 	// 단위 방향 벡터와 속도를 사용하여 이동
-	float speed = _scv->Get_Stat().m_fSpeed; // 적당한 속도 값
+	float speed = 0.5f; // 적당한 속도 값
 	if (length > speed) { // 목표까지의 거리가 속도보다 클 경우, 이동 실행
 		dirX = (dirX / length) * speed;
 		dirY = (dirY / length) * speed;

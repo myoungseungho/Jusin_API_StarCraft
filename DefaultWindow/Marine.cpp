@@ -40,7 +40,7 @@ void CMarine::Initialize()
 		m_Stat.m_Attack = 1;
 		m_Stat.m_AttackRange = 130.f;
 		m_Stat.m_DetectionRange = 200.f;
-		m_Stat.m_fSpeed = 3.f;
+		m_Stat.m_fSpeed = 2.f;
 		m_Stat.m_MaxHp = 40;
 		lstrcpyW(m_Stat.m_Name, L"Marine");
 	}

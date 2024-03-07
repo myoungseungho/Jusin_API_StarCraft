@@ -239,6 +239,11 @@ void CKeyMgr::KeyBoard_HandleInput()
 		dynamic_cast<CStage*>(CSceneMgr::Get_Instance()->GetCurrentScene())->Enemy_Dynamic_Obj_Spawn();
 	}
 
+	else if (Key_Up(VK_F5))
+	{
+		dynamic_cast<CStage*>(CSceneMgr::Get_Instance()->GetCurrentScene())->Enemy_Dynamic_Obj_Spawn2();
+	}
+
 }
 void CKeyMgr::OffSet()
 {
